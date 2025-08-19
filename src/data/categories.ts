@@ -20,15 +20,15 @@ export const categories: Category[] = [
     tags: ["פארקים לאומיים", "שייט", "נופים פתוחים"],
   },
   {
-    id: "2",
-    name: "גורילות ושימפנזים",
-    slug: "gorillas-chimps",
-    shortDescription:
-      "מפגשי פרימטים מרגשים: גורילות בווינדי/מגהינגה ושימפנזים בקיבאלה/קיאמבורה.",
-    coverImage:
-      "https://images.pexels.com/photos/33535/gorilla-primate-silverback-close-up.jpg",
-    tags: ["גורילות", "שימפנזים", "יער טרופי"],
-  },
+  id: "2",
+  name: "גורילות ושימפנזים",
+  slug: "gorillas-chimps",
+  shortDescription:
+    "מפגשי פרימטים מרגשים: גורילות בווינדי/מגהינגה ושימפנזים בקיבאלה/קיאמבורה.",
+  coverImage:
+    "https://images.pexels.com/photos/6194629/pexels-photo-6194629.jpeg",
+  tags: ["גורילות", "שימפנזים", "יער טרופי"],
+},
   {
     id: "3",
     name: "אגמים, מפלים ונהרות",

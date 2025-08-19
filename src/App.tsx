@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import Categories from "./pages/Categories";
 import CategoryPage from "./pages/CategoryPage";
 import ParkDetail from "./pages/ParkDetail";
+import GorillasPage from "./pages/GorillasPage"; // ✅ נכון כאן
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import Testimonials from "./pages/Testimonials";
@@ -26,6 +27,9 @@ export default function App() {
           <Route path="/categories" element={<Categories />} />
           <Route path="/category/:slug" element={<CategoryPage />} />
           <Route path="/category/:slug/:parkSlug" element={<ParkDetail />} />
+
+          {/* גורילות */}
+          <Route path="/gorillas" element={<GorillasPage />} /> {/* ✅ נוסף */}
 
           {/* בלוג */}
           <Route path="/blog" element={<Blog />} />

@@ -16,7 +16,8 @@ const Navigation: React.FC<NavigationProps> = ({ mobile = false, onItemClick }) 
     { path: '/blog', label: 'בלוג' },
     { path: '/testimonials', label: 'לקוחות מספרים' },
     { path: '/faq', label: 'שאלות נפוצות' },
-    { path: '/contact', label: 'צור קשר' }
+    { path: '/contact', label: 'צור קשר' },
+    { path: '/gorillas', label: 'גורילות' } // 👈 נוסף קישור חדש
   ];
 
   const baseClasses = mobile
