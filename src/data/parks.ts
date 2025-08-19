@@ -17,6 +17,7 @@ export interface Park {
     drive_from_kla?: string;
     flight_option?: string;
     best_time?: string;
+    duration_hours?: number; // ✅ הוסף שדה חדש
   };
   gallery: string[];
   image: string;
@@ -528,7 +529,10 @@ export const parks: Park[] = [
 // - אחרת: לפי השדה category
 export const getCategoryParks = (category: string): Park[] => {
   if (category === "safari") {
-    return parks.filter((p) => p.tags?.includes("פארק לאומי"));
+    return parks.filter((p) => 
+      p.category === "safari" || 
+      (p.tags?.includes("פארק לאומי") && p.category !== "wildlife")
+    );
   }
   return parks.filter((p) => p.category === category);
 };

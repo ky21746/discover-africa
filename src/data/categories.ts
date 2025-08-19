@@ -1,75 +1,102 @@
 // src/data/categories.ts
-
 export type Category = {
-  id: number;
+  id: string;
   name: string;
-  description: string;
-  image: string;
   slug: string;
+  shortDescription: string;
+  coverImage: string;
+  tags: string[];
 };
 
 export const categories: Category[] = [
   {
-    id: 1,
-    name: "גורילות ושימפנזים",
-    description: "מסלולי מעקב אחרי גורילות ושימפנזים בפארקים המפורסמים ביותר של אוגנדה.",
-    image: "/images/categories/primates.jpg",
-    slug: "primates",
-  },
-  {
-    id: 2,
+    id: "1",
     name: "ספארי",
-    description: "מפגשים בלתי נשכחים עם האריות, הפילים, הנמרים, התאו והקרנפים – ה-Big 5 של אפריקה.",
-    image: "/images/categories/safari.jpg",
     slug: "safari",
+    shortDescription:
+      "ממורצ׳יסון והמפל ועד המלכה אליזבת וקידפו – כל הפארקים הגדולים והקלאסיים.",
+    coverImage:
+      "https://images.pexels.com/photos/631317/pexels-photo-631317.jpeg",
+    tags: ["פארקים לאומיים", "שייט", "נופים פתוחים"],
   },
   {
-    id: 3,
-    name: "הרים",
-    description: "טרקים ואתגרים בהרי הרוונזורי, הגורילות, והרי געש פעילים במערב אוגנדה.",
-    image: "/images/categories/mountains.jpg",
-    slug: "mountains",
+    id: "2",
+    name: "גורילות ושימפנזים",
+    slug: "gorillas-chimps",
+    shortDescription:
+      "מפגשי פרימטים מרגשים: גורילות בווינדי/מגהינגה ושימפנזים בקיבאלה/קיאמבורה.",
+    coverImage:
+      "https://images.pexels.com/photos/33535/gorilla-primate-silverback-close-up.jpg",
+    tags: ["גורילות", "שימפנזים", "יער טרופי"],
   },
   {
-    id: 4,
+    id: "3",
     name: "אגמים, מפלים ונהרות",
-    description: "חוויה עוצמתית של שייט, רפטינג, טיולי קיאקים ומפלים מהמרהיבים באפריקה.",
-    image: "/images/categories/water.jpg",
     slug: "water",
+    shortDescription:
+      "קזינגה, הנילוס הלבן, בוניוני ועוד – שייט, רפטינג ונופים רטובים.",
+    coverImage:
+      "https://images.pexels.com/photos/210012/pexels-photo-210012.jpeg",
+    tags: ["שייט", "רפטינג", "נופים"],
   },
   {
-    id: 5,
+    id: "4",
+    name: "הרים וטרקים",
+    slug: "mountains",
+    shortDescription:
+      "רוונזורי, סיפי והר אלגון – מסלולים מהירים ועד טרקים מאתגרים.",
+    coverImage:
+      "https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg",
+    tags: ["טרקים", "נופים", "אלפיני"],
+  },
+  {
+    id: "5",
     name: "תרבות ומורשת",
-    description: "מפגשים עם שבטים מקומיים, טקסים מסורתיים, מוזיקה, ריקוד והיסטוריה עשירה.",
-    image: "/images/categories/culture.jpg",
     slug: "culture",
+    shortDescription:
+      "קמפלה, מורשת בגנדה, ריקוד ומוזיקה – חיבור עמוק לקצב המקומי.",
+    coverImage:
+      "https://images.pexels.com/photos/1001914/pexels-photo-1001914.jpeg",
+    tags: ["אוכל", "מוזיקה", "קהילה"],
   },
   {
-    id: 6,
-    name: "אקסטרים והרפתקאות",
-    description: "חוויות מלאות אדרנלין – רייזרים, אופנועי שטח, טיפוס מצוקים, צניחה ועוד.",
-    image: "/images/categories/extreme.jpg",
+    id: "6",
+    name: "אקסטרים",
     slug: "extreme",
+    shortDescription:
+      "רפטינג רמה 5, בנג'י, אופנועים – לאמיצים ולחובבי אדרנלין.",
+    coverImage:
+      "https://images.pexels.com/photos/1170986/pexels-photo-1170986.jpeg",
+    tags: ["אדרנלין", "אתגר"],
   },
   {
-    id: 7,
+    id: "7",
     name: "משפחות",
-    description: "טיולים מותאמים לכל המשפחה – אטרקציות קלות, פעילויות לילדים ולכל הגילאים.",
-    image: "/images/categories/family.jpg",
-    slug: "family",
+    slug: "families",
+    shortDescription:
+      "מסלולים רגועים ונגישים לילדים – מבורו, בוניוני, תרבות וקצב נעים.",
+    coverImage:
+      "https://images.pexels.com/photos/1257110/pexels-photo-1257110.jpeg",
+    tags: ["גישותי", "רגוע"],
   },
   {
-    id: 8,
+    id: "8",
     name: "יוקרה",
-    description: "חוויות בסטנדרט הגבוה ביותר – לודג'ים פרטיים, ספארי באוויר, טיסות מסוק ואירוח פרימיום.",
-    image: "/images/categories/luxury.jpg",
     slug: "luxury",
+    shortDescription:
+      "לינות פרימיום, מסוקים, הדרכה צמודה – חוויה ברמה הגבוהה ביותר.",
+    coverImage:
+      "https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg",
+    tags: ["פרימיום", "אקסקלוסיבי"],
   },
   {
-    id: 9,
+    id: "9",
     name: "ריטריטים",
-    description: "סדנאות יוגה, מדיטציה ורגיעה במקומות קסומים בין טבע ירוק ונוף עוצר נשימה.",
-    image: "/images/categories/retreats.jpg",
     slug: "retreats",
+    shortDescription:
+      "יוגה, מדיטציה ורוגע סביב אגמים ויערות – הפסקה אמיתית לנשמה.",
+    coverImage:
+      "https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg",
+    tags: ["רוגע", "בריאות"],
   },
 ];

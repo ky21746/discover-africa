@@ -1,0 +1,143 @@
+=== SNAPSHOT Tue Aug 19 09:24:15 IDT 2025 ===
+
+## Node & NPM
+v24.4.0
+11.4.2
+
+## Git status
+## master
+ D src/content/categories/culture.ts
+ D src/content/categories/extreme.ts
+ D src/content/categories/families.ts
+ D src/content/categories/luxury.ts
+ D src/content/categories/mountains.ts
+ D src/content/categories/primates.ts
+ D src/content/categories/retreats.ts
+ D src/content/categories/safari.ts
+ D src/content/categories/water.ts
+ D src/data/categories.json
+ D src/data/experiences.ts
+ M src/data/parks.ts
+ D src/data/safari.json
+ M src/pages/CategoryPage.tsx
+?? snapshot.txt
+
+## package.json scripts
+{
+  dev: 'vite',
+  build: 'vite build',
+  lint: 'eslint .',
+  preview: 'vite preview'
+}
+
+## dependencies
+{
+  dependencies: {
+    'lucide-react': '^0.344.0',
+    react: '^18.3.1',
+    'react-dom': '^18.3.1',
+    'react-router-dom': '^7.8.0'
+  },
+  devDependencies: {
+    '@eslint/js': '^9.9.1',
+    '@types/react': '^18.2.15',
+    '@types/react-dom': '^18.2.7',
+    '@vitejs/plugin-react': '^4.3.1',
+    autoprefixer: '^10.4.18',
+    eslint: '^9.9.1',
+    'eslint-plugin-react-hooks': '^5.1.0-rc.0',
+    'eslint-plugin-react-refresh': '^0.4.11',
+    globals: '^15.9.0',
+    postcss: '^8.4.35',
+    tailwindcss: '^3.4.1',
+    typescript: '^5.5.3',
+    'typescript-eslint': '^8.3.0',
+    vite: '^5.4.2'
+  }
+}
+
+## src tree (depth 2)
+src
+├── App.tsx
+├── components
+│   ├── Common
+│   ├── Layout
+│   └── TripPlanner
+├── content
+├── data
+│   ├── _backup
+│   ├── blogPosts.ts
+│   ├── categories.ts
+│   ├── faq.ts
+│   ├── parks.ts
+│   └── testimonials.ts
+├── i18n.ts
+├── index.css
+├── main.tsx
+├── pages
+│   ├── Blog.tsx
+│   ├── BlogPost.tsx
+│   ├── Categories.tsx
+│   ├── CategoryPage.tsx
+│   ├── Contact.tsx
+│   ├── FAQ.tsx
+│   ├── Home.tsx
+│   ├── ParkDetail.tsx
+│   ├── PlanYourTrip.tsx
+│   └── Testimonials.tsx
+├── types
+│   └── index.ts
+├── utils
+│   └── itineraryGenerator.ts
+├── vite-env.d.ts
+└── z_backup_unused
+    └── QueenElizabethPark.tsx
+
+12 directories, 23 files
+
+## pages
+Blog.tsx
+BlogPost.tsx
+Categories.tsx
+CategoryPage.tsx
+Contact.tsx
+FAQ.tsx
+Home.tsx
+ParkDetail.tsx
+PlanYourTrip.tsx
+Testimonials.tsx
+
+## components (top-level only)
+Common
+Layout
+TripPlanner
+
+## data files
+_backup
+blogPosts.ts
+categories.ts
+faq.ts
+parks.ts
+testimonials.ts
+
+## Routes (<Route ...>)
+src/App.tsx:19:    <Router>
+src/App.tsx:20:      <Routes>
+src/App.tsx:22:        <Route element={<Layout />}>
+src/App.tsx:23:          <Route path="/" element={<Home />} />
+src/App.tsx:26:          <Route path="/categories" element={<Categories />} />
+src/App.tsx:27:          <Route path="/category/:slug" element={<CategoryPage />} />
+src/App.tsx:28:          <Route path="/category/:slug/:parkSlug" element={<ParkDetail />} />
+src/App.tsx:31:          <Route path="/blog" element={<Blog />} />
+src/App.tsx:32:          <Route path="/blog/:slug" element={<BlogPost />} />
+src/App.tsx:35:          <Route path="/testimonials" element={<Testimonials />} />
+src/App.tsx:36:          <Route path="/plan-your-trip" element={<PlanYourTrip />} />
+src/App.tsx:37:          <Route path="/faq" element={<FAQ />} />
+src/App.tsx:38:          <Route path="/contact" element={<Contact />} />
+src/App.tsx:41:          <Route path="*" element={<Home />} />
+
+## Category files referenced
+src/data/categories.ts:1:// src/data/categories.ts
+src/pages/CategoryPage.tsx:14:// טיפוס לקטגוריות (תואם ל-data/categories.ts)
+
+## TypeScript check (tsc --noEmit)
