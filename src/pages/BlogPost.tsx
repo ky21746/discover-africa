@@ -10,7 +10,7 @@ const BlogPost: React.FC = () => {
   if (!post) {
     return (
       <div className="py-20 text-center">
-        <h1 className="text-4xl font-bold mb-4 font-heebo">מאמר לא נמצא</h1>
+        <h1 className="text-4xl font-bold mb-4 font-sans">מאמר לא נמצא</h1>
         <Link to="/blog" className="btn-primary">
           חזרה לבלוג
         </Link>
@@ -69,7 +69,7 @@ const BlogPost: React.FC = () => {
               ))}
             </div>
             
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 font-heebo leading-tight">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 font-sans leading-tight">
               {post.title}
             </h1>
             
@@ -88,7 +88,7 @@ const BlogPost: React.FC = () => {
               </div>
             </div>
             
-            <p className="text-xl text-muted leading-relaxed font-assistant">
+            <p className="text-xl text-muted leading-relaxed font-sans">
               {post.excerpt}
             </p>
           </header>
@@ -96,7 +96,7 @@ const BlogPost: React.FC = () => {
           {/* Post Content */}
           <div className="prose prose-lg max-w-none mb-12">
             {post.content.split('\n\n').map((paragraph, index) => (
-              <p key={index} className="mb-6 text-lg leading-relaxed font-assistant">
+              <p key={index} className="mb-6 text-lg leading-relaxed font-sans">
                 {paragraph}
               </p>
             ))}
@@ -104,10 +104,10 @@ const BlogPost: React.FC = () => {
 
           {/* Quick Tips */}
           <div className="bg-surface rounded-2xl p-6 mb-12">
-            <h3 className="text-2xl font-bold mb-4 font-heebo">טיפים מהירים</h3>
+            <h3 className="text-2xl font-bold mb-4 font-sans">טיפים מהירים</h3>
             <ul className="space-y-2">
               {quickTips.map((tip, index) => (
-                <li key={index} className="flex items-center gap-3 font-assistant">
+                <li key={index} className="flex items-center gap-3 font-sans">
                   <div className="w-2 h-2 bg-primary rounded-full"></div>
                   {tip}
                 </li>
@@ -118,7 +118,7 @@ const BlogPost: React.FC = () => {
           {/* Related Posts */}
           {relatedPosts.length > 0 && (
             <div className="border-t pt-12">
-              <h3 className="text-2xl font-bold mb-6 font-heebo">מאמרים קשורים</h3>
+              <h3 className="text-2xl font-bold mb-6 font-sans">מאמרים קשורים</h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {relatedPosts.map((relatedPost) => (
                   <Link
@@ -133,10 +133,10 @@ const BlogPost: React.FC = () => {
                         className="w-full h-40 object-cover"
                       />
                       <div className="p-4">
-                        <h4 className="font-semibold mb-2 group-hover:text-primary transition-colors font-heebo">
+                        <h4 className="font-semibold mb-2 group-hover:text-primary transition-colors font-sans">
                           {relatedPost.title}
                         </h4>
-                        <p className="text-sm text-muted font-assistant">
+                        <p className="text-sm text-muted font-sans">
                           {relatedPost.excerpt.slice(0, 100)}...
                         </p>
                       </div>
@@ -149,8 +149,8 @@ const BlogPost: React.FC = () => {
 
           {/* CTA */}
           <div className="bg-primary text-white rounded-2xl p-8 text-center mt-12">
-            <h3 className="text-2xl font-bold mb-4 font-heebo">מוכנים לחוות בעצמכם?</h3>
-            <p className="text-lg mb-6 font-assistant">צרו קשר ובואו נתכנן את הטיול המושלם שלכם</p>
+            <h3 className="text-2xl font-bold mb-4 font-sans">מוכנים לחוות בעצמכם?</h3>
+            <p className="text-lg mb-6 font-sans">צרו קשר ובואו נתכנן את הטיול המושלם שלכם</p>
             <Link to="/contact" className="bg-white text-primary px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
               בואו נתחיל לתכנן
             </Link>

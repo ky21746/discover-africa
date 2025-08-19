@@ -33,7 +33,7 @@ const ParkDetail: React.FC = () => {
   if (!park || !category) {
     return (
       <div className="py-20 text-center" dir="rtl">
-        <h1 className="text-4xl font-bold mb-4 font-heebo">עמוד לא נמצא</h1>
+        <h1 className="text-4xl font-bold mb-4 font-sans">עמוד לא נמצא</h1>
         <Link to="/categories" className="btn-primary">
           חזרה לקטגוריות
         </Link>
@@ -86,7 +86,7 @@ const ParkDetail: React.FC = () => {
 
     return (
       <section className="bg-white border rounded-2xl p-5 md:p-6 shadow-sm">
-        <h2 className="text-xl font-bold mb-4 font-heebo">במבט מהיר</h2>
+        <h2 className="text-xl font-bold mb-4 font-sans">במבט מהיר</h2>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {visible.map((it, idx) => (
             <div key={idx} className="flex items-center gap-3 bg-gray-50 rounded-lg p-3">
@@ -104,7 +104,7 @@ const ParkDetail: React.FC = () => {
 
   const ShortHook: React.FC = () => (
     <section>
-      <p className="text-lg md:text-xl leading-relaxed font-assistant">
+      <p className="text-lg md:text-xl leading-relaxed font-sans">
         {park.summary || park.description.split("\n\n")[0].slice(0, 260)}
       </p>
     </section>
@@ -132,7 +132,7 @@ const ParkDetail: React.FC = () => {
     return (
       <section className="bg-white border rounded-2xl p-5 md:p-6 shadow-sm">
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-xl font-bold font-heebo">חוות דעת</h2>
+          <h2 className="text-xl font-bold font-sans">חוות דעת</h2>
           <div className="flex items-center gap-2">
             <Stars value={avg} />
             <span className="text-sm text-gray-600">{avg.toFixed(1)} · {count} ביקורות</span>
@@ -208,7 +208,7 @@ const ParkDetail: React.FC = () => {
   const PracticalContent: React.FC = () => (
     <section className="space-y-4">
       <SectionAccordion title="החוויה" defaultOpen>
-        <p className="font-assistant leading-relaxed">
+        <p className="font-sans leading-relaxed">
           {/* 4–5 שורות טקסט קצרות, את הארוך כבר הצגנו בפסקאות */}
           {park.description.split("\n\n")[0]}
         </p>
@@ -227,7 +227,7 @@ const ParkDetail: React.FC = () => {
       </SectionAccordion>
 
       <SectionAccordion title="חיות וטבע">
-        <p className="font-assistant leading-relaxed">
+        <p className="font-sans leading-relaxed">
           {park.highlights?.length
             ? `האזור ידוע ב: ${park.highlights.join(" · ")}.`
             : "חיות וצמחייה ייחודיות לאזור זה."}
@@ -325,7 +325,7 @@ const ParkDetail: React.FC = () => {
     if (!nearbyParks.length) return null;
     return (
       <section>
-        <h2 className="text-2xl font-bold mb-4 font-heebo">אטרקציות קרובות (עד ~3 שעות)</h2>
+        <h2 className="text-2xl font-bold mb-4 font-sans">אטרקציות קרובות (עד ~3 שעות)</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {nearbyParks.map((np) => (
             <Card key={np.slug} className="hover:shadow-lg transition-all duration-300">
@@ -334,8 +334,8 @@ const ParkDetail: React.FC = () => {
                 style={{ backgroundImage: `url(${np.image})` }}
               />
               <div className="card-content">
-                <h3 className="text-lg font-semibold mb-2 font-heebo">{np.name}</h3>
-                <p className="text-sm text-muted mb-4 font-assistant">
+                <h3 className="text-lg font-semibold mb-2 font-sans">{np.name}</h3>
+                <p className="text-sm text-muted mb-4 font-sans">
                   {np.summary}
                 </p>
                 <div className="card-footer">
@@ -374,7 +374,7 @@ const ParkDetail: React.FC = () => {
                   { label: park.name },
                 ]}
               />
-              <h1 className="text-3xl md:text-5xl font-bold font-heebo mt-2">
+              <h1 className="text-3xl md:text-5xl font-bold font-sans mt-2">
                 {park.name}
               </h1>
               <div className="mt-3 flex flex-wrap items-center gap-3">
@@ -416,7 +416,7 @@ const ParkDetail: React.FC = () => {
           <aside className="lg:col-span-1">
             <div className="sticky top-8 space-y-6">
               <div className="bg-primary text-white rounded-2xl p-6">
-                <h3 className="text-lg font-bold mb-1 font-heebo">מוכנים להתחיל?</h3>
+                <h3 className="text-lg font-bold mb-1 font-sans">מוכנים להתחיל?</h3>
                 <p className="text-sm opacity-90 mb-4">
                   דברו איתנו ונבנה לכם מסלול מותאם אישית.
                 </p>
@@ -431,7 +431,7 @@ const ParkDetail: React.FC = () => {
               {/* “עוד ב{קטגוריה}” */}
               {getRelatedParks(park, 3).length > 0 && (
                 <div className="bg-white border rounded-2xl p-5">
-                  <h4 className="font-semibold mb-3 font-heebo">עוד ב{category.name}</h4>
+                  <h4 className="font-semibold mb-3 font-sans">עוד ב{category.name}</h4>
                   <div className="space-y-3">
                     {getRelatedParks(park, 3).map((rp) => (
                       <Link

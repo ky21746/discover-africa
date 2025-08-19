@@ -42,8 +42,8 @@ const FAQ: React.FC = () => {
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-8">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 font-heebo">שאלות נפוצות</h1>
-          <p className="text-xl text-muted max-w-2xl mx-auto font-assistant">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 font-sans">שאלות נפוצות</h1>
+          <p className="text-xl text-muted max-w-2xl mx-auto font-sans">
             כאן תמצאו תשובות לשאלות הנפוצות ביותר על הטיולים שלנו
           </p>
         </div>
@@ -96,7 +96,7 @@ const FAQ: React.FC = () => {
                         openItems.includes(item.id) ? 'rotate-180' : ''
                       }`}
                     />
-                    <h3 className="text-lg font-semibold font-heebo flex-1 mr-4">
+                    <h3 className="text-lg font-semibold font-sans flex-1 mr-4">
                       {highlightText(item.question, searchQuery)}
                     </h3>
                   </button>
@@ -104,7 +104,7 @@ const FAQ: React.FC = () => {
                   {openItems.includes(item.id) && (
                     <div className="px-6 pb-4">
                       <div className="border-t pt-4">
-                        <p className="text-muted leading-relaxed font-assistant">
+                        <p className="text-muted leading-relaxed font-sans">
                           {highlightText(item.answer, searchQuery)}
                         </p>
                       </div>
@@ -131,8 +131,8 @@ const FAQ: React.FC = () => {
 
         {/* Contact CTA */}
         <div className="max-w-4xl mx-auto mt-12 bg-surface rounded-2xl p-8 text-center">
-          <h2 className="text-3xl font-bold mb-4 font-heebo">לא מצאתם תשובה לשאלה שלכם?</h2>
-          <p className="text-xl text-muted mb-6 font-assistant">
+          <h2 className="text-3xl font-bold mb-4 font-sans">לא מצאתם תשובה לשאלה שלכם?</h2>
+          <p className="text-xl text-muted mb-6 font-sans">
             צרו קשר ואנו נשמח לענות על כל שאלה
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -151,16 +151,16 @@ const FAQ: React.FC = () => {
         {/* Quick Stats */}
         <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
           <div>
-            <div className="text-3xl font-bold text-primary mb-2 font-heebo">24/7</div>
-            <div className="text-muted font-assistant">זמינות לשאלות חירום</div>
+            <div className="text-3xl font-bold text-primary mb-2 font-sans">24/7</div>
+            <div className="text-muted font-sans">זמינות לשאלות חירום</div>
           </div>
           <div>
-            <div className="text-3xl font-bold text-primary mb-2 font-heebo">&lt;2h</div>
-            <div className="text-muted font-assistant">זמן תגובה ממוצע</div>
+            <div className="text-3xl font-bold text-primary mb-2 font-sans">&lt;2h</div>
+            <div className="text-muted font-sans">זמן תגובה ממוצע</div>
           </div>
           <div>
-            <div className="text-3xl font-bold text-primary mb-2 font-heebo">100%</div>
-            <div className="text-muted font-assistant">שביעות רצון מהשירות</div>
+            <div className="text-3xl font-bold text-primary mb-2 font-sans">100%</div>
+            <div className="text-muted font-sans">שביעות רצון מהשירות</div>
           </div>
         </div>
       </div>

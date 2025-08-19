@@ -6,25 +6,26 @@ import Breadcrumbs from "../components/Common/Breadcrumbs";
 const heroImage =
   "https://images.pexels.com/photos/6194629/pexels-photo-6194629.jpeg";
 
-const Card: React.FC<React.PropsWithChildren<{ className?: string }>> = ({ className = "", children }) => (
-  <section className={`bg-white border rounded-2xl p-5 md:p-6 shadow-sm ${className}`}>
-    {children}
-  </section>
-);
+const gallery = [
+  "https://images.pexels.com/photos/33535/gorilla-primate-silverback-close-up.jpg",
+  "https://images.pexels.com/photos/1670737/pexels-photo-1670737.jpeg",
+  "https://images.pexels.com/photos/145939/pexels-photo-145939.jpeg",
+  "https://images.pexels.com/photos/210012/pexels-photo-210012.jpeg",
+];
 
-const RowStat: React.FC<{ label: string; value: string }> = ({ label, value }) => (
+const Stat: React.FC<{ label: string; value: string }> = ({ label, value }) => (
   <div className="bg-gray-50 rounded-lg p-3">
     <div className="text-gray-500 text-xs">{label}</div>
     <div className="font-medium">{value}</div>
   </div>
 );
 
-const SectionAccordion: React.FC<{ title: string; children: React.ReactNode; defaultOpen?: boolean }> = ({
+const Section: React.FC<React.PropsWithChildren<{ title: string; open?: boolean }>> = ({
   title,
+  open = false,
   children,
-  defaultOpen = false,
 }) => (
-  <details className="border rounded-xl bg-white p-4 open:shadow-sm" open={defaultOpen}>
+  <details className="border rounded-xl bg-white p-4 open:shadow-sm" open={open}>
     <summary className="flex items-center justify-between cursor-pointer list-none select-none">
       <span className="font-semibold">{title}</span>
       <span className="text-gray-500">▾</span>
@@ -54,10 +55,10 @@ const GorillasPage: React.FC = () => {
                 { label: "גורילות ביער בווינדי" },
               ]}
             />
-            <h1 className="mt-2 text-3xl md:text-5xl font-bold font-heebo">
+            <h1 className="mt-2 text-3xl md:text-5xl font-bold">
               גורילות ביער Bwindi – חוויית חיים בלתי נשכחת
             </h1>
-            <p className="mt-3 max-w-3xl text-sm md:text-base text-white/90 font-assistant">
+            <p className="mt-3 max-w-3xl text-sm md:text-base text-white/90">
               מפגש נדיר עם גורילות ההרים בסביבתן הטבעית – בטבע טרופי והררי בדרום־מערב אוגנדה.
             </p>
           </div>
@@ -67,27 +68,27 @@ const GorillasPage: React.FC = () => {
       {/* BODY */}
       <div className="container mx-auto px-4 py-10 md:py-12 space-y-8">
         {/* במבט מהיר */}
-        <Card>
-          <h2 className="text-xl font-bold mb-3 font-heebo">במבט מהיר</h2>
+        <section className="bg-white border rounded-2xl p-5 md:p-6 shadow-sm">
+          <h2 className="text-xl font-bold mb-3">במבט מהיר</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
-            <RowStat label="מיקום" value="דרום־מערב אוגנדה (גבול רואנדה/קונגו)" />
-            <RowStat label="אופי הטרק" value="2–8 שעות (לרוב 3–5), משתנה לפי מיקום המשפחה" />
-            <RowStat label="עונות מומלצות" value="יונ–ספט, דצמ–פבר (יבשות)" />
-            <RowStat label="רישיון" value="≈ $700 לאדם — להזמין חודשים מראש" />
+            <Stat label="מיקום" value="דרום־מערב אוגנדה (גבול רואנדה/קונגו)" />
+            <Stat label="אופי הטרק" value="2–8 שעות (לרוב 3–5), תלוי במיקום המשפחה" />
+            <Stat label="עונות מומלצות" value="יונ–ספט, דצמ–פבר (יבשות)" />
+            <Stat label="רישיון" value="≈ ‎$700 לאדם — להזמין חודשים מראש" />
           </div>
-        </Card>
+        </section>
 
-        {/* תיבה צדדית קטנה + תיאור קצר */}
+        {/* פתיח + תיבה צדדית */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          <Card className="lg:col-span-2">
-            <p className="text-lg md:text-xl leading-relaxed font-assistant">
-              יער Bwindi (Bwindi Impenetrable Forest) הוא אתר מורשת עולמית של אונסק״ו, אחד האזורים הביולוגיים העשירים באפריקה
-              ובית לאחת מאוכלוסיות גורילות ההרים הגדולות בעולם. כ־20 משפחות גורילות הורגלו לנוכחות מבקרים בסיורי{" "}
-              <em>Gorilla Trekking</em> מודרכים, במפגש אינטימי ומכבד.
+          <section className="bg-white border rounded-2xl p-5 md:p-6 shadow-sm lg:col-span-2">
+            <p className="text-lg md:text-xl leading-relaxed">
+              יער Bwindi (Bwindi Impenetrable Forest) הוא אתר מורשת עולמית של אונסק״ו, אחד האזורים
+              הביולוגיים העשירים באפריקה ובית לאחת מאוכלוסיות גורילות ההרים הגדולות בעולם. כ־20 משפחות
+              גורילות הורגלו לנוכחות מבקרים בסיורי <em>Gorilla Trekking</em> מודרכים — מפגש אינטימי, מכבד ומרגש.
             </p>
-          </Card>
+          </section>
 
-          <Card className="lg:col-span-1">
+          <section className="bg-white border rounded-2xl p-5 md:p-6 shadow-sm">
             <h3 className="font-bold mb-2">עוד פרימטים וחוויות</h3>
             <div className="space-y-2 text-sm">
               <div>
@@ -95,51 +96,76 @@ const GorillasPage: React.FC = () => {
                 <div className="text-gray-500">סיור בוקר/צהריים ביער גשם; גיל 12+</div>
               </div>
               <div className="border-t pt-2">
-                <div className="font-semibold">גורילות בפארק מגהינגה</div>
-                <div className="text-gray-500">חלופה שקטה בדרום־מערב; נוף וולקני</div>
+                <div className="font-semibold">גורילות במגהינגה</div>
+                <div className="text-gray-500">חלופה שקטה לבווינדי; נוף וולקני</div>
               </div>
+              <Link to="/contact" className="btn-secondary mt-3 inline-flex w-full justify-center">
+                נתפור לכם מסלול סביב פרימטים
+              </Link>
             </div>
-          </Card>
+          </section>
         </div>
 
-        {/* אקורדיונים – כל הטקסט שביקשת, אחד לאחד */}
-        <SectionAccordion title="חוויית הטרק" defaultOpen>
+        {/* אקורדיונים — כל המידע שביקשת */}
+        <Section title="חוויית הטרק" open>
           <ul className="list-disc pr-5 space-y-1 text-sm">
             <li>המסע מתחיל בשעות הבוקר המוקדמות עם מדריכים וריינג’רים מיומנים.</li>
             <li>אורך ההליכה 1–6 שעות (לרוב 3–5), לפי מיקום המשפחה באותו יום.</li>
-            <li>הדרך: יער גשם עבות, עליות/ירידות, בוץ ופלגים – מאתגר אך מתגמל.</li>
-            <li>בהגעה למשפחת הגורילות — שעה שלמה לצפייה והתבוננות שקטה.</li>
+            <li>תוואי יער גשם: עליות/ירידות, בוץ ופלגים – מאתגר אך מתגמל.</li>
+            <li>בהגעה למשפחה — שעה שלמה לצפייה שקטה: משחקי גורים, אינטראקציות וסילברבקים.</li>
           </ul>
-        </SectionAccordion>
+        </Section>
 
-        <SectionAccordion title="מה עוד תראו בדרך?">
+        <Section title="מה עוד תראו בדרך?">
           <p className="text-sm">
-            מלבד הגורילות: יונקים נוספים, קופים (קולובוס שחור־לבן, לעיתים שימפנזים),
+            מעבר לגורילות: יונקים נוספים, קופים (קולובוס שחור־לבן ולעיתים שימפנזים),
             מאות מיני ציפורים (כולל אנדמיים), פרפרים נדירים וצמחייה טרופית עשירה.
           </p>
-        </SectionAccordion>
+        </Section>
 
-        <SectionAccordion title="עונות מומלצות">
+        <Section title="עונות מומלצות">
           <ul className="list-disc pr-5 space-y-1 text-sm">
             <li><strong>יוני–ספטמבר, דצמבר–פברואר:</strong> שבילים נוחים יותר; עומס ומחירים גבוהים.</li>
-            <li><strong>מרץ–מאי, אוקטובר–נובמבר:</strong> בוצי ומאתגר; פחות תיירים וירוק מרשים.</li>
+            <li><strong>מרץ–מאי, אוקטובר–נובמבר:</strong> בוצי ומאתגר; פחות תיירים, יער ירוק ומרשים.</li>
           </ul>
-        </SectionAccordion>
+        </Section>
 
-        <SectionAccordion title="לינה באזור">
+        <Section title="לינה באזור">
           <p className="text-sm">
             מגוון לודג׳ים ובתי הארחה בעיירות הסמוכות: <strong>Buhoma</strong>, <strong>Ruhija</strong>,
-            <strong> Rushaga</strong>, <strong>Nkuringo</strong> — מהיוקרתיים ועד בסיסיים.
+            <strong> Rushaga</strong>, <strong>Nkuringo</strong> — מהיוקרתיים ועד בסיסיים. נתאים יחד לפי תקציב וסקטור הטרק.
           </p>
-        </SectionAccordion>
+        </Section>
 
-        <SectionAccordion title="טיפים חשובים">
+        <Section title="טיפים חשובים">
           <ul className="list-disc pr-5 space-y-1 text-sm">
-            <li>רישיון ≈ $700 לאדם — להזמין חודשים מראש.</li>
-            <li>לציית להנחיות הריינג’רים; לשמור מרחק 7 מ׳; לא להביא אוכל.</li>
-            <li>ציוד מומלץ: נעלי הליכה, ביגוד עמיד למים, כפפות דקות, מקלות הליכה, ציוד צילום.</li>
+            <li>רישיון ≈ ‎$700 לאדם — להזמין חודשים מראש.</li>
+            <li>לציית להנחיות הריינג’רים; לשמור מרחק 7 מ׳; אין אוכל בקרבת גורילות.</li>
+            <li>ציוד: נעלי הליכה טובות, ביגוד עמיד למים, כפפות דקות, מקלות הליכה, ציוד צילום.</li>
           </ul>
-        </SectionAccordion>
+        </Section>
+
+        {/* גלריה */}
+        <section>
+          <h2 className="text-xl font-bold mb-3">גלריה</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            {gallery.map((src, i) => (
+              <div key={i} className="rounded-xl overflow-hidden border bg-white">
+                <img src={src} alt={`Bwindi ${i + 1}`} className="w-full h-40 md:h-44 object-cover" loading="lazy" />
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* מפה (סטטית ועדינה) */}
+        <section className="rounded-2xl overflow-hidden border bg-white">
+          <iframe
+            title="מפת Bwindi"
+            className="w-full h-72"
+            loading="lazy"
+            src={`https://www.openstreetmap.org/export/embed.html?bbox=29.4%2C-1.3%2C30.2%2C-0.7&layer=mapnik&marker=-1.05%2C29.75`}
+          />
+        </section>
 
         {/* CTA */}
         <div className="flex flex-col sm:flex-row items-center gap-3">

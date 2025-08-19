@@ -54,8 +54,8 @@ const Blog: React.FC = () => {
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-8">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 font-heebo">בלוג</h1>
-          <p className="text-xl text-muted max-w-2xl mx-auto font-assistant">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 font-sans">בלוג</h1>
+          <p className="text-xl text-muted max-w-2xl mx-auto font-sans">
             מאמרים, טיפים והשראה לטיול המושלם באוגנדה
           </p>
         </div>
@@ -71,7 +71,7 @@ const Blog: React.FC = () => {
 
           {/* Tag Cloud */}
           <div className="text-center">
-            <h3 className="text-lg font-semibold mb-4 font-heebo">נושאים:</h3>
+            <h3 className="text-lg font-semibold mb-4 font-sans">נושאים:</h3>
             <TagCloud
               tags={allTags}
               selectedTags={selectedTags}
@@ -101,11 +101,11 @@ const Blog: React.FC = () => {
                     ))}
                   </div>
                   
-                  <h3 className="text-xl font-semibold mb-3 font-heebo leading-tight">
+                  <h3 className="text-xl font-semibold mb-3 font-sans leading-tight">
                     {highlightText(post.title, searchQuery)}
                   </h3>
                   
-                  <p className="text-muted mb-4 font-assistant line-clamp-3">
+                  <p className="text-muted mb-4 font-sans line-clamp-3">
                     {highlightText(post.excerpt, searchQuery)}
                   </p>
                   
@@ -150,8 +150,8 @@ const Blog: React.FC = () => {
 
         {/* Newsletter Signup */}
         <div className="mt-16 bg-primary text-white rounded-2xl p-8 text-center">
-          <h2 className="text-3xl font-bold mb-4 font-heebo">הישארו מעודכנים</h2>
-          <p className="text-xl mb-6 font-assistant">
+          <h2 className="text-3xl font-bold mb-4 font-sans">הישארו מעודכנים</h2>
+          <p className="text-xl mb-6 font-sans">
             הירשמו לניוזלטר וקבלו טיפים ומאמרים חדשים ישירות למייל
           </p>
           <div className="max-w-md mx-auto flex gap-3">

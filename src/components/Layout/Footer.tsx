@@ -13,10 +13,10 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div>
-            <h3 className="text-xl font-bold text-primary mb-4 font-heebo">
+            <h3 className="text-xl font-bold text-primary mb-4 font-sans">
               אוגנדה אדוונצ'רס
             </h3>
-            <p className="text-gray-300 mb-4 leading-relaxed font-assistant">
+            <p className="text-gray-300 mb-4 leading-relaxed font-sans">
               מתמחים בטיולי הרפתקה מותאמים אישית באוגנדה. חוויות בלתי נשכחות עם שירות אישי ברמה הגבוהה ביותר.
             </p>
             <div className="flex space-x-reverse space-x-4">

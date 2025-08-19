@@ -97,11 +97,11 @@ const CategoryPage: React.FC = () => {
       <div className="container mx-auto px-4">
         {/* כותרת ותיאור צמודים */}
         <div className="mb-4 text-center">
-          <h1 className="mb-2 text-3xl md:text-4xl font-bold font-heebo">
+          <h1 className="mb-2 text-3xl md:text-4xl font-bold font-sans">
             {displayName} באוגנדה
           </h1>
           {displayDesc && (
-            <p className="mx-auto max-w-3xl text-base md:text-lg text-muted font-assistant">
+            <p className="mx-auto max-w-3xl text-base md:text-lg text-muted font-sans">
               {displayDesc}
             </p>
           )}
@@ -164,12 +164,12 @@ const CategoryPage: React.FC = () => {
                     )}
                   </div>
 
-                  <h3 className="mb-2 text-lg font-semibold font-heebo">
+                  <h3 className="mb-2 text-lg font-semibold font-sans">
                     {park.name}
                   </h3>
 
                   {park.summary && (
-                    <p className="mb-3 text-sm font-assistant text-muted">
+                    <p className="mb-3 text-sm font-sans text-muted">
                       {park.summary}
                     </p>
                   )}

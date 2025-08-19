@@ -96,8 +96,8 @@ const Contact: React.FC = () => {
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-2xl mx-auto bg-green-50 border border-green-200 rounded-2xl p-8">
             <div className="text-green-600 text-6xl mb-4">✓</div>
-            <h1 className="text-3xl font-bold text-green-800 mb-4 font-heebo">תודה רבה!</h1>
-            <p className="text-green-700 text-lg mb-6 font-assistant">
+            <h1 className="text-3xl font-bold text-green-800 mb-4 font-sans">תודה רבה!</h1>
+            <p className="text-green-700 text-lg mb-6 font-sans">
               ההודעה שלכם נשלחה בהצלחה. נחזור אליכם בתוך 24 שעות.
             </p>
             <button
@@ -117,8 +117,8 @@ const Contact: React.FC = () => {
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-8">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 font-heebo">צור קשר</h1>
-          <p className="text-xl text-muted max-w-2xl mx-auto font-assistant">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 font-sans">צור קשר</h1>
+          <p className="text-xl text-muted max-w-2xl mx-auto font-sans">
             השאירו פרטים ונחזור אליכם עם הצעה מותאמת אישית
           </p>
         </div>
@@ -126,7 +126,7 @@ const Contact: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Form */}
           <div className="bg-white rounded-2xl shadow-lg p-8">
-            <h2 className="text-2xl font-bold mb-6 font-heebo">שלחו לנו הודעה</h2>
+            <h2 className="text-2xl font-bold mb-6 font-sans">שלחו לנו הודעה</h2>
             
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="form-group">
@@ -226,7 +226,7 @@ const Contact: React.FC = () => {
                   onChange={handleChange}
                   className="w-4 h-4 text-primary"
                 />
-                <label htmlFor="newsletter" className="text-sm text-muted font-assistant">
+                <label htmlFor="newsletter" className="text-sm text-muted font-sans">
                   אני מעוניין/ת לקבל עדכונים וטיפים במייל
                 </label>
               </div>
@@ -245,7 +245,7 @@ const Contact: React.FC = () => {
           <div className="space-y-8">
             {/* Contact Details */}
             <div className="bg-surface rounded-2xl p-8">
-              <h2 className="text-2xl font-bold mb-6 font-heebo">פרטי התקשרות</h2>
+              <h2 className="text-2xl font-bold mb-6 font-sans">פרטי התקשרות</h2>
               
               <div className="space-y-4">
                 <div className="flex items-center gap-4">
@@ -253,8 +253,8 @@ const Contact: React.FC = () => {
                     <Phone className="w-5 h-5" />
                   </div>
                   <div>
-                    <div className="font-semibold font-heebo">טלפון</div>
-                    <div className="text-muted font-assistant">+972-50-123-4567</div>
+                    <div className="font-semibold font-sans">טלפון</div>
+                    <div className="text-muted font-sans">+972-50-123-4567</div>
                   </div>
                 </div>
 
@@ -263,8 +263,8 @@ const Contact: React.FC = () => {
                     <MessageCircle className="w-5 h-5" />
                   </div>
                   <div>
-                    <div className="font-semibold font-heebo">וואטסאפ</div>
-                    <div className="text-muted font-assistant">+972-50-123-4567</div>
+                    <div className="font-semibold font-sans">וואטסאפ</div>
+                    <div className="text-muted font-sans">+972-50-123-4567</div>
                   </div>
                 </div>
 
@@ -273,8 +273,8 @@ const Contact: React.FC = () => {
                     <Mail className="w-5 h-5" />
                   </div>
                   <div>
-                    <div className="font-semibold font-heebo">אימייל</div>
-                    <div className="text-muted font-assistant">info@uganda-adventures.co.il</div>
+                    <div className="font-semibold font-sans">אימייל</div>
+                    <div className="text-muted font-sans">info@uganda-adventures.co.il</div>
                   </div>
                 </div>
 
@@ -283,8 +283,8 @@ const Contact: React.FC = () => {
                     <MapPin className="w-5 h-5" />
                   </div>
                   <div>
-                    <div className="font-semibold font-heebo">כתובת</div>
-                    <div className="text-muted font-assistant">רחוב הרצל 123, תל אביב</div>
+                    <div className="font-semibold font-sans">כתובת</div>
+                    <div className="text-muted font-sans">רחוב הרצל 123, תל אביב</div>
                   </div>
                 </div>
 
@@ -293,9 +293,9 @@ const Contact: React.FC = () => {
                     <Clock className="w-5 h-5" />
                   </div>
                   <div>
-                    <div className="font-semibold font-heebo">שעות פעילות</div>
-                    <div className="text-muted font-assistant">ראשון-חמישי: 9:00-18:00</div>
-                    <div className="text-muted font-assistant">שישי: 9:00-14:00</div>
+                    <div className="font-semibold font-sans">שעות פעילות</div>
+                    <div className="text-muted font-sans">ראשון-חמישי: 9:00-18:00</div>
+                    <div className="text-muted font-sans">שישי: 9:00-14:00</div>
                   </div>
                 </div>
               </div>
@@ -317,7 +317,7 @@ const Contact: React.FC = () => {
 
             {/* Quick Actions */}
             <div className="bg-primary text-white rounded-2xl p-6 text-center">
-              <h3 className="text-xl font-bold mb-4 font-heebo">צריכים תשובה מהירה?</h3>
+              <h3 className="text-xl font-bold mb-4 font-sans">צריכים תשובה מהירה?</h3>
               <div className="flex flex-col sm:flex-row gap-3">
                 <a
                   href="https://wa.me/972501234567"

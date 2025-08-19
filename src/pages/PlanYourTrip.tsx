@@ -277,7 +277,7 @@ const PlanYourTrip: React.FC = () => {
         }`}>
           <div className="p-6 border-b">
             <div className="flex items-center justify-between">
-              <h3 className="text-lg font-bold font-heebo">סיכום הבחירות</h3>
+              <h3 className="text-lg font-bold font-sans">סיכום הבחירות</h3>
               <button
                 onClick={() => setIsSidebarOpen(false)}
                 className="lg:hidden p-2 hover:bg-gray-100 rounded-lg"
@@ -295,28 +295,28 @@ const PlanYourTrip: React.FC = () => {
                   {summary.profile && (
                     <div>
                       <div className="text-sm font-medium text-gray-600 mb-1">סוג המטיילים</div>
-                      <div className="font-heebo">{summary.profile}</div>
+                      <div className="font-sans">{summary.profile}</div>
                     </div>
                   )}
                   
                   {summary.travelers && (
                     <div>
                       <div className="text-sm font-medium text-gray-600 mb-1">מספר מטיילים</div>
-                      <div className="font-heebo">{summary.travelers}</div>
+                      <div className="font-sans">{summary.travelers}</div>
                     </div>
                   )}
                   
                   {summary.duration && (
                     <div>
                       <div className="text-sm font-medium text-gray-600 mb-1">משך הטיול</div>
-                      <div className="font-heebo">{summary.duration}</div>
+                      <div className="font-sans">{summary.duration}</div>
                     </div>
                   )}
                   
                   {(summary.dates.startDate || summary.dates.flexible) && (
                     <div>
                       <div className="text-sm font-medium text-gray-600 mb-1">תאריכי הטיול</div>
-                      <div className="font-heebo">
+                      <div className="font-sans">
                         {summary.dates.flexible ? 'תאריכים גמישים' : summary.dates.formatted}
                       </div>
                     </div>
@@ -325,14 +325,14 @@ const PlanYourTrip: React.FC = () => {
                   {summary.interests && (
                     <div>
                       <div className="text-sm font-medium text-gray-600 mb-1">חוויות נבחרות</div>
-                      <div className="font-heebo text-sm">{summary.interests}</div>
+                      <div className="font-sans text-sm">{summary.interests}</div>
                     </div>
                   )}
                   
                   {summary.activityLevel && (
                     <div>
                       <div className="text-sm font-medium text-gray-600 mb-1">רמת פעילות</div>
-                      <div className="font-heebo">{summary.activityLevel}</div>
+                      <div className="font-sans">{summary.activityLevel}</div>
                     </div>
                   )}
                 </>
@@ -366,10 +366,10 @@ const PlanYourTrip: React.FC = () => {
         {/* Header */}
         {currentStep === 0 && (
           <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 font-heebo text-gray-900">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 font-sans text-gray-900">
               תכננו את הטיול המושלם שלכם לאוגנדה
             </h1>
-            <p className="text-xl text-gray-600 font-assistant">
+            <p className="text-xl text-gray-600 font-sans">
               ענו על כמה שאלות קצרות ואנחנו נבנה לכם מסלול מותאם אישית
             </p>
           </div>
@@ -399,7 +399,7 @@ const PlanYourTrip: React.FC = () => {
         {/* Step 0: Profile Selection */}
         {currentStep === 0 && (
           <div className="space-y-6">
-            <h2 className="text-2xl font-bold text-center mb-8 font-heebo">מי אתם?</h2>
+            <h2 className="text-2xl font-bold text-center mb-8 font-sans">מי אתם?</h2>
             <div className="space-y-4 max-w-2xl mx-auto">
               {travelerProfiles.map((profile) => (
                 <button
@@ -409,8 +409,8 @@ const PlanYourTrip: React.FC = () => {
                 >
                   <div className="flex items-center gap-4">
                     <div className="flex-1">
-                      <h3 className="text-lg font-semibold mb-2 font-heebo">{profile.name}</h3>
-                      <p className="text-gray-600 text-sm font-assistant">{profile.description}</p>
+                      <h3 className="text-lg font-semibold mb-2 font-sans">{profile.name}</h3>
+                      <p className="text-gray-600 text-sm font-sans">{profile.description}</p>
                     </div>
                     <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center">
                       {profile.icon}
@@ -433,7 +433,7 @@ const PlanYourTrip: React.FC = () => {
         {/* Step 2: Duration */}
         {currentStep === 2 && (
           <div className="space-y-6">
-            <h2 className="text-2xl font-bold text-center mb-8 font-heebo">כמה ימים יש לכם?</h2>
+            <h2 className="text-2xl font-bold text-center mb-8 font-sans">כמה ימים יש לכם?</h2>
             <div className="space-y-4">
               {['3 ימים', '5 ימים', 'שבוע', 'יותר משבוע'].map((duration) => (
                 <button
@@ -443,8 +443,8 @@ const PlanYourTrip: React.FC = () => {
                 >
                   <div className="flex items-center justify-between">
                     <div>
-                      <h3 className="text-lg font-semibold font-heebo">{duration}</h3>
-                      <p className="text-gray-600 text-sm mt-1 font-assistant">
+                      <h3 className="text-lg font-semibold font-sans">{duration}</h3>
+                      <p className="text-gray-600 text-sm mt-1 font-sans">
                         {duration === '3 ימים' && 'טעימה מהיר מאוגנדה'}
                         {duration === '5 ימים' && 'חוויה מקיפה ומאוזנת'}
                         {duration === 'שבוע' && 'טיול מעמיק ומגוון'}
@@ -478,7 +478,7 @@ const PlanYourTrip: React.FC = () => {
         {/* Step 5: Activity Level */}
         {currentStep === 5 && (
           <div className="space-y-6">
-            <h2 className="text-2xl font-bold text-center mb-8 font-heebo">רמת פעילות פיזית</h2>
+            <h2 className="text-2xl font-bold text-center mb-8 font-sans">רמת פעילות פיזית</h2>
             <div className="space-y-4">
               {[
                 { id: 'relaxed', name: 'רגוע', description: 'פעילויות נוחות ללא מאמץ פיזי רב' },
@@ -492,8 +492,8 @@ const PlanYourTrip: React.FC = () => {
                 >
                   <div className="flex items-center justify-between">
                     <div>
-                      <h3 className="text-lg font-semibold mb-2 font-heebo">{level.name}</h3>
-                      <p className="text-gray-600 text-sm font-assistant">{level.description}</p>
+                      <h3 className="text-lg font-semibold mb-2 font-sans">{level.name}</h3>
+                      <p className="text-gray-600 text-sm font-sans">{level.description}</p>
                     </div>
                   </div>
                 </button>
@@ -506,8 +506,8 @@ const PlanYourTrip: React.FC = () => {
         {currentStep === 6 && isLoading && (
           <div className="text-center py-16">
             <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-orange-500 mx-auto mb-6"></div>
-            <h2 className="text-2xl font-bold mb-4 font-heebo">בונה את המסלול המושלם שלכם</h2>
-            <p className="text-lg text-gray-600 font-assistant">{loadingMessages[loadingMessageIndex]}</p>
+            <h2 className="text-2xl font-bold mb-4 font-sans">בונה את המסלול המושלם שלכם</h2>
+            <p className="text-lg text-gray-600 font-sans">{loadingMessages[loadingMessageIndex]}</p>
           </div>
         )}
 
@@ -520,14 +520,14 @@ const PlanYourTrip: React.FC = () => {
               className="w-full h-64 object-cover"
             />
             <div className="p-8">
-              <h2 className="text-3xl font-bold mb-4 font-heebo">{generatedTrip.name}</h2>
-              <p className="text-gray-600 mb-6 font-assistant">{generatedTrip.description}</p>
+              <h2 className="text-3xl font-bold mb-4 font-sans">{generatedTrip.name}</h2>
+              <p className="text-gray-600 mb-6 font-sans">{generatedTrip.description}</p>
               
               <div className="mb-6">
-                <h3 className="text-xl font-semibold mb-3 font-heebo">פעילויות כלולות:</h3>
+                <h3 className="text-xl font-semibold mb-3 font-sans">פעילויות כלולות:</h3>
                 <ul className="space-y-2">
                   {generatedTrip.activities.map((activity, index) => (
-                    <li key={index} className="flex items-center text-gray-700 font-assistant">
+                    <li key={index} className="flex items-center text-gray-700 font-sans">
                       <span className="w-2 h-2 bg-orange-500 rounded-full ml-3"></span>
                       {activity}
                     </li>
@@ -537,10 +537,10 @@ const PlanYourTrip: React.FC = () => {
 
               <div className="bg-gray-50 rounded-lg p-4 mb-6">
                 <div className="flex justify-between items-center">
-                  <span className="text-lg font-semibold font-heebo">מחיר משוער:</span>
-                  <span className="text-2xl font-bold text-orange-600 font-heebo">{generatedTrip.estimatedCost}</span>
+                  <span className="text-lg font-semibold font-sans">מחיר משוער:</span>
+                  <span className="text-2xl font-bold text-orange-600 font-sans">{generatedTrip.estimatedCost}</span>
                 </div>
-                <p className="text-sm text-gray-600 mt-2 font-assistant">
+                <p className="text-sm text-gray-600 mt-2 font-sans">
                   המחיר כולל לינה, ארוחות, תחבורה ומדריך מקצועי
                 </p>
               </div>
@@ -628,8 +628,8 @@ const DateSelectionStep: React.FC<DateSelectionStepProps> = ({ dates, onSubmit }
 
   return (
     <div className="space-y-6">
-      <h2 className="text-2xl font-bold text-center mb-4 font-heebo">מתי תרצו לטוס?</h2>
-      <p className="text-center text-gray-600 mb-8 font-assistant">
+      <h2 className="text-2xl font-bold text-center mb-4 font-sans">מתי תרצו לטוס?</h2>
+      <p className="text-center text-gray-600 mb-8 font-sans">
         בחרו תאריך התחלה וסיום, או לחצו על 'עדיין לא בטוח'
       </p>
       
@@ -646,8 +646,8 @@ const DateSelectionStep: React.FC<DateSelectionStepProps> = ({ dates, onSubmit }
           >
             <div className="flex items-center justify-between">
               <div className="flex-1">
-                <h3 className="text-lg font-semibold mb-1 font-heebo">עדיין לא בטוח</h3>
-                <p className="text-gray-600 text-sm font-assistant">נתכנן את התאריכים יחד בהמשך</p>
+                <h3 className="text-lg font-semibold mb-1 font-sans">עדיין לא בטוח</h3>
+                <p className="text-gray-600 text-sm font-sans">נתכנן את התאריכים יחד בהמשך</p>
               </div>
               <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center ml-4 ${
                 isFlexible
@@ -817,12 +817,12 @@ const TravelersStep: React.FC<TravelersStepProps> = ({ travelers, onSubmit }) =>
 
   return (
     <div className="space-y-6">
-      <h2 className="text-2xl font-bold mb-6 font-heebo text-center">כמה מטיילים ובאיזה גילאים?</h2>
+      <h2 className="text-2xl font-bold mb-6 font-sans text-center">כמה מטיילים ובאיזה גילאים?</h2>
       
       <div className="bg-white rounded-xl p-8 shadow-md max-w-2xl mx-auto">
         {/* Main Travelers Counter */}
         <div className="space-y-6">
-          <h3 className="text-lg font-medium mb-4 font-heebo text-center">מספר מטיילים</h3>
+          <h3 className="text-lg font-medium mb-4 font-sans text-center">מספר מטיילים</h3>
           
           <div className="space-y-4">
             {/* Adults */}
@@ -1006,8 +1006,8 @@ const InterestsStep: React.FC<InterestsStepProps> = ({ interests, selectedIntere
 
   return (
     <div className="space-y-6">
-      <h2 className="text-2xl font-bold text-center mb-8 font-heebo">אילו חוויות מעניינות אתכם?</h2>
-      <p className="text-center text-gray-600 mb-8 font-assistant">בחרו אחת או יותר מהאפשרויות</p>
+      <h2 className="text-2xl font-bold text-center mb-8 font-sans">אילו חוויות מעניינות אתכם?</h2>
+      <p className="text-center text-gray-600 mb-8 font-sans">בחרו אחת או יותר מהאפשרויות</p>
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {interests.map((interest) => (
@@ -1022,8 +1022,8 @@ const InterestsStep: React.FC<InterestsStepProps> = ({ interests, selectedIntere
           >
             <div className="flex items-center justify-between">
               <div className="flex-1">
-                <h3 className="text-lg font-semibold mb-1 font-heebo">{interest.name}</h3>
-                <p className="text-gray-600 text-sm font-assistant">{interest.description}</p>
+                <h3 className="text-lg font-semibold mb-1 font-sans">{interest.name}</h3>
+                <p className="text-gray-600 text-sm font-sans">{interest.description}</p>
               </div>
               <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center ml-4 ${
                 selected.includes(interest.id)

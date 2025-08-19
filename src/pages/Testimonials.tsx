@@ -22,27 +22,27 @@ const Testimonials: React.FC = () => {
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 font-heebo">לקוחות מספרים עלינו</h1>
-          <p className="text-xl text-muted max-w-2xl mx-auto mb-6 font-assistant">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 font-sans">לקוחות מספרים עלינו</h1>
+          <p className="text-xl text-muted max-w-2xl mx-auto mb-6 font-sans">
             אנחנו גאים לשתף חוויות של לקוחותינו שחזרו מלאים בחיוכים.
           </p>
           
           {/* Statistics */}
           <div className="flex flex-wrap justify-center items-center gap-8 bg-surface rounded-2xl p-6 max-w-2xl mx-auto">
             <div className="text-center">
-              <div className="text-3xl font-bold text-primary font-heebo">{testimonials.length}+</div>
-              <div className="text-muted font-assistant">לקוחות מרוצים</div>
+              <div className="text-3xl font-bold text-primary font-sans">{testimonials.length}+</div>
+              <div className="text-muted font-sans">לקוחות מרוצים</div>
             </div>
             <div className="text-center">
               <div className="flex items-center justify-center gap-2">
-                <span className="text-3xl font-bold text-primary font-heebo">{averageRating.toFixed(1)}</span>
+                <span className="text-3xl font-bold text-primary font-sans">{averageRating.toFixed(1)}</span>
                 <div className="flex">{renderStars(Math.round(averageRating))}</div>
               </div>
-              <div className="text-muted font-assistant">דירוג ממוצע</div>
+              <div className="text-muted font-sans">דירוג ממוצע</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-primary font-heebo">100%</div>
-              <div className="text-muted font-assistant">המלצות</div>
+              <div className="text-3xl font-bold text-primary font-sans">100%</div>
+              <div className="text-muted font-sans">המלצות</div>
             </div>
           </div>
         </div>
@@ -56,7 +56,7 @@ const Testimonials: React.FC = () => {
                   <Quote className="w-8 h-8 text-primary" />
                 </div>
                 
-                <p className="text-muted mb-6 font-assistant leading-relaxed">
+                <p className="text-muted mb-6 font-sans leading-relaxed">
                   "{testimonial.text}"
                 </p>
                 
@@ -66,8 +66,8 @@ const Testimonials: React.FC = () => {
                   </div>
                   
                   <div className="text-center">
-                    <div className="font-semibold text-lg font-heebo">{testimonial.name}</div>
-                    <div className="text-muted text-sm font-assistant">{testimonial.location}</div>
+                    <div className="font-semibold text-lg font-sans">{testimonial.name}</div>
+                    <div className="text-muted text-sm font-sans">{testimonial.location}</div>
                   </div>
                 </div>
               </div>
@@ -77,8 +77,8 @@ const Testimonials: React.FC = () => {
 
         {/* CTA Section */}
         <div className="bg-primary text-white rounded-2xl p-8 text-center">
-          <h2 className="text-3xl font-bold mb-4 font-heebo">רוצים להצטרף למשפחת הלקוחות שלנו?</h2>
-          <p className="text-xl mb-6 font-assistant">
+          <h2 className="text-3xl font-bold mb-4 font-sans">רוצים להצטרף למשפחת הלקוחות שלנו?</h2>
+          <p className="text-xl mb-6 font-sans">
             בואו ניצור עבורכם גם חוויה בלתי נשכחת שתרצו לשתף
           </p>
           <a href="/contact" className="bg-white text-primary px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors inline-block">
@@ -88,31 +88,31 @@ const Testimonials: React.FC = () => {
 
         {/* Trust Indicators */}
         <div className="mt-16 text-center">
-          <h3 className="text-2xl font-bold mb-8 font-heebo">למה לקוחות בוחרים בנו?</h3>
+          <h3 className="text-2xl font-bold mb-8 font-sans">למה לקוחות בוחרים בנו?</h3>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center">
               <div className="bg-primary text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
                 <Star className="w-8 h-8" />
               </div>
-              <h4 className="text-xl font-semibold mb-2 font-heebo">ניסיון מוכח</h4>
-              <p className="text-muted font-assistant">למעלה מ-10 שנות ניסיון בתחום טיולי ההרפתקה</p>
+              <h4 className="text-xl font-semibold mb-2 font-sans">ניסיון מוכח</h4>
+              <p className="text-muted font-sans">למעלה מ-10 שנות ניסיון בתחום טיולי ההרפתקה</p>
             </div>
             
             <div className="text-center">
               <div className="bg-primary text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
                 <Quote className="w-8 h-8" />
               </div>
-              <h4 className="text-xl font-semibold mb-2 font-heebo">שירות אישי</h4>
-              <p className="text-muted font-assistant">ליווי צמוד לכל אורך הדרך - מהתכנון ועד השיבה</p>
+              <h4 className="text-xl font-semibold mb-2 font-sans">שירות אישי</h4>
+              <p className="text-muted font-sans">ליווי צמוד לכל אורך הדרך - מהתכנון ועד השיבה</p>
             </div>
             
             <div className="text-center">
               <div className="bg-primary text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
                 <Star className="w-8 h-8" />
               </div>
-              <h4 className="text-xl font-semibold mb-2 font-heebo">בטיחות מקסימלית</h4>
-              <p className="text-muted font-assistant">מדריכים מוסמכים וציוד בטיחות ברמה הגבוהה ביותר</p>
+              <h4 className="text-xl font-semibold mb-2 font-sans">בטיחות מקסימלית</h4>
+              <p className="text-muted font-sans">מדריכים מוסמכים וציוד בטיחות ברמה הגבוהה ביותר</p>
             </div>
           </div>
         </div>

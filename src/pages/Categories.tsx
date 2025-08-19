@@ -106,10 +106,10 @@ const Categories: React.FC = () => {
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-8">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 font-heebo">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 font-sans">
             גלו את כל הקטגוריות שלנו
           </h1>
-          <p className="text-xl text-muted max-w-2xl mx-auto font-assistant">
+          <p className="text-xl text-muted max-w-2xl mx-auto font-sans">
             בחרו קטגוריה והתעמקו בעולם החוויות – לפי עניין, רמת אתגר ומיקום.
           </p>
         </div>
@@ -154,7 +154,7 @@ const Categories: React.FC = () => {
                   style={{ backgroundImage: `url(${category.coverImage})` }}
                 />
                 <div className="card-content">
-                  <h3 className="text-xl font-semibold mb-2 font-heebo">
+                  <h3 className="text-xl font-semibold mb-2 font-sans">
                     {highlightText(category.name, searchQuery)}
                   </h3>
 
@@ -171,7 +171,7 @@ const Categories: React.FC = () => {
                     </div>
                   )}
 
-                  <p className="text-muted mb-4 font-assistant">
+                  <p className="text-muted mb-4 font-sans">
                     {highlightText(category.shortDescription, searchQuery)}
                   </p>
 
@@ -206,10 +206,10 @@ const Categories: React.FC = () => {
 
         {/* CTA */}
         <div className="mt-16 bg-surface rounded-2xl p-8 text-center">
-          <h2 className="text-3xl font-bold mb-4 font-heebo">
+          <h2 className="text-3xl font-bold mb-4 font-sans">
             לא מצאתם מה שחיפשתם?
           </h2>
-          <p className="text-xl text-muted mb-6 font-assistant">
+          <p className="text-xl text-muted mb-6 font-sans">
             צרו קשר ואנו נתכנן עבורכם חוויה מותאמת אישית
           </p>
           <Link to="/contact" className="btn-primary px-8 py-4">

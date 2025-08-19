@@ -53,12 +53,12 @@ const Home: React.FC = () => {
           }}
         />
         <div className="relative container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 font-heebo slide-up">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 font-sans slide-up">
             החוויה הבאה שלך באוגנדה
             <br />
             מתחילה כאן
           </h1>
-          <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto font-assistant slide-up">
+          <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto font-sans slide-up">
             טיולי אקסטרים, טבע פראי, ושירות אישי – חוויה שלא תשכח
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center slide-up">
@@ -80,10 +80,10 @@ const Home: React.FC = () => {
       <section className="py-12 md:py-14 bg-surface">
         <div className="container mx-auto px-4">
           <div className="text-center mb-10 md:mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-3 md:mb-4 font-heebo">
+            <h2 className="text-3xl md:text-4xl font-bold mb-3 md:mb-4 font-sans">
               הקטגוריות הפופולריות שלנו
             </h2>
-            <p className="text-lg md:text-xl text-muted font-assistant">
+            <p className="text-lg md:text-xl text-muted font-sans">
               גלו את המגוון הרחב של חוויות שאנו מציעים
             </p>
           </div>
@@ -98,10 +98,10 @@ const Home: React.FC = () => {
                   />
                   <div className="card-content">
                     <div className="text-primary mb-3">{category.icon}</div>
-                    <h3 className="text-xl font-semibold mb-2 font-heebo">
+                    <h3 className="text-xl font-semibold mb-2 font-sans">
                       {category.name}
                     </h3>
-                    <p className="text-muted font-assistant">
+                    <p className="text-muted font-sans">
                       {category.description}
                     </p>
                     <div className="card-footer">
@@ -119,12 +119,12 @@ const Home: React.FC = () => {
       <section className="pt-12 md:pt-16 pb-6 md:pb-8">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 font-heebo">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 font-sans">
               למה לבחור בנו?
             </h2>
-            <p className="text-xl text-muted leading-relaxed mb-8 font-assistant">
+            <p className="text-xl text-muted leading-relaxed mb-8 font-sans">
               אנחנו מתמחים בבניית טיולים מותאמים אישית באוגנדה – משלב התכנון
-              ועד השיבה הביתה. עם ניסיון של למעלה מ-10 שנים במדינה, אנו מכירים
+              ועד השיבה הביתה. עם ניסיון של למעלה מ-30 שנים במדינה, אנו מכירים
               כל פינה ויכולים להציע לכם חוויות אותנטיות ובטוחות שיישארו איתכם
               לכל החיים.
             </p>
@@ -134,10 +134,10 @@ const Home: React.FC = () => {
                 <div className="bg-primary text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
                   <Users className="w-8 h-8" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2 font-heebo">
+                <h3 className="text-xl font-semibold mb-2 font-sans">
                   מדריכים מקצועיים
                 </h3>
-                <p className="text-muted font-assistant">
+                <p className="text-muted font-sans">
                   מדריכים מקומיים ובינלאומיים עם ניסיון עשיר
                 </p>
               </div>
@@ -146,10 +146,10 @@ const Home: React.FC = () => {
                 <div className="bg-primary text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
                   <Star className="w-8 h-8" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2 font-heebo">
+                <h3 className="text-xl font-semibold mb-2 font-sans">
                   שירות אישי
                 </h3>
-                <p className="text-muted font-assistant">
+                <p className="text-muted font-sans">
                   כל טיול מותאם בצורה אישית לצרכים שלכם
                 </p>
               </div>
@@ -158,10 +158,10 @@ const Home: React.FC = () => {
                 <div className="bg-primary text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
                   <Mountain className="w-8 h-8" />
                 </div>
-                <h3 className="text-xl font-semibold mb-2 font-heebo">
+                <h3 className="text-xl font-semibold mb-2 font-sans">
                   חוויות ייחודיות
                 </h3>
-                <p className="text-muted font-assistant">
+                <p className="text-muted font-sans">
                   גישה למקומות נסתרים וחוויות בלעדיות
                 </p>
               </div>
@@ -173,10 +173,10 @@ const Home: React.FC = () => {
       {/* CTA Section (אם תרצה להשאיר) */}
       <section className="pt-14 pb-8 bg-primary text-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-3 font-heebo">
+          <h2 className="text-3xl md:text-4xl font-bold mb-3 font-sans">
             מוכנים להתחיל?
           </h2>
-          <p className="text-lg md:text-xl mb-6 font-assistant">
+          <p className="text-lg md:text-xl mb-6 font-sans">
             צור קשר עוד היום והתחל לתכנן את החוויה הבאה שלך
           </p>
           <Link

@@ -12,7 +12,7 @@ const Header: React.FC = () => {
         <div className="flex items-center justify-between">
           {/* ימין: לוגו + ניווט */}
           <div className="flex items-center gap-6 rtl:space-x-reverse">
-            <h1 className="text-2xl font-bold text-primary font-heebo">
+            <h1 className="text-2xl font-bold text-primary font-sans">
               אוגנדה אדוונצ'רס
             </h1>
             <div className="hidden md:flex">

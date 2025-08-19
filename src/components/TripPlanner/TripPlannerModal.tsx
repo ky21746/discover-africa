@@ -22,8 +22,8 @@ const TripPlannerModal: React.FC<TripPlannerModalProps> = ({ isOpen, onClose }) 
         </button>
         
         <div className="text-center">
-          <h2 className="text-2xl font-bold mb-4 font-heebo">תכנון מסלול חכם</h2>
-          <p className="text-muted mb-6 font-assistant">
+          <h2 className="text-2xl font-bold mb-4 font-sans">תכנון מסלול חכם</h2>
+          <p className="text-muted mb-6 font-sans">
             השתמשו בכלי התכנון החכם שלנו ליצירת מסלול מותאם אישית באוגנדה
           </p>
           
