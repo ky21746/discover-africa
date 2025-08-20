@@ -169,6 +169,18 @@ const AttractionPage: React.FC = () => {
     a.image ??
     "https://images.pexels.com/photos/6194629/pexels-photo-6194629.jpeg";
 
+  // Map coordinates for different attractions
+  const getMapCoordinates = (attractionId: string) => {
+    const coordinates = {
+      'gorillas-bwindi': { lat: -1.05, lng: 29.75, bbox: '29.4,-1.3,30.2,-0.7' },
+      'gorillas-mgahinga': { lat: -1.23, lng: 29.63, bbox: '29.4,-1.4,29.9,-1.0' },
+      'chimps-kibale': { lat: 0.57, lng: 30.36, bbox: '30.1,0.3,30.6,0.8' }
+    };
+    return coordinates[attractionId as keyof typeof coordinates] || coordinates['gorillas-bwindi'];
+  };
+
+  const mapCoords = getMapCoordinates(a.id || a.slug || '');
+
   // "במבט מהיר" - עכשיו במידע Hero
   const quickStats = [
     { label: "מיקום", value: a.region ?? "דרום־מערב אוגנדה" },
@@ -280,20 +292,27 @@ const AttractionPage: React.FC = () => {
               </div>
             </div>
 
-            {/* CTA Buttons - Mobile Optimized */}
-            <div className="flex flex-col gap-3">
-              <button className="bg-amber-500 hover:bg-amber-600 text-black font-bold py-4 px-6 rounded-xl text-base md:text-lg transition-all transform hover:scale-105 shadow-xl">
+            {/* CTA Buttons - Desktop in row, Mobile in column */}
+            <div className="flex flex-col md:flex-row gap-3 w-full">
+              <button className="bg-amber-500 hover:bg-amber-600 text-black font-bold py-4 px-6 rounded-xl text-base md:text-lg transition-all transform hover:scale-105 shadow-xl w-full md:flex-1">
                 🦍 הזמן עכשיו - החל מ-{a.price}
               </button>
-              <div className="flex gap-3">
-                <button className="flex-1 bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white font-medium py-3 px-4 rounded-xl transition-all border border-white/30">
-                  <Users className="w-4 h-4 inline ml-2" />
-                  בדוק זמינות
-                </button>
-                <button className="flex-1 bg-transparent border-2 border-white/50 hover:border-white text-white font-medium py-3 px-4 rounded-xl transition-all">
-                  💬 שאל מומחה
-                </button>
-              </div>
+              <button className="bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white font-medium py-3 px-4 md:px-6 rounded-xl transition-all border border-white/30 w-full md:flex-1">
+                <Users className="w-4 h-4 inline ml-2" />
+                בדוק זמינות
+              </button>
+              <WishlistButton 
+                item={{
+                  id: a.id || a.slug || 'default-id',
+                  attractionId: a.id || a.slug || 'default-id',
+                  name: a.name,
+                  subtitle: a.subtitle,
+                  image: heroImage,
+                  basePrice: a.price || 'מ-$2,400'
+                }}
+                variant="text"
+                className="bg-transparent border-2 border-white/50 hover:border-white text-white font-medium py-3 px-4 md:px-6 rounded-xl transition-all w-full md:flex-1 flex items-center justify-center gap-2"
+              />
             </div>
           </div>
         </div>
@@ -347,13 +366,9 @@ const AttractionPage: React.FC = () => {
             {/* תיאור ראשי */}
             <section className="bg-white border rounded-2xl p-5 md:p-6 shadow-sm">
               <div className="space-y-4">
-                <div className="flex items-center justify-between">
-                  <h3 className="text-xl font-bold">למה זה חוויה של פעם בחיים?</h3>
-                  <div className="flex items-center gap-2 text-amber-500">
-                    <Clock className="w-5 h-5" />
-                    <span className="text-sm font-medium">קריאה: 3 דקות</span>
-                  </div>
-                </div>
+                {a.subtitle && (
+                  <h2 className="text-xl font-bold text-primary-600 mb-3">{a.subtitle}</h2>
+                )}
                 
                 {introFull && (
                   <div className="prose prose-lg max-w-none">
@@ -446,7 +461,7 @@ const AttractionPage: React.FC = () => {
                 title={`מפה – ${a.name}`}
                 className="w-full h-64"
                 loading="lazy"
-                src={`https://www.openstreetmap.org/export/embed.html?bbox=29.4%2C-1.3%2C30.2%2C-0.7&layer=mapnik&marker=-1.05%2C29.75`}
+                src={`https://www.openstreetmap.org/export/embed.html?bbox=${mapCoords.bbox}&layer=mapnik&marker=${mapCoords.lat}%2C${mapCoords.lng}`}
               />
               <div className="p-3 bg-gray-50 text-sm text-gray-600">
                 <MapPin className="w-4 h-4 inline ml-1" />
