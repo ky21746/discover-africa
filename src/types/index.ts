@@ -177,3 +177,32 @@ export interface Park {
   min_age?: number;           // e.g. 12
   license_cost?: string;      // e.g. "$700"
 }
+// ===== Attractions (new unified type) =====
+export interface Attraction {
+  id: string;                 // למשל "gorillas-bwindi"
+  slug?: string;              // אופציונלי, לשימוש ב־URL (אם יש מעדיפים אותו על id)
+  name: string;
+  subtitle?: string;          // הוספה חדשה - כותרת משנה
+  category: string;           // e.g. "safari" | "gorillas-chimps"
+  region?: string;
+
+  description: string;
+  highlights?: string[];
+  duration?: string;
+  difficulty?: string;
+  bestSeason?: string;
+  permitCost?: string;
+  minAge?: number;
+
+  wildlife?: string[];
+  howToGetThere?: string[];
+  whatToBring?: string[];
+  healthSafety?: string[];
+  accommodation?: string[];
+  nearby?: string[];
+  whyUs?: string[];
+  valueAdd?: string[];
+
+  gallery?: string[];
+  image?: string;             // אופציונלי, בשימוש ב-AttractionPage כ-fallback לתמונה
+}
