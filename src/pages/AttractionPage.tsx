@@ -7,6 +7,9 @@ import { Star, Share2, Heart, MapPin, Clock, Users, Camera, Route, Plus } from "
 import { gorillasChimps } from "../content/categories/gorillas-chimps";
 import { safari } from "../content/categories/safari";
 
+// ====== WISHLIST ======
+import { WishlistButton } from "../components/Wishlist/WishlistButton";
+
 type Attraction = {
   id?: string;
   slug?: string;
@@ -217,6 +220,21 @@ const AttractionPage: React.FC = () => {
         {/* Enhanced Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/30" />
         
+        {/* Call to Action - Build Your Route */}
+        <div className="absolute top-6 left-6 right-6 z-10">
+          <WishlistButton 
+            item={{
+              id: a.id || a.slug || 'default-id',
+              attractionId: a.id || a.slug || 'default-id',
+              name: a.name,
+              subtitle: a.subtitle,
+              image: heroImage,
+              basePrice: a.price || 'מ-$2,400'
+            }}
+            variant="bag"
+          />
+        </div>
+
         {/* Secondary Action Buttons - Top Right */}
         <div className="absolute top-6 left-6 flex gap-3 z-[5]">
           <button className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-colors">
@@ -289,10 +307,18 @@ const AttractionPage: React.FC = () => {
                 <Users className="w-4 h-4 inline ml-2" />
                 בדוק זמינות
               </button>
-              <button className="bg-transparent border-2 border-white/50 hover:border-white text-white font-medium py-3 px-4 md:px-6 rounded-xl transition-all w-full md:flex-1 flex items-center justify-center gap-2">
-                <Plus className="w-4 h-4" />
-                הוסף למסלול
-              </button>
+              <WishlistButton 
+                item={{
+                  id: a.id || a.slug || 'default-id',
+                  attractionId: a.id || a.slug || 'default-id',
+                  name: a.name,
+                  subtitle: a.subtitle,
+                  image: heroImage,
+                  basePrice: a.price || 'מ-$2,400'
+                }}
+                variant="text"
+                className="bg-transparent border-2 border-white/50 hover:border-white text-white font-medium py-3 px-4 md:px-6 rounded-xl transition-all w-full md:flex-1 flex items-center justify-center gap-2"
+              />
             </div>
           </div>
         </div>
@@ -307,9 +333,18 @@ const AttractionPage: React.FC = () => {
           <button className="flex-1 bg-amber-500 text-black font-bold py-3 rounded-lg">
             הזמן עכשיו {a.price}
           </button>
-          <button className="w-12 h-12 border-2 border-amber-500 text-amber-500 rounded-lg flex items-center justify-center">
-            <Heart className="w-5 h-5" />
-          </button>
+          <WishlistButton 
+            item={{
+              id: a.id || a.slug || 'default-id',
+              attractionId: a.id || a.slug || 'default-id',
+              name: a.name,
+              subtitle: a.subtitle,
+              image: heroImage,
+              basePrice: a.price || 'מ-$2,400'
+            }}
+            variant="bag"
+            className="whitespace-nowrap text-sm"
+          />
         </div>
       </div>
 
@@ -485,9 +520,18 @@ const AttractionPage: React.FC = () => {
                   <div className="text-sm text-amber-600 font-medium">מ-$700</div>
                 </div>
               </div>
-              <button className="w-full mt-4 py-2 bg-amber-500 text-black font-medium rounded-lg hover:bg-amber-600 transition-colors">
-                תכנן מסלול פרימטים מלא
-              </button>
+              <WishlistButton 
+                item={{
+                  id: a.id || a.slug || 'default-id',
+                  attractionId: a.id || a.slug || 'default-id',
+                  name: a.name,
+                  subtitle: a.subtitle,
+                  image: heroImage,
+                  basePrice: a.price || 'מ-$2,400'
+                }}
+                variant="bag"
+                className="w-full mt-4"
+              />
             </section>
           </div>
         </div>
