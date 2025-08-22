@@ -5,6 +5,7 @@ import { Filter } from "lucide-react";
 import Card from "../components/Common/Card";
 import { categories as categoriesData } from "../data/categories";
 import { getCategoryParks } from "../data/parks";
+import { safari } from "../content/categories/safari";
 
 // ✅ נוסיף את דאטת האטרקציות של גורילות/שימפנזים
 import { gorillasChimps } from "../content/categories/gorillas-chimps";
@@ -72,6 +73,7 @@ const CategoryPage: React.FC = () => {
 
   const isPrimates =
     categorySlug === "gorillas-chimps" || categorySlug === "primates";
+  const isSafari = categorySlug === "safari";
 
   const categories = categoriesData as LocalCategory[];
   const category = categories.find((c) => c.slug === categorySlug);
@@ -83,31 +85,41 @@ const CategoryPage: React.FC = () => {
   // === דאטה לכרטיסים ===
   const parksCategoryKey = parksKeyBySlug(categorySlug);
   const parks = useMemo(
-    () => (isPrimates ? [] : getCategoryParks(parksCategoryKey)),
-    [isPrimates, parksCategoryKey]
+    () => (isPrimates || isSafari ? [] : getCategoryParks(parksCategoryKey)),
+    [isPrimates, isSafari, parksCategoryKey]
   );
 
   // כאשר זו קטגוריית גורילות/שימפנזים – נשתמש ב־gorillasChimps
   const primateAttractions = useMemo(() => gorillasChimps, []);
+  // קטגוריית ספארי – נשתמש ב־safari
+  const safariAttractions = useMemo(() => safari, []);
 
-  // === תגים/פילטרים עובדים רק עבור parks (לאטרקציות גורילות אין תגים ב־data) ===
+  // בחירה דינמית: האם מציגים אטרקציות (פרימטים/ספארי) או parks
+  const showAttractions = isPrimates || isSafari;
+  const attractions = useMemo(() => {
+    if (isPrimates) return primateAttractions;
+    if (isSafari) return safariAttractions;
+    return [];
+  }, [isPrimates, isSafari, primateAttractions, safariAttractions]);
+
+  // === תגים/פילטרים עובדים רק עבור parks (לאטרקציות אין תגים ב־data) ===
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const allTags = useMemo(() => {
-    if (isPrimates) return []; // אין תגים לאטרקציות גורילות
+    if (showAttractions) return []; // אין תגים לאטרקציות
     return Array.from(
       new Set(
         parks.flatMap((p: any) => (Array.isArray(p.tags) ? p.tags : []))
       )
     );
-  }, [parks, isPrimates]);
+  }, [parks, showAttractions]);
 
   const filteredParks = useMemo(() => {
-    if (isPrimates) return []; // לא רלוונטי כשמציגים אטרקציות גורילות
+    if (showAttractions) return []; // לא רלוונטי כשמציגים אטרקציות
     if (selectedTags.length === 0) return parks;
     return parks.filter((p: any) =>
       selectedTags.some((t) => (p.tags || []).includes(t))
     );
-  }, [parks, selectedTags, isPrimates]);
+  }, [parks, selectedTags, showAttractions]);
 
   const toggleTag = (tag: string) => {
     setSelectedTags((prev) =>
@@ -131,7 +143,7 @@ const CategoryPage: React.FC = () => {
         </div>
 
         {/* פילטר תגים – רק לשאר הקטגוריות */}
-        {!isPrimates && allTags.length > 0 && (
+        {!showAttractions && allTags.length > 0 && (
           <div className="mb-3 text-center">
             <div className="mb-2 flex items-center justify-center gap-2 text-sm">
               <Filter className="h-4 w-4 text-muted" />
@@ -158,16 +170,15 @@ const CategoryPage: React.FC = () => {
         {/* ספירת פריטים */}
         <div className="mb-3 text-center">
           <p className="text-sm text-muted">
-            נמצאו{" "}
-            {isPrimates ? primateAttractions.length : filteredParks.length} אפשרויות
+            נמצאו {showAttractions ? attractions.length : filteredParks.length} אפשרויות
           </p>
         </div>
 
         {/* רשת הכרטיסים */}
-        {isPrimates ? (
-          // ====== כרטיסי אטרקציות גורילות/שימפנזים (מקושרים ל־/attraction/:id) ======
+        {showAttractions ? (
+          // ====== כרטיסי אטרקציות (גורילות/שימפנזים או ספארי) ======
           <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {primateAttractions.map((item: any) => {
+            {attractions.map((item: any) => {
               const targetSlug = normalize(item.slug || item.id || item.name);
               const cover =
                 item.gallery?.[0] ??
@@ -261,12 +272,12 @@ const CategoryPage: React.FC = () => {
                       )}
                     </div>
 
-                    <h3 className="mb-2 text-lg font-semibold font-sans">
+                    <h3 className="mb-2 text-lg font-semibold font-sנס text-muted">
                       {park.name}
                     </h3>
 
                     {park.summary && (
-                      <p className="mb-3 text-sm font-sנס text-muted">
+                      <p className="mb-3 text-sm font-sans text-muted">
                         {park.summary}
                       </p>
                     )}
@@ -288,7 +299,6 @@ const CategoryPage: React.FC = () => {
                         </div>
                       )}
 
-                    {/* שמרנו קישור לאטרקציה הדינמית במקרה ותרצה להשתמש בנתוני parks */}
                     <div className="card-footer">
                       <Link
                         to={`/attraction/${targetSlug}`}
@@ -305,7 +315,7 @@ const CategoryPage: React.FC = () => {
         ) : (
           <div className="py-10 text-center">
             <p className="mb-4 text-lg text-muted">אין תוצאות להצגה כרגע</p>
-            {!isPrimates && (
+            {!showAttractions && (
               <button onClick={() => setSelectedTags([])} className="btn-secondary">
                 נקה סינונים
               </button>

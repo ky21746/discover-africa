@@ -17,11 +17,10 @@ const Home: React.FC = () => {
     {
       id: "2",
       name: "פרימטים",
-      slug: "wildlife",
+      slug: "gorillas-chimps",
       description: "מפגשים קרובים עם גורילות ושימפנזים",
       icon: <Users className="w-8 h-8" />,
-      image:
-        "https://images.pexels.com/photos/33535/gorilla-primate-silverback-close-up.jpg",
+      image: "https://images.pexels.com/photos/6194629/pexels-photo-6194629.jpeg",
     },
     {
       id: "3",

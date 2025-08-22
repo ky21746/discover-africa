@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
-
+  
   return (
     <footer className="bg-gray-900 text-white py-12" dir="rtl">
       <div className="container mx-auto px-4">
         {/* ===== אין יותר פס עליון עם פרטי קשר ===== */}
-
+        
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div>
@@ -31,7 +31,7 @@ const Footer: React.FC = () => {
               </a>
             </div>
           </div>
-
+          
           {/* Quick Links */}
           <div>
             <h4 className="text-lg font-semibold mb-4">קישורים מהירים</h4>
@@ -56,7 +56,7 @@ const Footer: React.FC = () => {
               </li>
             </ul>
           </div>
-
+          
           {/* Services */}
           <div>
             <h4 className="text-lg font-semibold mb-4">השירותים שלנו</h4>
@@ -69,7 +69,7 @@ const Footer: React.FC = () => {
               <li>טיולי יוקרה</li>
             </ul>
           </div>
-
+          
           {/* Contact Info */}
           <div>
             <h4 className="text-lg font-semibold mb-4">פרטי התקשרות</h4>
@@ -94,9 +94,28 @@ const Footer: React.FC = () => {
             </div>
           </div>
         </div>
-
-        <div className="border-t border-gray-800 mt-8 pt-8 text-center">
-          <p className="text-gray-400">
+        
+        {/* Legal Links Section - NEW! */}
+        <div className="border-t border-gray-800 mt-8 pt-6">
+          <div className="flex flex-wrap justify-center gap-4 text-sm mb-4">
+            <Link to="/privacy" className="text-gray-400 hover:text-primary transition-colors">
+              מדיניות פרטיות
+            </Link>
+            <span className="text-gray-600">|</span>
+            <Link to="/terms" className="text-gray-400 hover:text-primary transition-colors">
+              תנאי שימוש
+            </Link>
+            <span className="text-gray-600">|</span>
+            <Link to="/accessibility" className="text-gray-400 hover:text-primary transition-colors">
+              הצהרת נגישות
+            </Link>
+            <span className="text-gray-600">|</span>
+            <Link to="/contact" className="text-gray-400 hover:text-primary transition-colors">
+              צור קשר
+            </Link>
+          </div>
+          
+          <p className="text-gray-400 text-center">
             © {currentYear} אוגנדה אדוונצ'רס. כל הזכויות שמורות.
           </p>
         </div>

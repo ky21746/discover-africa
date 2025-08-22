@@ -5,8 +5,7 @@ export const gorillasChimps: Attraction[] = [
   {
     id: "gorillas-bwindi",
     slug: "gorillas-bwindi",
-    name: "גורילות ביער בווינדי – חוויה של פעם בחיים",
-    subtitle: "בְּוִוינְדִי, אוגנדה: מסע אל ממלכת הגורילות",
+    name: "גורילות ביער בווינדי",    subtitle: "בְּוִוינְדִי, אוגנדה: מסע אל ממלכת הגורילות",
     category: "gorillas-chimps",
     region: "דרום־מערב אוגנדה, גבול עם רואנדה וקונגו",
     description:
@@ -76,7 +75,7 @@ export const gorillasChimps: Attraction[] = [
   {
     id: "gorillas-mgahinga",
     slug: "gorillas-mgahinga", 
-    name: "גורילות מגהינגה – חוויה בהרי הגעש",
+    name: "גורילות מגהינגה",
     subtitle: "מגהינגה, אוגנדה: היכן שכסף פוגש זהב",
     category: "gorillas-chimps",
     region: "דרום־מערב אוגנדה, רכס הרי וירונגה",
@@ -139,16 +138,17 @@ export const gorillasChimps: Attraction[] = [
       "שילוב יחיד של גורילות וקופי זהב",
     ],
     gallery: [
-      "https://images.pexels.com/photos/33535/gorilla-primate-silverback-close-up.jpg",
+      "https://images.pexels.com/photos/32181426/pexels-photo-32181426.jpeg",
       "https://images.pexels.com/photos/145939/pexels-photo-145939.jpeg",
       "https://images.pexels.com/photos/6194629/pexels-photo-6194629.jpeg",
     ],
-    image: "https://images.pexels.com/photos/145939/pexels-photo-145939.jpeg",
+    image: "https://images.pexels.com/photos/32181426/pexels-photo-32181426.jpeg",
   },
   {
     id: "chimps-kibale",
     slug: "chimps-kibale",
-    name: "שימפנזים בקיבאלה – בירת הפרימטים העולמית", 
+    name: "שימפנזים בקיבאלה ", 
+
     subtitle: "קיבאלה, אוגנדה: מפגש עם הקרובים הכי חכמים שלנו",
     category: "gorillas-chimps",
     region: "מערב אוגנדה, ליד פורט פורטל",
@@ -216,10 +216,10 @@ export const gorillasChimps: Attraction[] = [
       "מחיר משתלם יחסית לחוויה",
     ],
     gallery: [
-      "https://images.pexels.com/photos/257006/pexels-photo-257006.jpeg",
+      "https://images.pexels.com/photos/30929410/pexels-photo-30929410.jpeg",
       "https://images.pexels.com/photos/2817398/pexels-photo-2817398.jpeg",
       "https://images.pexels.com/photos/33535/gorilla-primate-silverback-close-up.jpg",
     ],
-    image: "https://images.pexels.com/photos/257006/pexels-photo-257006.jpeg",
+    image: "https://images.pexels.com/photos/30929410/pexels-photo-30929410.jpeg",
   },
 ];
