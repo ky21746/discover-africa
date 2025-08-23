@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
 import Home from "./pages/Home";
@@ -15,6 +15,12 @@ import Contact from "./pages/Contact";
 import AttractionPage from "./pages/AttractionPage";
 import CookieBanner from "./components/CookieBanner";
 import AccessibilityButton from "./components/AccessibilityButton";
+
+// Water subcategories pages
+import WaterSubcategories from "./pages/WaterSubcategories";
+import WaterfallsPage from "./pages/WaterfallsPage";
+import LakesPage from "./pages/LakesPage";
+import RiversPage from "./pages/RiversPage";
 
 // Legal pages imports
 import PrivacyPolicy from "./pages/legal/PrivacyPolicy";
@@ -55,6 +61,12 @@ export default function App() {
           <Route element={<Layout />}>
             {/* דף הבית */}
             <Route path="/" element={<Home />} />
+            
+            {/* מים - תת-קטגוריות (חייב להיות לפני category/:slug) */}
+            <Route path="/water" element={<WaterSubcategories />} />
+            <Route path="/water/waterfalls" element={<WaterfallsPage />} />
+            <Route path="/water/lakes" element={<LakesPage />} />
+            <Route path="/water/rivers" element={<RiversPage />} />
             
             {/* קטגוריות */}
             <Route path="/categories" element={<Categories />} />

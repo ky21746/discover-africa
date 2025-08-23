@@ -6,6 +6,9 @@ import { Star, Share2, Heart, MapPin, Clock, Users, Camera, Route, Plus } from "
 // ====== DATA ======
 import { gorillasChimps } from "../content/categories/gorillas-chimps";
 import { safari } from "../content/categories/safari";
+import { waterfalls } from "../content/categories/waterfalls";
+import { lakes } from "../content/categories/lakes";
+import { rivers } from "../content/categories/rivers";
 
 // ====== WISHLIST ======
 import { WishlistButton } from "../components/Wishlist/WishlistButton";
@@ -41,12 +44,15 @@ type Attraction = {
   price?: string;
 };
 
-const allAttractions: Attraction[] = [...gorillasChimps, ...safari];
+const allAttractions: Attraction[] = [...gorillasChimps, ...safari, ...waterfalls, ...lakes, ...rivers];
 
 // מיפוי קטגוריות לשמות בעברית
 const categoryNames: Record<string, string> = {
   "gorillas-chimps": "גורילות ושימפנזים",
   "safari": "ספארי",
+  "waterfalls": "מפלים",
+  "lakes": "אגמים",
+  "rivers": "נהרות",
   "adventure": "הרפתקאות",
   "culture": "תרבות ומסורת",
 };
@@ -106,11 +112,26 @@ const Breadcrumb: React.FC<{ category?: string; attractionName: string }> = ({
           <>
             <span className="text-gray-400">/</span>
             <Link 
-              to={`/category/${category}`} 
+              to={category === "waterfalls" || category === "lakes" || category === "rivers" 
+                ? `/water` 
+                : `/category/${category}`} 
               className="hover:text-primary-600 transition-colors"
             >
-              {categoryNames[category] || category}
+              {category === "waterfalls" || category === "lakes" || category === "rivers" 
+                ? "אגמים, מפלים ונהרות" 
+                : categoryNames[category] || category}
             </Link>
+            {(category === "waterfalls" || category === "lakes" || category === "rivers") && (
+              <>
+                <span className="text-gray-400">/</span>
+                <Link 
+                  to={`/water/${category}`} 
+                  className="hover:text-primary-600 transition-colors"
+                >
+                  {categoryNames[category]}
+                </Link>
+              </>
+            )}
           </>
         )}
         <span className="text-gray-400">/</span>

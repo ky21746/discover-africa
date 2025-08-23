@@ -52,6 +52,8 @@ const parksKeyBySlug = (slug: string) => {
       return "wildlife";
     case "extreme":
       return "water";
+    case "water":
+      return "water";
     default:
       return slug;
   }
@@ -74,6 +76,7 @@ const CategoryPage: React.FC = () => {
   const isPrimates =
     categorySlug === "gorillas-chimps" || categorySlug === "primates";
   const isSafari = categorySlug === "safari";
+  // הסרנו את הטיפול בקטגוריית המים - היא מטופלת ב-WaterSubcategories
 
   const categories = categoriesData as LocalCategory[];
   const category = categories.find((c) => c.slug === categorySlug);
@@ -176,7 +179,7 @@ const CategoryPage: React.FC = () => {
 
         {/* רשת הכרטיסים */}
         {showAttractions ? (
-          // ====== כרטיסי אטרקציות (גורילות/שימפנזים או ספארי) ======
+          // ====== כרטיסי אטרקציות (גורילות/שימפנזים, ספארי או מים) ======
           <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
             {attractions.map((item: any) => {
               const targetSlug = normalize(item.slug || item.id || item.name);
@@ -272,7 +275,7 @@ const CategoryPage: React.FC = () => {
                       )}
                     </div>
 
-                    <h3 className="mb-2 text-lg font-semibold font-sנס text-muted">
+                    <h3 className="mb-2 text-lg font-semibold font-sans text-muted">
                       {park.name}
                     </h3>
 
