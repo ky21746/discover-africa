@@ -9,7 +9,8 @@ export const lakes: Attraction[] = [
     subtitle: "האגם הגדול ביותר באפריקה - מקור הנילוס הלבן",
     category: "lakes",
     region: "דרום מזרח אוגנדה, נושק לקמפלה ואנטבה",
-    description: "אגם ויקטוריה הוא גוף המים הגדול ביותר באפריקה (כ־59,947 קמ\"ר) והשני בגודלו בעולם מבין אגמי המים המתוקים. חלקו האוגנדי נחשב ללב התיירות והדיג המקומי, עם אלפי דייגים, שווקים ססגוניים וחופים ציוריים.",
+    description: "אגם ויקטוריה הוא גוף המים הגדול ביותר באפריקה (כ־59,947 קמ\"ר) והשני בגודלו בעולם מבין אגמי המים המתוקים. חלקו האוגנדי נחשב ללב התיירות והדיג המקומי, עם אלפי דייגים, שווקים ססגוניים וחופים ציוריים.\n\nהאגם מכיל מאות איים – הבולטים הם איי ססה (Ssese Islands), שהפכו לאתר נופש פופולרי. זהו מקורו של נהר הנילוס הלבן, והמשמעות התרבותית וההיסטורית שלו לאוגנדה היא עצומה.",
+    
     highlights: [
       "האגם הגדול ביותר באפריקה",
       "מקור הנילוס הלבן",
@@ -17,11 +18,13 @@ export const lakes: Attraction[] = [
       "דיג מסורתי",
       "חופים ציוריים"
     ],
+    
     duration: "חצי יום–לילה אחד",
     difficulty: "קל",
     bestSeason: "יוני–ספטמבר, דצמבר–פברואר",
     permitCost: "ללא דמי כניסה",
     minAge: 0,
+    
     wildlife: ["יותר מ־200 מיני דגים", "עופות מים", "צמחיית אגם"],
     howToGetThere: ["גישה מצוינת מכבישים ראשיים", "מעבורות לאיי ססה", "15–30 דק' מאנטבה"],
     whatToBring: ["בגדי ים", "מצלמה", "כובע", "דוחה יתושים"],
@@ -30,6 +33,7 @@ export const lakes: Attraction[] = [
     nearby: ["Entebbe Botanical Gardens", "Ngamba Chimpanzee Sanctuary", "אנטבה"],
     whyUs: ["מדריכים מומחי אגם", "גישה לאיים", "קשרים עם דייגים"],
     valueAdd: ["אתר דגל לאומי", "היסטוריה עשירה", "נגישות גבוהה"],
+    
     gallery: [
       "https://images.pexels.com/photos/631317/pexels-photo-631317.jpeg",
       "https://images.pexels.com/photos/1661535/pexels-photo-1661535.jpeg",
@@ -37,6 +41,7 @@ export const lakes: Attraction[] = [
     ],
     image: "https://images.pexels.com/photos/631317/pexels-photo-631317.jpeg"
   },
+
   {
     id: "lake-bunyonyi",
     slug: "lake-bunyonyi",
@@ -44,7 +49,8 @@ export const lakes: Attraction[] = [
     subtitle: "אגם הציפורים הקטנות - המקום הבטוח ביותר לשחייה באוגנדה",
     category: "lakes",
     region: "מחוז קבלה, דרום מערב אוגנדה",
-    description: "אגם בוניוני מכונה \"אגם הציפורים הקטנות\" בשל מאות מיני העופות החיים סביבו. הוא מתפרש בין גבעות טרסות ירוקות ומכיל 29 איים ייחודיים.",
+    description: "אגם בוניוני מכונה \"אגם הציפורים הקטנות\" בשל מאות מיני העופות החיים סביבו. הוא מתפרש בין גבעות טרסות ירוקות ומכיל 29 איים ייחודיים. עומקו שנוי במחלוקת – הערכות נעות בין 40 מטרים ועד יותר מ־900 מטרים – מה שעשוי להפוך אותו לאגם השני בעומקו באפריקה.\n\nייחודו הגדול הוא היותו נקי מבילהרציה ומסכנות תנינים/היפופוטמים, ולכן נחשב המקום הבטוח ביותר לשחייה באוגנדה. סביבו חיים בני הבאטווה (Batwa) עם היסטוריה עשירה.",
+    
     highlights: [
       "29 איים ייחודיים",
       "מאות מיני ציפורים",
@@ -52,11 +58,13 @@ export const lakes: Attraction[] = [
       "תרבות באטווה",
       "נוף הררי"
     ],
+    
     duration: "לילה אחד–יומיים",
     difficulty: "קל",
     bestSeason: "יוני–ספטמבר, דצמבר–פברואר",
     permitCost: "ללא עלות",
     minAge: 0,
+    
     wildlife: ["מאות מיני ציפורים", "דגים", "צמחיית אגם"],
     howToGetThere: ["כביש סלול לקבלה", "אוטובוסים זמינים", "7–8 שעות מקמפלה"],
     whatToBring: ["בגדי ים", "מצלמה", "כובע", "דוחה יתושים"],
@@ -65,6 +73,7 @@ export const lakes: Attraction[] = [
     nearby: ["Bwindi NP", "Mgahinga NP", "קבלה"],
     whyUs: ["מדריכים מקומיים", "גישה לאיים", "קשרים עם קהילות"],
     valueAdd: ["פופולרי מאוד", "בטוח למשפחות", "נוף ייחודי"],
+    
     gallery: [
       "https://images.pexels.com/photos/631317/pexels-photo-631317.jpeg",
       "https://images.pexels.com/photos/1661535/pexels-photo-1661535.jpeg",
@@ -72,6 +81,7 @@ export const lakes: Attraction[] = [
     ],
     image: "https://images.pexels.com/photos/631317/pexels-photo-631317.jpeg"
   },
+
   {
     id: "lake-albert",
     slug: "lake-albert",
@@ -79,7 +89,8 @@ export const lakes: Attraction[] = [
     subtitle: "אגם הגבול המערבי - נוף מדברי ייחודי",
     category: "lakes",
     region: "מערב אוגנדה, גבול עם הרפובליקה הדמוקרטית של קונגו",
-    description: "אגם אלברט הוא אחד האגמים הגדולים של אפריקה, הממוקם בגבול המערבי של אוגנדה. האגם מתאפיין בנוף מדברי ייחודי עם הרים תלולים וקניונים עמוקים.",
+    description: "אגם אלברט הוא אחד האגמים הגדולים של אפריקה, הממוקם בגבול המערבי של אוגנדה. האגם מתאפיין בנוף מדברי ייחודי עם הרים תלולים וקניונים עמוקים. המים חמימים יחסית בשל הגובה הנמוך, והאזור ידוע בדיג המסורתי ובנוף הדרמטי.",
+    
     highlights: [
       "נוף מדברי ייחודי",
       "דיג מסורתי",
@@ -87,11 +98,13 @@ export const lakes: Attraction[] = [
       "מים חמימים",
       "גבול בינלאומי"
     ],
+    
     duration: "יום מלא",
     difficulty: "בינוני",
     bestSeason: "יוני–ספטמבר",
     permitCost: "ללא עלות",
     minAge: 0,
+    
     wildlife: ["דגים מקומיים", "עופות מים", "צמחיית מדבר"],
     howToGetThere: ["כבישים ראשיים", "אוטובוסים זמינים", "6–8 שעות מקמפלה"],
     whatToBring: ["בגדים קלים", "מצלמה", "כובע", "מים"],
@@ -100,6 +113,7 @@ export const lakes: Attraction[] = [
     nearby: ["Murchison Falls NP", "Kibale NP", "Hoima"],
     whyUs: ["מדריכים מקומיים", "גישה ייחודית", "ניסיון באזור"],
     valueAdd: ["נוף ייחודי", "פחות תיירים", "חוויה אותנטית"],
+    
     gallery: [
       "https://images.pexels.com/photos/631317/pexels-photo-631317.jpeg",
       "https://images.pexels.com/photos/1661535/pexels-photo-1661535.jpeg",
@@ -107,6 +121,7 @@ export const lakes: Attraction[] = [
     ],
     image: "https://images.pexels.com/photos/631317/pexels-photo-631317.jpeg"
   },
+
   {
     id: "lake-kyoga",
     slug: "lake-kyoga",
@@ -114,7 +129,8 @@ export const lakes: Attraction[] = [
     subtitle: "אגם הביצות הגדול - עולם ציפורים מרהיב",
     category: "lakes",
     region: "מרכז אוגנדה, בין אגם ויקטוריה לאגם אלברט",
-    description: "אגם קיוגה הוא אגם רדוד המכיל איים רבים וביצות נרחבות. האגם ידוע בעולם הציפורים המרהיב שלו, עם מאות מינים של עופות מים.",
+    description: "אגם קיוגה הוא אגם רדוד המכיל איים רבים וביצות נרחבות. האגם ידוע בעולם הציפורים המרהיב שלו, עם מאות מינים של עופות מים, כולל פלמינגו, אנפות וציפורים נודדות. זהו אחד המקומות הטובים ביותר לצפייה בציפורים באוגנדה.",
+    
     highlights: [
       "עולם ציפורים מרהיב",
       "ביצות נרחבות",
@@ -122,11 +138,13 @@ export const lakes: Attraction[] = [
       "פלמינגו",
       "ציפורים נודדות"
     ],
+    
     duration: "חצי יום–יום מלא",
     difficulty: "קל",
     bestSeason: "נובמבר–מרץ (ציפורים נודדות)",
     permitCost: "ללא עלות",
     minAge: 0,
+    
     wildlife: ["מאות מיני ציפורים", "פלמינגו", "אנפות", "דגים"],
     howToGetThere: ["כבישים ראשיים", "אוטובוסים זמינים", "3–4 שעות מקמפלה"],
     whatToBring: ["משקפת", "מצלמה", "כובע", "דוחה יתושים"],
@@ -135,6 +153,7 @@ export const lakes: Attraction[] = [
     nearby: ["Jinja", "Source of the Nile", "Kampala"],
     whyUs: ["מדריכי ציפורים מומחים", "גישה ייחודית", "ניסיון באזור"],
     valueAdd: ["עולם ציפורים ייחודי", "פחות תיירים", "חוויה טבעית"],
+    
     gallery: [
       "https://images.pexels.com/photos/631317/pexels-photo-631317.jpeg",
       "https://images.pexels.com/photos/1661535/pexels-photo-1661535.jpeg",
@@ -142,6 +161,7 @@ export const lakes: Attraction[] = [
     ],
     image: "https://images.pexels.com/photos/631317/pexels-photo-631317.jpeg"
   },
+
   {
     id: "lake-edward",
     slug: "lake-edward",
@@ -149,7 +169,8 @@ export const lakes: Attraction[] = [
     subtitle: "אגם השמורה - חלק מפארק המלכה אליזבת",
     category: "lakes",
     region: "מערב אוגנדה, בתוך פארק המלכה אליזבת",
-    description: "אגם אדוארד הוא חלק מפארק המלכה אליזבת המפורסם. האגם ידוע בעולם החי המגוון שלו, כולל היפופוטמים, תנינים ועופות מים רבים.",
+    description: "אגם אדוארד הוא חלק מפארק המלכה אליזבת המפורסם. האגם ידוע בעולם החי המגוון שלו, כולל היפופוטמים, תנינים ועופות מים רבים. זהו אחד המקומות הטובים ביותר לצפייה בחיות בר באפריקה, עם נוף מרהיב של הרי רוונזורי ברקע.",
+    
     highlights: [
       "חלק מפארק המלכה אליזבת",
       "היפופוטמים",
@@ -157,11 +178,13 @@ export const lakes: Attraction[] = [
       "עופות מים",
       "נוף הרי רוונזורי"
     ],
+    
     duration: "יום מלא–יומיים",
     difficulty: "קל",
     bestSeason: "יוני–ספטמבר, דצמבר–פברואר",
     permitCost: "כלול בדמי הפארק",
     minAge: 0,
+    
     wildlife: ["היפופוטמים", "תנינים", "עופות מים", "דגים"],
     howToGetThere: ["דרך פארק המלכה אליזבת", "טיסות פנימיות", "6–8 שעות מקמפלה"],
     whatToBring: ["משקפת", "מצלמה", "כובע", "דוחה יתושים"],
@@ -170,6 +193,7 @@ export const lakes: Attraction[] = [
     nearby: ["Queen Elizabeth NP", "Bwindi NP", "Kasese"],
     whyUs: ["מדריכי פארק מומחים", "גישה ייחודית", "ניסיון בפארק"],
     valueAdd: ["חלק מפארק מפורסם", "עולם חי עשיר", "נוף מרהיב"],
+    
     gallery: [
       "https://images.pexels.com/photos/631317/pexels-photo-631317.jpeg",
       "https://images.pexels.com/photos/1661535/pexels-photo-1661535.jpeg",
@@ -177,6 +201,7 @@ export const lakes: Attraction[] = [
     ],
     image: "https://images.pexels.com/photos/631317/pexels-photo-631317.jpeg"
   },
+
   {
     id: "lake-george",
     slug: "lake-george",
@@ -184,7 +209,8 @@ export const lakes: Attraction[] = [
     subtitle: "אגם המלח הקטן - בית להיפופוטמים",
     category: "lakes",
     region: "מערב אוגנדה, ליד אגם אדוארד",
-    description: "אגם ג'ורג' הוא אגם קטן יחסית המכיל מים מלוחים. האגם ידוע באוכלוסיית ההיפופוטמים הגדולה שלו ובנוף המרהיב של הרי רוונזורי.",
+    description: "אגם ג'ורג' הוא אגם קטן יחסית המכיל מים מלוחים. האגם ידוע באוכלוסיית ההיפופוטמים הגדולה שלו ובנוף המרהיב של הרי רוונזורי. זהו מקום מצוין לצפייה בהיפופוטמים ולצילום נוף.",
+    
     highlights: [
       "אוכלוסיית היפופוטמים גדולה",
       "מים מלוחים",
@@ -192,11 +218,13 @@ export const lakes: Attraction[] = [
       "צילום נוף",
       "חלק מפארק המלכה אליזבת"
     ],
+    
     duration: "חצי יום",
     difficulty: "קל",
     bestSeason: "יוני–ספטמבר, דצמבר–פברואר",
     permitCost: "כלול בדמי הפארק",
     minAge: 0,
+    
     wildlife: ["היפופוטמים", "עופות מים", "דגים"],
     howToGetThere: ["דרך פארק המלכה אליזבת", "טיסות פנימיות", "6–8 שעות מקמפלה"],
     whatToBring: ["משקפת", "מצלמה", "כובע", "דוחה יתושים"],
@@ -205,6 +233,7 @@ export const lakes: Attraction[] = [
     nearby: ["Queen Elizabeth NP", "Lake Edward", "Kasese"],
     whyUs: ["מדריכי פארק מומחים", "גישה ייחודית", "ניסיון בפארק"],
     valueAdd: ["היפופוטמים רבים", "נוף מרהיב", "חלק מפארק מפורסם"],
+    
     gallery: [
       "https://images.pexels.com/photos/631317/pexels-photo-631317.jpeg",
       "https://images.pexels.com/photos/1661535/pexels-photo-1661535.jpeg",
@@ -212,6 +241,7 @@ export const lakes: Attraction[] = [
     ],
     image: "https://images.pexels.com/photos/631317/pexels-photo-631317.jpeg"
   },
+
   {
     id: "lake-mutanda",
     slug: "lake-mutanda",
@@ -219,7 +249,8 @@ export const lakes: Attraction[] = [
     subtitle: "אגם הגורילות - נוף הררי מרהיב",
     category: "lakes",
     region: "דרום מערב אוגנדה, ליד פארק בווינדי",
-    description: "אגם מוטנדה ממוקם ליד פארק בווינדי המפורסם בגורילות. האגם מתאפיין בנוף הררי מרהיב עם הרי וירונגה ברקע.",
+    description: "אגם מוטנדה ממוקם ליד פארק בווינדי המפורסם בגורילות. האגם מתאפיין בנוף הררי מרהיב עם הרי וירונגה ברקע. זהו מקום מצוין לנופש רגוע ולצפייה בנוף המרהיב של האזור.",
+    
     highlights: [
       "נוף הרי וירונגה",
       "קרבה לפארק בווינדי",
@@ -227,11 +258,13 @@ export const lakes: Attraction[] = [
       "צילום נוף",
       "אזור גורילות"
     ],
+    
     duration: "לילה אחד–יומיים",
     difficulty: "קל",
     bestSeason: "יוני–ספטמבר, דצמבר–פברואר",
     permitCost: "ללא עלות",
     minAge: 0,
+    
     wildlife: ["עופות מים", "דגים", "צמחיית הרים"],
     howToGetThere: ["דרך פארק בווינדי", "אוטובוסים זמינים", "8–10 שעות מקמפלה"],
     whatToBring: ["מצלמה", "כובע", "דוחה יתושים", "בגדים חמים"],
@@ -240,6 +273,7 @@ export const lakes: Attraction[] = [
     nearby: ["Bwindi NP", "Mgahinga NP", "Kisoro"],
     whyUs: ["מדריכים מקומיים", "גישה ייחודית", "ניסיון באזור"],
     valueAdd: ["נוף הררי ייחודי", "קרבה לגורילות", "נופש רגוע"],
+    
     gallery: [
       "https://images.pexels.com/photos/631317/pexels-photo-631317.jpeg",
       "https://images.pexels.com/photos/1661535/pexels-photo-1661535.jpeg",
@@ -247,6 +281,7 @@ export const lakes: Attraction[] = [
     ],
     image: "https://images.pexels.com/photos/631317/pexels-photo-631317.jpeg"
   },
+
   {
     id: "lake-mburo",
     slug: "lake-mburo",
@@ -254,7 +289,8 @@ export const lakes: Attraction[] = [
     subtitle: "אגם הספארי הקרוב - חיות בר מגוונות",
     category: "lakes",
     region: "מערב אוגנדה, פארק אגם מבורו",
-    description: "אגם מבורו הוא חלק מפארק אגם מבורו המפורסם. האגם ידוע בעולם החי המגוון שלו, כולל זברות, אנטילופות, היפופוטמים ועופות מים רבים.",
+    description: "אגם מבורו הוא חלק מפארק אגם מבורו המפורסם. האגם ידוע בעולם החי המגוון שלו, כולל זברות, אנטילופות, היפופוטמים ועופות מים רבים. זהו אחד המקומות הקרובים ביותר לקמפלה לצפייה בחיות בר.",
+    
     highlights: [
       "חלק מפארק אגם מבורו",
       "זברות",
@@ -262,11 +298,13 @@ export const lakes: Attraction[] = [
       "היפופוטמים",
       "קרוב לקמפלה"
     ],
+    
     duration: "יום מלא",
     difficulty: "קל",
     bestSeason: "יוני–ספטמבר, דצמבר–פברואר",
     permitCost: "כלול בדמי הפארק",
     minAge: 0,
+    
     wildlife: ["זברות", "אנטילופות", "היפופוטמים", "עופות מים"],
     howToGetThere: ["כבישים ראשיים", "אוטובוסים זמינים", "3–4 שעות מקמפלה"],
     whatToBring: ["משקפת", "מצלמה", "כובע", "דוחה יתושים"],
@@ -275,6 +313,7 @@ export const lakes: Attraction[] = [
     nearby: ["Lake Mburo NP", "Mbarara", "Kampala"],
     whyUs: ["מדריכי פארק מומחים", "גישה ייחודית", "ניסיון בפארק"],
     valueAdd: ["קרוב לקמפלה", "עולם חי מגוון", "נוף מרהיב"],
+    
     gallery: [
       "https://images.pexels.com/photos/631317/pexels-photo-631317.jpeg",
       "https://images.pexels.com/photos/1661535/pexels-photo-1661535.jpeg",
