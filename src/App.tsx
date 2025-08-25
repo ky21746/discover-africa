@@ -49,7 +49,8 @@ const ScrollToTop: React.FC = () => {
 export default function App() {
   return (
     <WishlistProvider>
-      <Router basename="/discover-africa">
+      {/* שינוי יחיד: basename="/" במקום "/discover-africa" */}
+      <Router basename="/">
         {/* קומפוננטה שמחזירה לראש הדף בכל מעבר עמוד */}
         <ScrollToTop />
         

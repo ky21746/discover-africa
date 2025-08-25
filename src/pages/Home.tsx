@@ -45,10 +45,10 @@ const Home: React.FC = () => {
       {/* Hero Section */}
       <section className="relative bg-gradient-to-r from-gray-900 to-gray-800 text-white py-20 md:py-32 overflow-hidden">
         <div
-          className="absolute inset-0 bg-cover bg-center opacity-30"
+          className="absolute inset-0 bg-cover bg-center opacity-65"
           style={{
             backgroundImage:
-              "url(https://images.pexels.com/photos/631317/pexels-photo-631317.jpeg)",
+              "url(https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/hero-gorilla.webp?alt=media&token=c67bec83-4363-4104-a102-757f69b351a4)",
           }}
         />
         <div className="relative container mx-auto px-4 text-center">

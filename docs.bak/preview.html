@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discover Africa - Preview</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ff7b54, #ff9a56);
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        
+        .login-container {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .password-form {
+            margin-top: 30px;
+        }
+        
+        input[type="password"] {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            margin-bottom: 20px;
+            width: 250px;
+        }
+        
+        button {
+            background: #fff;
+            color: #ff7b54;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        button:hover {
+            background: #f0f0f0;
+        }
+        
+        .error {
+            color: #ff6b6b;
+            margin-top: 10px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h1>🔐 Discover Africa</h1>
+        <p>גרסה מוגנת - הזן סיסמה</p>
+        
+        <div class="password-form">
+            <input type="password" id="password" placeholder="הזן סיסמה" />
+            <br>
+            <button onclick="checkPassword()">כניסה</button>
+            <div id="error" class="error">סיסמה שגויה</div>
+        </div>
+    </div>
+
+    <script>
+        function checkPassword() {
+            const password = document.getElementById('password').value;
+            const correctPassword = 'discover2024'; // סיסמה פשוטה
+            
+            if (password === correctPassword) {
+                // מעבר לאתר המלא - נבנה את האתר המלא
+                window.location.href = 'https://discover-africa-ky.web.app/';
+            } else {
+                document.getElementById('error').style.display = 'block';
+                document.getElementById('password').value = '';
+            }
+        }
+        
+        // כניסה עם Enter
+        document.getElementById('password').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                checkPassword();
+            }
+        });
+    </script>
+</body>
+</html>

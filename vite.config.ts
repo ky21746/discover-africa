@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/discover-africa/',   // חשוב! נתיב הריפו שלך
+  base: '/',   // עכשיו האתר יפעל ישירות מהשורש של הדומיין
   optimizeDeps: {
     exclude: ['lucide-react'],
   },
