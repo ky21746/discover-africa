@@ -1,6 +1,5 @@
-// src/pages/CategoryPage.tsx
-import React, { useState, useMemo } from "react";
-import { useParams, Link } from "react-router-dom";
+import React, { useState, useMemo, useEffect } from "react";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { Filter } from "lucide-react";
 import Card from "../components/Common/Card";
 import { categories as categoriesData } from "../data/categories";
@@ -72,11 +71,18 @@ const normalize = (s?: string) =>
 const CategoryPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const categorySlug = slug ?? "";
+  const navigate = useNavigate();
+
+  // בדיקה אם זו קטגוריית המים - אם כן, מעביר ל-WaterSubcategories
+  useEffect(() => {
+    if (categorySlug === "water") {
+      navigate("/water", { replace: true });
+    }
+  }, [categorySlug, navigate]);
 
   const isPrimates =
     categorySlug === "gorillas-chimps" || categorySlug === "primates";
   const isSafari = categorySlug === "safari";
-  // הסרנו את הטיפול בקטגוריית המים - היא מטופלת ב-WaterSubcategories
 
   const categories = categoriesData as LocalCategory[];
   const category = categories.find((c) => c.slug === categorySlug);
