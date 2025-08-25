@@ -1,3 +1,4 @@
+cat > index.html <<'EOF'
 <!doctype html>
 <html lang="he" dir="rtl">
   <head>
@@ -5,18 +6,30 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>אוגנדה אדוונצ'רס - טיולי הרפתקה מותאמים אישית</title>
-
-    <!-- Google Fonts: Poppins בלבד -->
+    <style>html{visibility:hidden}</style>
+    <script>
+    (function () {
+      var PASSWORD = 'dis1246';
+      var KEY = '__pw_ok_v1__';
+      if (location.search.indexOf('bypass=1') !== -1) sessionStorage.setItem(KEY, '1');
+      function allow(){ document.documentElement.style.visibility = 'visible'; }
+      if (sessionStorage.getItem(KEY) === '1') { allow(); return; }
+      var p = window.prompt('סיסמה?');
+      if (p === PASSWORD) { sessionStorage.setItem(KEY,'1'); allow(); }
+      else { document.open(); document.write('<!doctype html><meta charset=utf-8><title>Access denied</title><h1 style="font-family:sans-serif">Access denied</h1>'); document.close(); }
+    })();
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    >
-    <script type="module" crossorigin src="/discover-africa/assets/index-BDxzXiI7.js"></script>
-    <link rel="stylesheet" crossorigin href="/discover-africa/assets/index-Nt54dF9o.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   </head>
   <body dir="rtl">
     <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
+EOF
+
+rm -f public/index.html
+npm run build
+firebase deploy --only hosting

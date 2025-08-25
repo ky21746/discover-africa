@@ -1,9 +1,9 @@
 {
   "hosting": {
-    "public": "public",
+    "public": "dist",
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "rewrites": [
-      { "source": "/discover-africa/**", "destination": "/discover-africa/index.html" }
+      { "source": "**", "destination": "/index.html" }
     ]
   }
 }
