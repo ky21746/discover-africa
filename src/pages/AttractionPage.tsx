@@ -1,7 +1,7 @@
 // src/pages/AttractionPage.tsx
-import React, { useMemo, useState } from "react";
+import React, { useMemo, useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
-import { Star, Share2, Heart, MapPin, Clock, Users, Camera, Route, Plus } from "lucide-react";
+import { Star, Share2, Heart, MapPin, Clock, Users, Camera, Route, Plus, X, ChevronLeft, ChevronRight } from "lucide-react";
 
 // ====== DATA ======
 import { gorillasChimps } from "../content/categories/gorillas-chimps";
@@ -13,38 +13,25 @@ import { rivers } from "../content/categories/rivers";
 // ====== WISHLIST ======
 import { WishlistButton } from "../components/Wishlist/WishlistButton";
 
-type Attraction = {
-  id?: string;
-  slug?: string;
-  name: string;
-  subtitle?: string;
-  category?: string;
-  region?: string;
-  duration?: string;
-  difficulty?: string;
-  bestSeason?: string;
-  permitCost?: string;
-  description?: string;
-  summary?: string;
-  gallery?: string[];
-  image?: string;
-  wildlife?: string[];
-  howToGetThere?: string[];
-  accommodation?: string[];
-  healthSafety?: string[];
-  whatToBring?: string[];
-  highlights?: string[];
-  minAge?: number;
-  nearby?: string[];
-  whyUs?: string[];
-  valueAdd?: string[];
+// Import types
+import { Attraction } from "../types";
+
+// Define GalleryItem locally
+interface GalleryItem {
+  src: string;
+  title: string;
+  description: string;
+}
+
+// Extend Attraction with mock data for demo
+type AttractionWithMock = Attraction & {
   // Mock data for demo
   rating?: number;
   reviewCount?: number;
   price?: string;
 };
 
-const allAttractions: Attraction[] = [...gorillasChimps, ...safari, ...waterfalls, ...lakes, ...rivers];
+const allAttractions: AttractionWithMock[] = [...gorillasChimps, ...safari, ...waterfalls, ...lakes, ...rivers];
 
 // מיפוי קטגוריות לשמות בעברית
 const categoryNames: Record<string, string> = {
@@ -141,6 +128,21 @@ const Breadcrumb: React.FC<{ category?: string; attractionName: string }> = ({
   </nav>
 );
 
+// Helper function to get image source from gallery item
+const getImageSrc = (item: string | GalleryItem): string => {
+  return typeof item === 'string' ? item : item.src;
+};
+
+// Helper function to get image title from gallery item
+const getImageTitle = (item: string | GalleryItem): string => {
+  return typeof item === 'string' ? '' : item.title;
+};
+
+// Helper function to get image description from gallery item
+const getImageDescription = (item: string | GalleryItem): string => {
+  return typeof item === 'string' ? '' : item.description;
+};
+
 // slug normalizer
 const normalize = (s?: string) =>
   (s ?? "")
@@ -153,6 +155,9 @@ const normalize = (s?: string) =>
 
 const AttractionPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
+  const [selectedImage, setSelectedImage] = useState<number | null>(null);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
 
   const a = useMemo(() => {
     if (!id) return undefined;
@@ -178,6 +183,80 @@ const AttractionPage: React.FC = () => {
 
   const [expanded, setExpanded] = useState(false);
 
+  // ===== Gallery Functions =====
+  const openLightbox = (index: number) => {
+    setSelectedImage(index);
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeLightbox = () => {
+    setSelectedImage(null);
+    document.body.style.overflow = 'unset';
+  };
+
+  const nextImage = () => {
+    if (!a?.gallery) return;
+    setSelectedImage((prev) => 
+      prev === null ? 0 : (prev + 1) % a.gallery!.length
+    );
+  };
+
+  const prevImage = () => {
+    if (!a?.gallery) return;
+    setSelectedImage((prev) => 
+      prev === null ? 0 : prev === 0 ? a.gallery!.length - 1 : prev - 1
+    );
+  };
+
+  // Touch handlers for mobile swipe
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
+
+    if (isLeftSwipe) {
+      nextImage();
+    }
+    if (isRightSwipe) {
+      prevImage();
+    }
+
+    setTouchStart(null);
+    setTouchEnd(null);
+  };
+
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (selectedImage === null) return;
+      
+      switch (e.key) {
+        case 'Escape':
+          closeLightbox();
+          break;
+        case 'ArrowLeft':
+          prevImage();
+          break;
+        case 'ArrowRight':
+          nextImage();
+          break;
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [selectedImage]);
+
   if (!a) {
     return (
       <div dir="rtl" className="container mx-auto px-4 py-16 text-center">
@@ -192,7 +271,7 @@ const AttractionPage: React.FC = () => {
 
   // תמונת HERO
   const heroImage =
-    a.gallery?.[0] ??
+    (a.gallery && a.gallery.length > 0 ? getImageSrc(a.gallery[0]) : null) ??
     a.image ??
     "https://images.pexels.com/photos/6194629/pexels-photo-6194629.jpeg";
 
@@ -222,7 +301,7 @@ const AttractionPage: React.FC = () => {
     ...(a.whatToBring ?? []),
   ];
 
-  const introFull = a.description ?? a.summary ?? "";
+  const introFull = a.description ?? (a as any).summary ?? "";
   const introShort = introFull.length > 280 ? introFull.slice(0, 280) + "…" : introFull;
 
   return (
@@ -322,7 +401,7 @@ const AttractionPage: React.FC = () => {
             {/* CTA Buttons - Desktop in row, Mobile in column */}
             <div className="flex flex-col md:flex-row gap-3 w-full">
               <button className="bg-amber-500 hover:bg-amber-600 text-black font-bold py-4 px-6 rounded-xl text-base md:text-lg transition-all transform hover:scale-105 shadow-xl w-full md:flex-1">
-                �� הזמן עכשיו - החל מ-{a.price}
+                הזמן עכשיו - החל מ-{a.price}
               </button>
               <button className="bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white font-medium py-3 px-4 md:px-6 rounded-xl transition-all border border-white/30 w-full md:flex-1">
                 <Users className="w-4 h-4 inline ml-2" />
@@ -504,23 +583,45 @@ const AttractionPage: React.FC = () => {
                   גלריה ({a.gallery.length} תמונות)
                 </h3>
                 <div className="grid grid-cols-2 gap-2">
-                  {a.gallery.slice(0, 4).map((src, i) => (
-                    <div key={i} className="relative group rounded-lg overflow-hidden">
-                      <img
-                        src={src}
-                        alt={`${a.name} ${i + 1}`}
-                        className="w-full h-24 md:h-28 object-cover transition-transform group-hover:scale-105"
-                        loading="lazy"
-                      />
-                      {i === 3 && a.gallery!.length > 4 && (
-                        <div className="absolute inset-0 bg-black/60 flex items-center justify-center text-white font-bold">
-                          +{a.gallery!.length - 4}
-                        </div>
-                      )}
-                    </div>
-                  ))}
+                  {a.gallery.slice(0, 4).map((item, i) => {
+                    const src = getImageSrc(item);
+                    const title = getImageTitle(item);
+                    const description = getImageDescription(item);
+                    
+                    return (
+                      <div 
+                        key={i} 
+                        className="relative group rounded-lg overflow-hidden cursor-pointer"
+                        onClick={() => openLightbox(i)}
+                      >
+                        <img
+                          src={src}
+                          alt={title || `${a.name} ${i + 1}`}
+                          className="w-full h-24 md:h-28 object-cover transition-transform group-hover:scale-105"
+                          loading="lazy"
+                        />
+                        {/* Show title overlay if available */}
+                        {title && (
+                          <div className="absolute bottom-0 left-0 right-0 bg-black/70 text-white p-2 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                            <div className="text-xs font-medium">{title}</div>
+                            {description && (
+                              <div className="text-xs text-gray-300 mt-1">{description}</div>
+                            )}
+                          </div>
+                        )}
+                        {i === 3 && a.gallery!.length > 4 && (
+                          <div className="absolute inset-0 bg-black/60 flex items-center justify-center text-white font-bold">
+                            +{a.gallery!.length - 4}
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
                 </div>
-                <button className="w-full mt-3 py-2 text-amber-600 hover:text-amber-700 font-medium border border-amber-200 rounded-lg hover:bg-amber-50 transition-colors">
+                <button 
+                  className="w-full mt-3 py-2 text-amber-600 hover:text-amber-700 font-medium border border-amber-200 rounded-lg hover:bg-amber-50 transition-colors"
+                  onClick={() => openLightbox(0)}
+                >
                   צפה בכל התמונות
                 </button>
               </section>
@@ -557,7 +658,64 @@ const AttractionPage: React.FC = () => {
           </div>
         </div>
       </div>
-    </div>
+
+      {/* Lightbox */}
+      {selectedImage !== null && a.gallery && (
+        <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center">
+          <div 
+            className="relative w-full h-full flex items-center justify-center"
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+          >
+            {/* Close button */}
+            <button
+              onClick={closeLightbox}
+              className="absolute top-4 right-4 z-10 text-white hover:text-gray-300 transition-colors"
+            >
+              <X className="w-8 h-8" />
+            </button>
+
+            {/* Navigation buttons */}
+            <button
+              onClick={prevImage}
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white hover:text-gray-300 transition-colors"
+            >
+              <ChevronLeft className="w-8 h-8" />
+            </button>
+
+            <button
+              onClick={nextImage}
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white hover:text-gray-300 transition-colors"
+            >
+              <ChevronRight className="w-8 h-8" />
+            </button>
+
+            {/* Image */}
+            <img
+              src={getImageSrc(a.gallery[selectedImage])}
+              alt={getImageTitle(a.gallery[selectedImage]) || `${a.name} ${selectedImage + 1}`}
+              className="max-w-full max-h-full object-contain"
+            />
+
+            {/* Image info overlay */}
+            {getImageTitle(a.gallery[selectedImage]) && (
+              <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 text-white bg-black/70 px-4 py-2 rounded-lg text-center max-w-md">
+                <div className="font-medium">{getImageTitle(a.gallery[selectedImage])}</div>
+                {getImageDescription(a.gallery[selectedImage]) && (
+                  <div className="text-sm text-gray-300 mt-1">{getImageDescription(a.gallery[selectedImage])}</div>
+                )}
+              </div>
+            )}
+
+            {/* Image counter */}
+            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white bg-black/50 px-3 py-1 rounded-full text-sm">
+              {selectedImage + 1} / {a.gallery.length}
+            </div>
+          </div>
+        </div>
+      )}
+    </div> 
   );
 };
 

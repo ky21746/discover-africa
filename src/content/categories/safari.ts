@@ -35,11 +35,33 @@ export const safari: Attraction[] = [
     valueAdd: ["אחד משני הפארקים המבוקרים ביותר", "שילוב ספארי יבשתי ושייט מים", "גישה נוחה מקמפלה"],
     
     gallery: [
-      "https://images.pexels.com/photos/631317/pexels-photo-631317.jpeg",
-      "https://images.pexels.com/photos/1661535/pexels-photo-1661535.jpeg",
-      "https://images.pexels.com/photos/534188/pexels-photo-534188.jpeg"
+      {
+        src: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2Fqueen-elizabeth%2Fqueen-elizabeth-lions-trees-hero.webp?alt=media&token=6aac3487-a6e1-46eb-b0b7-0055c4bb8a95",
+        title: "אריות מטפסי עצים",
+        description: "תופעה נדירה וייחודית בסקטור איששה"
+      },
+      {
+        src: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2Fqueen-elizabeth%2FNile%20Crocodile.webp?alt=media&token=942a6227-2624-4265-8dd8-a230029a51b4",
+        title: "תנין הנילוס",
+        description: "טורף ענק בתעלת קזינגה"
+      },
+      {
+        src: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2Fqueen-elizabeth%2FAfrican%20fish%20eagle.webp?alt=media&token=fe7df4c0-48cb-4d87-bb45-005af4303736",
+        title: "עיט דגים אפריקאי",
+        description: "הציפור הלאומית של אוגנדה"
+      },
+      {
+        src: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2Fqueen-elizabeth%2FAfrican%20Bush%20Elephant%20-%20Loxodonta%20africana%2C%20iconic%20member%20of%20African%20big%20five%2C%20Queen%20Elizabeth%20National%20Park.webp?alt=media&token=3b4c82c9-b383-4bbc-94c1-85438ff412b5",
+        title: "פיל אפריקאי",
+        description: "חבר ב-Big Five - ענק עדין"
+      },
+      {
+        src: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2Fqueen-elizabeth%2FA%20baby%20and%20a%20sub-adult%20hippo%20playing%20in%20Kazinga%20channel%20at%20Queen%20Elizabeth%20National%20Park%20Uganda.webp?alt=media&token=ece139af-488b-4f61-a1c6-4ef5d408505c",
+        title: "היפופוטמים צעירים",
+        description: "משחקים בתעלת קזינגה"
+      }
     ],
-    image: "https://images.pexels.com/photos/631317/pexels-photo-631317.jpeg"
+    image: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2Fqueen-elizabeth%2Fqueen-elizabeth-lions-trees-hero.webp?alt=media&token=6aac3487-a6e1-46eb-b0b7-0055c4bb8a95"
   },
 
   {

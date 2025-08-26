@@ -13,6 +13,7 @@ import PlanYourTrip from "./pages/PlanYourTrip";
 import FAQ from "./pages/FAQ";
 import Contact from "./pages/Contact";
 import AttractionPage from "./pages/AttractionPage";
+import WhoWeAre from "./pages/WhoWeAre";
 import CookieBanner from "./components/CookieBanner";
 import AccessibilityButton from "./components/AccessibilityButton";
 
@@ -88,6 +89,7 @@ export default function App() {
             <Route path="/plan-your-trip" element={<PlanYourTrip />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/who-we-are" element={<WhoWeAre />} />
             
             {/* עמודים משפטיים */}
             <Route path="/privacy" element={<PrivacyPolicy />} />

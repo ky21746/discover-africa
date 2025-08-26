@@ -13,7 +13,6 @@ import {
   ChevronDown,
 } from "lucide-react";
 import Breadcrumbs from "../components/Common/Breadcrumbs";
-import Card from "../components/Common/Card";
 import { getParkBySlug, getRelatedParks, getParkBySlug as findPark } from "../data/parks";
 import { categories } from "../data/categories";
 
@@ -198,153 +197,195 @@ const ParkDetail: React.FC = () => {
   }) => (
     <details className="border rounded-lg bg-white p-4 open:shadow-sm" open={defaultOpen}>
       <summary className="flex items-center justify-between cursor-pointer list-none select-none">
-        <span className="font-semibold">{title}</span>
-        <ChevronDown className="w-5 h-5 text-gray-500 transition-transform details-open:rotate-180" />
+        <h3 className="font-semibold font-sans">{title}</h3>
+        <ChevronDown className="w-5 h-5 text-gray-400 transition-transform group-open:rotate-180" />
       </summary>
-      <div className="mt-3 text-gray-700">{children}</div>
+      <div className="mt-4 pt-4 border-t">{children}</div>
     </details>
   );
 
-  const PracticalContent: React.FC = () => (
-    <section className="space-y-4">
-      <SectionAccordion title="החוויה" defaultOpen>
-        <p className="font-sans leading-relaxed">
-          {/* 4–5 שורות טקסט קצרות, את הארוך כבר הצגנו בפסקאות */}
-          {park.description.split("\n\n")[0]}
-        </p>
-        {Array.isArray(park.highlights) && park.highlights.length > 0 && (
-          <div className="mt-3">
-            <div className="mb-2 text-sm text-muted">מה מצפים לראות:</div>
-            <div className="flex flex-wrap gap-1">
-              {park.highlights.slice(0, 6).map((h, i) => (
-                <span key={i} className="rounded bg-surface px-2 py-1 text-xs">
-                  {h}
-                </span>
+  // תוכן פרקטי (אקורדיונים)
+  const PracticalContent: React.FC = () => {
+    const wildlife = (park as any).wildlife as string[] | undefined;
+    const howToGetThere = (park as any).howToGetThere as string[] | undefined;
+    const whatToBring = (park as any).whatToBring as string[] | undefined;
+    const healthSafety = (park as any).healthSafety as string[] | undefined;
+    const accommodation = (park as any).accommodation as string[] | undefined;
+    const nearby = (park as any).nearby as string[] | undefined;
+    const whyUs = (park as any).whyUs as string[] | undefined;
+    const valueAdd = (park as any).valueAdd as string[] | undefined;
+
+    return (
+      <div className="space-y-4">
+        {wildlife && (
+          <SectionAccordion title="חיות בר" defaultOpen>
+            <ul className="space-y-2">
+              {wildlife.map((item, i) => (
+                <li key={i} className="flex items-start gap-2">
+                  <span className="w-2 h-2 bg-primary rounded-full mt-2 shrink-0" />
+                  <span>{item}</span>
+                </li>
               ))}
-            </div>
-          </div>
+            </ul>
+          </SectionAccordion>
         )}
-      </SectionAccordion>
 
-      <SectionAccordion title="חיות וטבע">
-        <p className="font-sans leading-relaxed">
-          {park.highlights?.length
-            ? `האזור ידוע ב: ${park.highlights.join(" · ")}.`
-            : "חיות וצמחייה ייחודיות לאזור זה."}
-        </p>
-      </SectionAccordion>
+        {howToGetThere && (
+          <SectionAccordion title="איך להגיע">
+            <ul className="space-y-2">
+              {howToGetThere.map((item, i) => (
+                <li key={i} className="flex items-start gap-2">
+                  <span className="w-2 h-2 bg-primary rounded-full mt-2 shrink-0" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </SectionAccordion>
+        )}
 
-      <SectionAccordion title="תכנון הטיול">
-        <div className="space-y-4">
-          <div>
-            <h4 className="font-semibold mb-1">איך מגיעים</h4>
-            {park.logistics?.drive_from_kla && (
-              <p className="text-sm"><strong>נסיעה מקמפלה:</strong> {park.logistics.drive_from_kla}</p>
-            )}
-            {park.logistics?.flight_option && (
-              <p className="text-sm"><strong>אפשרות טיסה:</strong> {park.logistics.flight_option}</p>
-            )}
-          </div>
+        {whatToBring && (
+          <SectionAccordion title="מה להביא">
+            <ul className="space-y-2">
+              {whatToBring.map((item, i) => (
+                <li key={i} className="flex items-start gap-2">
+                  <span className="w-2 h-2 bg-primary rounded-full mt-2 shrink-0" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </SectionAccordion>
+        )}
 
-          <div>
-            <h4 className="font-semibold mb-1">עונות מומלצות</h4>
-            <p className="text-sm mb-3">{park.season}</p>
+        {healthSafety && (
+          <SectionAccordion title="בריאות ובטיחות">
+            <ul className="space-y-2">
+              {healthSafety.map((item, i) => (
+                <li key={i} className="flex items-start gap-2">
+                  <span className="w-2 h-2 bg-primary rounded-full mt-2 shrink-0" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </SectionAccordion>
+        )}
+
+        {accommodation && (
+          <SectionAccordion title="לינה">
+            <ul className="space-y-2">
+              {accommodation.map((item, i) => (
+                <li key={i} className="flex items-start gap-2">
+                  <span className="w-2 h-2 bg-primary rounded-full mt-2 shrink-0" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </SectionAccordion>
+        )}
+
+        {nearby && (
+          <SectionAccordion title="בסביבה">
+            <ul className="space-y-2">
+              {nearby.map((item, i) => (
+                <li key={i} className="flex items-start gap-2">
+                  <span className="w-2 h-2 bg-primary rounded-full mt-2 shrink-0" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </SectionAccordion>
+        )}
+
+        {whyUs && (
+          <SectionAccordion title="למה איתנו">
+            <ul className="space-y-2">
+              {whyUs.map((item, i) => (
+                <li key={i} className="flex items-start gap-2">
+                  <span className="w-2 h-2 bg-primary rounded-full mt-2 shrink-0" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </SectionAccordion>
+        )}
+
+        {valueAdd && (
+          <SectionAccordion title="ערך מוסף">
+            <ul className="space-y-2">
+              {valueAdd.map((item, i) => (
+                <li key={i} className="flex items-start gap-2">
+                  <span className="w-2 h-2 bg-primary rounded-full mt-2 shrink-0" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </SectionAccordion>
+        )}
+
+        {/* עונתיות */}
+        {seasonality && (
+          <SectionAccordion title="עונתיות">
             <SeasonalityBar />
-          </div>
+          </SectionAccordion>
+        )}
+      </div>
+    );
+  };
 
-          <div>
-            <h4 className="font-semibold mb-1">עלויות ורישיונות</h4>
-            <p className="text-sm">
-              {(park as any).license_cost
-                ? (park as any).license_cost
-                : `הערכת עלות: ${park.cost_est}`}
-            </p>
-          </div>
-
-          <div>
-            <h4 className="font-semibold mb-1">מה לארוז</h4>
-            <ul className="text-sm list-disc pr-4 space-y-1">
-              <li>לבוש ניטרלי ונוח</li>
-              <li>מעיל גשם קל ונעלי הליכה</li>
-              {park.boat && <li>ביגוד להחלפה לשייט</li>}
-              <li>תרסיס נגד יתושים ומסנן קרינה</li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="font-semibold mb-1">בטיחות ובריאות</h4>
-            <ul className="text-sm list-disc pr-4 space-y-1">
-              <li>לפעול לפי הנחיות המדריכים</li>
-              <li>שמירה על מרחק מכבד מחיות בר</li>
-              <li>מים, כובע, הפסקות מנוחה</li>
-            </ul>
-          </div>
-        </div>
-      </SectionAccordion>
-
-      <SectionAccordion title="איפה לישון">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {/* Placeholder—תוכל להחליף לנתוני לודג'ים כשיהיו */}
-          <div className="border rounded-lg p-4">
-            <div className="font-semibold">Lodge Example A</div>
-            <div className="text-sm text-gray-600">טווח מחיר: $$$ · דירוג: 4.7</div>
-          </div>
-          <div className="border rounded-lg p-4">
-            <div className="font-semibold">Lodge Example B</div>
-            <div className="text-sm text-gray-600">טווח מחיר: $$ · דירוג: 4.5</div>
-          </div>
-        </div>
-      </SectionAccordion>
-
-      <SectionAccordion title="מסלולים משלימים">
-        <p className="text-sm text-gray-700">
-          ניתן לשלב עם חוויות סמוכות ואזורי טבע נוספים. ראו גם “אטרקציות קרובות” בהמשך העמוד.
-        </p>
-      </SectionAccordion>
-    </section>
-  );
-
+  // מפה (אם יש lat/lng)
   const MapBlock: React.FC = () => {
     const lat = (park as any).lat as number | undefined;
     const lng = (park as any).lng as number | undefined;
+
     if (!lat || !lng) return null;
-    const src = `https://www.openstreetmap.org/export/embed.html?bbox=${lng - 0.3}%2C${lat - 0.3}%2C${lng + 0.3}%2C${lat + 0.3}&layer=mapnik&marker=${lat}%2C${lng}`;
+
     return (
-      <section className="rounded-2xl overflow-hidden border bg-white">
-        <iframe
-          title={`${park.name} map`}
-          src={src}
-          className="w-full h-80"
-          loading="lazy"
-        />
+      <section className="bg-white border rounded-2xl p-5 md:p-6 shadow-sm">
+        <h2 className="text-xl font-bold mb-4 font-sans">מיקום</h2>
+        <div className="aspect-video bg-gray-100 rounded-lg flex items-center justify-center">
+          <div className="text-center">
+            <MapPin className="w-12 h-12 text-gray-400 mx-auto mb-2" />
+            <p className="text-gray-600">מפה תתווסף בקרוב</p>
+            <p className="text-sm text-gray-500">קואורדינטות: {lat}, {lng}</p>
+          </div>
+        </div>
       </section>
     );
   };
 
+  // אטרקציות קרובות
   const NearbyGrid: React.FC = () => {
-    if (!nearbyParks.length) return null;
+    if (nearbyParks.length === 0) return null;
+
     return (
-      <section>
-        <h2 className="text-2xl font-bold mb-4 font-sans">אטרקציות קרובות (עד ~3 שעות)</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <section className="bg-white border rounded-2xl p-5 md:p-6 shadow-sm">
+        <h2 className="text-xl font-bold mb-4 font-sans">קרוב אליך</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {nearbyParks.map((np) => (
-            <Card key={np.slug} className="hover:shadow-lg transition-all duration-300">
-              <div
-                className="card-image"
-                style={{ backgroundImage: `url(${np.image})` }}
-              />
-              <div className="card-content">
-                <h3 className="text-lg font-semibold mb-2 font-sans">{np.name}</h3>
-                <p className="text-sm text-muted mb-4 font-sans">
-                  {np.summary}
-                </p>
-                <div className="card-footer">
-                  <Link to={`/category/${slug}/${np.slug}`} className="btn-primary w-full">
-                    גלה עוד
-                  </Link>
+            <Link
+              key={np.slug}
+              to={`/category/${slug}/${np.slug}`}
+              className="block group"
+            >
+              <div className="bg-white border rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+                <div
+                  className="w-full h-32 bg-cover bg-center"
+                  style={{ backgroundImage: `url(${np.image})` }}
+                />
+                <div className="p-4">
+                  <h3 className="font-semibold group-hover:text-primary transition-colors">{np.name}</h3>
+                  <p className="text-sm text-gray-600 mt-1 line-clamp-2">{np.summary}</p>
+                  {np.tags && np.tags.length > 0 && (
+                    <div className="flex flex-wrap gap-1 mt-2">
+                      {np.tags.slice(0, 2).map((tag, i) => (
+                        <span key={i} className="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  )}
                 </div>
               </div>
-            </Card>
+            </Link>
           ))}
         </div>
       </section>
@@ -356,13 +397,15 @@ const ParkDetail: React.FC = () => {
     <div className="fade-in" dir="rtl">
       {/* HERO */}
       <section className="relative">
-        <div className="relative w-full h-[55vh] md:h-[65vh]">
-          <img
-            src={park.image}
-            alt={park.name}
-            className="w-full h-full object-cover"
-            loading="eager"
-          />
+        <div className="relative w-full h-[55vh] md:h-[65vh] overflow-hidden group">
+          <div className="absolute inset-0 transform group-hover:scale-110 transition-transform duration-700 ease-out">
+            <img
+              src={park.image}
+              alt={park.name}
+              className="w-full h-full object-cover object-center"
+              loading="eager"
+            />
+          </div>
           <div className="absolute inset-0 bg-black/40" />
           <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 text-white">
             <div className="container mx-auto">
@@ -428,7 +471,7 @@ const ParkDetail: React.FC = () => {
                 </Link>
               </div>
 
-              {/* “עוד ב{קטגוריה}” */}
+              {/* "עוד ב{קטגוריה}" */}
               {getRelatedParks(park, 3).length > 0 && (
                 <div className="bg-white border rounded-2xl p-5">
                   <h4 className="font-semibold mb-3 font-sans">עוד ב{category.name}</h4>
@@ -454,15 +497,6 @@ const ParkDetail: React.FC = () => {
               )}
             </div>
           </aside>
-        </div>
-      </div>
-
-      {/* Sticky CTA (mobile only) */}
-      <div className="fixed bottom-0 left-0 right-0 z-30 md:hidden">
-        <div className="backdrop-blur bg-white/90 border-t px-4 py-3">
-          <Link to="/contact" className="btn-primary w-full text-center block">
-            בדיקת זמינות / תכנון אישי
-          </Link>
         </div>
       </div>
     </div>

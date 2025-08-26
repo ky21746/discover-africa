@@ -152,8 +152,8 @@ export const parks: Park[] = [
     description:
       "פארק מגוון: סוואנה, יערות וגופי מים. תעלת קזינגה היא מוקד חיות מרכזי, ואישאשה ידועה באריות המטפסים על עצים.",
     logistics: { drive_from_kla: "6–7 שעות", best_time: "בוקר/אחה\"צ", duration_hours: 3 },
-    gallery: ["https://images.pexels.com/photos/631317/pexels-photo-631317.jpeg"],
-    image: "https://images.pexels.com/photos/631317/pexels-photo-631317.jpeg",
+    gallery: ["https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2Fqueen-elizabeth%2Fqueen-elizabeth-lions-trees-hero.webp?alt=media&token=6aac3487-a6e1-46eb-b0b7-0055c4bb8a95"],
+    image: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2Fqueen-elizabeth%2Fqueen-elizabeth-lions-trees-hero.webp?alt=media&token=6aac3487-a6e1-46eb-b0b7-0055c4bb8a95",
     tags: ["מערב", "שייט", "למשפחות", "פארק לאומי"]
   },
   {

@@ -29,6 +29,7 @@ interface GeneratedTrip {
   icon: React.ReactNode;
   estimatedCost: string;
   description: string;
+  image: string;
 }
 
 const PlanYourTrip: React.FC = () => {
@@ -180,12 +181,13 @@ const PlanYourTrip: React.FC = () => {
     const totalCost = Math.round(baseCost * multiplier * (data.travelers.adults + data.travelers.children + data.travelers.infants));
 
     return {
-      name: `מסלול ${profileNames[data.profile as keyof typeof profileNames]} ${data.duration} באוגנדה`,
-      activities,
-      image: 'https://images.pexels.com/photos/631317/pexels-photo-631317.jpeg',
-      estimatedCost: `₪${totalCost.toLocaleString()}`,
-      description: `מסלול מותאם אישית ל-${data.travelers.adults + data.travelers.children + data.travelers.infants} מטיילים עם ${activities.length} חוויות מרכזיות באוגנדה`
-    };
+  name: `מסלול ${profileNames[data.profile as keyof typeof profileNames]} ${data.duration} באוגנדה`,
+  activities,
+  icon: <Users className="w-6 h-6" />,
+  image: 'https://images.pexels.com/photos/631317/pexels-photo-631317.jpeg',
+  estimatedCost: `₪${totalCost.toLocaleString()}`,
+  description: `מסלול מותאם אישית ל-${data.travelers.adults + data.travelers.children + data.travelers.infants} מטיילים עם ${activities.length} חוויות מרכזיות באוגנדה`
+};
   };
 
   const goBack = () => {
