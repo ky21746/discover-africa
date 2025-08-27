@@ -308,12 +308,13 @@ const AttractionPage: React.FC = () => {
     <div dir="rtl" className="fade-in">
       {/* ===== ENHANCED HERO SECTION ===== */}
       <section className="relative w-full h-[70vh] md:h-[75vh]">
-        {/* Background Image - Mobile Optimized */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center md:bg-fixed"
+        {/* Background Image */}
+        <img 
+          src={heroImage}
+          alt={a.name}
+          className="absolute inset-0 w-full h-full object-cover"
           style={{ 
-            backgroundImage: `url(${heroImage})`,
-            backgroundPosition: 'center 30%' // Better framing for mobile
+            objectPosition: 'center top' // Image at the very top
           }}
         />
         

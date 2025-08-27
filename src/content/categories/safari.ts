@@ -97,11 +97,58 @@ export const safari: Attraction[] = [
     valueAdd: ["הפארק המבוקר ביותר - 25% מהמבקרים", "שילוב ספארי ושייט נהרות", "אחד מאתרי הדגל של אוגנדה"],
     
     gallery: [
-      "https://images.pexels.com/photos/247431/pexels-photo-247431.jpeg",
-      "https://images.pexels.com/photos/631317/pexels-photo-631317.jpeg",
-      "https://images.pexels.com/photos/1661535/pexels-photo-1661535.jpeg"
+      {
+        src: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FMurchison%20Falls%20National%20Park%2Fmurchison-falls-hero.webp?alt=media&token=56ccea2c-c574-46a6-ac3a-a0ecc2fbc3a5",
+        title: "מפלי מורצ'יסון",
+        description: "המפל העוצמתי ביותר בעולם - הנילוס נדחס ב-7 מטר"
+      },
+      {
+        src: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FMurchison%20Falls%20National%20Park%2FMurchison%20Falls.webp?alt=media&token=f1eca0ab-4803-4ae5-bdce-74f08f66fe47",
+        title: "המפל העוצמתי",
+        description: "הנילוס נדחס דרך נקיק צר ויוצר מפל אדיר"
+      },
+      {
+        src: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FMurchison%20Falls%20National%20Park%2FMurchison%20Falls%20Boat.webp?alt=media&token=4349ce69-2820-4c42-b81b-42bb0a560a9d",
+        title: "שייט על הנילוס",
+        description: "הפלגה קסומה על נהר הנילוס עם מאות היפופוטמים"
+      },
+      {
+        src: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FMurchison%20Falls%20National%20Park%2FRothschilds%20giraffes%20savannah%20in%20Murchison%20Falls%20National%20Park.webp?alt=media&token=31d21554-8558-4465-ab1e-ad557b55b096",
+        title: "ג'ירפות רוטשילד",
+        description: "ג'ירפות נדירות בסבנה הפתוחה"
+      },
+      {
+        src: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FMurchison%20Falls%20National%20Park%2FLeopard%20in%20a%20tree%20in%20Murchison%20Falls%20National%20Park%2C%20Uganda.webp?alt=media&token=611ef1e3-2f2d-405e-bd4a-2ffcb03e1d70",
+        title: "נמר על עץ",
+        description: "נמר מטפס על עץ - אחד מ-Big Five"
+      },
+      {
+        src: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FMurchison%20Falls%20National%20Park%2FTourists%20overlook%20the%20massive%20waterfall%20of%20Murchison%20Falls%20on%20the%20Nile%20River%20in%20Uganda.webp?alt=media&token=bc3f5511-234b-4696-85c0-446e67dbea52",
+        title: "תצפית על המפל",
+        description: "מבט מרהיב על המפל העוצמתי"
+      },
+      {
+        src: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FMurchison%20Falls%20National%20Park%2FA%20group%20of%20Puku%20antelope%20in%20Murchison%20Falls%20National%20Park%20Uganda%20Africa.webp?alt=media&token=6763a71e-a7c5-4e5d-9579-662e66502a3d",
+        title: "עדר אנטילופות פוקו",
+        description: "אנטילופות פוקו בסבנה הפתוחה"
+      },
+      {
+        src: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FMurchison%20Falls%20National%20Park%2FCloseup%20of%20a%20raven%20perched%20on%20an%20African%20Buffalo%20in%20the%20Murchison%20Falls%20National%20Park%2C%20Uganda.webp?alt=media&token=1101dfc6-c8fc-4c12-a1eb-0bcc9859b4e1",
+        title: "עורב על באפלו",
+        description: "עורב יושב על באפלו אפריקאי"
+      },
+      {
+        src: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FMurchison%20Falls%20National%20Park%2FWildlife%20of%20Murchison%20Falls%20National%20Park.webp?alt=media&token=1666a99d-6a97-44fc-baa0-d33900346449",
+        title: "חיות הבר",
+        description: "מגוון חיות הבר של הפארק"
+      },
+      {
+        src: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FMurchison%20Falls%20National%20Park%2Ftypical%20dirt%20road%20for%20safari%20in%20Murchison%20Falls%20national%20park%20in%20Uganda%20at%20sunset.webp?alt=media&token=b4f173a4-8a7a-4080-a25e-01581aea99aa",
+        title: "דרך ספארי בשקיעה",
+        description: "דרך עפר טיפוסית לספארי בשעת שקיעה"
+      }
     ],
-    image: "https://images.pexels.com/photos/247431/pexels-photo-247431.jpeg"
+    image: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FMurchison%20Falls%20National%20Park%2Fmurchison-falls-hero.webp?alt=media&token=56ccea2c-c574-46a6-ac3a-a0ecc2fbc3a5"
   },
 
   {

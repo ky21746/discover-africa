@@ -13,7 +13,7 @@ import PlanYourTrip from "./pages/PlanYourTrip";
 import FAQ from "./pages/FAQ";
 import Contact from "./pages/Contact";
 import AttractionPage from "./pages/AttractionPage";
-import WhoWeAre from "./pages/WhoWeAre";
+import HeroTest from "./pages/HeroTest";
 import CookieBanner from "./components/CookieBanner";
 import AccessibilityButton from "./components/AccessibilityButton";
 
@@ -50,7 +50,8 @@ const ScrollToTop: React.FC = () => {
 export default function App() {
   return (
     <WishlistProvider>
-      <Router>
+      {/* שינוי יחיד: basename="/" במקום "/discover-africa" */}
+      <Router basename="/">
         {/* קומפוננטה שמחזירה לראש הדף בכל מעבר עמוד */}
         <ScrollToTop />
         
@@ -89,7 +90,7 @@ export default function App() {
             <Route path="/plan-your-trip" element={<PlanYourTrip />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/who-we-are" element={<WhoWeAre />} />
+            <Route path="/hero-test" element={<HeroTest />} />
             
             {/* עמודים משפטיים */}
             <Route path="/privacy" element={<PrivacyPolicy />} />
