@@ -183,6 +183,29 @@ const AttractionPage: React.FC = () => {
 
   const [expanded, setExpanded] = useState(false);
 
+  // ===== Responsive Hero Height =====
+  useEffect(() => {
+    if (a?.heroHeight?.desktop) {
+      const style = document.createElement('style');
+      style.id = 'hero-height-style';
+      style.textContent = `
+        @media (min-width: 768px) {
+          .hero-section-${a.id} {
+            height: ${a.heroHeight.desktop} !important;
+          }
+        }
+      `;
+      document.head.appendChild(style);
+      
+      return () => {
+        const existingStyle = document.getElementById('hero-height-style');
+        if (existingStyle) {
+          existingStyle.remove();
+        }
+      };
+    }
+  }, [a?.heroHeight, a?.id]);
+
   // ===== Gallery Functions =====
   const openLightbox = (index: number) => {
     setSelectedImage(index);
@@ -271,8 +294,8 @@ const AttractionPage: React.FC = () => {
 
   // תמונת HERO
   const heroImage =
-    (a.gallery && a.gallery.length > 0 ? getImageSrc(a.gallery[0]) : null) ??
     a.image ??
+    (a.gallery && a.gallery.length > 0 ? getImageSrc(a.gallery[0]) : null) ??
     "https://images.pexels.com/photos/6194629/pexels-photo-6194629.jpeg";
 
   // Map coordinates for different attractions
@@ -307,22 +330,24 @@ const AttractionPage: React.FC = () => {
   return (
     <div dir="rtl" className="fade-in">
       {/* ===== ENHANCED HERO SECTION ===== */}
-      <section className="relative w-full h-[70vh] md:h-[75vh]">
-        {/* Background Image */}
+      <section 
+        className={`relative w-full hero-section-${a?.id || 'default'}`}
+        style={{
+          height: a?.heroHeight 
+            ? `${a.heroHeight.mobile || '50vh'}`
+            : '50vh',
+          minHeight: '300px'
+        }}
+      >
         <img 
           src={heroImage}
-          alt={a.name}
-          className="absolute inset-0 w-full h-full object-cover"
-          style={{ 
-            objectPosition: 'center top' // Image at the very top
-          }}
+          alt="Hero"
+          className="absolute inset-0 w-full h-full object-cover object-center object-bottom md:object-top"
         />
-        
-        {/* Enhanced Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/30" />
         
-        {/* Call to Action - Build Your Route */}
-        <div className="absolute top-6 left-6 right-6 z-10">
+        {/* כפתור הוסף למסלול למובייל - צד עליון ימין */}
+        <div className="absolute top-4 right-4 md:hidden z-10">
           <WishlistButton 
             item={{
               id: a.id || a.slug || 'default-id',
@@ -332,99 +357,59 @@ const AttractionPage: React.FC = () => {
               image: heroImage,
               basePrice: a.price || 'מ-$2,400'
             }}
-            variant="bag"
+            variant="text"
+            className="bg-amber-500 hover:bg-green-500 active:bg-green-600 rounded-full shadow-xl flex items-center gap-2 px-3 py-2 transition-all cursor-pointer border-2 border-white/20"
           />
         </div>
-
-        {/* Secondary Action Buttons - Top Right */}
-        <div className="absolute top-6 left-6 flex gap-3 z-[5]">
-          <button className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-colors">
-            <Share2 className="w-5 h-5" />
-          </button>
-          <button className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/30 transition-colors">
-            <Camera className="w-5 h-5" />
-          </button>
-        </div>
-
-        {/* Main Content - Mobile Optimized */}
+        
         <div className="absolute bottom-0 left-0 right-0 p-4 md:p-8">
           <div className="container mx-auto max-w-screen-xl">
-            {/* Category Badge */}
             <div className="mb-3">
               <span className="inline-flex items-center gap-2 bg-amber-500 text-black px-3 py-1.5 rounded-full text-sm font-medium shadow-lg">
                 <MapPin className="w-4 h-4" />
                 {categoryNames[a.category || ""] || a.category}
               </span>
             </div>
-
-            {/* Title & Rating - Mobile Optimized */}
-            <div className="mb-4">
-              <h1 className="text-2xl md:text-5xl font-bold text-white mb-2 leading-tight drop-shadow-lg">
-                {a.name}
-              </h1>
-              {a.subtitle && (
-                <h2 className="text-base md:text-xl text-amber-300 font-medium mb-3 drop-shadow-lg">
-                  {a.subtitle}
-                </h2>
-              )}
-              <div className="bg-black/30 backdrop-blur-sm rounded-lg p-2 inline-block">
-                <Rating rating={a.rating || 4.8} reviewCount={a.reviewCount || 247} />
+            <h1 className="text-2xl md:text-4xl font-bold text-white mb-2 leading-tight drop-shadow-lg">
+              {a.name}
+            </h1>
+            <h2 className="text-base md:text-lg text-amber-300 font-medium mb-3 drop-shadow-lg">
+              {a.subtitle}
+            </h2>
+            
+            {/* כרטיסי מידע + כפתור - מובייל ודסקטופ */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-4">
+              <div className="bg-white/90 backdrop-blur-sm rounded-xl p-3 shadow-lg">
+                <div className="text-lg font-bold text-blue-600">{a.region || "צפון־מערב אוגנדה"}</div>
+                <div className="text-sm text-gray-600">מיקום במדינה</div>
               </div>
-            </div>
-
-            {/* Quick Stats Grid - Hidden on Small Mobile */}
-            <div className="hidden sm:grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
-              {quickStats.map((stat, i) => (
-                <Stat key={i} label={stat.label} value={stat.value} />
-              ))}
-            </div>
-
-            {/* Mobile Stats Bar - Only on Small Screens */}
-            <div className="sm:hidden mb-6">
-              <div className="bg-black/40 backdrop-blur-sm rounded-lg p-3">
-                <div className="flex justify-between items-center text-white text-sm">
-                  <div className="text-center">
-                    <div className="font-bold">{a.duration ?? "3-6 שעות"}</div>
-                    <div className="text-white/80 text-xs">משך</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="font-bold">{a.difficulty ?? "בינוני"}</div>
-                    <div className="text-white/80 text-xs">קושי</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="font-bold text-amber-300">{a.price ?? "מ-$800"}</div>
-                    <div className="text-white/80 text-xs">מחיר</div>
-                  </div>
-                </div>
+              <div className="bg-white/90 backdrop-blur-sm rounded-xl p-3 shadow-lg">
+                <div className="text-lg font-bold text-green-600">{a.duration || "2-4 ימים"}</div>
+                <div className="text-sm text-gray-600">זמן מומלץ לטיול</div>
               </div>
-            </div>
-
-            {/* CTA Buttons - Desktop in row, Mobile in column */}
-            <div className="flex flex-col md:flex-row gap-3 w-full">
-              <button className="bg-amber-500 hover:bg-amber-600 text-black font-bold py-4 px-6 rounded-xl text-base md:text-lg transition-all transform hover:scale-105 shadow-xl w-full md:flex-1">
-                הזמן עכשיו - החל מ-{a.price}
-              </button>
-              <button className="bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white font-medium py-3 px-4 md:px-6 rounded-xl transition-all border border-white/30 w-full md:flex-1">
-                <Users className="w-4 h-4 inline ml-2" />
-                בדוק זמינות
-              </button>
-              <WishlistButton 
-                item={{
-                  id: a.id || a.slug || 'default-id',
-                  attractionId: a.id || a.slug || 'default-id',
-                  name: a.name,
-                  subtitle: a.subtitle,
-                  image: heroImage,
-                  basePrice: a.price || 'מ-$2,400'
-                }}
-                variant="text"
-                className="bg-transparent border-2 border-white/50 hover:border-white text-white font-medium py-3 px-4 md:px-6 rounded-xl transition-all w-full md:flex-1 flex items-center justify-center gap-2"
-              />
+              <div className="bg-white/90 backdrop-blur-sm rounded-xl p-3 shadow-lg">
+                <div className="text-lg font-bold text-amber-600">{a.difficulty || "קל-בינוני"}</div>
+                <div className="text-sm text-gray-600">רמת קושי</div>
+              </div>
+              <div className="bg-white/20 backdrop-blur-sm rounded-xl p-3 shadow-lg border border-white/30 hover:bg-green-500/80 hover:border-green-400 active:bg-green-600 transition-all cursor-pointer">
+                <WishlistButton 
+                  item={{
+                    id: a.id || a.slug || 'default-id',
+                    attractionId: a.id || a.slug || 'default-id',
+                    name: a.name,
+                    subtitle: a.subtitle,
+                    image: heroImage,
+                    basePrice: a.price || 'מ-$2,400'
+                  }}
+                  variant="text"
+                  className="text-lg font-bold text-white flex items-center justify-center h-full"
+                />
+              </div>
             </div>
           </div>
         </div>
       </section>
-
+      
       {/* ===== BREADCRUMB ===== */}
       <Breadcrumb category={a.category} attractionName={a.name} />
 

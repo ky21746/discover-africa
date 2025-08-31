@@ -34,6 +34,12 @@ export const safari: Attraction[] = [
     whyUs: ["מדריכים מקומיים מומחים", "רכבי ספארי עם גג פתוח", "קשרים עם לודג׳ים טובים"],
     valueAdd: ["אחד משני הפארקים המבוקרים ביותר", "שילוב ספארי יבשתי ושייט מים", "גישה נוחה מקמפלה"],
     
+    // Hero section customization - שליטה ספציפית בגובה התמונה
+    heroHeight: {
+      mobile: "60vh",    // גובה גדול יותר במובייל לתמונה של אריות על עצים
+      desktop: "70vh"    // גובה גדול יותר בדסקטופ לחוויית צפייה מרשימה
+    },
+    
     gallery: [
       {
         src: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2Fqueen-elizabeth%2Fqueen-elizabeth-lions-trees-hero.webp?alt=media&token=6aac3487-a6e1-46eb-b0b7-0055c4bb8a95",
@@ -95,6 +101,12 @@ export const safari: Attraction[] = [
     nearby: ["Budongo Forest - שימפנזים", "Ziwa Rhino Sanctuary", "כפרי לואו"],
     whyUs: ["מדריכים מומחים לחיות נדירות", "רכבי ספארי 4X4", "שייט פרטי בשעות זהב"],
     valueAdd: ["הפארק המבוקר ביותר - 25% מהמבקרים", "שילוב ספארי ושייט נהרות", "אחד מאתרי הדגל של אוגנדה"],
+    
+    // Hero section customization - שליטה ספציפית בגובה התמונה
+    heroHeight: {
+      mobile: "45vh",    // גובה בינוני במובייל למפל
+      desktop: "65vh"    // גובה בינוני בדסקטופ למפל
+    },
     
     gallery: [
       {
@@ -183,12 +195,45 @@ export const safari: Attraction[] = [
     whyUs: ["רכיבה על סוסים בספארי", "גישה אינטימית לחיות", "מדריכים לסיורי הליכה"],
     valueAdd: ["Top 5 פארקים באוגנדה", "אידיאלי למשפחות", "נקודת כניסה מושלמת לספארי"],
     
+    // Hero section customization - שליטה ספציפית בגובה התמונה
+    heroHeight: {
+      mobile: "55vh",    // גובה בינוני במובייל לזברה בשקיעה
+      desktop: "65vh"    // גובה בינוני בדסקטופ לזברה בשקיעה
+    },
+    
     gallery: [
-      "https://images.pexels.com/photos/631317/pexels-photo-631317.jpeg",
-      "https://images.pexels.com/photos/1661535/pexels-photo-1661535.jpeg",
-      "https://images.pexels.com/photos/534188/pexels-photo-534188.jpeg"
+      {
+        src: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/Lake%20Mburo%20National%20Park%2Fmaneless%20zebra.webp?alt=media&token=0c16e1ee-a6af-4bbf-a4cf-ab69dbff264a",
+        title: "זברה ללא רעמה",
+        description: "זברה ייחודית ללא רעמה באגם מבורו"
+      },
+      {
+        src: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/Lake%20Mburo%20National%20Park%2Fhippopotamus%20in%20lake%20mburo%20uganda.webp?alt=media&token=98a07d23-4af2-4063-997a-a3003f3fb2bc",
+        title: "היפופוטם באגם מבורו",
+        description: "היפופוטם מרגיע במי האגם"
+      },
+      {
+        src: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/Lake%20Mburo%20National%20Park%2FZebra%20Lake%20Mburo%20National%20Park%2C%20Uganda.webp?alt=media&token=f2f0ee63-c2a5-435e-85a0-138b896382fa",
+        title: "זברה באגם מבורו",
+        description: "זברה יפה בסבנה הפתוחה"
+      },
+      {
+        src: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/Lake%20Mburo%20National%20Park%2FAfrican%20buffalo%20in%20mud%20Lake%20Mburo%20National%20ParkUganda.webp?alt=media&token=68f35c42-c56a-4893-aa52-2e1a35d1104a",
+        title: "באפלו אפריקאי בבוץ",
+        description: "באפלו מתקרר בבוץ של האגם"
+      },
+      {
+        src: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/Lake%20Mburo%20National%20Park%2FAfrica%20sunset.%20Plains%20zebra%2C%20Equus%20quagga%2C%20in%20the%20grassy%20nature%20habitat%20with%20evening%20light%20in%20Lake%20Mburo%20NP%20in%20Uganda.webp?alt=media&token=4917da8b-e39b-4eb0-8794-1921a64dcfd2",
+        title: "זברה בשקיעה",
+        description: "זברה בשקיעה אפריקאית מרהיבה"
+      },
+      {
+        src: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/Lake%20Mburo%20National%20Park%2FA%20herd%20of%20impala%20Lake%20Mburo%20National%20Park%20Uganda.webp?alt=media&token=0b1f6496-ce6c-42c7-aa0d-8c7c4ea18118",
+        title: "עדר אימפלות",
+        description: "עדר אימפלות יפות בסבנה"
+      }
     ],
-    image: "https://images.pexels.com/photos/631317/pexels-photo-631317.jpeg"
+    image: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/Lake%20Mburo%20National%20Park%2FAfrica%20sunset.%20Plains%20zebra%2C%20Equus%20quagga%2C%20in%20the%20grassy%20nature%20habitat%20with%20evening%20light%20in%20Lake%20Mburo%20NP%20in%20Uganda-Hero.webp?alt=media&token=decce22e-f118-41a1-b80c-657770874411"
   },
 
   {
@@ -263,12 +308,35 @@ export const safari: Attraction[] = [
     whyUs: ["מדריכים מומחי הרים", "ציוד טרקים מקצועי", "קשרים עם קהילות מקומיות"],
     valueAdd: ["יעד נישה לתרמילאים", "שילוב טבע ותרבות", "גישה נוחה יחסית"],
     
+    // Hero section customization - שליטה ספציפית בגובה התמונה
+    heroHeight: {
+      mobile: "55vh",    // גובה בינוני במובייל להר אלגון
+      desktop: "65vh"    // גובה בינוני בדסקטופ להר אלגון
+    },
+    
     gallery: [
-      "https://images.pexels.com/photos/631317/pexels-photo-631317.jpeg",
-      "https://images.pexels.com/photos/1661535/pexels-photo-1661535.jpeg",
-      "https://images.pexels.com/photos/534188/pexels-photo-534188.jpeg"
+      {
+        src: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FSafari%20Uganda%2FMount%20Elgon%20National%20Park%2FThe%20amazing%20Sipi%20falls%20in%20the%20Mount%20Elgon%20national%20park%20in%20Uganda.webp?alt=media&token=13642ed8-bd50-42a1-ac7e-d7ef3e39ed62",
+        title: "מפלי סיפי המרהיבים",
+        description: "מפלי סיפי היפים בפארק הלאומי הר אלגון"
+      },
+      {
+        src: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FSafari%20Uganda%2FMount%20Elgon%20National%20Park%2FScenic%20view%20of%20Sipi%20Waterfall%20in%20Kapchorwa%2C%20Mount%20Elgon.webp?alt=media&token=6555b110-8541-4e11-baad-1f95a3a2d5ad",
+        title: "נוף מרהיב של מפלי סיפי",
+        description: "מבט מרהיב על מפלי סיפי בקפצ'ורווה"
+      },
+      {
+        src: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FSafari%20Uganda%2FMount%20Elgon%20National%20Park%2FScenic%20view%20of%20Sipi%20Waterfall%20in%20Kapchorwa%2C%20Mount%20Elgon%2C%20Uganda.webp?alt=media&token=f6b5955a-b474-4ac5-8e5b-35f488f46473",
+        title: "מפלי סיפי בקפצ'ורווה",
+        description: "נוף מרהיב של מפלי סיפי בהר אלגון"
+      },
+      {
+        src: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FSafari%20Uganda%2FMount%20Elgon%20National%20Park%2FMount%20Elgon%20National%20Park%2C%20Uganda.%20A%20rich%20biodiverse%20area%20of%20protected%20wildlife%20used%20by%20hikers%20and%20protected%20by%20rangers.webp?alt=media&token=b2932cee-e7fb-410b-95a9-8984b20097e8",
+        title: "פארק לאומי הר אלגון",
+        description: "אזור עשיר במגוון ביולוגי עם חיות בר מוגנות"
+      }
     ],
-    image: "https://images.pexels.com/photos/631317/pexels-photo-631317.jpeg"
+    image: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FSafari%20Uganda%2FMount%20Elgon%20National%20Park%2FMount%20Elgon%20national%20park%20in%20Uganda-hero.webp?alt=media&token=f311d9a8-eedc-497a-961d-01145b159634"
   },
 
   {
@@ -303,12 +371,35 @@ export const safari: Attraction[] = [
     whyUs: ["מדריכים מומחי הרים", "סבלים מקצועיים", "ציוד איכותי"],
     valueAdd: ["יעד נישה להרפתקנים", "חוויה ייחודית בעולם", "קהילות מקומיות אותנטיות"],
     
+    // Hero section customization - שליטה ספציפית בגובה התמונה
+    heroHeight: {
+      mobile: "60vh",    // גובה גדול במובייל לנוף הרים מרהיב
+      desktop: "70vh"    // גובה גדול בדסקטופ לנוף הרים מרהיב
+    },
+    
     gallery: [
-      "https://images.pexels.com/photos/631317/pexels-photo-631317.jpeg",
-      "https://images.pexels.com/photos/1661535/pexels-photo-1661535.jpeg",
-      "https://images.pexels.com/photos/534188/pexels-photo-534188.jpeg"
+      {
+        src: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FSafari%20Uganda%2FRwenzori%20Mountains%20National%20Park%2FSwamp%20in%20Rwenzori%20National%20Park.webp?alt=media&token=9456666b-7548-4045-a6f2-e199583c4ec8",
+        title: "ביצה בהרי הרוונזורי",
+        description: "ביצה ייחודית בפארק הלאומי הרי הרוונזורי"
+      },
+      {
+        src: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FSafari%20Uganda%2FRwenzori%20Mountains%20National%20Park%2FRwenzori%20National%20Park.webp?alt=media&token=9a156dd1-d815-4d6e-aef8-24bbc790d2f9",
+        title: "פארק לאומי הרי הרוונזורי",
+        description: "נוף מרהיב של הרי הרוונזורי"
+      },
+      {
+        src: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FSafari%20Uganda%2FRwenzori%20Mountains%20National%20Park%2FHighland%20landscape%20near%20Weismann%60s%20peak%20in%20Rwenzori%20mountains%2C%20Uganda.%20Little%20lakes%20among%20the%20mossy%20rocks%20at%20high%20altitudes.webp?alt=media&token=f2a1df50-adf9-41e1-99cb-8eb7dfae947e",
+        title: "נוף הרים גבוה",
+        description: "נוף הרים גבוה ליד פסגת וייסמן עם אגמים קטנים בין הסלעים"
+      },
+      {
+        src: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FSafari%20Uganda%2FRwenzori%20Mountains%20National%20Park%2FCommon%20Chimpanzee%20(%20Pan%20troglodytes%20schweinfurtii)%20relaxing%20in%20a%20tree%2C%20Kibale%20Forest%20National%20Park%2C%20Rwenzori%20Mountains%2C%20Uganda..webp?alt=media&token=45344aaa-35dc-45aa-ad2f-b4c590730db4",
+        title: "שימפנזים בהרי הרוונזורי",
+        description: "שימפנזה נח על עץ ביער קיבאלה בהרי הרוונזורי"
+      }
     ],
-    image: "https://images.pexels.com/photos/631317/pexels-photo-631317.jpeg"
+    image: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FSafari%20Uganda%2FRwenzori%20Mountains%20National%20Park%2FHighland%20landscape%20near%20Weismann%60s%20peak%20in%20Rwenzori%20mountains%2C%20Uganda.%20Little%20lakes%20among%20the%20mossy%20rocks%20at%20high%20altitudes-hero.webp?alt=media&token=7333ef02-d1b2-4014-9596-df917bad950c"
   },
 
   {
@@ -343,11 +434,34 @@ export const safari: Attraction[] = [
     whyUs: ["מדריכים מומחי צפרות", "גישה ליער גשם", "קשרים עם קהילות מקומיות"],
     valueAdd: ["יעד נישה ייחודי", "מחקר אקולוגי", "חוויה תרבותית-ביולוגית"],
     
+    // Hero section customization - שליטה ספציפית בגובה התמונה
+    heroHeight: {
+      mobile: "50vh",    // גובה בינוני במובייל למעיינות חמים
+      desktop: "60vh"    // גובה בינוני בדסקטופ למעיינות חמים
+    },
+    
     gallery: [
-      "https://images.pexels.com/photos/631317/pexels-photo-631317.jpeg",
-      "https://images.pexels.com/photos/1661535/pexels-photo-1661535.jpeg",
-      "https://images.pexels.com/photos/534188/pexels-photo-534188.jpeg"
+      {
+        src: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FSafari%20Uganda%2FSemuliki%20National%20Park%2FSemuliki%20National%20Park%20in%20Fort%20portal%20in%20Uganda.webp?alt=media&token=d44454a1-be09-4e19-a7b5-56bde02ee9e8",
+        title: "פארק לאומי סמוליקי",
+        description: "פארק לאומי סמוליקי בפורט פורטל באוגנדה"
+      },
+      {
+        src: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FSafari%20Uganda%2FSemuliki%20National%20Park%2FSemuliki%20National%20Park%20in%20Fort%20portal%20in%20UG.webp?alt=media&token=b17d8247-0cee-4b81-9ae9-7b058715269a",
+        title: "פארק לאומי סמוליקי",
+        description: "נוף מרהיב של הפארק בפורט פורטל"
+      },
+      {
+        src: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FSafari%20Uganda%2FSemuliki%20National%20Park%2FHot%20Springs%20in%20Semuliki%20National%20Park.webp?alt=media&token=e50f5080-b879-4c05-a7c3-a22a7cc1cb8e",
+        title: "מעיינות חמים בסמוליקי",
+        description: "מעיינות החמים המפורסמים של סמוליקי"
+      },
+      {
+        src: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FSafari%20Uganda%2FSemuliki%20National%20Park%2FHot%20Springs%20in%20Semuliki%20National%20Park%2C%20Uganda.webp?alt=media&token=553be061-e916-4428-8480-e11fd4e036e8",
+        title: "מעיינות חמים באוגנדה",
+        description: "מעיינות החמים הסאמפיה המרתיחים ביצים"
+      }
     ],
-    image: "https://images.pexels.com/photos/631317/pexels-photo-631317.jpeg"
+    image: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FSafari%20Uganda%2FSemuliki%20National%20Park%2FHot%20Springs%20in%20Semuliki%20National%20Park%20Uganda-hero.webp?alt=media&token=228dff7f-a458-4f59-bbcc-d29fdb5c9075"
   }
 ];

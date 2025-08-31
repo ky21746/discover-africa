@@ -177,7 +177,6 @@ export interface Park {
   min_age?: number;           // e.g. 12
   license_cost?: string;      // e.g. "$700"
 }
-
 // Gallery item type
 export interface GalleryItem {
   src: string;
@@ -195,7 +194,6 @@ export interface Attraction {
   region?: string;
 
   description: string;
-  summary?: string;           // הוספתי את זה
   highlights?: string[];
   duration?: string;
   difficulty?: string;
@@ -214,4 +212,10 @@ export interface Attraction {
 
   gallery?: (string | GalleryItem)[];  // תמיכה במבנה ישן (string) וחדש (GalleryItem)
   image?: string;             // אופציונלי, בשימוש ב-AttractionPage כ-fallback לתמונה
+  
+  // Hero section customization
+  heroHeight?: {
+    mobile?: string;          // e.g. "40vh", "50vh", "60vh"
+    desktop?: string;         // e.g. "50vh", "60vh", "70vh"
+  };
 }

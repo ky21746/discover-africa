@@ -1,5 +1,6 @@
-import React, { useState, useMemo, useEffect } from "react";
-import { useParams, Link, useNavigate } from "react-router-dom";
+// src/pages/CategoryPage.tsx
+import React, { useState, useMemo } from "react";
+import { useParams, Link } from "react-router-dom";
 import { Filter } from "lucide-react";
 import Card from "../components/Common/Card";
 import { categories as categoriesData } from "../data/categories";
@@ -71,18 +72,11 @@ const normalize = (s?: string) =>
 const CategoryPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const categorySlug = slug ?? "";
-  const navigate = useNavigate();
-
-  // בדיקה אם זו קטגוריית המים - אם כן, מעביר ל-WaterSubcategories
-  useEffect(() => {
-    if (categorySlug === "water") {
-      navigate("/water", { replace: true });
-    }
-  }, [categorySlug, navigate]);
 
   const isPrimates =
     categorySlug === "gorillas-chimps" || categorySlug === "primates";
   const isSafari = categorySlug === "safari";
+  // הסרנו את הטיפול בקטגוריית המים - היא מטופלת ב-WaterSubcategories
 
   const categories = categoriesData as LocalCategory[];
   const category = categories.find((c) => c.slug === categorySlug);
@@ -189,9 +183,15 @@ const CategoryPage: React.FC = () => {
           <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
             {attractions.map((item: any) => {
               const targetSlug = normalize(item.slug || item.id || item.name);
+              
+              // Helper function to get image source from gallery item
+              const getImageSrc = (item: string | any): string => {
+                return typeof item === 'string' ? item : item.src;
+              };
+              
               const cover =
-                item.gallery?.[0] ??
                 item.image ??
+                (item.gallery && item.gallery.length > 0 ? getImageSrc(item.gallery[0]) : null) ??
                 "https://images.pexels.com/photos/6194629/pexels-photo-6194629.jpeg";
               const summary =
                 item.description?.length > 140

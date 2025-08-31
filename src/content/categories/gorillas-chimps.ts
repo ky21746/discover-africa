@@ -63,14 +63,34 @@ export const gorillasChimps: Attraction[] = [
       "שקיפות מלאה: עלויות רישיון וחוקים ידועים מראש",
       "אפשרות לשלב עם ספארי, רפטינג או רייזרים",
     ],
+    // Hero section customization - שליטה ספציפית בגובה התמונה
+    heroHeight: {
+      mobile: "65vh",    // גובה גדול יותר במובייל לתמונה של גורילה עם גורילון
+      desktop: "75vh"    // גובה גדול יותר בדסקטופ לחוויית צפייה מרשימה
+    },
     gallery: [
-      "https://images.pexels.com/photos/6194629/pexels-photo-6194629.jpeg",
-      "https://images.pexels.com/photos/33535/gorilla-primate-silverback-close-up.jpg",
-      "https://images.pexels.com/photos/1670737/pexels-photo-1670737.jpeg",
-      "https://images.pexels.com/photos/145939/pexels-photo-145939.jpeg",
-      "https://images.pexels.com/photos/210012/pexels-photo-210012.jpeg",
+      {
+        src: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FPrimates%20of%20Uganda%2FGorillas%20in%20Bwindi%20Forest%2FMountain%20gorilla%20Bwindi%20Impenetrable%20Forest%20Uganda.webp?alt=media&token=1a4e88e7-4cfd-45d3-8e92-cc3dbc3a3e56",
+        title: "גורילת הרים ביער בווינדי",
+        description: "גורילת הרים מרשימה ביער הבלתי חדיר של בווינדי"
+      },
+      {
+        src: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FPrimates%20of%20Uganda%2FGorillas%20in%20Bwindi%20Forest%2FGorilla%20family%20with%20silverback%20in%20Bwindi%20Impenetrable%20Forest%2C%20Uganda%2C%20Africa.webp?alt=media&token=6afb4c11-7cfa-4c28-a29e-d41dea9634ac",
+        title: "משפחת גורילות עם סילברבק",
+        description: "משפחת גורילות שלמה עם סילברבק מגן על משפחתו"
+      },
+      {
+        src: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FPrimates%20of%20Uganda%2FGorillas%20in%20Bwindi%20Forest%2FGorilla%20Mother%20and%20Baby.webp?alt=media&token=df5b7b7d-0a04-4696-ae59-f26d9e93fded",
+        title: "אם גורילה עם גורילון",
+        description: "אם גורילה אוהבת עם גורילון קטן וחמוד"
+      },
+      {
+        src: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FPrimates%20of%20Uganda%2FGorillas%20in%20Bwindi%20Forest%2FBaby%20Gorilla%20Kisses%20Silverback%20in%20Bwindi%20Impenetrable%20National%20Park%2C%20Uganda.webp?alt=media&token=13d220c2-99d9-477d-b46f-b69253988504",
+        title: "גורילון מנשק סילברבק",
+        description: "רגע מרגש של חיבה בין גורילון לסילברבק"
+      }
     ],
-    image: "https://images.pexels.com/photos/6194629/pexels-photo-6194629.jpeg",
+    image: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FPrimates%20of%20Uganda%2FGorillas%20in%20Bwindi%20Forest%2FBaby%20Gorilla%20Kisses%20Silverback%20in%20Bwindi%20Impenetrable%20National%20Park%2C%20Uganda-hero.webp?alt=media&token=f1676abc-ac4a-462b-9478-136e0399fc55"
   },
   {
     id: "gorillas-mgahinga",
@@ -137,12 +157,34 @@ export const gorillasChimps: Attraction[] = [
       "חוויה אינטימית ללא המוני תיירים",
       "שילוב יחיד של גורילות וקופי זהב",
     ],
+    // Hero section customization - שליטה ספציפית בגובה התמונה
+    heroHeight: {
+      mobile: "60vh",    // גובה בינוני במובייל לגורילות מגהינגה
+      desktop: "70vh"    // גובה בינוני בדסקטופ לגורילות מגהינגה
+    },
     gallery: [
-      "https://images.pexels.com/photos/32181426/pexels-photo-32181426.jpeg",
-      "https://images.pexels.com/photos/145939/pexels-photo-145939.jpeg",
-      "https://images.pexels.com/photos/6194629/pexels-photo-6194629.jpeg",
+      {
+        src: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FPrimates%20of%20Uganda%2FMgahinga%20Gorillas%2FMountain%20gorilla%20in%20the%20Mgahinga%20national%20park.webp?alt=media&token=d0634a10-e144-433e-a9e3-5ccfaa27ea51",
+        title: "גורילת הרים בפארק הלאומי מגהינגה",
+        description: "גורילת הרים מרשימה בנוף הוולקני של מגהינגה"
+      },
+      {
+        src: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FPrimates%20of%20Uganda%2FMgahinga%20Gorillas%2FMountain%20gorilla%20Mgahinga%20National%20park%2C%20Uganda.webp?alt=media&token=cd774ca7-068c-4f9c-90e4-8350e41fb934",
+        title: "גורילת הרים במגהינגה",
+        description: "גורילת הרים יפה בנוף הוולקני הייחודי"
+      },
+      {
+        src: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FPrimates%20of%20Uganda%2FMgahinga%20Gorillas%2FGroup%20of%20gorillas%20in%20Mgahinga%20National%20Park%20Safari%20in%20Uganda.webp?alt=media&token=d4b072d4-2a0d-41e2-935a-7f64f194204f",
+        title: "קבוצת גורילות במגהינגה",
+        description: "משפחת גורילות שלמה בנוף הוולקני הייחודי"
+      },
+      {
+        src: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FPrimates%20of%20Uganda%2FMgahinga%20Gorillas%2FBaby%20gorilla%20in%20natural%20habitat%20looking%20towards%20camera.webp?alt=media&token=17c6b3c4-343e-4504-8ef1-30fdfd828432",
+        title: "גורילון בסביבתו הטבעית",
+        description: "גורילון חמוד מסתכל ישירות למצלמה"
+      }
     ],
-    image: "https://images.pexels.com/photos/32181426/pexels-photo-32181426.jpeg",
+    image: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FPrimates%20of%20Uganda%2FMgahinga%20Gorillas%2FMountain%20gorilla%20Mgahinga%20National%20park%2C%20Uganda-hero.webp?alt=media&token=16f0a4a3-4c15-44e7-b41f-60571b6dadc1"
   },
   {
     id: "chimps-kibale",
@@ -215,11 +257,33 @@ export const gorillasChimps: Attraction[] = [
       "אפשרות להארכת החוויה ליום שלם",
       "מחיר משתלם יחסית לחוויה",
     ],
+    // Hero section customization - שליטה ספציפית בגובה התמונה
+    heroHeight: {
+      mobile: "60vh",    // גובה בינוני במובייל לשימפנזים
+      desktop: "70vh"    // גובה בינוני בדסקטופ לשימפנזים
+    },
     gallery: [
-      "https://images.pexels.com/photos/30929410/pexels-photo-30929410.jpeg",
-      "https://images.pexels.com/photos/2817398/pexels-photo-2817398.jpeg",
-      "https://images.pexels.com/photos/33535/gorilla-primate-silverback-close-up.jpg",
+      {
+        src: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FPrimates%20of%20Uganda%2FKibale%20Chimpanzees%2Fkibale%20chimp%20chimpanzee%20Uganda%20in%20Africa.webp?alt=media&token=5d009a2b-563d-4dbb-b7fb-8f70784554de",
+        title: "שימפנזה בקיבאלה",
+        description: "שימפנזה מרשים ביער קיבאלה הלאומי"
+      },
+      {
+        src: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FPrimates%20of%20Uganda%2FKibale%20Chimpanzees%2FTwo%20chimpanzees%20cleaning%20bugs%20off%20each%20other%2C%20Kibale%20National%20Forest%2C%20Uganda%2C%20Africa.webp?alt=media&token=23b8fcf2-f626-42e3-804b-f2c3aef04663",
+        title: "שני שימפנזים מנקים אחד את השני",
+        description: "רגע אינטימי של טיפוח חברתי בין שימפנזים"
+      },
+      {
+        src: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FPrimates%20of%20Uganda%2FKibale%20Chimpanzees%2FChimpanzee%20in%20Kibale%20National%20Park%20in%20Uganda%2C%20Africa.webp?alt=media&token=92880d0a-9f0c-4578-b566-72dff9fc82a3",
+        title: "שימפנזה בפארק הלאומי קיבאלה",
+        description: "שימפנזה ביער הגשם העשיר של קיבאלה"
+      },
+      {
+        src: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FPrimates%20of%20Uganda%2FKibale%20Chimpanzees%2FChimpanzee%20%20Kibale%20National%20Park%20Uganda%2C%20Africa.webp?alt=media&token=31dc51fd-438c-4678-90bc-e66c44eef6aa",
+        title: "שימפנזה ביער קיבאלה",
+        description: "שימפנזה יפה בסביבתו הטבעית"
+      }
     ],
-    image: "https://images.pexels.com/photos/30929410/pexels-photo-30929410.jpeg",
+    image: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FPrimates%20of%20Uganda%2FKibale%20Chimpanzees%2Fkibale%20chimp%20chimpanzee%20Uganda%20in%20Africa-hero.webp?alt=media&token=ec93ce06-dcca-41a8-bf0a-b886d4112384"
   },
 ];
