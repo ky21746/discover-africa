@@ -9,6 +9,11 @@ import { safari } from "../content/categories/safari";
 
 // ✅ נוסיף את דאטת האטרקציות של גורילות/שימפנזים
 import { gorillasChimps } from "../content/categories/gorillas-chimps";
+// ✅ נוסיף את דאטת האטרקציות של מים
+import { water } from "../content/categories/water";
+import { lakes } from "../content/categories/lakes";
+import { rivers } from "../content/categories/rivers";
+import { waterfalls } from "../content/categories/waterfalls";
 
 type LocalCategory = {
   id: string;
@@ -73,10 +78,16 @@ const CategoryPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const categorySlug = slug ?? "";
 
+  // אם זו קטגוריית מים - קפוץ ל-WaterSubcategories
+  if (categorySlug === "water") {
+    window.location.href = "/water";
+    return null;
+  }
+
   const isPrimates =
     categorySlug === "gorillas-chimps" || categorySlug === "primates";
   const isSafari = categorySlug === "safari";
-  // הסרנו את הטיפול בקטגוריית המים - היא מטופלת ב-WaterSubcategories
+  // קטגוריית מים מטפלת בתת-קטגוריות ב-WaterSubcategories
 
   const categories = categoriesData as LocalCategory[];
   const category = categories.find((c) => c.slug === categorySlug);
@@ -96,7 +107,6 @@ const CategoryPage: React.FC = () => {
   const primateAttractions = useMemo(() => gorillasChimps, []);
   // קטגוריית ספארי – נשתמש ב־safari
   const safariAttractions = useMemo(() => safari, []);
-
   // בחירה דינמית: האם מציגים אטרקציות (פרימטים/ספארי) או parks
   const showAttractions = isPrimates || isSafari;
   const attractions = useMemo(() => {
