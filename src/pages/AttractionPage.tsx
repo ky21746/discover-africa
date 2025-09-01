@@ -55,12 +55,12 @@ const Stat: React.FC<{ label: string; value: string }> = ({ label, value }) => (
 const InfoCard: React.FC<
   React.PropsWithChildren<{ title: string; className?: string }>
 > = ({ title, className = "", children }) => (
-  <section className={`bg-white border rounded-2xl p-5 md:p-6 shadow-sm hover:shadow-md transition-shadow ${className}`}>
-    <h3 className="text-lg font-bold mb-3 flex items-center gap-2">
+  <section className={`bg-gray-800 border-4 border-amber-500 rounded-2xl p-5 md:p-6 shadow-2xl hover:shadow-amber-500/50 transition-all ${className}`}>
+    <h3 className="text-lg font-bold mb-3 flex items-center gap-2 text-white">
       <div className="w-1 h-5 bg-amber-500 rounded-full"></div>
       {title}
     </h3>
-    <div className="text-[17px] leading-relaxed text-gray-800">{children}</div>
+    <div className="text-[17px] leading-relaxed text-white">{children}</div>
   </section>
 );
 

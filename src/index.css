@@ -94,19 +94,21 @@ body {
 
 /* Card styles */
 .card {
-  background: white;
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
   height: 100%;
+  border: 3px solid #d1d5db;
 }
 
 .card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+  border-color: #f59e0b;
 }
 
 .card-image {
@@ -236,4 +238,47 @@ body {
 .smart-agent *::before,
 .smart-agent *::after {
   content: none !important;
+} 
+
+/* Mobile and tablet: emphasize cards visibility */
+@media (max-width: 1024px) {
+  .card {
+    border-top: 4px solid #f59e0b; /* brand accent */
+    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.22);
+  }
+
+  .card-image {
+    border-bottom: 1px solid #e5e7eb; /* clear separation from content */
+  }
+
+  .card-content {
+    background: linear-gradient(180deg, #ffffff 0%, #fafafa 100%);
+  }
+
+  /* Emphasize card title on mobile */
+  .card-content h3 {
+    font-size: 1.625rem; /* ~26px */
+    line-height: 1; /* ensure vertical centering */
+    font-weight: 900;
+    color: #111827; /* gray-900 */
+    letter-spacing: -0.01em;
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 12px;
+    background: linear-gradient(90deg, rgba(245, 158, 11, 0.12), rgba(245, 158, 11, 0.06));
+    border-radius: 10px;
+    margin: 6px 0 10px;
+  }
+
+  /* Style tags/chips to look more prominent */
+  .card-content .bg-surface {
+    background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%) !important;
+    color: white !important;
+    font-weight: 600 !important;
+    padding: 4px 8px !important;
+    border-radius: 12px !important;
+    font-size: 0.75rem !important; /* 12px */
+    border: 1px solid rgba(245, 158, 11, 0.3) !important;
+    box-shadow: 0 2px 4px rgba(245, 158, 11, 0.2) !important;
+  }
 }

@@ -97,10 +97,10 @@ const Home: React.FC = () => {
                   />
                   <div className="card-content">
                     <div className="text-primary mb-3">{category.icon}</div>
-                    <h3 className="text-xl font-semibold mb-2 font-sans">
+                    <h3 className="text-xl font-semibold mb-2 font-sans text-gray-900">
                       {category.name}
                     </h3>
-                    <p className="text-muted font-sans">
+                    <p className="text-gray-600 font-sans">
                       {category.description}
                     </p>
                     <div className="card-footer">

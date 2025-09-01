@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://discoverafrica.co.il/sitemap.xml

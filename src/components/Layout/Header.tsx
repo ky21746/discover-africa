@@ -12,9 +12,13 @@ const Header: React.FC = () => {
         <div className="flex items-center justify-between">
           {/* ימין: לוגו + ניווט */}
           <div className="flex items-center gap-6 rtl:space-x-reverse">
-            <h1 className="text-2xl font-bold text-primary font-sans">
-              אוגנדה אדוונצ'רס
-            </h1>
+            <Link to="/" className="flex items-center">
+              <img 
+                src="/images/discover africa logo.webp" 
+                alt="Discover Africa Logo" 
+                className="h-10 w-auto"
+              />
+            </Link>
             <div className="hidden md:flex">
               <Navigation />
             </div>
