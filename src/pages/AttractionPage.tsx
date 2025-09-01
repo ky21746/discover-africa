@@ -376,66 +376,65 @@ const AttractionPage: React.FC = () => {
             <h2 className="text-base md:text-lg text-amber-300 font-medium mb-3 drop-shadow-lg">
               {a.subtitle}
             </h2>
-            
-            {/* כרטיסי מידע + כפתור - מובייל ודסקטופ */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-4">
-              <div className="bg-white/90 backdrop-blur-sm rounded-xl p-3 shadow-lg">
-                <div className="text-lg font-bold text-blue-600">{a.region || "צפון־מערב אוגנדה"}</div>
-                <div className="text-sm text-gray-600">מיקום במדינה</div>
-              </div>
-              <div className="bg-white/90 backdrop-blur-sm rounded-xl p-3 shadow-lg">
-                <div className="text-lg font-bold text-green-600">{a.duration || "2-4 ימים"}</div>
-                <div className="text-sm text-gray-600">זמן מומלץ לטיול</div>
-              </div>
-              <div className="bg-white/90 backdrop-blur-sm rounded-xl p-3 shadow-lg">
-                <div className="text-lg font-bold text-amber-600">{a.difficulty || "קל-בינוני"}</div>
-                <div className="text-sm text-gray-600">רמת קושי</div>
-              </div>
-              <div className="bg-white/20 backdrop-blur-sm rounded-xl p-3 shadow-lg border border-white/30 hover:bg-green-500/80 hover:border-green-400 active:bg-green-600 transition-all cursor-pointer">
-                <WishlistButton 
-                  item={{
-                    id: a.id || a.slug || 'default-id',
-                    attractionId: a.id || a.slug || 'default-id',
-                    name: a.name,
-                    subtitle: a.subtitle,
-                    image: heroImage,
-                    basePrice: a.price || 'מ-$2,400'
-                  }}
-                  variant="text"
-                  className="text-lg font-bold text-white flex items-center justify-center h-full"
-                />
-              </div>
-            </div>
           </div>
         </div>
       </section>
       
+      {/* ===== כרטיסיות מידע מתחת ל-Hero ===== */}
+      <div className="bg-white border-t">
+        <div className="container mx-auto px-4 py-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            <div className="bg-gray-50 rounded-xl p-3 text-center">
+              <div className="text-lg font-bold text-blue-600">{a.region || "צפון־מערב אוגנדה"}</div>
+              <div className="text-sm text-gray-600">מיקום במדינה</div>
+            </div>
+            <div className="bg-gray-50 rounded-xl p-3 text-center">
+              <div className="text-lg font-bold text-green-600">{a.duration || "2-4 ימים"}</div>
+              <div className="text-sm text-gray-600">זמן מומלץ לטיול</div>
+            </div>
+            <div className="bg-gray-50 rounded-xl p-3 text-center">
+              <div className="text-lg font-bold text-amber-600">{a.difficulty || "קל-בינוני"}</div>
+              <div className="text-sm text-gray-600">רמת קושי</div>
+            </div>
+            <div className="bg-gray-50 rounded-xl p-3 text-center">
+              <WishlistButton 
+                item={{
+                  id: a.id || a.slug || 'default-id',
+                  attractionId: a.id || a.slug || 'default-id',
+                  name: a.name,
+                  subtitle: a.subtitle,
+                  image: heroImage,
+                  basePrice: a.price || 'מ-$2,400'
+                }}
+                variant="text"
+                className="text-lg font-bold text-green-600 flex items-center justify-center h-full"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      
       {/* ===== BREADCRUMB ===== */}
       <Breadcrumb category={a.category} attractionName={a.name} />
 
-      {/* ===== STICKY CTA BAR (Mobile) ===== */}
-      <div className="md:hidden fixed bottom-0 left-0 right-0 bg-white border-t shadow-lg p-4 z-50">
-        <div className="flex gap-3">
-          <button className="flex-1 bg-amber-500 text-black font-bold py-3 rounded-lg">
-            הזמן עכשיו {a.price}
-          </button>
-          <WishlistButton 
-            item={{
-              id: a.id || a.slug || 'default-id',
-              attractionId: a.id || a.slug || 'default-id',
-              name: a.name,
-              subtitle: a.subtitle,
-              image: heroImage,
-              basePrice: a.price || 'מ-$2,400'
-            }}
-            variant="bag"
-            className="whitespace-nowrap text-sm"
-          />
-        </div>
+ס      {/* ===== STICKY CTA BAR (Mobile) - כפתור במרכז התחתית ===== */}
+      <div className="md:hidden fixed bottom-4 left-1/2 transform -translate-x-1/2 z-50">
+        <WishlistButton 
+          item={{
+            id: a.id || a.slug || 'default-id',
+            attractionId: a.id || a.slug || 'default-id',
+            name: a.name,
+            subtitle: a.subtitle,
+            image: heroImage,
+            basePrice: a.price || 'מ-$2,400'
+          }}
+          variant="bag"
+          className="bg-green-500 hover:bg-green-600 text-white rounded-full px-4 py-2 shadow-lg flex items-center justify-center text-sm font-medium"
+        />
       </div>
 
       {/* ===== BODY ===== */}
-      <div className="container mx-auto max-w-screen-xl px-4 py-8 md:py-10 space-y-6 mb-20 md:mb-0">
+      <div className="container mx-auto max-w-screen-xl px-4 py-8 md:py-10 space-y-6">
         
         {/* הדרכה ל-Wishlist */}
         <div className="bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-200 rounded-2xl p-4 flex items-center gap-4">
