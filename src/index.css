@@ -92,10 +92,10 @@ body {
   transform: translateY(-1px);
 }
 
-/* Card button with green color */
+/* Card button with yellow color */
 .btn-card {
-  background-color: #534B20;
-  color: white;
+  background-color: #CAA131;
+  color: #000000;
   padding: 10px 16px;
   border-radius: 8px;
   border: none;
@@ -112,7 +112,7 @@ body {
 }
 
 .btn-card:hover {
-  background-color: #4A4220;
+  background-color: #B8942A;
   transform: translateY(-1px);
 }
 

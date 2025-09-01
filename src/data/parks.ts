@@ -239,65 +239,69 @@ export const parks: Park[] = [
 
   // ===== Mountains =====
   {
+    slug: "mount-elgon",
+    name: "פארק לאומי הר אלגון",
+    category: "mountains",
+    area: "מזרח",
+    family: true,
+    night_drive: false,
+    boat: false,
+    cost_est: "$$",
+    season: "דצמבר-פברואר, יוני-ספטמבר",
+    highlights: [
+      "הר געש כבוי - הרביעי בגובהו באפריקה",
+      "קלדרה עצומה מהגדולות בעולם",
+      "מפלי סיפי המרהיבים",
+      "טרקים נוחים יותר מרוונזורי",
+      "קרבה לעיר מבאלה"
+    ],
+    combos: ["sipi-falls"],
+    summary: "הר געש כבוי עם קלדרה עצומה ומפלי סיפי",
+    description: "אלגון הוא הר געש כבוי ענק, היושב בגבול אוגנדה–קניה. זהו ההר הרביעי בגובהו באפריקה, עם פסגה של 4,321 מ'.\n\nייחודו הוא קלדרה עצומה – מהגדולות בעולם – שניתן לטייל בה ברגל. הפארק משתרע על 1,279 קמ\"ר וכולל יערות גשם, מפלים ועמקים ירוקים. מפלי סיפי המפורסמים נמצאים במורדותיו, ומהווים יעד תיירותי בפני עצמו.",
+    logistics: { drive_from_kla: "4–5 שעות", best_time: "עונה יבשה", duration_hours: 6 },
+    gallery: [
+      "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FSafari%20Uganda%2FMount%20Elgon%20National%20Park%2FThe%20amazing%20Sipi%20falls%20in%20the%20Mount%20Elgon%20national%20park%20in%20Uganda.webp?alt=media&token=13642ed8-bd50-42a1-ac7e-d7ef3e39ed62",
+      "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FSafari%20Uganda%2FMount%20Elgon%20National%20Park%2FScenic%20view%20of%20Sipi%20Waterfall%20in%20Kapchorwa%2C%20Mount%20Elgon.webp?alt=media&token=6555b110-8541-4e11-baad-1f95a3a2d5ad",
+      "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FSafari%20Uganda%2FMount%20Elgon%20National%20Park%2FScenic%20view%20of%20Sipi%20Waterfall%20in%20Kapchorwa%2C%20Mount%20Elgon%2C%20Uganda.webp?alt=media&token=f6b5955a-b474-4ac5-8e5b-35f488f46473",
+      "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FSafari%20Uganda%2FMount%20Elgon%20National%20Park%2FMount%20Elgon%20National%20Park%2C%20Uganda.%20A%20rich%20biodiverse%20area%20of%20protected%20wildlife%20used%20by%20hikers%20and%20protected%20by%20rangers.webp?alt=media&token=b2932cee-e7fb-410b-95a9-8984b20097e8"
+    ],
+    image: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FSafari%20Uganda%2FMount%20Elgon%20National%20Park%2FMount%20Elgon%20national%20park%20in%20Uganda-hero.webp?alt=media&token=f311d9a8-eedc-497a-961d-01145b159634",
+    tags: ["מזרח", "הרים", "פארק לאומי"]
+  },
+
+  {
     slug: "rwenzori-mountains",
-    name: "הרי רוונזורי",
+    name: "פארק לאומי הרי הרוונזורי",
     category: "mountains",
     area: "מערב",
     family: false,
     night_drive: false,
     boat: false,
-    cost_est: "$$",
-    season: "עונה יבשה",
-    highlights: ["הרי הירח", "צמחייה אלפינית", "נופים מרהיבים", "קרחונים"],
+    cost_est: "$$$",
+    season: "דצמבר-פברואר, יוני-אוגוסט",
+    highlights: [
+      "קרחונים על קו המשווה - ייחודי באפריקה",
+      "חמישה אזורי צמחייה ייחודיים",
+      "פסגה 5,109 מ' - השלישי באפריקה",
+      "אתר מורשת עולמית של אונסק\"ו",
+      "טרקים 6-12 ימים"
+    ],
     combos: [],
-    summary: "פארק לאומי הררי עם צמחייה אלפינית ופסגות גבוהות.",
-    description:
-      "רכס רוונזורי מציע מסלולי יום ועד טראקים מרובי־ימים אל נופים אלפיניים נדירים על קו המשווה.",
-    logistics: { drive_from_kla: "6–7 שעות", best_time: "דצמ–פבר / יונ–אוג", duration_hours: 6 },
-    gallery: ["https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg"],
-    image: "https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg",
+    summary: "הרי הירח - קרחונים על קו המשווה",
+    description: "הרי הרוונזורי – \"הרי הירח\" – הם יעד טרקים עולמי ברמה הגבוהה ביותר. הפארק משתרע על 998 קמ\"ר ומוכר כאתר מורשת עולמית של אונסק\"ו.\n\nזהו המקום היחיד באפריקה שבו רואים קרחונים של ממש על קו המשווה. מסלולי הטרקים חוצים חמישה אזורי צמחייה ייחודיים – מג'ונגל ועד נוף אלפיני קפוא. הפסגה הגבוהה ביותר, מרגריטה פיק, מתנשאת ל־5,109 מ'.",
+    logistics: { drive_from_kla: "6–7 שעות", best_time: "דצמ–פבר / יונ–אוג", duration_hours: 8 },
+    
+    gallery: [
+      "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FSafari%20Uganda%2FRwenzori%20Mountains%20National%20Park%2FSwamp%20in%20Rwenzori%20National%20Park.webp?alt=media&token=9456666b-7548-4045-a6f2-e199583c4ec8",
+      "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FSafari%20Uganda%2FRwenzori%20Mountains%20National%20Park%2FRwenzori%20National%20Park.webp?alt=media&token=9a156dd1-d815-4d6e-aef8-24bbc790d2f9",
+      "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FSafari%20Uganda%2FRwenzori%20Mountains%20National%20Park%2FHighland%20landscape%20near%20Weismann%60s%20peak%20in%20Rwenzori%20mountains%2C%20Uganda.%20Little%20lakes%20among%20the%20mossy%20rocks%20at%20high%20altitudes.webp?alt=media&token=f2a1df50-adf9-41e1-99cb-8eb7dfae947e",
+      "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FSafari%20Uganda%2FRwenzori%20Mountains%20National%20Park%2FCommon%20Chimpanzee%20(%20Pan%20troglodytes%20schweinfurtii)%20relaxing%20in%20a%20tree%2C%20Kibale%20Forest%20National%20Park%2C%20Rwenzori%20Mountains%2C%20Uganda..webp?alt=media&token=45344aaa-35dc-45aa-ad2f-b4c590730db4"
+    ],
+    image: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FSafari%20Uganda%2FRwenzori%20Mountains%20National%20Park%2FHighland%20landscape%20near%20Weismann%60s%20peak%20in%20Rwenzori%20mountains%2C%20Uganda.%20Little%20lakes%20among%20the%20mossy%20rocks%20at%20high%20altitudes-hero.webp?alt=media&token=7333ef02-d1b2-4014-9596-df917bad950c",
     tags: ["מערב", "הרים", "פארק לאומי"]
   },
-  {
-    slug: "mount-elgon",
-    name: "הר אלגון",
-    category: "mountains",
-    area: "מזרח",
-    family: true,
-    night_drive: false,
-    boat: false,
-    cost_est: "$",
-    season: "כל השנה",
-    highlights: ["מערות מלח", "נופים געשיים", "קלדרה ענקית"],
-    combos: ["sipi-falls"],
-    summary: "הר געש כבוי עם רשת מסלולים מגוונת.",
-    description:
-      "מסלולי יום נוחים לצד אפשרויות טיפוס לפסגות ותצפיות על קלדרה מהגדולות בעולם.",
-    logistics: { drive_from_kla: "4–5 שעות", best_time: "עונה יבשה", duration_hours: 3 },
-    gallery: ["https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg"],
-    image: "https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg",
-    tags: ["מזרח", "פארק לאומי"]
-  },
-  {
-    slug: "sipi-falls",
-    name: "מפלי סיפי",
-    category: "mountains",
-    area: "מזרח",
-    family: true,
-    night_drive: false,
-    boat: false,
-    cost_est: "$",
-    season: "כל השנה",
-    highlights: ["3 מפלים מדורגים", "מטעי קפה", "נופי אלגון"],
-    combos: ["mount-elgon"],
-    summary: "הליכות מול מפלים, נקודות תצפית וקפה מקומי.",
-    description:
-      "שבילי הליכה סביב שלושת מפלי סיפי למרגלות הר אלגון—יעד ידידותי למשפחות ולצילום.",
-    logistics: { drive_from_kla: "4–5 שעות", best_time: "בוקר לטיול, אחה\"צ לקפה", duration_hours: 2.5 },
-    gallery: ["https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg"],
-    image: "https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg",
-    tags: ["מזרח"]
-  },
+
+
 
   // ===== Water / Activities =====
   {

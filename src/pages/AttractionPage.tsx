@@ -9,12 +9,13 @@ import { safari } from "../content/categories/safari";
 import { waterfalls } from "../content/categories/waterfalls";
 import { lakes } from "../content/categories/lakes";
 import { rivers } from "../content/categories/rivers";
+import { parks } from "../data/parks";
 
 // ====== WISHLIST ======
 import { WishlistButton } from "../components/Wishlist/WishlistButton";
 
 // Import types
-import { Attraction } from "../types";
+import { Attraction, Park } from "../types";
 
 // Define GalleryItem locally
 interface GalleryItem {
@@ -31,7 +32,20 @@ type AttractionWithMock = Attraction & {
   price?: string;
 };
 
-const allAttractions: AttractionWithMock[] = [...gorillasChimps, ...safari, ...waterfalls, ...lakes, ...rivers];
+// המרת פארקים לפורמט Attraction
+const parksAsAttractions: AttractionWithMock[] = parks.map(park => ({
+  id: park.slug,
+  slug: park.slug,
+  name: park.name,
+  category: park.category,
+  description: park.description,
+  highlights: park.highlights,
+  image: park.image,
+  gallery: park.gallery,
+  // שדות נוספים לפי הצורך
+}));
+
+const allAttractions: AttractionWithMock[] = [...gorillasChimps, ...safari, ...waterfalls, ...lakes, ...rivers, ...parksAsAttractions];
 
 // מיפוי קטגוריות לשמות בעברית
 const categoryNames: Record<string, string> = {
@@ -40,6 +54,7 @@ const categoryNames: Record<string, string> = {
   "waterfalls": "מפלים",
   "lakes": "אגמים",
   "rivers": "נהרות",
+  "mountains": "הרים",
   "adventure": "הרפתקאות",
   "culture": "תרבות ומסורת",
 };

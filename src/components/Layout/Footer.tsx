@@ -6,15 +6,15 @@ const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
   
   return (
-    <footer className="bg-gray-900 text-white py-12" dir="rtl">
+    <footer className="bg-black text-white py-12" dir="rtl" style={{ backgroundColor: '#000000' }}>
       <div className="container mx-auto px-4">
         {/* ===== אין יותר פס עליון עם פרטי קשר ===== */}
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div>
-            <h3 className="text-xl font-bold text-primary mb-4 font-sans">
-              אוגנדה אדוונצ'רס
+            <h3 className="text-xl font-bold text-[#CAA131] mb-4 font-sans">
+              דיסקבר אפריקה
             </h3>
             <p className="text-gray-300 mb-4 leading-relaxed font-sans">
               מתמחים בטיולי הרפתקה מותאמים אישית באוגנדה. חוויות בלתי נשכחות עם שירות אישי ברמה הגבוהה ביותר.
@@ -75,17 +75,17 @@ const Footer: React.FC = () => {
             <h4 className="text-lg font-semibold mb-4">פרטי התקשרות</h4>
             <div className="space-y-3">
               <div className="flex items-center gap-3">
-                <Phone className="w-4 h-4 text-primary" />
+                <Phone className="w-4 h-4 text-[#CAA131]" />
                 {/* שמים LTR כדי שה"+" יהיה בתחילת המספר */}
                 <span className="text-gray-300" dir="ltr">+972-54-615-2683</span>
               </div>
               <div className="flex items-center gap-3">
-                <Mail className="w-4 h-4 text-primary" />
+                <Mail className="w-4 h-4 text-[#CAA131]" />
                 <span className="text-gray-300">info@discoverafrica.co.il</span>
               </div>
 
               <div className="flex items-center gap-3">
-                <Clock className="w-4 h-4 text-primary" />
+                <Clock className="w-4 h-4 text-[#CAA131]" />
                 <span className="text-gray-300">ראשון-חמישי: 9:00–18:00</span>
               </div>
             </div>
@@ -93,7 +93,7 @@ const Footer: React.FC = () => {
         </div>
         
         {/* Legal Links Section - NEW! */}
-        <div className="border-t border-gray-800 mt-8 pt-6">
+        <div className="border-t border-[#CAA131] mt-8 pt-6">
           <div className="flex flex-wrap justify-center gap-4 text-sm mb-4">
             <Link to="/privacy" className="text-gray-400 hover:text-primary transition-colors">
               מדיניות פרטיות

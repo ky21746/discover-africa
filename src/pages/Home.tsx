@@ -43,7 +43,7 @@ const Home: React.FC = () => {
   return (
     <div className="fade-in" dir="rtl">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-gray-900 to-gray-800 text-white py-40 md:py-56 overflow-hidden">
+      <section className="relative bg-gradient-to-r from-gray-900 to-gray-800 text-white py-32 md:py-48 overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center opacity-65"
           style={{
@@ -98,7 +98,7 @@ const Home: React.FC = () => {
                       {category.description}
                     </p>
                     <div className="card-footer">
-                      <button className="btn-secondary w-full">גלו עוד</button>
+                      <button className="btn-card" style={{ backgroundColor: '#CAA131', color: '#000000' }}>גלו עוד</button>
                     </div>
                   </div>
                 </Card>
@@ -124,7 +124,7 @@ const Home: React.FC = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
               <div className="text-center">
-                <div className="bg-primary text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                <div className="bg-[#CAA131] text-black rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
                   <Users className="w-8 h-8" />
                 </div>
                 <h3 className="text-xl font-semibold mb-2 font-sans">
@@ -136,7 +136,7 @@ const Home: React.FC = () => {
               </div>
 
               <div className="text-center">
-                <div className="bg-primary text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                <div className="bg-[#534B20] text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
                   <Star className="w-8 h-8" />
                 </div>
                 <h3 className="text-xl font-semibold mb-2 font-sans">
@@ -148,7 +148,7 @@ const Home: React.FC = () => {
               </div>
 
               <div className="text-center">
-                <div className="bg-primary text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                <div className="bg-[#4B361C] text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
                   <Mountain className="w-8 h-8" />
                 </div>
                 <h3 className="text-xl font-semibold mb-2 font-sans">
@@ -164,7 +164,7 @@ const Home: React.FC = () => {
       </section>
 
       {/* CTA Section (אם תרצה להשאיר) */}
-      <section className="pt-14 pb-8 bg-primary text-white">
+      <section className="pt-14 pb-8 bg-[#CAA131] text-black">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-3 font-sans">
             מוכנים להתחיל?
@@ -174,7 +174,7 @@ const Home: React.FC = () => {
           </p>
           <Link
             to="/contact"
-            className="bg-white text-primary px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors inline-flex items-center"
+            className="bg-[#4B361C] text-white px-8 py-4 rounded-lg font-semibold hover:bg-[#3A2B15] transition-colors inline-flex items-center"
           >
             צור קשר עכשיו
             <ArrowLeft className="mr-2 w-5 h-5" />

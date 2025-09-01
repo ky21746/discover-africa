@@ -49,16 +49,7 @@ export const categories: Category[] = [
       "https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg",
     tags: ["טרקים", "נופים", "אלפיני"],
   },
-  {
-    id: "5",
-    name: "תרבות ומורשת",
-    slug: "culture",
-    shortDescription:
-      "קמפלה, מורשת בגנדה, ריקוד ומוזיקה – חיבור עמוק לקצב המקומי.",
-    coverImage:
-      "https://images.pexels.com/photos/1001914/pexels-photo-1001914.jpeg",
-    tags: ["אוכל", "מוזיקה", "קהילה"],
-  },
+
   {
     id: "6",
     name: "אקסטרים",
@@ -69,34 +60,7 @@ export const categories: Category[] = [
       "https://images.pexels.com/photos/1170986/pexels-photo-1170986.jpeg",
     tags: ["אדרנלין", "אתגר"],
   },
-  {
-    id: "7",
-    name: "משפחות",
-    slug: "families",
-    shortDescription:
-      "מסלולים רגועים ונגישים לילדים – מבורו, בוניוני, תרבות וקצב נעים.",
-    coverImage:
-      "https://images.pexels.com/photos/1257110/pexels-photo-1257110.jpeg",
-    tags: ["גישותי", "רגוע"],
-  },
-  {
-    id: "8",
-    name: "יוקרה",
-    slug: "luxury",
-    shortDescription:
-      "לינות פרימיום, מסוקים, הדרכה צמודה – חוויה ברמה הגבוהה ביותר.",
-    coverImage:
-      "https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg",
-    tags: ["פרימיום", "אקסקלוסיבי"],
-  },
-  {
-    id: "9",
-    name: "ריטריטים",
-    slug: "retreats",
-    shortDescription:
-      "יוגה, מדיטציה ורוגע סביב אגמים ויערות – הפסקה אמיתית לנשמה.",
-    coverImage:
-      "https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg",
-    tags: ["רוגע", "בריאות"],
-  },
+
+
+
 ];
