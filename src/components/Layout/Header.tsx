@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import Navigation from './Navigation';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
 
   return (
     <header className="bg-white shadow-md sticky top-0 z-50">
@@ -16,10 +18,10 @@ const Header: React.FC = () => {
               <img 
                 src="/images/discover africa logo.webp" 
                 alt="Discover Africa Logo" 
-                className="h-10 w-auto"
+                className="h-12 w-auto"
               />
             </Link>
-            <div className="hidden md:flex">
+            <div className={`hidden md:flex ${isHomePage ? 'home-nav' : ''}`}>
               <Navigation />
             </div>
           </div>

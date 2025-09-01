@@ -43,7 +43,7 @@ const Home: React.FC = () => {
   return (
     <div className="fade-in" dir="rtl">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-gray-900 to-gray-800 text-white py-20 md:py-32 overflow-hidden">
+      <section className="relative bg-gradient-to-r from-gray-900 to-gray-800 text-white py-40 md:py-56 overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center opacity-65"
           style={{
@@ -60,18 +60,6 @@ const Home: React.FC = () => {
           <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto font-sans slide-up">
             טיולי אקסטרים, טבע פראי, ושירות אישי – חוויה שלא תשכח
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center slide-up">
-            <Link to="/plan-your-trip" className="btn-primary text-lg px-8 py-4">
-              תכננו את הטיול שלכם
-            </Link>
-            <Link
-              to="/contact"
-              className="btn-secondary text-lg px-8 py-4 flex items-center justify-center gap-2"
-            >
-              צור קשר
-              <ArrowLeft className="w-5 h-5" />
-            </Link>
-          </div>
         </div>
       </section>
 
@@ -98,7 +86,8 @@ const Home: React.FC = () => {
                       backgroundPosition: category.slug === 'safari' ? 'center 30%' : 
                                          category.slug === 'gorillas-chimps' ? 'center 40%' :
                                          category.slug === 'water' ? 'center 20%' :
-                                         category.slug === 'mountains' ? 'center 25%' : 'center 50%'
+                                         category.slug === 'mountains' ? 'center 25%' : 'center 50%',
+                      height: '250px'
                     }}
                   />
                   <div className="card-content">
