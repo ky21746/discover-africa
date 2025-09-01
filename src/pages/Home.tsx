@@ -95,14 +95,13 @@ const Home: React.FC = () => {
                     className="card-image"
                     style={{ 
                       backgroundImage: `url(${category.image})`,
-                      backgroundPosition: category.slug === 'safari' ? 'center 90%' : 
-                                         category.slug === 'gorillas-chimps' ? 'center 20%' :
-                                         category.slug === 'water' ? 'center 100%' :
+                      backgroundPosition: category.slug === 'safari' ? 'center 30%' : 
+                                         category.slug === 'gorillas-chimps' ? 'center 40%' :
+                                         category.slug === 'water' ? 'center 20%' :
                                          category.slug === 'mountains' ? 'center 25%' : 'center 50%'
                     }}
                   />
                   <div className="card-content">
-                    <div className="text-primary mb-3">{category.icon}</div>
                     <h3 className="text-xl font-semibold mb-2 font-sans text-gray-900">
                       {category.name}
                     </h3>

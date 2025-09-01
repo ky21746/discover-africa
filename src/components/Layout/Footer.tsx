@@ -77,16 +77,13 @@ const Footer: React.FC = () => {
               <div className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-primary" />
                 {/* שמים LTR כדי שה"+" יהיה בתחילת המספר */}
-                <span className="text-gray-300" dir="ltr">+972-50-123-4567</span>
+                <span className="text-gray-300" dir="ltr">+972-54-615-2683</span>
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-primary" />
-                <span className="text-gray-300">info@uganda-adventures.co.il</span>
+                <span className="text-gray-300">info@discoverafrica.co.il</span>
               </div>
-              <div className="flex items-center gap-3">
-                <MapPin className="w-4 h-4 text-primary" />
-                <span className="text-gray-300">רחוב הרצל 123, תל אביב</span>
-              </div>
+
               <div className="flex items-center gap-3">
                 <Clock className="w-4 h-4 text-primary" />
                 <span className="text-gray-300">ראשון-חמישי: 9:00–18:00</span>
@@ -116,7 +113,7 @@ const Footer: React.FC = () => {
           </div>
           
           <p className="text-gray-400 text-center">
-            © {currentYear} אוגנדה אדוונצ'רס. כל הזכויות שמורות.
+            © {currentYear} דיסקבר אפריקה. כל הזכויות שמורות.
           </p>
         </div>
       </div>
