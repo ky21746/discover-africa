@@ -114,7 +114,24 @@ body {
 .card-image {
   height: 200px;
   background-size: cover;
+  background-position: center 50%;
+}
+
+/* Individual card image positioning */
+.card-image.safari-image {
   background-position: center 30%;
+}
+
+.card-image.gorillas-chimps-image {
+  background-position: center 40%;
+}
+
+.card-image.water-image {
+  background-position: center 20%;
+}
+
+.card-image.mountains-image {
+  background-position: center 25%;
 }
 
 .card-content {
@@ -280,5 +297,22 @@ body {
     font-size: 0.75rem !important; /* 12px */
     border: 1px solid rgba(245, 158, 11, 0.3) !important;
     box-shadow: 0 2px 4px rgba(245, 158, 11, 0.2) !important;
+  }
+
+  /* Individual card image positioning */
+  .safari-image {
+    background-position: center 30% !important;
+  }
+
+  .gorillas-chimps-image {
+    background-position: center 40% !important;
+  }
+
+  .water-image {
+    background-position: center 20% !important;
+  }
+
+  .mountains-image {
+    background-position: center 25% !important;
   }
 }
