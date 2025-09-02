@@ -36,7 +36,7 @@ const Home: React.FC = () => {
       slug: "mountains",
       description: "טרקים מאתגרים בהרים הוולקניים",
       icon: <Mountain className="w-8 h-8" />,
-      image: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FMount%20Elgon%20National%20Park%2FRwenzori%20Mountains%20National%20Park%2FHighland%20landscape%20near%20Weismann%60s%20peak%20in%20Rwenzori%20mountains%2C%20Uganda.%20Little%20lakes%20among%20the%20mossy%20rocks%20at%20high%20altitudes.webp?alt=media&token=e09d21a9-8060-4015-b4ab-8269d61269c8",
+      image: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FSafari%20Uganda%2FRwenzori%20Mountains%20National%20Park%2FHighland%20landscape%20near%20Weismann%60s%20peak%20in%20Rwenzori%20mountains%2C%20Uganda.%20Little%20lakes%20among%20the%20mossy%20rocks%20at%20high%20altitudes.webp?alt=media&token=f2a1df50-adf9-41e1-99cb-8eb7dfae947e",
     },
   ];
 
@@ -118,7 +118,7 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* About Us — הקטנתי את הריווח התחתון כדי לצמצם את המרווח לפני הפוטר */}
+      {/* About Us */}
       <section className="pt-12 md:pt-16 pb-6 md:pb-8">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
@@ -173,7 +173,7 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* CTA Section (אם תרצה להשאיר) */}
+      {/* CTA Section */}
       <section className="pt-14 pb-8 bg-[#CAA131] text-black">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-3 font-sans">

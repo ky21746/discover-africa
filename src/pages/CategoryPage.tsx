@@ -13,7 +13,7 @@ import { gorillasChimps } from "../content/categories/gorillas-chimps";
 import { water } from "../content/categories/water";
 import { lakes } from "../content/categories/lakes";
 import { rivers } from "../content/categories/rivers";
-import { waterfalls } from "../content/categories/waterfalls";
+import { waterfalls } from "../z_backup_unused/waterfalls";
 
 type LocalCategory = {
   id: string;

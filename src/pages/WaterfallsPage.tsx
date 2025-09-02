@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Filter } from "lucide-react";
 import Card from "../components/Common/Card";
 import SearchBar from "../components/Common/SearchBar";
-import { waterfalls } from "../content/categories/waterfalls";
+import { waterfalls } from "../z_backup_unused/waterfalls";
 
 const WaterfallsPage: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState("");

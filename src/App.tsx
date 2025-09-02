@@ -20,8 +20,6 @@ import AccessibilityButton from "./components/AccessibilityButton";
 // Water subcategories pages
 import WaterSubcategories from "./pages/WaterSubcategories";
 import WaterfallsPage from "./pages/WaterfallsPage";
-import LakesPage from "./pages/LakesPage";
-import RiversPage from "./pages/RiversPage";
 
 // Safari page
 import SafariPage from "./pages/SafariPage";
@@ -90,8 +88,6 @@ export default function App() {
             
             {/* מים - תת-קטגוריות (חייב להיות לפני category/:slug) */}
             <Route path="/water/waterfalls" element={<WaterfallsPage />} />
-            <Route path="/water/lakes" element={<LakesPage />} />
-            <Route path="/water/rivers" element={<RiversPage />} />
             
             {/* קטגוריות */}
             <Route path="/categories" element={<Categories />} />

@@ -1,5 +1,5 @@
 // src/content/categories/waterfalls.ts
-import { Attraction } from "../../types";
+import { Attraction } from "../types";
 
 export const waterfalls: Attraction[] = [
   {

@@ -6,9 +6,6 @@ import { Star, Share2, Heart, MapPin, Clock, Users, Camera, Route, Plus, X, Chev
 // ====== DATA ======
 import { gorillasChimps } from "../content/categories/gorillas-chimps";
 import { safari } from "../content/categories/safari";
-import { waterfalls } from "../content/categories/waterfalls";
-import { lakes } from "../content/categories/lakes";
-import { rivers } from "../content/categories/rivers";
 import { parks } from "../data/parks";
 
 // ====== WISHLIST ======
@@ -45,15 +42,12 @@ const parksAsAttractions: AttractionWithMock[] = parks.map(park => ({
   // שדות נוספים לפי הצורך
 }));
 
-const allAttractions: AttractionWithMock[] = [...gorillasChimps, ...safari, ...waterfalls, ...lakes, ...rivers, ...parksAsAttractions];
+const allAttractions: AttractionWithMock[] = [...gorillasChimps, ...safari, ...parksAsAttractions];
 
 // מיפוי קטגוריות לשמות בעברית
 const categoryNames: Record<string, string> = {
   "gorillas-chimps": "גורילות ושימפנזים",
   "safari": "ספארי",
-  "waterfalls": "מפלים",
-  "lakes": "אגמים",
-  "rivers": "נהרות",
   "mountains": "הרים",
   "adventure": "הרפתקאות",
   "culture": "תרבות ומסורת",
@@ -432,7 +426,7 @@ const AttractionPage: React.FC = () => {
       {/* ===== BREADCRUMB ===== */}
       <Breadcrumb category={a.category} attractionName={a.name} />
 
-ס      {/* ===== STICKY CTA BAR (Mobile) - כפתור במרכז התחתית ===== */}
+      {/* ===== STICKY CTA BAR (Mobile) - כפתור במרכז התחתית ===== */}
       <div className="md:hidden fixed bottom-4 left-1/2 transform -translate-x-1/2 z-50">
         <WishlistButton 
           item={{
