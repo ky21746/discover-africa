@@ -295,10 +295,28 @@ const CategoryPage: React.FC = () => {
                       {park.name}
                     </h3>
 
-                    {park.summary && (
+                    {park.description && (
                       <p className="mb-3 text-sm font-sans text-muted">
-                        {park.summary}
+                        {park.description.length > 200 
+                          ? park.description.slice(0, 200) + "..." 
+                          : park.description}
                       </p>
+                    )}
+
+                    {Array.isArray(park.highlights) && park.highlights.length > 0 && (
+                      <div className="mb-3">
+                        <div className="mb-1 text-xs text-muted">מה תראו:</div>
+                        <div className="flex flex-wrap gap-1">
+                          {park.highlights.slice(0, 3).map((h: string, i: number) => (
+                            <span
+                              key={i}
+                              className="rounded bg-surface px-2 py-0.5 text-[11px]"
+                            >
+                              {h}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
                     )}
 
                     {Array.isArray(park.highlights) &&

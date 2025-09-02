@@ -16,7 +16,7 @@ export const categories: Category[] = [
     shortDescription:
       "ממורצ׳יסון והמפל ועד המלכה אליזבת וקידפו – כל הפארקים הגדולים והקלאסיים.",
     coverImage:
-      "https://images.pexels.com/photos/631317/pexels-photo-631317.jpeg",
+      "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2Fqueen-elizabeth%2FAfrican%20Bush%20Elephant%20-%20Loxodonta%20africana%2C%20iconic%20member%20of%20African%20big%20five%2C%20Queen%20Elizabeth%20National%20Park.webp?alt=media&token=3b4c82c9-b383-4bbc-94c1-85438ff412b5",
     tags: ["פארקים לאומיים", "שייט", "נופים פתוחים"],
   },
   {
@@ -36,7 +36,7 @@ export const categories: Category[] = [
     shortDescription:
       "קזינגה, הנילוס הלבן, בוניוני ועוד – שייט, רפטינג ונופים רטובים.",
     coverImage:
-      "https://images.pexels.com/photos/210012/pexels-photo-210012.jpeg",
+      "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FMurchison%20Falls%20National%20Park%2FTourists%20overlook%20the%20massive%20waterfall%20of%20Murchison%20Falls%20on%20the%20Nile%20River%20in%20Uganda.webp?alt=media&token=bc3f5511-234b-4696-85c0-446e67dbea52",
     tags: ["שייט", "רפטינג", "נופים"],
   },
   {
@@ -46,7 +46,7 @@ export const categories: Category[] = [
     shortDescription:
       "רוונזורי, סיפי והר אלגון – מסלולים מהירים ועד טרקים מאתגרים.",
     coverImage:
-      "https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg",
+      "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/Mount%20Elgon%20National%20Park%2FRwenzori%20Mountains%20National%20Park%2FHighland%20landscape%20near%20Weismann%60s%20peak%20in%20Rwenzori%20mountains%2C%20Uganda.%20Little%20lakes%20among%20the%20mossy%20rocks%20at%20high%20altitudes.webp?alt=media&token=e09d21a9-8060-4015-b4ab-8269d61269c8",
     tags: ["טרקים", "נופים", "אלפיני"],
   },
 
@@ -57,7 +57,7 @@ export const categories: Category[] = [
     shortDescription:
       "רפטינג רמה 5, בנג'י, אופנועים – לאמיצים ולחובבי אדרנלין.",
     coverImage:
-      "https://images.pexels.com/photos/1170986/pexels-photo-1170986.jpeg",
+      "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FExtreme%2FRZR%20safari%20%E2%80%93%20wild%20action.webp?alt=media&token=e38a49bb-d2fd-4d58-9f4c-198fc228a06c",
     tags: ["אדרנלין", "אתגר"],
   },
 
