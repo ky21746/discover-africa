@@ -87,6 +87,10 @@ const Categories: React.FC = () => {
                           ? "/safari"
                           : category.slug === "gorillas-chimps"
                           ? "/gorillas"
+                          : category.slug === "mountains"
+                          ? "/mountains"
+                          : category.slug === "extreme"
+                          ? "/extreme"
                           : `/category/${category.slug}`
                       }
                       className="btn-card w-full"

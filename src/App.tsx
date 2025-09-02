@@ -29,6 +29,9 @@ import SafariPage from "./pages/SafariPage";
 // Water page
 import WaterPage from "./pages/WaterPage";
 
+// Mountains page
+import MountainsPage from "./pages/MountainsPage";
+
 // Extreme page
 import ExtremePage from "./pages/ExtremePage";
 
@@ -72,6 +75,9 @@ export default function App() {
           <Route element={<Layout />}>
             {/* דף הבית */}
             <Route path="/" element={<Home />} />
+            
+            {/* הרים */}
+            <Route path="/mountains" element={<MountainsPage />} />
             
             {/* אקסטרים */}
             <Route path="/extreme" element={<ExtremePage />} />

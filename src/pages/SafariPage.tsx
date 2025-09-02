@@ -1,8 +1,6 @@
 // src/pages/SafariPage.tsx
 import React, { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
-import { Filter } from "lucide-react";
-import Card from "../components/Common/Card";
 import SearchBar from "../components/Common/SearchBar";
 import { safari } from "../content/categories/safari";
 
@@ -66,48 +64,76 @@ const SafariPage: React.FC = () => {
 
         {/* רשת הכרטיסים */}
         {filteredSafari.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
             {filteredSafari.map((item) => (
-              <Card
+              <div
                 key={item.id}
-                className="hover:shadow-lg transition-all duration-300"
+                className="category-card transition-all duration-300 hover:shadow-lg"
               >
                 <div
                   className="card-image"
                   style={{ backgroundImage: `url(${item.image})` }}
                 />
                 <div className="card-content">
-                  <h3 className="text-xl font-semibold mb-2 font-sans">
+                  <div className="mb-2 flex items-center gap-2">
+                    {item.region && (
+                      <span className="highlight-tag">
+                        {item.region}
+                      </span>
+                    )}
+                    {item.duration && (
+                      <span className="highlight-tag">
+                        {item.duration}
+                      </span>
+                    )}
+                    {item.difficulty && (
+                      <span className="highlight-tag" style={{background: '#CAA131'}}>
+                        {item.difficulty}
+                      </span>
+                    )}
+                  </div>
+
+                  <h3 className="mb-2 text-lg font-semibold font-sans">
                     {highlightText(item.name || "", searchQuery)}
                   </h3>
-                  <p className="text-sm text-muted mb-3 font-sans">
-                    {highlightText(item.subtitle || "", searchQuery)}
-                  </p>
+                  
+                  {item.description && (
+                    <p className="mb-3 text-sm font-sans text-muted">
+                      {highlightText(
+                        item.description.length > 200 
+                          ? item.description.slice(0, 200) + "..." 
+                          : item.description, 
+                        searchQuery
+                      )}
+                    </p>
+                  )}
 
-                  <div className="flex flex-wrap gap-1 mb-3">
-                    {item.highlights?.slice(0, 3).map((highlight) => (
-                      <span
-                        key={highlight}
-                        className="bg-surface rounded px-2 py-0.5 text-xs"
-                      >
-                        {highlight}
-                      </span>
-                    ))}
+                  {Array.isArray(item.highlights) && item.highlights.length > 0 && (
+                    <div className="highlights">
+                      <div className="highlights-title">מה תראו:</div>
+                      <div className="flex flex-wrap gap-1">
+                        {item.highlights.slice(0, 3).map((highlight, i) => (
+                          <span
+                            key={i}
+                            className="highlight-tag"
+                          >
+                            {highlight}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  <div className="card-footer">
+                    <Link
+                      to={`/attraction/${item.slug}`}
+                      className="btn-discover"
+                    >
+                      גלה עוד
+                    </Link>
                   </div>
-
-                  <div className="flex items-center justify-between mb-3 text-sm">
-                    <span className="text-muted">משך: {item.duration}</span>
-                    <span className="text-muted">קושי: {item.difficulty}</span>
-                  </div>
-
-                  <Link
-                    to={`/attraction/${item.slug}`}
-                    className="btn-primary w-full text-center"
-                  >
-                    גלה עוד
-                  </Link>
                 </div>
-              </Card>
+              </div>
             ))}
           </div>
         ) : (
