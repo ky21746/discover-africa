@@ -1,16 +1,17 @@
-// src/pages/GorillasPage.tsx
+// src/pages/MountainsPage.tsx
 import React, { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
-import { gorillasChimps } from "../content/categories/gorillas-chimps";
 import Card from "../components/Common/Card";
 import SearchBar from "../components/Common/SearchBar";
+import { mountains } from "../content/categories/mountains";
 
-const GorillasPage: React.FC = () => {
+const MountainsPage: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState("");
 
-  const filteredGorillas = useMemo(() => {
+  // חיפוש
+  const filteredMountains = useMemo(() => {
     const q = searchQuery.trim().toLowerCase();
-    return gorillasChimps.filter((item) => {
+    return mountains.filter((item) => {
       const name = item.name?.toLowerCase() ?? "";
       const desc = item.description?.toLowerCase() ?? "";
       const subtitle = item.subtitle?.toLowerCase() ?? "";
@@ -19,6 +20,7 @@ const GorillasPage: React.FC = () => {
     });
   }, [searchQuery]);
 
+  // הדגשת טקסט בחיפוש
   const highlightText = (text: string, query: string) => {
     if (!query) return text;
     const parts = String(text).split(new RegExp(`(${query})`, "gi"));
@@ -39,10 +41,10 @@ const GorillasPage: React.FC = () => {
         {/* כותרת ותיאור */}
         <div className="mb-8 text-center">
           <h1 className="mb-4 text-4xl md:text-5xl font-bold font-sans">
-            גורילות ושימפנזים באוגנדה
+            הרים וטרקים באוגנדה
           </h1>
           <p className="mx-auto max-w-3xl text-lg md:text-xl text-muted font-sans">
-            מפגשי פרימטים מרגשים: גורילות בווינדי/מגהינגה ושימפנזים בקיבאלה/קיאמבורה.
+            גלו את ההרים המרהיבים - מהר אלגון ועד הרי הרוונזורי המושלגים
           </p>
         </div>
 
@@ -50,21 +52,21 @@ const GorillasPage: React.FC = () => {
         <div className="mb-8">
           <SearchBar
             onSearch={setSearchQuery}
-            placeholder="חפשו גורילות ושימפנזים..."
+            placeholder="חפשו הרים וטרקים..."
           />
         </div>
 
         {/* ספירת אטרקציות */}
         <div className="mb-6 text-center">
           <p className="text-sm text-muted">
-            נמצאו {filteredGorillas.length} אפשרויות
+            נמצאו {filteredMountains.length} אטרקציות הרים
           </p>
         </div>
 
         {/* רשת הכרטיסים */}
-        {filteredGorillas.length > 0 ? (
+        {filteredMountains.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {filteredGorillas.map((item) => (
+            {filteredMountains.map((item) => (
               <Card
                 key={item.id}
                 className="hover:shadow-lg transition-all duration-300"
@@ -125,4 +127,4 @@ const GorillasPage: React.FC = () => {
   );
 };
 
-export default GorillasPage;
+export default MountainsPage;

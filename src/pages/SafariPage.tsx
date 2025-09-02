@@ -1,16 +1,18 @@
-// src/pages/GorillasPage.tsx
+// src/pages/SafariPage.tsx
 import React, { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
-import { gorillasChimps } from "../content/categories/gorillas-chimps";
+import { Filter } from "lucide-react";
 import Card from "../components/Common/Card";
 import SearchBar from "../components/Common/SearchBar";
+import { safari } from "../content/categories/safari";
 
-const GorillasPage: React.FC = () => {
+const SafariPage: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState("");
 
-  const filteredGorillas = useMemo(() => {
+  // חיפוש
+  const filteredSafari = useMemo(() => {
     const q = searchQuery.trim().toLowerCase();
-    return gorillasChimps.filter((item) => {
+    return safari.filter((item) => {
       const name = item.name?.toLowerCase() ?? "";
       const desc = item.description?.toLowerCase() ?? "";
       const subtitle = item.subtitle?.toLowerCase() ?? "";
@@ -19,6 +21,7 @@ const GorillasPage: React.FC = () => {
     });
   }, [searchQuery]);
 
+  // הדגשת טקסט בחיפוש
   const highlightText = (text: string, query: string) => {
     if (!query) return text;
     const parts = String(text).split(new RegExp(`(${query})`, "gi"));
@@ -39,10 +42,10 @@ const GorillasPage: React.FC = () => {
         {/* כותרת ותיאור */}
         <div className="mb-8 text-center">
           <h1 className="mb-4 text-4xl md:text-5xl font-bold font-sans">
-            גורילות ושימפנזים באוגנדה
+            ספארי באוגנדה
           </h1>
           <p className="mx-auto max-w-3xl text-lg md:text-xl text-muted font-sans">
-            מפגשי פרימטים מרגשים: גורילות בווינדי/מגהינגה ושימפנזים בקיבאלה/קיאמבורה.
+            גלו את חוויית הספארי המרהיבה של אוגנדה - ממורצ'יסון ועד המלכה אליזבת
           </p>
         </div>
 
@@ -50,21 +53,21 @@ const GorillasPage: React.FC = () => {
         <div className="mb-8">
           <SearchBar
             onSearch={setSearchQuery}
-            placeholder="חפשו גורילות ושימפנזים..."
+            placeholder="חפשו ספארי..."
           />
         </div>
 
-        {/* ספירת אטרקציות */}
+        {/* ספירת ספארי */}
         <div className="mb-6 text-center">
           <p className="text-sm text-muted">
-            נמצאו {filteredGorillas.length} אפשרויות
+            נמצאו {filteredSafari.length} אפשרויות ספארי
           </p>
         </div>
 
         {/* רשת הכרטיסים */}
-        {filteredGorillas.length > 0 ? (
+        {filteredSafari.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {filteredGorillas.map((item) => (
+            {filteredSafari.map((item) => (
               <Card
                 key={item.id}
                 className="hover:shadow-lg transition-all duration-300"
@@ -125,4 +128,4 @@ const GorillasPage: React.FC = () => {
   );
 };
 
-export default GorillasPage;
+export default SafariPage;

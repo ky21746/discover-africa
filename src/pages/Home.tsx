@@ -36,7 +36,7 @@ const Home: React.FC = () => {
       slug: "mountains",
       description: "טרקים מאתגרים בהרים הוולקניים",
       icon: <Mountain className="w-8 h-8" />,
-      image: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/Mount%20Elgon%20National%20Park%2FRwenzori%20Mountains%20National%20Park%2FHighland%20landscape%20near%20Weismann%60s%20peak%20in%20Rwenzori%20mountains%2C%20Uganda.%20Little%20lakes%20among%20the%20mossy%20rocks%20at%20high%20altitudes.webp?alt=media&token=e09d21a9-8060-4015-b4ab-8269d61269c8",
+      image: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FMount%20Elgon%20National%20Park%2FRwenzori%20Mountains%20National%20Park%2FHighland%20landscape%20near%20Weismann%60s%20peak%20in%20Rwenzori%20mountains%2C%20Uganda.%20Little%20lakes%20among%20the%20mossy%20rocks%20at%20high%20altitudes.webp?alt=media&token=e09d21a9-8060-4015-b4ab-8269d61269c8",
     },
   ];
 
@@ -77,7 +77,17 @@ const Home: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {featuredCategories.map((category) => (
-              <Link key={category.id} to={`/category/${category.slug}`}>
+              <Link key={category.id} to={
+                category.slug === "water" 
+                  ? "/water" 
+                  : category.slug === "safari"
+                  ? "/safari"
+                  : category.slug === "mountains"
+                  ? "/mountains"
+                  : category.slug === "gorillas-chimps"
+                  ? "/gorillas"
+                  : `/category/${category.slug}`
+              }>
                 <Card className="text-center hover:shadow-lg transition-all duration-300">
                   <div
                     className="card-image"

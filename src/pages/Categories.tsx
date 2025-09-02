@@ -80,7 +80,15 @@ const Categories: React.FC = () => {
 
                   <div className="card-footer">
                     <Link
-                      to={category.slug === "water" ? "/water" : `/category/${category.slug}`}
+                      to={
+                        category.slug === "water" 
+                          ? "/water" 
+                          : category.slug === "safari"
+                          ? "/safari"
+                          : category.slug === "gorillas-chimps"
+                          ? "/gorillas"
+                          : `/category/${category.slug}`
+                      }
                       className="btn-card w-full"
                     >
                       גלו עוד

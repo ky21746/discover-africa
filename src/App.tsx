@@ -23,6 +23,15 @@ import WaterfallsPage from "./pages/WaterfallsPage";
 import LakesPage from "./pages/LakesPage";
 import RiversPage from "./pages/RiversPage";
 
+// Safari page
+import SafariPage from "./pages/SafariPage";
+
+// Water page
+import WaterPage from "./pages/WaterPage";
+
+// Extreme page
+import ExtremePage from "./pages/ExtremePage";
+
 // Legal pages imports
 import PrivacyPolicy from "./pages/legal/PrivacyPolicy";
 import TermsOfService from "./pages/legal/TermsOfService";
@@ -64,8 +73,16 @@ export default function App() {
             {/* דף הבית */}
             <Route path="/" element={<Home />} />
             
+            {/* אקסטרים */}
+            <Route path="/extreme" element={<ExtremePage />} />
+            
+            {/* מים - עמוד חדש עם אטרקציות */}
+            <Route path="/water" element={<WaterPage />} />
+            
+            {/* ספארי */}
+            <Route path="/safari" element={<SafariPage />} />
+            
             {/* מים - תת-קטגוריות (חייב להיות לפני category/:slug) */}
-            <Route path="/water" element={<WaterSubcategories />} />
             <Route path="/water/waterfalls" element={<WaterfallsPage />} />
             <Route path="/water/lakes" element={<LakesPage />} />
             <Route path="/water/rivers" element={<RiversPage />} />
