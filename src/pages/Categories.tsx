@@ -61,7 +61,9 @@ const Categories: React.FC = () => {
             {filteredCategories.map((category) => (
               <Card
                 key={category.id}
-                className="hover:shadow-lg transition-all duration-300"
+                className={`hover:shadow-lg transition-all duration-300 ${
+                  category.slug === "mountains" ? "rwenzori-special" : ""
+                }`}
               >
                 <div
                   className={`card-image ${category.slug}-image`}
@@ -79,7 +81,7 @@ const Categories: React.FC = () => {
                   <div className="card-footer">
                     <Link
                       to={category.slug === "water" ? "/water" : `/category/${category.slug}`}
-                      className="btn-primary w-full"
+                      className="btn-card w-full"
                     >
                       גלו עוד
                     </Link>

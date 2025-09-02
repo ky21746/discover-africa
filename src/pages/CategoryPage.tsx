@@ -144,7 +144,7 @@ const CategoryPage: React.FC = () => {
     <div className="py-8 fade-in" dir="rtl">
       <div className="container mx-auto px-4">
         {/* כותרת ותיאור */}
-        <div className="mb-4 text-center">
+        <div className="category-page-header text-center">
           <h1 className="mb-2 text-3xl md:text-4xl font-bold font-sans">
             {displayName} באוגנדה
           </h1>
@@ -157,7 +157,7 @@ const CategoryPage: React.FC = () => {
 
         {/* פילטר תגים – רק לשאר הקטגוריות */}
         {!showAttractions && allTags.length > 0 && (
-          <div className="mb-3 text-center">
+          <div className="category-tags-filter text-center">
             <div className="mb-2 flex items-center justify-center gap-2 text-sm">
               <Filter className="h-4 w-4 text-muted" />
               <span className="font-medium text-muted">סינון לפי:</span>
@@ -167,10 +167,8 @@ const CategoryPage: React.FC = () => {
                 <button
                   key={tag}
                   onClick={() => toggleTag(tag)}
-                  className={`rounded-full px-3 py-1 text-xs md:text-sm font-medium transition-colors ${
-                    selectedTags.includes(tag)
-                      ? "bg-primary text-white"
-                      : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                  className={`filter-button ${
+                    selectedTags.includes(tag) ? "active" : ""
                   }`}
                 >
                   {tag}
@@ -181,7 +179,7 @@ const CategoryPage: React.FC = () => {
         )}
 
         {/* ספירת פריטים */}
-        <div className="mb-3 text-center">
+        <div className="category-count text-center">
           <p className="text-sm text-muted">
             נמצאו {showAttractions ? attractions.length : filteredParks.length} אפשרויות
           </p>
@@ -209,9 +207,9 @@ const CategoryPage: React.FC = () => {
                   : item.description;
 
               return (
-                <Card
+                <div
                   key={item.id || item.slug || item.name}
-                  className="transition-all duration-300 hover:shadow-lg"
+                  className="category-card transition-all duration-300 hover:shadow-lg"
                 >
                   <div
                     className="card-image"
@@ -230,13 +228,13 @@ const CategoryPage: React.FC = () => {
 
                     {Array.isArray(item.highlights) &&
                       item.highlights.length > 0 && (
-                        <div className="mb-3">
-                          <div className="mb-1 text-xs text-muted">מה תראו:</div>
+                        <div className="highlights">
+                          <div className="highlights-title">מה תראו:</div>
                           <div className="flex flex-wrap gap-1">
                             {item.highlights.slice(0, 3).map((h: string, i: number) => (
                               <span
                                 key={i}
-                                className="rounded bg-surface px-2 py-0.5 text-[11px]"
+                                className="highlight-tag"
                               >
                                 {h}
                               </span>
@@ -248,13 +246,13 @@ const CategoryPage: React.FC = () => {
                     <div className="card-footer">
                       <Link
                         to={`/attraction/${targetSlug}`}
-                        className="btn-primary w-full"
+                        className="btn-discover"
                       >
                         גלה עוד
                       </Link>
                     </div>
                   </div>
-                </Card>
+                </div>
               );
             })}
           </div>
@@ -264,9 +262,11 @@ const CategoryPage: React.FC = () => {
             {filteredParks.map((park: any) => {
               const targetSlug = normalize(park.slug || park.id || park.name);
               return (
-                <Card
+                <div
                   key={park.slug || park.id || park.name}
-                  className="transition-all duration-300 hover:shadow-lg"
+                  className={`category-card transition-all duration-300 hover:shadow-lg ${
+                    categorySlug === "mountains" ? "mountains-special" : ""
+                  }`}
                 >
                   <div
                     className="card-image"
@@ -275,23 +275,23 @@ const CategoryPage: React.FC = () => {
                   <div className="card-content">
                     <div className="mb-2 flex items-center gap-2">
                       {park.area && (
-                        <span className="rounded-full bg-gray-100 px-2 py-0.5 text-[11px] text-gray-600">
+                        <span className="highlight-tag">
                           {park.area}
                         </span>
                       )}
                       {park.cost_est && (
-                        <span className="rounded-full bg-primary px-2 py-0.5 text-[11px] text-white">
+                        <span className="highlight-tag" style={{background: '#CAA131'}}>
                           {park.cost_est}
                         </span>
                       )}
                       {park.family && (
-                        <span className="rounded-full bg-green-100 px-2 py-0.5 text-[11px] text-green-700">
+                        <span className="highlight-tag" style={{background: '#4B361C'}}>
                           למשפחות
                         </span>
                       )}
                     </div>
 
-                    <h3 className="mb-2 text-lg font-semibold font-sans text-muted">
+                    <h3 className="mb-2 text-lg font-semibold font-sans">
                       {park.name}
                     </h3>
 
@@ -304,13 +304,13 @@ const CategoryPage: React.FC = () => {
                     )}
 
                     {Array.isArray(park.highlights) && park.highlights.length > 0 && (
-                      <div className="mb-3">
-                        <div className="mb-1 text-xs text-muted">מה תראו:</div>
+                      <div className="highlights">
+                        <div className="highlights-title">מה תראו:</div>
                         <div className="flex flex-wrap gap-1">
                           {park.highlights.slice(0, 3).map((h: string, i: number) => (
                             <span
                               key={i}
-                              className="rounded bg-surface px-2 py-0.5 text-[11px]"
+                              className="highlight-tag"
                             >
                               {h}
                             </span>
@@ -319,33 +319,16 @@ const CategoryPage: React.FC = () => {
                       </div>
                     )}
 
-                    {Array.isArray(park.highlights) &&
-                      park.highlights.length > 0 && (
-                        <div className="mb-3">
-                          <div className="mb-1 text-xs text-muted">מה תראו:</div>
-                          <div className="flex flex-wrap gap-1">
-                            {park.highlights.slice(0, 3).map((h: string, i: number) => (
-                              <span
-                                key={i}
-                                className="rounded bg-surface px-2 py-0.5 text-[11px]"
-                              >
-                                {h}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
-                      )}
-
                     <div className="card-footer">
                       <Link
                         to={`/attraction/${targetSlug}`}
-                        className="btn-primary w-full"
+                        className="btn-discover"
                       >
                         גלה עוד
                       </Link>
                     </div>
                   </div>
-                </Card>
+                </div>
               );
             })}
           </div>
