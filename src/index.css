@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Import unified grid system */
-@import './styles/grid-system.css';
 
 :root {
   --primary: #F26B38;

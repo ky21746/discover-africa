@@ -71,9 +71,8 @@ const InfoCard: React.FC<
     : 'bg-gradient-to-br from-white via-gray-50 to-white';
   
   return (
-    <section className={`${bgClass} border-2 border-[#534B20] rounded-3xl p-8 md:p-10 shadow-2xl hover:shadow-3xl hover:border-[#CAA131] hover:scale-[1.02] transition-all duration-500 group ${className}`}>
-      <h3 className="text-lg font-bold mb-4 flex items-center gap-3 text-[#4B361C] group-hover:text-[#CAA131] transition-colors">
-        <div className="w-3 h-6 bg-gradient-to-b from-[#CAA131] to-[#B8942A] rounded-full shadow-lg"></div>
+    <section className={`${bgClass} border border-[#534B20]/60 rounded-3xl p-8 md:p-10 shadow-2xl hover:shadow-3xl hover:border-[#CAA131] hover:scale-[1.02] transition-all duration-500 group ${className}`}>
+      <h3 className="text-xl font-extrabold mb-4 text-[#4B361C] text-right border-b-2 border-[#CAA131] w-fit">
         {title}
       </h3>
       <div className="text-[17px] leading-relaxed text-gray-700 group-hover:text-gray-800 transition-colors font-medium">{children}</div>
@@ -474,7 +473,7 @@ const AttractionPage: React.FC = () => {
       <div className="container mx-auto max-w-screen-xl px-4 py-8 md:py-10 space-y-6">
         
         {/* הדרכה ל-Wishlist */}
-        <div className="bg-gradient-to-r from-amber-50 to-orange-50 border-2 border-[#CAA131] rounded-2xl p-5 flex items-center gap-4 shadow-lg">
+        <div className="bg-gradient-to-r from-amber-50 to-orange-50 border border-[#CAA131]/50 rounded-2xl p-5 flex items-center gap-4 shadow-lg">
           <div className="bg-amber-500 text-white rounded-full p-2 flex-shrink-0">
             <Route className="w-5 h-5" />
           </div>
@@ -501,7 +500,7 @@ const AttractionPage: React.FC = () => {
           {/* ===== תוכן ראשי ===== */}
           <div className="space-y-6">
             {/* תיאור ראשי */}
-            <section className="bg-gradient-to-br from-white via-gray-50 to-white border-2 border-[#534B20] rounded-3xl p-8 md:p-10 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.01]">
+            <section className="bg-gradient-to-br from-white via-gray-50 to-white border border-[#534B20]/60 rounded-3xl p-8 md:p-10 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.01]">
               <div className="space-y-8">
                 {a.subtitle && (
                   <h2 className="text-2xl font-bold text-[#4B361C] mb-6 leading-tight">{a.subtitle}</h2>
@@ -532,7 +531,7 @@ const AttractionPage: React.FC = () => {
                 <InfoCard title="מה תגלו בדרך">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {a.wildlife.map((w, i) => (
-                      <div key={i} className="flex items-center gap-4 p-4 bg-gradient-to-r from-[#CAA131]/15 to-[#B8942A]/15 rounded-2xl border-2 border-[#CAA131]/30 hover:shadow-xl hover:scale-105 transition-all duration-500">
+                      <div key={i} className="flex items-center gap-4 p-4 bg-gradient-to-r from-[#CAA131]/15 to-[#B8942A]/15 rounded-2xl border border-[#CAA131]/50/30 hover:shadow-xl hover:scale-105 transition-all duration-500">
                         <div className="w-4 h-4 bg-gradient-to-br from-[#CAA131] to-[#B8942A] rounded-full shadow-lg"></div>
                         <span className="text-[#4B361C] font-medium text-base">{w}</span>
                       </div>
@@ -543,15 +542,16 @@ const AttractionPage: React.FC = () => {
 
               {tips.length > 0 && (
                 <InfoCard title="חשוב לדעת" variant="gray">
-                  <div className="bg-gradient-to-r from-[#CAA131]/15 to-[#B8942A]/15 border-l-4 border-[#CAA131] p-6 rounded-2xl shadow-xl">
-                    <ul className="space-y-4">
-                      {tips.slice(0, 3).map((t, i) => (
-                        <li key={i} className="flex items-start gap-4 text-[#4B361C]">
-                          <span className="text-[#4B361C] mt-1 font-bold text-lg">•</span>
-                          <span className="font-medium text-base">{t}</span>
-                        </li>
-                      ))}
-                    </ul>
+                  <div className="bg-[#CAA131]/10 p-4 rounded-xl space-y-2">
+                    <div className="text-sm font-medium text-[#4B361C] text-right">
+                      רישיון: $300–450 ליום — להזמין חודשים מראש
+                    </div>
+                    <div className="text-sm font-medium text-[#4B361C] text-right">
+                      מיקום: קרוב לגבול DRC — בדוק אזהרות מסע עדכניות
+                    </div>
+                    <div className="text-sm font-medium text-[#4B361C] text-right">
+                      עונת השיא: מתמלאת חודשים מראש — הזמן מוקדם
+                    </div>
                   </div>
                 </InfoCard>
               )}
@@ -561,7 +561,7 @@ const AttractionPage: React.FC = () => {
           {/* ===== סיידבר ===== */}
           <div className="space-y-6">
             {/* מפה */}
-            <section className="rounded-2xl overflow-hidden border-2 border-[#534B20] bg-white shadow-lg hover:shadow-xl transition-all duration-300">
+            <section className="rounded-2xl overflow-hidden border border-[#534B20]/60 bg-white shadow-lg hover:shadow-xl transition-all duration-300">
               <div className="relative cursor-pointer" onClick={() => setMapFullscreen(true)}>
                 <iframe
                   title={`מפה – ${a.name}`}
@@ -595,7 +595,7 @@ const AttractionPage: React.FC = () => {
                     </div>
                     {/* Popup */}
                     <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                      <div className="bg-white border-2 border-[#CAA131] rounded-lg p-3 shadow-xl min-w-[200px]">
+                      <div className="bg-white border border-[#CAA131]/50 rounded-lg p-3 shadow-xl min-w-[200px]">
                         <h4 className="font-bold text-[#4B361C] text-sm mb-1 text-right">{a.name}</h4>
                         <p className="text-gray-600 text-xs leading-relaxed text-right">
                           {a.name === "Queen Elizabeth National Park" 
@@ -614,7 +614,7 @@ const AttractionPage: React.FC = () => {
 
             {/* גלריה משופרת */}
             {a.gallery && a.gallery.length > 0 && (
-              <section className="bg-gradient-to-br from-gray-50 via-gray-100 to-gray-50 border-2 border-[#534B20] rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.01]">
+              <section className="bg-gradient-to-br from-gray-50 via-gray-100 to-gray-50 border border-[#534B20]/60 rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.01]">
                 <h3 className="text-lg font-bold mb-4 flex items-center gap-3 text-[#4B361C]">
                   <Camera className="w-5 h-5 text-[#CAA131]" />
                   גלריה ({a.gallery.length} תמונות)
@@ -657,7 +657,7 @@ const AttractionPage: React.FC = () => {
                   })}
                 </div>
                 <button 
-                  className="w-full mt-6 py-4 text-[#CAA131] hover:text-white font-bold border-2 border-[#CAA131] rounded-2xl hover:bg-[#CAA131] transition-all duration-500 hover:scale-105 shadow-xl hover:shadow-2xl text-base"
+                  className="w-full mt-6 py-4 text-[#CAA131] hover:text-white font-bold border border-[#CAA131]/50 rounded-2xl hover:bg-[#CAA131] transition-all duration-500 hover:scale-105 shadow-xl hover:shadow-2xl text-base"
                   onClick={() => openLightbox(0)}
                 >
                   צפה בכל התמונות
@@ -666,7 +666,7 @@ const AttractionPage: React.FC = () => {
             )}
 
             {/* חוויות קשורות */}
-            <section className="bg-gradient-to-br from-gray-50 via-gray-100 to-gray-50 border-2 border-[#534B20] rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.01]">
+            <section className="bg-gradient-to-br from-gray-50 via-gray-100 to-gray-50 border border-[#534B20]/60 rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.01]">
               <h3 className="text-lg font-bold text-center text-[#4B361C] mb-4">
                 <div className="text-[#CAA131]">חוויות נוספות</div>
                 <div>בסביבת {a.name}</div>
