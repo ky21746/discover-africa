@@ -336,16 +336,44 @@ const ParkDetail: React.FC = () => {
     const lat = (park as any).lat as number | undefined;
     const lng = (park as any).lng as number | undefined;
 
-    if (!lat || !lng) return null;
+    if (!lat || !lng) {
+      return (
+        <section className="rounded-2xl overflow-hidden border border-[#534B20]/60 bg-white shadow-lg hover:shadow-xl transition-all duration-300 h-full">
+          <div className="h-full bg-gray-100 rounded-xl flex items-center justify-center">
+            <div className="text-center">
+              <MapPin className="w-12 h-12 text-gray-400 mx-auto mb-2" />
+              <p className="text-gray-600">מפה תתווסף בקרוב</p>
+            </div>
+          </div>
+        </section>
+      );
+    }
 
     return (
-      <section className="bg-white border rounded-2xl p-5 md:p-6 shadow-sm">
-        <h2 className="text-xl font-bold mb-4 font-sans">מיקום</h2>
-        <div className="aspect-video bg-gray-100 rounded-lg flex items-center justify-center">
-          <div className="text-center">
-            <MapPin className="w-12 h-12 text-gray-400 mx-auto mb-2" />
-            <p className="text-gray-600">מפה תתווסף בקרוב</p>
-            <p className="text-sm text-gray-500">קואורדינטות: {lat}, {lng}</p>
+      <section className="rounded-2xl overflow-hidden border border-[#534B20]/60 bg-white shadow-lg hover:shadow-xl transition-all duration-300 h-full">
+        <div className="relative cursor-pointer h-full">
+          <iframe
+            title={`מפה – ${park.name}`}
+            className="w-full h-full rounded-xl"
+            loading="lazy"
+            src={`https://www.openstreetmap.org/export/embed.html?bbox=${lng-0.1},${lat-0.1},${lng+0.1},${lat+0.1}&layer=mapnik&marker=${lat}%2C${lng}`}
+          />
+          
+          {/* Floating info card */}
+          <div className="absolute top-4 right-4 z-10">
+            <div className="bg-white/90 backdrop-blur-sm rounded-lg p-3 shadow-lg border border-white/20">
+              <h4 className="font-bold text-[#4B361C] text-sm mb-1 text-right">{park.area}</h4>
+              <p className="text-gray-600 text-xs text-right">6 שעות מקמפלה | טיסה פנימית 45 דק'</p>
+            </div>
+          </div>
+          
+          {/* Custom gold marker */}
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
+            <div className="relative group cursor-pointer">
+              <div className="w-6 h-6 bg-[#CAA131] rounded-full border-2 border-white shadow-lg flex items-center justify-center">
+                <div className="w-2 h-2 bg-white rounded-full"></div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -440,63 +468,182 @@ const ParkDetail: React.FC = () => {
       </section>
 
       {/* BODY */}
-      <div className="container mx-auto px-4 py-10 md:py-12">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* LEFT (main) */}
-          <div className="lg:col-span-2 space-y-8">
-            <AtAGlance />
-            <ShortHook />
-            <ReviewsBlock />
-            {/* תוכן פרקטי (אקורדיונים) */}
-            <PracticalContent />
-            {/* מפה (אם יש lat/lng) */}
-            <MapBlock />
-            {/* קרוב אליך */}
-            <NearbyGrid />
+      <div className="container mx-auto max-w-screen-xl px-4 py-8 md:py-10 space-y-6">
+        
+        {/* הדרכה ל-Wishlist */}
+        <div className="bg-gradient-to-r from-amber-50 to-orange-50 border border-[#CAA131]/50 rounded-2xl p-5 flex items-center gap-4 shadow-lg">
+          <div className="bg-amber-500 text-white rounded-full p-2 flex-shrink-0">
+            <MapPin className="w-5 h-5" />
           </div>
+          <div className="flex-1">
+            <h3 className="font-bold text-black">בונה מסלול חכם</h3>
+            <p className="text-black text-sm">הוסף חוויות למסלול שלך ואנחנו נבנה לך תכנית טיול מושלמת עם מחירים ומפת נסיעה</p>
+          </div>
+          <div className="flex-shrink-0">
+            <Link
+              to="/contact"
+              className="px-6 py-2 rounded-full font-bold text-sm shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 bg-gradient-to-r from-[#CAA131] to-[#B8942A] text-black hover:from-[#B8942A] hover:to-[#A68525]"
+            >
+              הוסף מסלול
+            </Link>
+          </div>
+        </div>
 
-          {/* RIGHT (sidebar sticky) */}
-          <aside className="lg:col-span-1">
-            <div className="sticky top-8 space-y-6">
-              <div className="bg-primary text-white rounded-2xl p-6">
-                <h3 className="text-lg font-bold mb-1 font-sans">מוכנים להתחיל?</h3>
-                <p className="text-sm opacity-90 mb-4">
-                  דברו איתנו ונבנה לכם מסלול מותאם אישית.
-                </p>
-                <Link
-                  to="/contact"
-                  className="bg-white text-primary px-4 py-2 rounded-lg font-semibold hover:bg-gray-100 transition-colors inline-block w-full text-center"
-                >
-                  בקשת הצעה
-                </Link>
-              </div>
-
-              {/* "עוד ב{קטגוריה}" */}
-              {getRelatedParks(park, 3).length > 0 && (
-                <div className="bg-white border rounded-2xl p-5">
-                  <h4 className="font-semibold mb-3 font-sans">עוד ב{category.name}</h4>
-                  <div className="space-y-3">
-                    {getRelatedParks(park, 3).map((rp) => (
-                      <Link
-                        key={rp.slug}
-                        to={`/category/${slug}/${rp.slug}`}
-                        className="flex gap-3 group"
-                      >
-                        <div
-                          className="w-16 h-16 rounded-lg bg-cover bg-center shrink-0"
-                          style={{ backgroundImage: `url(${rp.image})` }}
-                        />
-                        <div className="min-w-0">
-                          <div className="font-medium group-hover:text-primary transition-colors">{rp.name}</div>
-                          <div className="text-xs text-gray-500 line-clamp-2">{rp.summary}</div>
-                        </div>
-                      </Link>
-                    ))}
+        {/* גריד מושלם מסודר */}
+        <div className="space-y-6">
+          {/* שורה עליונה: תיאור האטרקציה + מפה */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+            {/* תיאור האטרקציה - ריבוע רחב */}
+            <div className="md:col-span-2">
+              <section className="bg-gradient-to-br from-white via-gray-50 to-white border border-[#534B20]/60 rounded-3xl p-8 md:p-10 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.01] h-full">
+                <div className="space-y-8">
+                  <h2 className="text-2xl font-bold text-[#4B361C] mb-6 leading-tight">{park.summary || park.description.split("\n\n")[0]}</h2>
+                  
+                  <div className="prose prose-lg max-w-none">
+                    <p className="text-[18px] leading-relaxed text-gray-700 font-medium">
+                      {park.description}
+                    </p>
                   </div>
                 </div>
-              )}
+              </section>
             </div>
-          </aside>
+
+            {/* מפה - ריבוע */}
+            <div className="md:col-span-1">
+              <MapBlock />
+            </div>
+          </div>
+
+          {/* שורה שנייה: גלריה + מה תגלו בדרך */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* גלריה - ריבוע */}
+            <div className="md:col-span-1">
+              <section className="bg-gradient-to-br from-gray-50 via-gray-100 to-gray-50 border border-[#534B20]/60 rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.01] h-full">
+                <h3 className="text-lg font-bold mb-4 flex items-center gap-3 text-[#4B361C]">
+                  <MapPin className="w-5 h-5 text-[#CAA131]" />
+                  גלריה
+                </h3>
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="relative group rounded-2xl overflow-hidden cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105">
+                    <img
+                      src={park.image}
+                      alt={park.name}
+                      className="w-full h-32 md:h-36 object-cover transition-transform group-hover:scale-110 duration-700"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="relative group rounded-2xl overflow-hidden cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105">
+                    <img
+                      src={park.image}
+                      alt={park.name}
+                      className="w-full h-32 md:h-36 object-cover transition-transform group-hover:scale-110 duration-700"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="relative group rounded-2xl overflow-hidden cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105">
+                    <img
+                      src={park.image}
+                      alt={park.name}
+                      className="w-full h-32 md:h-36 object-cover transition-transform group-hover:scale-110 duration-700"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="relative group rounded-2xl overflow-hidden cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105">
+                    <img
+                      src={park.image}
+                      alt={park.name}
+                      className="w-full h-32 md:h-36 object-cover transition-transform group-hover:scale-110 duration-700"
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+                <button className="w-full mt-6 py-4 text-[#CAA131] hover:text-white font-bold border border-[#CAA131]/50 rounded-2xl hover:bg-[#CAA131] transition-all duration-500 hover:scale-105 shadow-xl hover:shadow-2xl text-base">
+                  צפה בכל התמונות
+                </button>
+              </section>
+            </div>
+
+            {/* מה תגלו בדרך - ריבוע רחב */}
+            <div className="md:col-span-2">
+              <section className="bg-gradient-to-br from-white via-gray-50 to-white border border-[#534B20]/60 rounded-3xl p-8 md:p-10 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.01] h-full">
+                <h3 className="text-xl font-bold text-[#4B361C] mb-4 border-b-2 border-[#CAA131] w-fit">מה תגלו בדרך</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {(park as any).wildlife?.map((w: string, i: number) => (
+                    <div key={i} className="flex items-center gap-4 p-4 bg-gradient-to-r from-[#CAA131]/15 to-[#B8942A]/15 rounded-2xl border border-[#CAA131]/50/30 hover:shadow-xl hover:scale-105 transition-all duration-500">
+                      <div className="w-4 h-4 bg-gradient-to-br from-[#CAA131] to-[#B8942A] rounded-full shadow-lg"></div>
+                      <span className="text-[#4B361C] font-medium text-base">{w}</span>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            </div>
+          </div>
+
+          {/* שורה שלישית: הידעת + חשוב לדעת */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* הידעת - ריבוע קטן */}
+            <div className="md:col-span-1">
+              <section className="bg-gradient-to-r from-[#CAA131]/15 to-[#B8942A]/15 border border-[#CAA131]/30 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 h-full">
+                <h3 className="text-xl font-extrabold text-[#4B361C] mb-3 border-b-3 border-[#CAA131] w-fit flex items-center gap-2">
+                  <span className="text-2xl">💡</span>
+                  הידעת?
+                </h3>
+                <p className="text-base font-semibold text-[#4B361C] leading-relaxed">
+                  {park.funFact || "עובדה מעניינת על הפארק הזה תופיע כאן בקרוב!"}
+                </p>
+              </section>
+            </div>
+
+            {/* חשוב לדעת - ריבוע רחב */}
+            <div className="md:col-span-2">
+              <section className="bg-gradient-to-br from-gray-50 via-gray-100 to-gray-50 border border-[#534B20]/60 rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.01] h-full">
+                <h3 className="text-xl font-bold text-[#4B361C] mb-4 border-b-2 border-[#CAA131] w-fit">חשוב לדעת</h3>
+                <div className="bg-[#CAA131]/10 p-4 rounded-xl space-y-2">
+                  <div className="text-sm font-medium text-[#4B361C] text-right">
+                    רישיון: $300–450 ליום — להזמין חודשים מראש
+                  </div>
+                  <div className="text-sm font-medium text-[#4B361C] text-right">
+                    מיקום: קרוב לגבול DRC — בדוק אזהרות מסע עדכניות
+                  </div>
+                  <div className="text-sm font-medium text-[#4B361C] text-right">
+                    עונת השיא: מתמלאת חודשים מראש — הזמן מוקדם
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+
+          {/* שורה תחתונה: חוויות נוספות - מלא רוחב */}
+          <div className="grid grid-cols-1 gap-6">
+            <section className="bg-white border border-[#534B20]/60 rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.01]">
+              <h3 className="text-lg font-bold text-center text-[#4B361C] mb-6">
+                <div className="text-[#CAA131]">חוויות נוספות</div>
+                <div>בסביבת {park.name}</div>
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {nearbyParks.slice(0, 3).map((np) => (
+                  <Link key={np.slug} to={`/category/${slug}/${np.slug}`}>
+                    <div className="relative h-40 rounded-2xl overflow-hidden cursor-pointer group shadow-lg hover:shadow-xl transition-all duration-500">
+                      <div 
+                        className="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+                        style={{ backgroundImage: `url(${np.image})` }}
+                      >
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent group-hover:from-black/90 transition-all duration-500"></div>
+                        <div className="absolute bottom-0 left-0 right-0 p-3 text-center">
+                          <h4 className="text-base font-extrabold text-white drop-shadow-md mb-1">{np.name}</h4>
+                          <div className="text-xs text-gray-100 drop-shadow flex items-center gap-1 justify-center">
+                            <span>🚗</span>
+                            <span>באותו אזור</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </section>
+          </div>
+
         </div>
       </div>
     </div>
