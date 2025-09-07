@@ -95,11 +95,47 @@ const BlogPost: React.FC = () => {
 
           {/* Post Content */}
           <div className="prose prose-lg max-w-none mb-12">
-            {post.content.split('\n\n').map((paragraph, index) => (
-              <p key={index} className="mb-6 text-lg leading-relaxed font-sans">
-                {paragraph}
-              </p>
-            ))}
+            {post.content.split('\n\n').map((paragraph, index) => {
+              // Check if paragraph contains an image
+              if (paragraph.startsWith('![')) {
+                const imageMatch = paragraph.match(/!\[([^\]]*)\]\(([^)]+)\)/);
+                if (imageMatch) {
+                  return (
+                    <div key={index} className="mb-8">
+                      <img
+                        src={imageMatch[2]}
+                        alt={imageMatch[1]}
+                        className="w-full h-auto rounded-lg shadow-md"
+                      />
+                    </div>
+                  );
+                }
+              }
+              
+              // Check if paragraph is a heading
+              if (paragraph.startsWith('## ')) {
+                return (
+                  <h2 key={index} className="text-3xl font-bold mb-6 mt-8 font-sans">
+                    {paragraph.replace('## ', '')}
+                  </h2>
+                );
+              }
+              
+              if (paragraph.startsWith('### ')) {
+                return (
+                  <h3 key={index} className="text-2xl font-semibold mb-4 mt-6 font-sans">
+                    {paragraph.replace('### ', '')}
+                  </h3>
+                );
+              }
+              
+              // Regular paragraph
+              return (
+                <p key={index} className="mb-6 text-lg leading-relaxed font-sans">
+                  {paragraph}
+                </p>
+              );
+            })}
           </div>
 
           {/* Quick Tips */}

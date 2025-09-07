@@ -64,16 +64,22 @@ const Stat: React.FC<{ label: string; value: string }> = ({ label, value }) => (
 );
 
 const InfoCard: React.FC<
-  React.PropsWithChildren<{ title: string; className?: string }>
-> = ({ title, className = "", children }) => (
-  <section className={`bg-gray-800 border-4 border-amber-500 rounded-2xl p-5 md:p-6 shadow-2xl hover:shadow-amber-500/50 transition-all ${className}`}>
-    <h3 className="text-lg font-bold mb-3 flex items-center gap-2 text-white">
-      <div className="w-1 h-5 bg-amber-500 rounded-full"></div>
-      {title}
-    </h3>
-    <div className="text-[17px] leading-relaxed text-white">{children}</div>
-  </section>
-);
+  React.PropsWithChildren<{ title: string; className?: string; variant?: 'white' | 'gray' }>
+> = ({ title, className = "", variant = 'white', children }) => {
+  const bgClass = variant === 'gray' 
+    ? 'bg-gradient-to-br from-gray-50 via-gray-100 to-gray-50' 
+    : 'bg-gradient-to-br from-white via-gray-50 to-white';
+  
+  return (
+    <section className={`${bgClass} border-2 border-[#534B20] rounded-3xl p-8 md:p-10 shadow-2xl hover:shadow-3xl hover:border-[#CAA131] hover:scale-[1.02] transition-all duration-500 group ${className}`}>
+      <h3 className="text-lg font-bold mb-4 flex items-center gap-3 text-[#4B361C] group-hover:text-[#CAA131] transition-colors">
+        <div className="w-3 h-6 bg-gradient-to-b from-[#CAA131] to-[#B8942A] rounded-full shadow-lg"></div>
+        {title}
+      </h3>
+      <div className="text-[17px] leading-relaxed text-gray-700 group-hover:text-gray-800 transition-colors font-medium">{children}</div>
+    </section>
+  );
+};
 
 // קומפוננט דירוג
 const Rating: React.FC<{ rating: number; reviewCount: number }> = ({ rating, reviewCount }) => (
@@ -193,6 +199,8 @@ const AttractionPage: React.FC = () => {
   }, [id]);
 
   const [expanded, setExpanded] = useState(false);
+  const [isAdded, setIsAdded] = useState(false);
+  const [mapFullscreen, setMapFullscreen] = useState(false);
 
   // ===== Responsive Hero Height =====
   useEffect(() => {
@@ -345,15 +353,16 @@ const AttractionPage: React.FC = () => {
         className={`relative w-full hero-section-${a?.id || 'default'}`}
         style={{
           height: a?.heroHeight 
-            ? `${a.heroHeight.mobile || '50vh'}`
-            : '50vh',
-          minHeight: '300px'
+            ? `${a.heroHeight.mobile || '25vh'}`
+            : '25vh',
+          minHeight: '200px'
         }}
       >
         <img 
           src={heroImage}
           alt="Hero"
-          className="absolute inset-0 w-full h-full object-cover object-center object-bottom md:object-top"
+          className="absolute inset-0 w-full h-full object-cover object-center"
+          style={{ objectPosition: 'center 30%' }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/30" />
         
@@ -460,36 +469,30 @@ const AttractionPage: React.FC = () => {
       {/* ===== BREADCRUMB ===== */}
       <Breadcrumb category={a.category} attractionName={a.name} />
 
-      {/* ===== STICKY CTA BAR (Mobile) - כפתור במרכז התחתית ===== */}
-      <div className="md:hidden fixed bottom-4 left-1/2 transform -translate-x-1/2 z-50">
-        <WishlistButton 
-          item={{
-            id: a.id || a.slug || 'default-id',
-            attractionId: a.id || a.slug || 'default-id',
-            name: a.name,
-            subtitle: a.subtitle,
-            image: heroImage,
-            basePrice: a.price || 'מ-$2,400'
-          }}
-          variant="bag"
-          className="bg-amber-500 hover:bg-amber-600 text-white rounded-full px-4 py-2 shadow-lg flex items-center justify-center text-sm font-medium"
-        />
-      </div>
 
       {/* ===== BODY ===== */}
       <div className="container mx-auto max-w-screen-xl px-4 py-8 md:py-10 space-y-6">
         
         {/* הדרכה ל-Wishlist */}
-        <div className="bg-gradient-to-r from-amber-50 to-orange-50 border border-amber-200 rounded-2xl p-4 flex items-center gap-4">
+        <div className="bg-gradient-to-r from-amber-50 to-orange-50 border-2 border-[#CAA131] rounded-2xl p-5 flex items-center gap-4 shadow-lg">
           <div className="bg-amber-500 text-white rounded-full p-2 flex-shrink-0">
             <Route className="w-5 h-5" />
           </div>
           <div className="flex-1">
-            <h3 className="font-bold text-amber-800">בונה מסלול חכם</h3>
-            <p className="text-amber-700 text-sm">הוסף חוויות למסלול שלך ואנחנו נבנה לך תכנית טיול מושלמת עם מחירים ומפת נסיעה</p>
+            <h3 className="font-bold text-black">בונה מסלול חכם</h3>
+            <p className="text-black text-sm">הוסף חוויות למסלול שלך ואנחנו נבנה לך תכנית טיול מושלמת עם מחירים ומפת נסיעה</p>
           </div>
           <div className="flex-shrink-0">
-            <span className="text-xs bg-amber-200 text-amber-800 px-2 py-1 rounded-full font-medium">חדש!</span>
+            <button 
+              onClick={() => setIsAdded(!isAdded)}
+              className={`px-6 py-2 rounded-full font-bold text-sm shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 ${
+                isAdded 
+                  ? 'bg-gradient-to-r from-green-500 to-green-600 text-white' 
+                  : 'bg-gradient-to-r from-[#CAA131] to-[#B8942A] text-black hover:from-[#B8942A] hover:to-[#A68525]'
+              }`}
+            >
+              {isAdded ? 'נוסף למסלול!' : 'הוסף מסלול'}
+            </button>
           </div>
         </div>
 
@@ -498,24 +501,24 @@ const AttractionPage: React.FC = () => {
           {/* ===== תוכן ראשי ===== */}
           <div className="space-y-6">
             {/* תיאור ראשי */}
-            <section className="bg-white border rounded-2xl p-5 md:p-6 shadow-sm">
-              <div className="space-y-4">
+            <section className="bg-gradient-to-br from-white via-gray-50 to-white border-2 border-[#534B20] rounded-3xl p-8 md:p-10 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.01]">
+              <div className="space-y-8">
                 {a.subtitle && (
-                  <h2 className="text-xl font-bold text-primary-600 mb-3">{a.subtitle}</h2>
+                  <h2 className="text-2xl font-bold text-[#4B361C] mb-6 leading-tight">{a.subtitle}</h2>
                 )}
                 
                 {introFull && (
                   <div className="prose prose-lg max-w-none">
-                    <p className="text-[17px] leading-relaxed text-gray-800">
+                    <p className="text-[18px] leading-relaxed text-gray-700 font-medium">
                       {expanded ? introFull : introShort}
                     </p>
                     {introFull.length > 280 && (
                       <button
                         onClick={() => setExpanded((v) => !v)}
-                        className="text-amber-600 hover:text-amber-700 font-medium mt-2 flex items-center gap-1"
+                        className="text-[#CAA131] hover:text-[#B8942A] font-bold mt-6 flex items-center gap-3 text-lg transition-all duration-300 hover:scale-105 group"
                       >
                         {expanded ? "קרא פחות" : "קרא עוד"} 
-                        <span className="text-xs">→</span>
+                        <span className="text-xs transition-transform duration-300 group-hover:translate-x-2">→</span>
                       </button>
                     )}
                   </div>
@@ -523,41 +526,15 @@ const AttractionPage: React.FC = () => {
               </div>
             </section>
 
-            {/* קוביות מידע */}
-            <div className="grid grid-cols-1 gap-4">
-              {(a.duration || a.difficulty) && (
-                <InfoCard title="פרטי החוויה">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      {a.duration && (
-                        <div className="flex items-center gap-2">
-                          <Clock className="w-5 h-5 text-amber-500" />
-                          <span>משך: {a.duration}</span>
-                        </div>
-                      )}
-                      {a.difficulty && (
-                        <div className="flex items-center gap-2">
-                          <Users className="w-5 h-5 text-amber-500" />
-                          <span>דרגת קושי: {a.difficulty}</span>
-                        </div>
-                      )}
-                    </div>
-                    <div className="bg-amber-50 p-3 rounded-lg">
-                      <p className="text-sm text-amber-800">
-                        <strong>שעה זהב:</strong> בהגעה למשפחת הגורילות תקבלו שעה מלאה לצפייה שקטה במשחקי גורים, אינטראקציות וסילברבק מרשים.
-                      </p>
-                    </div>
-                  </div>
-                </InfoCard>
-              )}
-
+            {/* בלוק מידע מאוחד */}
+            <div className="grid grid-cols-1 gap-6">
               {a.wildlife && a.wildlife.length > 0 && (
-                <InfoCard title="מה עוד תגלו בדרך">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                <InfoCard title="מה תגלו בדרך">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {a.wildlife.map((w, i) => (
-                      <div key={i} className="flex items-center gap-2 p-2 bg-gray-50 rounded-lg">
-                        <div className="w-2 h-2 bg-gray-500 rounded-full"></div>
-                        <span className="text-gray-700">{w}</span>
+                      <div key={i} className="flex items-center gap-4 p-4 bg-gradient-to-r from-[#CAA131]/15 to-[#B8942A]/15 rounded-2xl border-2 border-[#CAA131]/30 hover:shadow-xl hover:scale-105 transition-all duration-500">
+                        <div className="w-4 h-4 bg-gradient-to-br from-[#CAA131] to-[#B8942A] rounded-full shadow-lg"></div>
+                        <span className="text-[#4B361C] font-medium text-base">{w}</span>
                       </div>
                     ))}
                   </div>
@@ -565,13 +542,13 @@ const AttractionPage: React.FC = () => {
               )}
 
               {tips.length > 0 && (
-                <InfoCard title="חשוב לדעת">
-                  <div className="bg-gray-50 border-l-4 border-gray-400 p-4 rounded-lg">
-                    <ul className="space-y-2">
+                <InfoCard title="חשוב לדעת" variant="gray">
+                  <div className="bg-gradient-to-r from-[#CAA131]/15 to-[#B8942A]/15 border-l-4 border-[#CAA131] p-6 rounded-2xl shadow-xl">
+                    <ul className="space-y-4">
                       {tips.slice(0, 3).map((t, i) => (
-                        <li key={i} className="flex items-start gap-2 text-gray-700">
-                          <span className="text-gray-500 mt-1">•</span>
-                          <span>{t}</span>
+                        <li key={i} className="flex items-start gap-4 text-[#4B361C]">
+                          <span className="text-[#4B361C] mt-1 font-bold text-lg">•</span>
+                          <span className="font-medium text-base">{t}</span>
                         </li>
                       ))}
                     </ul>
@@ -584,33 +561,65 @@ const AttractionPage: React.FC = () => {
           {/* ===== סיידבר ===== */}
           <div className="space-y-6">
             {/* מפה */}
-            <section className="rounded-2xl overflow-hidden border bg-white shadow-sm">
-              <div className="p-4 bg-gray-50 border-b">
-                <h3 className="font-bold flex items-center gap-2">
-                  <MapPin className="w-5 h-5 text-amber-500" />
-                  מיקום
-                </h3>
+            <section className="rounded-2xl overflow-hidden border-2 border-[#534B20] bg-white shadow-lg hover:shadow-xl transition-all duration-300">
+              <div className="relative cursor-pointer" onClick={() => setMapFullscreen(true)}>
+                <iframe
+                  title={`מפה – ${a.name}`}
+                  className="w-full h-72"
+                  loading="lazy"
+                  src={`https://www.openstreetmap.org/export/embed.html?bbox=${mapCoords.bbox}&layer=mapnik`}
+                />
+                
+                {/* Click overlay */}
+                <div className="absolute inset-0 bg-black/0 hover:bg-black/5 transition-colors duration-300 flex items-center justify-center">
+                  <div className="opacity-0 hover:opacity-100 transition-opacity duration-300 bg-white/90 backdrop-blur-sm rounded-full p-3 shadow-lg">
+                    <svg className="w-6 h-6 text-[#CAA131]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+                    </svg>
+                  </div>
+                </div>
+                
+                {/* Floating info card */}
+                <div className="absolute top-4 right-4 z-10">
+                  <div className="bg-white/90 backdrop-blur-sm rounded-lg p-3 shadow-lg border border-white/20">
+                    <h4 className="font-bold text-[#4B361C] text-sm mb-1 text-right">מערב אוגנדה</h4>
+                    <p className="text-gray-600 text-xs text-right">6 שעות מקמפלה | טיסה פנימית 45 דק'</p>
+                  </div>
+                </div>
+                
+                {/* Custom gold marker */}
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
+                  <div className="relative group cursor-pointer">
+                    <div className="w-6 h-6 bg-[#CAA131] rounded-full border-2 border-white shadow-lg flex items-center justify-center">
+                      <div className="w-2 h-2 bg-white rounded-full"></div>
+                    </div>
+                    {/* Popup */}
+                    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                      <div className="bg-white border-2 border-[#CAA131] rounded-lg p-3 shadow-xl min-w-[200px]">
+                        <h4 className="font-bold text-[#4B361C] text-sm mb-1 text-right">{a.name}</h4>
+                        <p className="text-gray-600 text-xs leading-relaxed text-right">
+                          {a.name === "Queen Elizabeth National Park" 
+                            ? "שמורה ייחודית במערב אוגנדה, ידועה באריות המטפסים על עצים ובמגוון חיות בר נדירות."
+                            : "אטרקציה מרהיבה באוגנדה עם נופים וחיות בר ייחודיות."
+                          }
+                        </p>
+                        <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-white"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <iframe
-                title={`מפה – ${a.name}`}
-                className="w-full h-64"
-                loading="lazy"
-                src={`https://www.openstreetmap.org/export/embed.html?bbox=${mapCoords.bbox}&layer=mapnik&marker=${mapCoords.lat}%2C${mapCoords.lng}`}
-              />
-              <div className="p-3 bg-gray-50 text-sm text-gray-600">
-                <MapPin className="w-4 h-4 inline ml-1" />
-                {a.region}
-              </div>
+              
             </section>
 
             {/* גלריה משופרת */}
             {a.gallery && a.gallery.length > 0 && (
-              <section className="bg-white border rounded-2xl p-5 shadow-sm">
-                <h3 className="text-lg font-bold mb-3 flex items-center gap-2">
-                  <Camera className="w-5 h-5 text-amber-500" />
+              <section className="bg-gradient-to-br from-gray-50 via-gray-100 to-gray-50 border-2 border-[#534B20] rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.01]">
+                <h3 className="text-lg font-bold mb-4 flex items-center gap-3 text-[#4B361C]">
+                  <Camera className="w-5 h-5 text-[#CAA131]" />
                   גלריה ({a.gallery.length} תמונות)
                 </h3>
-                <div className="grid grid-cols-2 gap-2">
+                <div className="grid grid-cols-2 gap-4">
                   {a.gallery.slice(0, 4).map((item, i) => {
                     const src = getImageSrc(item);
                     const title = getImageTitle(item);
@@ -619,26 +628,27 @@ const AttractionPage: React.FC = () => {
                     return (
                       <div 
                         key={i} 
-                        className="relative group rounded-lg overflow-hidden cursor-pointer"
+                        className="relative group rounded-2xl overflow-hidden cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105"
                         onClick={() => openLightbox(i)}
                       >
                         <img
                           src={src}
                           alt={title || `${a.name} ${i + 1}`}
-                          className="w-full h-24 md:h-28 object-cover transition-transform group-hover:scale-105"
+                          className="w-full h-32 md:h-36 object-cover transition-transform group-hover:scale-110 duration-700"
                           loading="lazy"
                         />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                         {/* Show title overlay if available */}
                         {title && (
-                          <div className="absolute bottom-0 left-0 right-0 bg-black/70 text-white p-2 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                            <div className="text-xs font-medium">{title}</div>
+                          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/95 to-transparent text-white p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                            <div className="text-base font-bold">{title}</div>
                             {description && (
-                              <div className="text-xs text-gray-300 mt-1">{description}</div>
+                              <div className="text-sm text-gray-200 mt-2">{description}</div>
                             )}
                           </div>
                         )}
                         {i === 3 && a.gallery!.length > 4 && (
-                          <div className="absolute inset-0 bg-black/60 flex items-center justify-center text-white font-bold">
+                          <div className="absolute inset-0 bg-black/80 flex items-center justify-center text-white font-bold text-xl backdrop-blur-md">
                             +{a.gallery!.length - 4}
                           </div>
                         )}
@@ -647,7 +657,7 @@ const AttractionPage: React.FC = () => {
                   })}
                 </div>
                 <button 
-                  className="w-full mt-3 py-2 text-amber-600 hover:text-amber-700 font-medium border border-amber-200 rounded-lg hover:bg-amber-50 transition-colors"
+                  className="w-full mt-6 py-4 text-[#CAA131] hover:text-white font-bold border-2 border-[#CAA131] rounded-2xl hover:bg-[#CAA131] transition-all duration-500 hover:scale-105 shadow-xl hover:shadow-2xl text-base"
                   onClick={() => openLightbox(0)}
                 >
                   צפה בכל התמונות
@@ -656,32 +666,56 @@ const AttractionPage: React.FC = () => {
             )}
 
             {/* חוויות קשורות */}
-            <section className="bg-white border rounded-2xl p-5 shadow-sm">
-              <h3 className="text-lg font-bold mb-3">חוויות נוספות באזור</h3>
-              <div className="space-y-3">
-                <div className="p-3 border rounded-lg hover:bg-gray-50 transition-colors cursor-pointer">
-                  <div className="font-medium">שימפנזים בקיבאלה</div>
-                  <div className="text-sm text-gray-600">סיור בוקר/צהריים • גיל 12+</div>
-                  <div className="text-sm text-amber-600 font-medium">מ-$250</div>
+            <section className="bg-gradient-to-br from-gray-50 via-gray-100 to-gray-50 border-2 border-[#534B20] rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.01]">
+              <h3 className="text-lg font-bold text-center text-[#4B361C] mb-4">
+                <div className="text-[#CAA131]">חוויות נוספות</div>
+                <div>בסביבת {a.name}</div>
+              </h3>
+              <div className="space-y-5">
+                {/* שימפנזים בקיבאלה */}
+                <div className="relative h-48 rounded-2xl overflow-hidden cursor-pointer group shadow-lg hover:shadow-xl transition-all duration-500">
+                  <div 
+                    className="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+                    style={{
+                      backgroundImage: `url('https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=400&h=300&fit=crop&crop=center')`
+                    }}
+                  >
+                    {/* Dark gradient overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent group-hover:from-black/90 transition-all duration-500"></div>
+                    
+                    {/* Content overlay */}
+                    <div className="absolute bottom-0 left-0 right-0 p-6 text-center">
+                      <h4 className="text-2xl font-extrabold text-white drop-shadow-md mb-2">שימפנזים בקיבאלה</h4>
+                      <div className="text-sm text-gray-100 drop-shadow flex items-center gap-1 justify-center">
+                        <span>🚗</span>
+                        <span>מרחק מפארק המלכה אליזבת: כ־2.5–3 שעות נסיעה צפונה</span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div className="p-3 border rounded-lg hover:bg-gray-50 transition-colors cursor-pointer">
-                  <div className="font-medium">גורילות במגהינגה</div>
-                  <div className="text-sm text-gray-600">חלופה שקטה • נוף וולקני</div>
-                  <div className="text-sm text-amber-600 font-medium">מ-$700</div>
+                
+                {/* גורילות במגהינגה */}
+                <div className="relative h-48 rounded-2xl overflow-hidden cursor-pointer group shadow-lg hover:shadow-xl transition-all duration-500">
+                  <div 
+                    className="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+                    style={{
+                      backgroundImage: `url('https://images.unsplash.com/photo-1583417319070-4a69db38a482?w=400&h=300&fit=crop&crop=center')`
+                    }}
+                  >
+                    {/* Dark gradient overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent group-hover:from-black/90 transition-all duration-500"></div>
+                    
+                    {/* Content overlay */}
+                    <div className="absolute bottom-0 left-0 right-0 p-6 text-center">
+                      <h4 className="text-2xl font-extrabold text-white drop-shadow-md mb-2">גורילות במגהינגה</h4>
+                      <div className="text-sm text-gray-100 drop-shadow flex items-center gap-1 justify-center">
+                        <span>🚗</span>
+                        <span>מרחק מפארק המלכה אליזבת: כ־4–5 שעות נסיעה דרומה</span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <WishlistButton 
-                item={{
-                  id: a.id || a.slug || 'default-id',
-                  attractionId: a.id || a.slug || 'default-id',
-                  name: a.name,
-                  subtitle: a.subtitle,
-                  image: heroImage,
-                  basePrice: a.price || 'מ-$2,400'
-                }}
-                variant="bag"
-                className="w-full mt-4"
-              />
             </section>
           </div>
         </div>
@@ -743,7 +777,61 @@ const AttractionPage: React.FC = () => {
           </div>
         </div>
       )}
-    </div> 
+
+      {/* כפתור חזרה לקטגוריות */}
+      <div className="container mx-auto max-w-screen-xl px-4 py-8">
+        <div className="flex justify-center">
+          <Link 
+            to={`/category/${a.category}`}
+            className="inline-flex items-center gap-3 bg-gradient-to-r from-[#CAA131] to-[#B8942A] text-black px-8 py-4 rounded-2xl font-bold text-lg shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 hover:from-[#B8942A] hover:to-[#A68525]"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+            חזור לקטגוריית {categoryNames[a.category || ""] || a.category}
+          </Link>
+        </div>
+      </div>
+
+      {/* Fullscreen Map Modal */}
+      {mapFullscreen && (
+        <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
+          <div className="relative w-full h-full max-w-6xl max-h-[90vh] bg-white rounded-2xl overflow-hidden">
+            {/* Header */}
+            <div className="p-4 bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 border-b border-gray-200 flex items-center justify-between">
+              <h3 className="font-bold text-[#4B361C] text-xl flex items-center gap-3">
+                <MapPin className="w-6 h-6 text-[#CAA131]" />
+                מיקום - {a.name}
+              </h3>
+              <button 
+                onClick={() => setMapFullscreen(false)}
+                className="p-2 hover:bg-gray-200 rounded-full transition-colors"
+              >
+                <X className="w-6 h-6 text-gray-600" />
+              </button>
+            </div>
+            
+            {/* Fullscreen Map */}
+            <div className="relative h-[calc(100%-80px)]">
+              <iframe
+                title={`מפה מלאה – ${a.name}`}
+                className="w-full h-full"
+                loading="lazy"
+                src={`https://www.openstreetmap.org/export/embed.html?bbox=${mapCoords.bbox}&layer=mapnik&marker=${mapCoords.lat}%2C${mapCoords.lng}`}
+              />
+              
+              {/* Floating info card */}
+              <div className="absolute top-4 right-4 z-10">
+                <div className="bg-white/90 backdrop-blur-sm rounded-lg p-4 shadow-lg border border-white/20">
+                  <h4 className="font-bold text-[#4B361C] text-base mb-2 text-right">מערב אוגנדה</h4>
+                  <p className="text-gray-600 text-sm text-right">6 שעות מקמפלה | טיסה פנימית 45 דק'</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
   );
 };
 

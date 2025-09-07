@@ -1,0 +1,151 @@
+/* ===== מערכת גריד אחידה לכל האתר ===== */
+
+/* Container אחיד */
+.unified-container {
+  @apply container mx-auto px-4 py-8 md:py-12;
+}
+
+/* גריד ראשי - 2 עמודות */
+.unified-grid-main {
+  @apply grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-6 lg:gap-8;
+}
+
+/* גריד כרטיסים - 3 עמודות */
+.unified-grid-cards {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6;
+}
+
+/* גריד כרטיסים - 2 עמודות */
+.unified-grid-cards-2 {
+  @apply grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6;
+}
+
+/* גריד כרטיסים - 4 עמודות */
+.unified-grid-cards-4 {
+  @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6;
+}
+
+/* מרווחים אחידים */
+.unified-spacing {
+  @apply space-y-6 md:space-y-8;
+}
+
+.unified-spacing-sm {
+  @apply space-y-4 md:space-y-6;
+}
+
+.unified-spacing-lg {
+  @apply space-y-8 md:space-y-12;
+}
+
+/* בלוקים אחידים */
+.unified-block {
+  @apply bg-gradient-to-br from-white via-gray-50 to-white border-2 border-[#534B20] rounded-3xl p-6 md:p-8 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.01];
+}
+
+.unified-block-alt {
+  @apply bg-gradient-to-br from-gray-50 via-gray-100 to-gray-50 border-2 border-[#534B20] rounded-3xl p-6 md:p-8 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.01];
+}
+
+/* כותרות אחידות */
+.unified-title {
+  @apply text-lg font-bold text-[#4B361C] mb-4;
+}
+
+.unified-title-lg {
+  @apply text-xl font-bold text-[#4B361C] mb-6;
+}
+
+.unified-title-xl {
+  @apply text-2xl font-bold text-[#4B361C] mb-8;
+}
+
+/* כרטיסים אחידים */
+.unified-card {
+  @apply bg-white border-2 border-[#534B20] rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105;
+}
+
+.unified-card-image {
+  @apply h-48 md:h-56 bg-cover bg-center;
+}
+
+.unified-card-content {
+  @apply p-5 md:p-6;
+}
+
+.unified-card-title {
+  @apply text-lg font-bold text-[#4B361C] mb-2;
+}
+
+.unified-card-text {
+  @apply text-sm text-gray-600 leading-relaxed;
+}
+
+/* כפתורים אחידים */
+.unified-btn {
+  @apply bg-gradient-to-r from-[#CAA131] to-[#B8942A] text-black font-bold px-6 py-3 rounded-xl hover:from-[#B8942A] hover:to-[#A68525] transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl;
+}
+
+.unified-btn-sm {
+  @apply bg-gradient-to-r from-[#CAA131] to-[#B8942A] text-black font-bold px-4 py-2 rounded-lg hover:from-[#B8942A] hover:to-[#A68525] transition-all duration-300 hover:scale-105 shadow-md hover:shadow-lg;
+}
+
+/* תגיות אחידות */
+.unified-tag {
+  @apply bg-[#CAA131] text-black px-3 py-1 rounded-full text-xs font-semibold;
+}
+
+.unified-tag-alt {
+  @apply bg-[#4B361C] text-white px-3 py-1 rounded-full text-xs font-semibold;
+}
+
+/* רספונסיביות אחידה */
+@media (max-width: 768px) {
+  .unified-container {
+    @apply px-3 py-6;
+  }
+  
+  .unified-grid-cards {
+    @apply gap-4;
+  }
+  
+  .unified-block {
+    @apply p-4 rounded-2xl;
+  }
+  
+  .unified-card {
+    @apply rounded-xl;
+  }
+  
+  .unified-card-content {
+    @apply p-4;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .unified-grid-cards {
+    @apply grid-cols-2;
+  }
+  
+  .unified-grid-cards-4 {
+    @apply grid-cols-2;
+  }
+}
+
+/* אנימציות אחידות */
+.unified-fade-in {
+  @apply opacity-0 translate-y-4 transition-all duration-500 ease-out;
+}
+
+.unified-fade-in.visible {
+  @apply opacity-100 translate-y-0;
+}
+
+/* צללים אחידים */
+.unified-shadow {
+  @apply shadow-lg hover:shadow-xl transition-shadow duration-300;
+}
+
+.unified-shadow-lg {
+  @apply shadow-xl hover:shadow-2xl transition-shadow duration-300;
+}
