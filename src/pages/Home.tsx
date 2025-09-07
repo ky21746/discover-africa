@@ -51,15 +51,17 @@ const Home: React.FC = () => {
               "url(https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/hero-gorilla.webp?alt=media&token=c67bec83-4363-4104-a102-757f69b351a4)",
           }}
         />
-        <div className="relative container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 font-sans slide-up">
-            החוויה הבאה שלך באוגנדה
-            <br />
-            מתחילה כאן
-          </h1>
-          <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto font-sans slide-up">
-            טיולי אקסטרים, טבע פראי, ושירות אישי – חוויה שלא תשכח
-          </p>
+        <div className="relative container mx-auto px-4 text-center flex flex-col items-center justify-center h-full">
+          <div className="slide-up">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 font-sans">
+              החוויה הבאה שלך באוגנדה
+              <br />
+              מתחילה כאן
+            </h1>
+            <p className="text-xl md:text-2xl max-w-3xl mx-auto font-sans">
+              טיולי אקסטרים, טבע פראי, ושירות אישי – חוויה שלא תשכח
+            </p>
+          </div>
         </div>
       </section>
 

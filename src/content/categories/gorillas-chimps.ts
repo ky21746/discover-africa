@@ -68,6 +68,8 @@ export const gorillasChimps: Attraction[] = [
       mobile: "30vh",    // גובה קטן יותר במובייל לתמונה של אריות על עצים
       desktop: "45vh"    // גובה קטן יותר בדסקטופ לחוויית צפייה מרשימה
     },
+    
+    funFact: "יער בווינדי מכיל כמעט מחצית מאוכלוסיית גורילות ההרים בעולם - רק כ-1,000 גורילות נותרו בטבע, ו-400 מהן חיים כאן!",
     gallery: [
       {
         src: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FPrimates%20of%20Uganda%2FGorillas%20in%20Bwindi%20Forest%2FMountain%20gorilla%20Bwindi%20Impenetrable%20Forest%20Uganda.webp?alt=media&token=1a4e88e7-4cfd-45d3-8e92-cc3dbc3a3e56",
@@ -162,6 +164,8 @@ export const gorillasChimps: Attraction[] = [
       mobile: "60vh",    // גובה בינוני במובייל לגורילות מגהינגה
       desktop: "70vh"    // גובה בינוני בדסקטופ לגורילות מגהינגה
     },
+    
+    funFact: "פארק מגהינגה הוא הפארק הלאומי הקטן ביותר באוגנדה (33.7 קמ\"ר) אבל הוא היחיד שמכיל את כל שלושת הרי הגעש הפעילים של אוגנדה!",
     gallery: [
       {
         src: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FPrimates%20of%20Uganda%2FMgahinga%20Gorillas%2FMountain%20gorilla%20in%20the%20Mgahinga%20national%20park.webp?alt=media&token=d0634a10-e144-433e-a9e3-5ccfaa27ea51",
@@ -262,6 +266,8 @@ export const gorillasChimps: Attraction[] = [
       mobile: "60vh",    // גובה בינוני במובייל לשימפנזים
       desktop: "70vh"    // גובה בינוני בדסקטופ לשימפנזים
     },
+    
+    funFact: "יער קיבאלה מכיל את הצפיפות הגבוהה ביותר של פרימטים באפריקה - יותר מ-1,500 שימפנזים חיים כאן, יותר מכל מקום אחר בעולם!",
     gallery: [
       {
         src: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FPrimates%20of%20Uganda%2FKibale%20Chimpanzees%2Fkibale%20chimp%20chimpanzee%20Uganda%20in%20Africa.webp?alt=media&token=5d009a2b-563d-4dbb-b7fb-8f70784554de",

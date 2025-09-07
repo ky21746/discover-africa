@@ -34,6 +34,8 @@ export const water: Attraction[] = [
     whyUs: ["מדריכים מומחים", "גישה למפלים", "קשרים עם הפארק"],
     valueAdd: ["אתר דגל עולמי", "שילוב ספארי ונוף", "היסטוריה תרבותית"],
     
+    funFact: "מפלי מורצ'יסון הם המפל העוצמתי ביותר בעולם - הנילוס נדחס מ-50 מטר רוחב ל-7 מטר בלבד, יוצר כוח אדיר של 300 קוב מים בשנייה!",
+    
     gallery: [
       "https://images.pexels.com/photos/631317/pexels-photo-631317.jpeg",
       "https://images.pexels.com/photos/1661535/pexels-photo-1661535.jpeg",
@@ -113,6 +115,8 @@ export const water: Attraction[] = [
     nearby: ["Murchison Falls", "Source of the Nile", "ג'ינזה"],
     whyUs: ["מדריכים מומחי מים", "ציוד איכותי", "קשרים עם חברות רפטינג"],
     valueAdd: ["דגל לתיירות אוגנדה", "ספורט אתגרי ברמה עולמית", "היסטוריה עשירה"],
+    
+    funFact: "נהר הנילוס הוא הנהר הארוך בעולם (6,650 קילומטר) ומקטעיו באוגנדה נחשבים לפראיים והמרהיבים ביותר - בירת האקסטרים של מזרח אפריקה!",
     
     gallery: [
       "https://images.pexels.com/photos/631317/pexels-photo-631317.jpeg",

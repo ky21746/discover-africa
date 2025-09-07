@@ -40,6 +40,8 @@ export const mountains: Attraction[] = [
       desktop: "45vh"    // גובה קטן יותר בדסקטופ לחוויית צפייה מרשימה
     },
     
+    funFact: "הר אלגון הוא הר הגעש הכבוי הגדול ביותר באפריקה עם קלדרה בקוטר של 8 קילומטר - מהגדולות בעולם!",
+    
     gallery: [
       {
         src: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FSafari%20Uganda%2FMount%20Elgon%20National%20Park%2FThe%20amazing%20Sipi%20falls%20in%20the%20Mount%20Elgon%20national%20park%20in%20Uganda.webp?alt=media&token=13642ed8-bd50-42a1-ac7e-d7ef3e39ed62",
@@ -102,6 +104,8 @@ export const mountains: Attraction[] = [
       mobile: "30vh",    // גובה קטן יותר במובייל לתמונה של אריות על עצים
       desktop: "45vh"    // גובה קטן יותר בדסקטופ לחוויית צפייה מרשימה
     },
+    
+    funFact: "הרי הרוונזורי מכונים 'ההרים של הירח' ומכילים את הקרחונים הטרופיים היחידים באפריקה - תופעה נדירה בעולם!",
     
     gallery: [
       {

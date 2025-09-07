@@ -14,6 +14,7 @@ export interface Attraction {
   nearby: string[];
   description: string;
   image: string;
+  funFact?: string;
 }
 
 export const attractions: Attraction[] = [

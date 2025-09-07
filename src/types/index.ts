@@ -218,4 +218,7 @@ export interface Attraction {
     mobile?: string;          // e.g. "40vh", "50vh", "60vh"
     desktop?: string;         // e.g. "50vh", "60vh", "70vh"
   };
+
+  // Fun fact for "הידעת?" section
+  funFact?: string;
 }

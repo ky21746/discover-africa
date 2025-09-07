@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Filter } from "lucide-react";
 import Card from "../components/Common/Card";
 import SearchBar from "../components/Common/SearchBar";
-import { lakes } from "../content/categories/lakes";
+import { lakes } from "./lakes";
 
 const LakesPage: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState("");
