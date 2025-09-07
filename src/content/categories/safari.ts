@@ -37,7 +37,7 @@ export const safari: Attraction[] = [
     // Hero section customization - שליטה ספציפית בגובה התמונה
     heroHeight: {
       mobile: "30vh",    // גובה קטן יותר במובייל לתמונה של אריות על עצים
-      desktop: "35vh"    // גובה קטן יותר בדסקטופ לחוויית צפייה מרשימה
+      desktop: "45vh"    // גובה גדול יותר בדסקטופ לחוויית צפייה מרשימה
     },
     
     gallery: [
@@ -105,7 +105,7 @@ export const safari: Attraction[] = [
     // Hero section customization - שליטה ספציפית בגובה התמונה
     heroHeight: {
       mobile: "30vh",    // גובה קטן יותר במובייל לתמונה של אריות על עצים
-      desktop: "35vh"    // גובה קטן יותר בדסקטופ לחוויית צפייה מרשימה
+      desktop: "45vh"    // גובה גדול יותר בדסקטופ לחוויית צפייה מרשימה
     },
     
     gallery: [
@@ -198,7 +198,7 @@ export const safari: Attraction[] = [
     // Hero section customization - שליטה ספציפית בגובה התמונה
     heroHeight: {
       mobile: "30vh",    // גובה קטן יותר במובייל לתמונה של אריות על עצים
-      desktop: "35vh"    // גובה קטן יותר בדסקטופ לחוויית צפייה מרשימה
+      desktop: "45vh"    // גובה גדול יותר בדסקטופ לחוויית צפייה מרשימה
     },
     
     gallery: [
@@ -313,7 +313,7 @@ export const safari: Attraction[] = [
     // Hero section customization - שליטה ספציפית בגובה התמונה
     heroHeight: {
       mobile: "30vh",    // גובה קטן יותר במובייל לתמונה של אריות על עצים
-      desktop: "35vh"    // גובה קטן יותר בדסקטופ לחוויית צפייה מרשימה
+      desktop: "45vh"    // גובה גדול יותר בדסקטופ לחוויית צפייה מרשימה
     },
     
     gallery: [

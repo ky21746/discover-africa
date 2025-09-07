@@ -37,7 +37,7 @@ const WaterPage: React.FC = () => {
   return (
     <div className="fade-in" dir="rtl">
       {/* ===== HERO SECTION ===== */}
-      <section className="relative w-full h-[50vh] min-h-[300px]">
+      <section className="relative w-full h-[30vh] md:h-[45vh] min-h-[200px]">
         <img 
           src="https://images.pexels.com/photos/145939/pexels-photo-145939.jpeg"
           alt="אטרקציות מים באוגנדה"

@@ -43,7 +43,7 @@ const Home: React.FC = () => {
   return (
     <div className="fade-in" dir="rtl">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-gray-900 to-gray-800 text-white py-32 md:py-48 overflow-hidden">
+      <section className="relative bg-gradient-to-r from-gray-900 to-gray-800 text-white h-[30vh] md:h-[45vh] min-h-[200px] overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center opacity-65"
           style={{

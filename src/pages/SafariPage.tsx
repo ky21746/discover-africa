@@ -37,7 +37,7 @@ const SafariPage: React.FC = () => {
   return (
     <div className="fade-in" dir="rtl">
       {/* ===== HERO SECTION ===== */}
-      <section className="relative w-full h-[50vh] min-h-[300px]">
+      <section className="relative w-full h-[30vh] md:h-[45vh] min-h-[200px]">
         <img 
           src="https://images.pexels.com/photos/247376/pexels-photo-247376.jpeg"
           alt="ספארי באוגנדה"

@@ -425,7 +425,7 @@ const ParkDetail: React.FC = () => {
     <div className="fade-in" dir="rtl">
       {/* HERO */}
       <section className="relative">
-        <div className="relative w-full h-[55vh] md:h-[65vh] overflow-hidden group">
+        <div className="relative w-full h-[30vh] md:h-[45vh] overflow-hidden group">
           <div className="absolute inset-0 transform group-hover:scale-110 transition-transform duration-700 ease-out">
             <img
               src={park.image}
