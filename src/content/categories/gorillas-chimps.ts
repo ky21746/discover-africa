@@ -65,8 +65,8 @@ export const gorillasChimps: Attraction[] = [
     ],
     // Hero section customization - שליטה ספציפית בגובה התמונה
     heroHeight: {
-      mobile: "65vh",    // גובה גדול יותר במובייל לתמונה של גורילה עם גורילון
-      desktop: "75vh"    // גובה גדול יותר בדסקטופ לחוויית צפייה מרשימה
+      mobile: "30vh",    // גובה קטן יותר במובייל לתמונה של אריות על עצים
+      desktop: "35vh"    // גובה קטן יותר בדסקטופ לחוויית צפייה מרשימה
     },
     gallery: [
       {

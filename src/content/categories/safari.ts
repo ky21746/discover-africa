@@ -104,8 +104,8 @@ export const safari: Attraction[] = [
     
     // Hero section customization - שליטה ספציפית בגובה התמונה
     heroHeight: {
-      mobile: "45vh",    // גובה בינוני במובייל למפל
-      desktop: "65vh"    // גובה בינוני בדסקטופ למפל
+      mobile: "30vh",    // גובה קטן יותר במובייל לתמונה של אריות על עצים
+      desktop: "35vh"    // גובה קטן יותר בדסקטופ לחוויית צפייה מרשימה
     },
     
     gallery: [
@@ -197,8 +197,8 @@ export const safari: Attraction[] = [
     
     // Hero section customization - שליטה ספציפית בגובה התמונה
     heroHeight: {
-      mobile: "55vh",    // גובה בינוני במובייל לזברה בשקיעה
-      desktop: "65vh"    // גובה בינוני בדסקטופ לזברה בשקיעה
+      mobile: "30vh",    // גובה קטן יותר במובייל לתמונה של אריות על עצים
+      desktop: "35vh"    // גובה קטן יותר בדסקטופ לחוויית צפייה מרשימה
     },
     
     gallery: [
@@ -312,8 +312,8 @@ export const safari: Attraction[] = [
     
     // Hero section customization - שליטה ספציפית בגובה התמונה
     heroHeight: {
-      mobile: "50vh",    // גובה בינוני במובייל למעיינות חמים
-      desktop: "60vh"    // גובה בינוני בדסקטופ למעיינות חמים
+      mobile: "30vh",    // גובה קטן יותר במובייל לתמונה של אריות על עצים
+      desktop: "35vh"    // גובה קטן יותר בדסקטופ לחוויית צפייה מרשימה
     },
     
     gallery: [

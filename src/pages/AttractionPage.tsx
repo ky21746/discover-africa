@@ -665,60 +665,96 @@ const AttractionPage: React.FC = () => {
               </section>
             )}
 
-            {/* חוויות קשורות */}
-            <section className="bg-gradient-to-br from-gray-50 via-gray-100 to-gray-50 border border-[#534B20]/60 rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.01]">
-              <h3 className="text-lg font-bold text-center text-[#4B361C] mb-4">
-                <div className="text-[#CAA131]">חוויות נוספות</div>
-                <div>בסביבת {a.name}</div>
+            {/* הידעת? */}
+            <section className="bg-gradient-to-r from-[#CAA131]/15 to-[#B8942A]/15 border border-[#CAA131]/30 p-6 rounded-2xl shadow-lg mt-6 hover:shadow-xl transition-all duration-300">
+              <h3 className="text-xl font-extrabold text-[#4B361C] mb-3 border-b-3 border-[#CAA131] w-fit flex items-center gap-2">
+                <span className="text-2xl">💡</span>
+                הידעת?
               </h3>
-              <div className="space-y-5">
-                {/* שימפנזים בקיבאלה */}
-                <div className="relative h-48 rounded-2xl overflow-hidden cursor-pointer group shadow-lg hover:shadow-xl transition-all duration-500">
-                  <div 
-                    className="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
-                    style={{
-                      backgroundImage: `url('https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=400&h=300&fit=crop&crop=center')`
-                    }}
-                  >
-                    {/* Dark gradient overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent group-hover:from-black/90 transition-all duration-500"></div>
-                    
-                    {/* Content overlay */}
-                    <div className="absolute bottom-0 left-0 right-0 p-6 text-center">
-                      <h4 className="text-2xl font-extrabold text-white drop-shadow-md mb-2">שימפנזים בקיבאלה</h4>
-                      <div className="text-sm text-gray-100 drop-shadow flex items-center gap-1 justify-center">
-                        <span>🚗</span>
-                        <span>מרחק מפארק המלכה אליזבת: כ־2.5–3 שעות נסיעה צפונה</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              <p className="text-base font-semibold text-[#4B361C] leading-relaxed">
+                {a.funFact || "עובדה מעניינת על האטרקציה הזו תופיע כאן בקרוב!"}
+              </p>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+      {/* חוויות נוספות - פרוסות לרוחב בתחתית */}
+      <div className="container mx-auto max-w-screen-xl px-4 py-8">
+        <section className="bg-white border border-[#534B20]/60 rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.01]">
+          <h3 className="text-lg font-bold text-center text-[#4B361C] mb-6">
+            <div className="text-[#CAA131]">חוויות נוספות</div>
+            <div>בסביבת {a.name}</div>
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {/* שימפנזים בקיבאלה */}
+            <div className="relative h-40 rounded-2xl overflow-hidden cursor-pointer group shadow-lg hover:shadow-xl transition-all duration-500">
+              <div 
+                className="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+                style={{
+                  backgroundImage: `url('https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=400&h=300&fit=crop&crop=center')`
+                }}
+              >
+                {/* Dark gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent group-hover:from-black/90 transition-all duration-500"></div>
                 
-                {/* גורילות במגהינגה */}
-                <div className="relative h-48 rounded-2xl overflow-hidden cursor-pointer group shadow-lg hover:shadow-xl transition-all duration-500">
-                  <div 
-                    className="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
-                    style={{
-                      backgroundImage: `url('https://images.unsplash.com/photo-1583417319070-4a69db38a482?w=400&h=300&fit=crop&crop=center')`
-                    }}
-                  >
-                    {/* Dark gradient overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent group-hover:from-black/90 transition-all duration-500"></div>
-                    
-                    {/* Content overlay */}
-                    <div className="absolute bottom-0 left-0 right-0 p-6 text-center">
-                      <h4 className="text-2xl font-extrabold text-white drop-shadow-md mb-2">גורילות במגהינגה</h4>
-                      <div className="text-sm text-gray-100 drop-shadow flex items-center gap-1 justify-center">
-                        <span>🚗</span>
-                        <span>מרחק מפארק המלכה אליזבת: כ־4–5 שעות נסיעה דרומה</span>
-                      </div>
-                    </div>
+                {/* Content overlay */}
+                <div className="absolute bottom-0 left-0 right-0 p-3 text-center">
+                  <h4 className="text-base font-extrabold text-white drop-shadow-md mb-1">שימפנזים בקיבאלה</h4>
+                  <div className="text-xs text-gray-100 drop-shadow flex items-center gap-1 justify-center">
+                    <span>🚗</span>
+                    <span>כ־2.5–3 שעות צפונה</span>
                   </div>
                 </div>
               </div>
-            </section>
+            </div>
+            
+            {/* גורילות במגהינגה */}
+            <div className="relative h-40 rounded-2xl overflow-hidden cursor-pointer group shadow-lg hover:shadow-xl transition-all duration-500">
+              <div 
+                className="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+                style={{
+                  backgroundImage: `url('https://images.unsplash.com/photo-1583417319070-4a69db38a482?w=400&h=300&fit=crop&crop=center')`
+                }}
+              >
+                {/* Dark gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent group-hover:from-black/90 transition-all duration-500"></div>
+                
+                {/* Content overlay */}
+                <div className="absolute bottom-0 left-0 right-0 p-3 text-center">
+                  <h4 className="text-base font-extrabold text-white drop-shadow-md mb-1">גורילות במגהינגה</h4>
+                  <div className="text-xs text-gray-100 drop-shadow flex items-center gap-1 justify-center">
+                    <span>🚗</span>
+                    <span>כ־4–5 שעות דרומה</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* ספארי בפארק המלכה אליזבת */}
+            <div className="relative h-40 rounded-2xl overflow-hidden cursor-pointer group shadow-lg hover:shadow-xl transition-all duration-500">
+              <div 
+                className="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+                style={{
+                  backgroundImage: `url('https://images.unsplash.com/photo-1564349683136-77e08dba1ef7?w=400&h=300&fit=crop&crop=center')`
+                }}
+              >
+                {/* Dark gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent group-hover:from-black/90 transition-all duration-500"></div>
+                
+                {/* Content overlay */}
+                <div className="absolute bottom-0 left-0 right-0 p-3 text-center">
+                  <h4 className="text-base font-extrabold text-white drop-shadow-md mb-1">ספארי בפארק המלכה אליזבת</h4>
+                  <div className="text-xs text-gray-100 drop-shadow flex items-center gap-1 justify-center">
+                    <span>🚗</span>
+                    <span>באותו אזור</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
+        </section>
       </div>
 
       {/* Lightbox */}

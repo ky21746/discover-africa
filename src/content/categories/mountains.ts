@@ -36,8 +36,8 @@ export const mountains: Attraction[] = [
     
     // Hero section customization - שליטה ספציפית בגובה התמונה
     heroHeight: {
-      mobile: "55vh",    // גובה בינוני במובייל להר אלגון
-      desktop: "65vh"    // גובה בינוני בדסקטופ להר אלגון
+      mobile: "30vh",    // גובה קטן יותר במובייל לתמונה של אריות על עצים
+      desktop: "35vh"    // גובה קטן יותר בדסקטופ לחוויית צפייה מרשימה
     },
     
     gallery: [
@@ -99,8 +99,8 @@ export const mountains: Attraction[] = [
     
     // Hero section customization - שליטה ספציפית בגובה התמונה
     heroHeight: {
-      mobile: "60vh",    // גובה גדול במובייל לנוף הרים מרהיב
-      desktop: "70vh"    // גובה גדול בדסקטופ לנוף הרים מרהיב
+      mobile: "30vh",    // גובה קטן יותר במובייל לתמונה של אריות על עצים
+      desktop: "35vh"    // גובה קטן יותר בדסקטופ לחוויית צפייה מרשימה
     },
     
     gallery: [
