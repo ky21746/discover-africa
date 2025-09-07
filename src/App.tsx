@@ -74,17 +74,12 @@ export default function App() {
             {/* דף הבית */}
             <Route path="/" element={<Home />} />
             
-            {/* הרים */}
-            <Route path="/mountains" element={<MountainsPage />} />
-            
-            {/* אקסטרים */}
-            <Route path="/extreme" element={<ExtremePage />} />
-            
-            {/* מים - עמוד חדש עם אטרקציות */}
-            <Route path="/water" element={<WaterPage />} />
-            
-            {/* ספארי */}
+            {/* קטגוריות נפרדות */}
             <Route path="/safari" element={<SafariPage />} />
+            <Route path="/gorillas" element={<GorillasPage />} />
+            <Route path="/mountains" element={<MountainsPage />} />
+            <Route path="/water" element={<WaterPage />} />
+            <Route path="/extreme" element={<ExtremePage />} />
             
             {/* מים - תת-קטגוריות (חייב להיות לפני category/:slug) */}
             <Route path="/water/waterfalls" element={<WaterfallsPage />} />
@@ -96,9 +91,6 @@ export default function App() {
             
             {/* אטרקציה דינמית */}
             <Route path="/attraction/:id" element={<AttractionPage />} />
-            
-            {/* עמוד סטטי ישן של גורילות (אם נדרש עדיין) */}
-            <Route path="/gorillas" element={<GorillasPage />} />
             
             {/* בלוג */}
             <Route path="/blog" element={<Blog />} />

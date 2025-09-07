@@ -6,6 +6,7 @@ import { Star, Share2, Heart, MapPin, Clock, Users, Camera, Route, Plus, X, Chev
 // ====== DATA ======
 import { gorillasChimps } from "../content/categories/gorillas-chimps";
 import { safari } from "../content/categories/safari";
+import { water } from "../content/categories/water";
 import { parks } from "../data/parks";
 
 // ====== WISHLIST ======
@@ -42,12 +43,13 @@ const parksAsAttractions: AttractionWithMock[] = parks.map(park => ({
   // שדות נוספים לפי הצורך
 }));
 
-const allAttractions: AttractionWithMock[] = [...gorillasChimps, ...safari, ...parksAsAttractions];
+const allAttractions: AttractionWithMock[] = [...gorillasChimps, ...safari, ...water, ...parksAsAttractions];
 
 // מיפוי קטגוריות לשמות בעברית
 const categoryNames: Record<string, string> = {
   "gorillas-chimps": "גורילות ושימפנזים",
   "safari": "ספארי",
+  "water": "אטרקציות מים",
   "mountains": "הרים",
   "adventure": "הרפתקאות",
   "culture": "תרבות ומסורת",
@@ -184,7 +186,7 @@ const AttractionPage: React.FC = () => {
         ...attraction,
         rating: 4.8,
         reviewCount: 247,
-        price: "מ-$2,400"
+        price: attraction.permitCost || "מ-$2,400"
       };
     }
     return attraction;
@@ -367,7 +369,7 @@ const AttractionPage: React.FC = () => {
               basePrice: a.price || 'מ-$2,400'
             }}
             variant="text"
-            className="bg-amber-500 hover:bg-green-500 active:bg-green-600 rounded-full shadow-xl flex items-center gap-2 px-3 py-2 transition-all cursor-pointer border-2 border-white/20"
+            className="bg-amber-500 hover:bg-amber-600 active:bg-amber-700 rounded-full shadow-xl flex items-center gap-2 px-3 py-2 transition-all cursor-pointer border-2 border-white/20"
           />
         </div>
         
@@ -385,27 +387,59 @@ const AttractionPage: React.FC = () => {
             <h2 className="text-base md:text-lg text-amber-300 font-medium mb-3 drop-shadow-lg">
               {a.subtitle}
             </h2>
+
+            {/* כרטיסיות מידע בדסקטופ - מתחת לכותרת והתיאור */}
+            <div className="hidden md:flex gap-4 mt-6">
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-3 text-center flex-1 h-16 flex flex-col justify-center">
+                <div className="text-sm text-white/80 mb-1">מיקום במדינה</div>
+                <div className="text-lg font-bold text-white">{a.region || "דרום מערב אוגנדה"}</div>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-3 text-center flex-1 h-16 flex flex-col justify-center">
+                <div className="text-sm text-white/80 mb-1">זמן מומלץ לטיול</div>
+                <div className="text-lg font-bold text-white">{a.duration || "2-4 ימים"}</div>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-3 text-center flex-1 h-16 flex flex-col justify-center">
+                <div className="text-sm text-white/80 mb-1">רמת קושי</div>
+                <div className="text-lg font-bold text-white">{a.difficulty || "קל-בינוני"}</div>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-3 text-center flex-1 h-16 flex flex-col justify-center">
+                <div className="text-sm text-white/80 mb-1">במסלול שלי</div>
+                <WishlistButton 
+                  item={{
+                    id: a.id || a.slug || 'default-id',
+                    attractionId: a.id || a.slug || 'default-id',
+                    name: a.name,
+                    subtitle: a.subtitle,
+                    image: heroImage,
+                    basePrice: a.price || 'מ-$2,400'
+                  }}
+                  variant="text"
+                  className="text-lg font-bold text-white flex items-center justify-center h-full"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
       
-      {/* ===== כרטיסיות מידע מתחת ל-Hero ===== */}
-      <div className="bg-white border-t">
+      {/* ===== כרטיסיות מידע במובייל - מתחת להירו ===== */}
+      <div className="bg-white border-t md:hidden">
         <div className="container mx-auto px-4 py-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-            <div className="bg-gray-50 rounded-xl p-3 text-center">
-              <div className="text-lg font-bold text-blue-600">{a.region || "צפון־מערב אוגנדה"}</div>
-              <div className="text-sm text-gray-600">מיקום במדינה</div>
+          <div className="grid grid-cols-2 gap-3">
+            <div className="bg-gray-50 rounded-xl p-3 text-center h-16 flex flex-col justify-center">
+              <div className="text-sm text-gray-600 mb-1">מיקום במדינה</div>
+              <div className="text-lg font-bold text-gray-700">{a.region || "דרום מערב אוגנדה"}</div>
             </div>
-            <div className="bg-gray-50 rounded-xl p-3 text-center">
-              <div className="text-lg font-bold text-green-600">{a.duration || "2-4 ימים"}</div>
-              <div className="text-sm text-gray-600">זמן מומלץ לטיול</div>
+            <div className="bg-gray-50 rounded-xl p-3 text-center h-16 flex flex-col justify-center">
+              <div className="text-sm text-gray-600 mb-1">זמן מומלץ לטיול</div>
+              <div className="text-lg font-bold text-gray-700">{a.duration || "2-4 ימים"}</div>
             </div>
-            <div className="bg-gray-50 rounded-xl p-3 text-center">
-              <div className="text-lg font-bold text-amber-600">{a.difficulty || "קל-בינוני"}</div>
-              <div className="text-sm text-gray-600">רמת קושי</div>
+            <div className="bg-gray-50 rounded-xl p-3 text-center h-16 flex flex-col justify-center">
+              <div className="text-sm text-gray-600 mb-1">רמת קושי</div>
+              <div className="text-lg font-bold text-gray-700">{a.difficulty || "קל-בינוני"}</div>
             </div>
-            <div className="bg-gray-50 rounded-xl p-3 text-center">
+            <div className="bg-gray-50 rounded-xl p-3 text-center h-16 flex flex-col justify-center">
+              <div className="text-sm text-gray-600 mb-1">במסלול שלי</div>
               <WishlistButton 
                 item={{
                   id: a.id || a.slug || 'default-id',
@@ -416,7 +450,7 @@ const AttractionPage: React.FC = () => {
                   basePrice: a.price || 'מ-$2,400'
                 }}
                 variant="text"
-                className="text-lg font-bold text-green-600 flex items-center justify-center h-full"
+                className="text-lg font-bold text-gray-700 flex items-center justify-center h-full"
               />
             </div>
           </div>
@@ -438,7 +472,7 @@ const AttractionPage: React.FC = () => {
             basePrice: a.price || 'מ-$2,400'
           }}
           variant="bag"
-          className="bg-green-500 hover:bg-green-600 text-white rounded-full px-4 py-2 shadow-lg flex items-center justify-center text-sm font-medium"
+          className="bg-amber-500 hover:bg-amber-600 text-white rounded-full px-4 py-2 shadow-lg flex items-center justify-center text-sm font-medium"
         />
       </div>
 
@@ -521,9 +555,9 @@ const AttractionPage: React.FC = () => {
                 <InfoCard title="מה עוד תגלו בדרך">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                     {a.wildlife.map((w, i) => (
-                      <div key={i} className="flex items-center gap-2 p-2 bg-green-50 rounded-lg">
-                        <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                        <span className="text-green-800">{w}</span>
+                      <div key={i} className="flex items-center gap-2 p-2 bg-gray-50 rounded-lg">
+                        <div className="w-2 h-2 bg-gray-500 rounded-full"></div>
+                        <span className="text-gray-700">{w}</span>
                       </div>
                     ))}
                   </div>
@@ -532,11 +566,11 @@ const AttractionPage: React.FC = () => {
 
               {tips.length > 0 && (
                 <InfoCard title="חשוב לדעת">
-                  <div className="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-lg">
+                  <div className="bg-gray-50 border-l-4 border-gray-400 p-4 rounded-lg">
                     <ul className="space-y-2">
                       {tips.slice(0, 3).map((t, i) => (
-                        <li key={i} className="flex items-start gap-2 text-blue-800">
-                          <span className="text-blue-400 mt-1">•</span>
+                        <li key={i} className="flex items-start gap-2 text-gray-700">
+                          <span className="text-gray-500 mt-1">•</span>
                           <span>{t}</span>
                         </li>
                       ))}

@@ -35,120 +35,139 @@ const SafariPage: React.FC = () => {
   };
 
   return (
-    <div className="py-8 fade-in" dir="rtl">
-      <div className="container mx-auto px-4">
-        {/* כותרת ותיאור */}
-        <div className="mb-8 text-center">
-          <h1 className="mb-4 text-4xl md:text-5xl font-bold font-sans">
-            ספארי באוגנדה
-          </h1>
-          <p className="mx-auto max-w-3xl text-lg md:text-xl text-muted font-sans">
-            גלו את חוויית הספארי המרהיבה של אוגנדה - ממורצ'יסון ועד המלכה אליזבת
-          </p>
+    <div className="fade-in" dir="rtl">
+      {/* ===== HERO SECTION ===== */}
+      <section className="relative w-full h-[50vh] min-h-[300px]">
+        <img 
+          src="https://images.pexels.com/photos/247376/pexels-photo-247376.jpeg"
+          alt="ספארי באוגנדה"
+          className="absolute inset-0 w-full h-full object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/30" />
+        
+        <div className="absolute bottom-0 left-0 right-0 p-4 md:p-8">
+          <div className="container mx-auto max-w-screen-xl">
+            <div className="mb-3">
+              <span className="inline-flex items-center gap-2 bg-amber-500 text-black px-3 py-1.5 rounded-full text-sm font-medium shadow-lg">
+                <span>🦁</span>
+                ספארי
+              </span>
+            </div>
+            <h1 className="text-2xl md:text-4xl font-bold text-white mb-2 leading-tight drop-shadow-lg">
+              ספארי באוגנדה
+            </h1>
+            <h2 className="text-base md:text-lg text-amber-300 font-medium mb-3 drop-shadow-lg">
+              גלו את חוויית הספארי המרהיבה של אוגנדה - ממורצ'יסון ועד המלכה אליזבת
+            </h2>
+          </div>
         </div>
+      </section>
 
-        {/* חיפוש */}
-        <div className="mb-8">
-          <SearchBar
-            onSearch={setSearchQuery}
-            placeholder="חפשו ספארי..."
-          />
-        </div>
+      <div className="py-8">
+        <div className="container mx-auto px-4">
+          {/* חיפוש */}
+          <div className="mb-8">
+            <SearchBar
+              onSearch={setSearchQuery}
+              placeholder="חפשו ספארי..."
+            />
+          </div>
 
-        {/* ספירת ספארי */}
-        <div className="mb-6 text-center">
-          <p className="text-sm text-muted">
-            נמצאו {filteredSafari.length} אפשרויות ספארי
-          </p>
-        </div>
+          {/* ספירת ספארי */}
+          <div className="mb-6 text-center">
+            <p className="text-sm text-muted">
+              נמצאו {filteredSafari.length} אפשרויות ספארי
+            </p>
+          </div>
 
-        {/* רשת הכרטיסים */}
-        {filteredSafari.length > 0 ? (
-          <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {filteredSafari.map((item) => (
-              <div
-                key={item.id}
-                className="category-card transition-all duration-300 hover:shadow-lg"
-              >
+          {/* רשת הכרטיסים */}
+          {filteredSafari.length > 0 ? (
+            <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+              {filteredSafari.map((item) => (
                 <div
-                  className="card-image"
-                  style={{ backgroundImage: `url(${item.image})` }}
-                />
-                <div className="card-content">
-                  <div className="mb-2 flex items-center gap-2">
-                    {item.region && (
-                      <span className="highlight-tag">
-                        {item.region}
-                      </span>
-                    )}
-                    {item.duration && (
-                      <span className="highlight-tag">
-                        {item.duration}
-                      </span>
-                    )}
-                    {item.difficulty && (
-                      <span className="highlight-tag" style={{background: '#CAA131'}}>
-                        {item.difficulty}
-                      </span>
-                    )}
-                  </div>
-
-                  <h3 className="mb-2 text-lg font-semibold font-sans">
-                    {highlightText(item.name || "", searchQuery)}
-                  </h3>
-                  
-                  {item.description && (
-                    <p className="mb-3 text-sm font-sans text-muted">
-                      {highlightText(
-                        item.description.length > 200 
-                          ? item.description.slice(0, 200) + "..." 
-                          : item.description, 
-                        searchQuery
+                  key={item.id}
+                  className="category-card transition-all duration-300 hover:shadow-lg"
+                >
+                  <div
+                    className="card-image"
+                    style={{ backgroundImage: `url(${item.image})` }}
+                  />
+                  <div className="card-content">
+                    <div className="mb-2 flex items-center gap-2">
+                      {item.region && (
+                        <span className="highlight-tag">
+                          {item.region}
+                        </span>
                       )}
-                    </p>
-                  )}
-
-                  {Array.isArray(item.highlights) && item.highlights.length > 0 && (
-                    <div className="highlights">
-                      <div className="highlights-title">מה תראו:</div>
-                      <div className="flex flex-wrap gap-1">
-                        {item.highlights.slice(0, 3).map((highlight, i) => (
-                          <span
-                            key={i}
-                            className="highlight-tag"
-                          >
-                            {highlight}
-                          </span>
-                        ))}
-                      </div>
+                      {item.duration && (
+                        <span className="highlight-tag">
+                          {item.duration}
+                        </span>
+                      )}
+                      {item.difficulty && (
+                        <span className="highlight-tag" style={{background: '#CAA131'}}>
+                          {item.difficulty}
+                        </span>
+                      )}
                     </div>
-                  )}
 
-                  <div className="card-footer">
-                    <Link
-                      to={`/attraction/${item.slug}`}
-                      className="btn-discover"
-                    >
-                      גלה עוד
-                    </Link>
+                    <h3 className="mb-2 text-lg font-semibold font-sans">
+                      {highlightText(item.name || "", searchQuery)}
+                    </h3>
+                    
+                    {item.description && (
+                      <p className="mb-3 text-sm font-sans text-muted">
+                        {highlightText(
+                          item.description.length > 200 
+                            ? item.description.slice(0, 200) + "..." 
+                            : item.description, 
+                          searchQuery
+                        )}
+                      </p>
+                    )}
+
+                    {Array.isArray(item.highlights) && item.highlights.length > 0 && (
+                      <div className="highlights">
+                        <div className="highlights-title">מה תראו:</div>
+                        <div className="flex flex-wrap gap-1">
+                          {item.highlights.slice(0, 3).map((highlight, i) => (
+                            <span
+                              key={i}
+                              className="highlight-tag"
+                            >
+                              {highlight}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    <div className="card-footer">
+                      <Link
+                        to={`/attraction/${item.slug}`}
+                        className="btn-discover"
+                      >
+                        גלה עוד
+                      </Link>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
-        ) : (
-          <div className="text-center py-12">
-            <p className="text-xl text-muted mb-4">
-              לא נמצאו תוצאות, נסו מילה אחרת
-            </p>
-            <button
-              onClick={() => setSearchQuery("")}
-              className="btn-secondary"
-            >
-              נקה חיפוש
-            </button>
-          </div>
-        )}
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-12">
+              <p className="text-xl text-muted mb-4">
+                לא נמצאו תוצאות, נסו מילה אחרת
+              </p>
+              <button
+                onClick={() => setSearchQuery("")}
+                className="btn-secondary"
+              >
+                נקה חיפוש
+              </button>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
