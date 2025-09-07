@@ -495,40 +495,154 @@ const AttractionPage: React.FC = () => {
           </div>
         </div>
 
-        {/* גריד ראשי: ימין תוכן, שמאל סיידבר */}
-        <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-6">
-          {/* ===== תוכן ראשי ===== */}
-          <div className="space-y-6">
-            {/* תיאור ראשי */}
-            <section className="bg-gradient-to-br from-white via-gray-50 to-white border border-[#534B20]/60 rounded-3xl p-8 md:p-10 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.01]">
-              <div className="space-y-8">
-                {a.subtitle && (
-                  <h2 className="text-2xl font-bold text-[#4B361C] mb-6 leading-tight">{a.subtitle}</h2>
-                )}
-                
-                {introFull && (
-                  <div className="prose prose-lg max-w-none">
-                    <p className="text-[18px] leading-relaxed text-gray-700 font-medium">
-                      {expanded ? introFull : introShort}
-                    </p>
-                    {introFull.length > 280 && (
-                      <button
-                        onClick={() => setExpanded((v) => !v)}
-                        className="text-[#CAA131] hover:text-[#B8942A] font-bold mt-6 flex items-center gap-3 text-lg transition-all duration-300 hover:scale-105 group"
-                      >
-                        {expanded ? "קרא פחות" : "קרא עוד"} 
-                        <span className="text-xs transition-transform duration-300 group-hover:translate-x-2">→</span>
-                      </button>
-                    )}
-                  </div>
-                )}
-              </div>
-            </section>
+        {/* גריד מושלם מסודר */}
+        <div className="space-y-6">
+          {/* שורה עליונה: תיאור האטרקציה + מפה */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+            {/* תיאור האטרקציה - ריבוע רחב */}
+            <div className="md:col-span-2">
+              <section className="bg-gradient-to-br from-white via-gray-50 to-white border border-[#534B20]/60 rounded-3xl p-8 md:p-10 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.01] h-full">
+                <div className="space-y-8">
+                  {a.subtitle && (
+                    <h2 className="text-2xl font-bold text-[#4B361C] mb-6 leading-tight">{a.subtitle}</h2>
+                  )}
+                  
+                  {introFull && (
+                    <div className="prose prose-lg max-w-none">
+                      <p className="text-[18px] leading-relaxed text-gray-700 font-medium">
+                        {expanded ? introFull : introShort}
+                      </p>
+                      {introFull.length > 280 && (
+                        <button
+                          onClick={() => setExpanded((v) => !v)}
+                          className="text-[#CAA131] hover:text-[#B8942A] font-bold mt-6 flex items-center gap-3 text-lg transition-all duration-300 hover:scale-105 group"
+                        >
+                          {expanded ? "קרא פחות" : "קרא עוד"} 
+                          <span className="text-xs transition-transform duration-300 group-hover:translate-x-2">→</span>
+                        </button>
+                      )}
+                    </div>
+                  )}
+                </div>
+              </section>
+            </div>
 
-            {/* בלוק מידע מאוחד */}
-            <div className="grid grid-cols-1 gap-6">
+            {/* מפה - ריבוע */}
+            <div className="md:col-span-1">
+              <section className="rounded-2xl overflow-hidden border border-[#534B20]/60 bg-white shadow-lg hover:shadow-xl transition-all duration-300 h-full">
+                <div className="relative cursor-pointer h-full" onClick={() => setMapFullscreen(true)}>
+                  <iframe
+                    title={`מפה – ${a.name}`}
+                    className="w-full h-full rounded-xl"
+                    loading="lazy"
+                    src={`https://www.openstreetmap.org/export/embed.html?bbox=${mapCoords.bbox}&layer=mapnik`}
+                  />
+                  
+                  {/* Click overlay */}
+                  <div className="absolute inset-0 bg-black/0 hover:bg-black/5 transition-colors duration-300 flex items-center justify-center">
+                    <div className="opacity-0 hover:opacity-100 transition-opacity duration-300 bg-white/90 backdrop-blur-sm rounded-full p-3 shadow-lg">
+                      <svg className="w-6 h-6 text-[#CAA131]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+                      </svg>
+                    </div>
+                  </div>
+                  
+                  {/* Floating info card */}
+                  <div className="absolute top-4 right-4 z-10">
+                    <div className="bg-white/90 backdrop-blur-sm rounded-lg p-3 shadow-lg border border-white/20">
+                      <h4 className="font-bold text-[#4B361C] text-sm mb-1 text-right">מערב אוגנדה</h4>
+                      <p className="text-gray-600 text-xs text-right">6 שעות מקמפלה | טיסה פנימית 45 דק'</p>
+                    </div>
+                  </div>
+                  
+                  {/* Custom gold marker */}
+                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
+                    <div className="relative group cursor-pointer">
+                      <div className="w-6 h-6 bg-[#CAA131] rounded-full border-2 border-white shadow-lg flex items-center justify-center">
+                        <div className="w-2 h-2 bg-white rounded-full"></div>
+                      </div>
+                      {/* Popup */}
+                      <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                        <div className="bg-white border border-[#CAA131]/50 rounded-lg p-3 shadow-xl min-w-[200px]">
+                          <h4 className="font-bold text-[#4B361C] text-sm mb-1 text-right">{a.name}</h4>
+                          <p className="text-gray-600 text-xs leading-relaxed text-right">
+                            {a.name === "Queen Elizabeth National Park" 
+                              ? "שמורה ייחודית במערב אוגנדה, ידועה באריות המטפסים על עצים ובמגוון חיות בר נדירות."
+                              : "אטרקציה מרהיבה באוגנדה עם נופים וחיות בר ייחודיות."
+                            }
+                          </p>
+                          <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-white"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+
+          {/* שורה שנייה: גלריה + מה תגלו בדרך */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* גלריה - ריבוע */}
+            <div className="md:col-span-1">
+
+              {a.gallery && a.gallery.length > 0 && (
+                <section className="bg-gradient-to-br from-gray-50 via-gray-100 to-gray-50 border border-[#534B20]/60 rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.01] h-full">
+                  <h3 className="text-lg font-bold mb-4 flex items-center gap-3 text-[#4B361C]">
+                    <Camera className="w-5 h-5 text-[#CAA131]" />
+                    גלריה ({a.gallery.length} תמונות)
+                  </h3>
+                  <div className="grid grid-cols-2 gap-4">
+                    {a.gallery.slice(0, 4).map((item, i) => {
+                      const src = getImageSrc(item);
+                      const title = getImageTitle(item);
+                      const description = getImageDescription(item);
+                      
+                      return (
+                        <div 
+                          key={i} 
+                          className="relative group rounded-2xl overflow-hidden cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105"
+                          onClick={() => openLightbox(i)}
+                        >
+                          <img
+                            src={src}
+                            alt={title || `${a.name} ${i + 1}`}
+                            className="w-full h-32 md:h-36 object-cover transition-transform group-hover:scale-110 duration-700"
+                            loading="lazy"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                          {/* Show title overlay if available */}
+                          {title && (
+                            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/95 to-transparent text-white p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                              <div className="text-base font-bold">{title}</div>
+                              {description && (
+                                <div className="text-sm text-gray-200 mt-2">{description}</div>
+                              )}
+                            </div>
+                          )}
+                          {i === 3 && a.gallery!.length > 4 && (
+                            <div className="absolute inset-0 bg-black/80 flex items-center justify-center text-white font-bold text-xl backdrop-blur-md">
+                              +{a.gallery!.length - 4}
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
+                  <button 
+                    className="w-full mt-6 py-4 text-[#CAA131] hover:text-white font-bold border border-[#CAA131]/50 rounded-2xl hover:bg-[#CAA131] transition-all duration-500 hover:scale-105 shadow-xl hover:shadow-2xl text-base"
+                    onClick={() => openLightbox(0)}
+                  >
+                    צפה בכל התמונות
+                  </button>
+                </section>
+              )}
+            </div>
+
+            {/* מה תגלו בדרך - ריבוע רחב */}
+            <div className="md:col-span-2">
               {a.wildlife && a.wildlife.length > 0 && (
-                <InfoCard title="מה תגלו בדרך">
+                <InfoCard title="מה תגלו בדרך" className="h-full">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {a.wildlife.map((w, i) => (
                       <div key={i} className="flex items-center gap-4 p-4 bg-gradient-to-r from-[#CAA131]/15 to-[#B8942A]/15 rounded-2xl border border-[#CAA131]/50/30 hover:shadow-xl hover:scale-105 transition-all duration-500">
@@ -539,9 +653,28 @@ const AttractionPage: React.FC = () => {
                   </div>
                 </InfoCard>
               )}
+            </div>
+          </div>
 
+          {/* שורה שלישית: הידעת + חשוב לדעת */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* הידעת - ריבוע קטן */}
+            <div className="md:col-span-1">
+              <section className="bg-gradient-to-r from-[#CAA131]/15 to-[#B8942A]/15 border border-[#CAA131]/30 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 h-full">
+                <h3 className="text-xl font-extrabold text-[#4B361C] mb-3 border-b-3 border-[#CAA131] w-fit flex items-center gap-2">
+                  <span className="text-2xl">💡</span>
+                  הידעת?
+                </h3>
+                <p className="text-base font-semibold text-[#4B361C] leading-relaxed">
+                  {a.funFact || "עובדה מעניינת על האטרקציה הזו תופיע כאן בקרוב!"}
+                </p>
+              </section>
+            </div>
+
+            {/* חשוב לדעת - ריבוע רחב */}
+            <div className="md:col-span-2">
               {tips.length > 0 && (
-                <InfoCard title="חשוב לדעת" variant="gray">
+                <InfoCard title="חשוב לדעת" variant="gray" className="h-full">
                   <div className="bg-[#CAA131]/10 p-4 rounded-xl space-y-2">
                     <div className="text-sm font-medium text-[#4B361C] text-right">
                       רישיון: $300–450 ליום — להזמין חודשים מראש
@@ -558,131 +691,9 @@ const AttractionPage: React.FC = () => {
             </div>
           </div>
 
-          {/* ===== סיידבר ===== */}
-          <div className="space-y-6">
-            {/* מפה */}
-            <section className="rounded-2xl overflow-hidden border border-[#534B20]/60 bg-white shadow-lg hover:shadow-xl transition-all duration-300">
-              <div className="relative cursor-pointer" onClick={() => setMapFullscreen(true)}>
-                <iframe
-                  title={`מפה – ${a.name}`}
-                  className="w-full h-72"
-                  loading="lazy"
-                  src={`https://www.openstreetmap.org/export/embed.html?bbox=${mapCoords.bbox}&layer=mapnik`}
-                />
-                
-                {/* Click overlay */}
-                <div className="absolute inset-0 bg-black/0 hover:bg-black/5 transition-colors duration-300 flex items-center justify-center">
-                  <div className="opacity-0 hover:opacity-100 transition-opacity duration-300 bg-white/90 backdrop-blur-sm rounded-full p-3 shadow-lg">
-                    <svg className="w-6 h-6 text-[#CAA131]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
-                    </svg>
-                  </div>
-                </div>
-                
-                {/* Floating info card */}
-                <div className="absolute top-4 right-4 z-10">
-                  <div className="bg-white/90 backdrop-blur-sm rounded-lg p-3 shadow-lg border border-white/20">
-                    <h4 className="font-bold text-[#4B361C] text-sm mb-1 text-right">מערב אוגנדה</h4>
-                    <p className="text-gray-600 text-xs text-right">6 שעות מקמפלה | טיסה פנימית 45 דק'</p>
-                  </div>
-                </div>
-                
-                {/* Custom gold marker */}
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
-                  <div className="relative group cursor-pointer">
-                    <div className="w-6 h-6 bg-[#CAA131] rounded-full border-2 border-white shadow-lg flex items-center justify-center">
-                      <div className="w-2 h-2 bg-white rounded-full"></div>
-                    </div>
-                    {/* Popup */}
-                    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                      <div className="bg-white border border-[#CAA131]/50 rounded-lg p-3 shadow-xl min-w-[200px]">
-                        <h4 className="font-bold text-[#4B361C] text-sm mb-1 text-right">{a.name}</h4>
-                        <p className="text-gray-600 text-xs leading-relaxed text-right">
-                          {a.name === "Queen Elizabeth National Park" 
-                            ? "שמורה ייחודית במערב אוגנדה, ידועה באריות המטפסים על עצים ובמגוון חיות בר נדירות."
-                            : "אטרקציה מרהיבה באוגנדה עם נופים וחיות בר ייחודיות."
-                          }
-                        </p>
-                        <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-white"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-            </section>
-
-            {/* גלריה משופרת */}
-            {a.gallery && a.gallery.length > 0 && (
-              <section className="bg-gradient-to-br from-gray-50 via-gray-100 to-gray-50 border border-[#534B20]/60 rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.01]">
-                <h3 className="text-lg font-bold mb-4 flex items-center gap-3 text-[#4B361C]">
-                  <Camera className="w-5 h-5 text-[#CAA131]" />
-                  גלריה ({a.gallery.length} תמונות)
-                </h3>
-                <div className="grid grid-cols-2 gap-4">
-                  {a.gallery.slice(0, 4).map((item, i) => {
-                    const src = getImageSrc(item);
-                    const title = getImageTitle(item);
-                    const description = getImageDescription(item);
-                    
-                    return (
-                      <div 
-                        key={i} 
-                        className="relative group rounded-2xl overflow-hidden cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105"
-                        onClick={() => openLightbox(i)}
-                      >
-                        <img
-                          src={src}
-                          alt={title || `${a.name} ${i + 1}`}
-                          className="w-full h-32 md:h-36 object-cover transition-transform group-hover:scale-110 duration-700"
-                          loading="lazy"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        {/* Show title overlay if available */}
-                        {title && (
-                          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/95 to-transparent text-white p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500">
-                            <div className="text-base font-bold">{title}</div>
-                            {description && (
-                              <div className="text-sm text-gray-200 mt-2">{description}</div>
-                            )}
-                          </div>
-                        )}
-                        {i === 3 && a.gallery!.length > 4 && (
-                          <div className="absolute inset-0 bg-black/80 flex items-center justify-center text-white font-bold text-xl backdrop-blur-md">
-                            +{a.gallery!.length - 4}
-                          </div>
-                        )}
-                      </div>
-                    );
-                  })}
-                </div>
-                <button 
-                  className="w-full mt-6 py-4 text-[#CAA131] hover:text-white font-bold border border-[#CAA131]/50 rounded-2xl hover:bg-[#CAA131] transition-all duration-500 hover:scale-105 shadow-xl hover:shadow-2xl text-base"
-                  onClick={() => openLightbox(0)}
-                >
-                  צפה בכל התמונות
-                </button>
-              </section>
-            )}
-
-            {/* הידעת? */}
-            <section className="bg-gradient-to-r from-[#CAA131]/15 to-[#B8942A]/15 border border-[#CAA131]/30 p-6 rounded-2xl shadow-lg mt-6 hover:shadow-xl transition-all duration-300">
-              <h3 className="text-xl font-extrabold text-[#4B361C] mb-3 border-b-3 border-[#CAA131] w-fit flex items-center gap-2">
-                <span className="text-2xl">💡</span>
-                הידעת?
-              </h3>
-              <p className="text-base font-semibold text-[#4B361C] leading-relaxed">
-                {a.funFact || "עובדה מעניינת על האטרקציה הזו תופיע כאן בקרוב!"}
-              </p>
-            </section>
-
-          </div>
-        </div>
-      </div>
-
-      {/* חוויות נוספות - פרוסות לרוחב בתחתית */}
-      <div className="container mx-auto max-w-screen-xl px-4 py-8">
-        <section className="bg-white border border-[#534B20]/60 rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.01]">
+          {/* שורה תחתונה: חוויות נוספות - מלא רוחב */}
+          <div className="grid grid-cols-1 gap-6">
+          <section className="bg-white border border-[#534B20]/60 rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.01]">
           <h3 className="text-lg font-bold text-center text-[#4B361C] mb-6">
             <div className="text-[#CAA131]">חוויות נוספות</div>
             <div>בסביבת {a.name}</div>
@@ -755,6 +766,9 @@ const AttractionPage: React.FC = () => {
             </div>
           </div>
         </section>
+        </div>
+
+        </div>
       </div>
 
       {/* Lightbox */}
