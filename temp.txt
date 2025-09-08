@@ -1,2 +1,0 @@
-import { getAttractionsByCategory } from "../data/parks";
-const safariParks = getAttractionsByCategory("safari");
