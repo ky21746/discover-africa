@@ -645,6 +645,29 @@ const ParkDetail: React.FC = () => {
           </div>
 
         </div>
+
+        {/* קישורים לשירותים */}
+        <div className="mt-8 space-y-4">
+          <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-6 text-center border border-[#CAA131]/30">
+            <p className="text-[#4B361C] mb-4 font-medium">
+              <strong>ביטחון רפואי 24/7:</strong> טיול בטוח עם 
+              <Link to="/services/bar-sos" className="text-[#CAA131] hover:underline mx-1">
+                BAR SOS
+              </Link>
+              - שירותי חילוץ רפואי בכל רחבי אוגנדה
+            </p>
+          </div>
+          
+          <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-6 text-center border border-[#CAA131]/30">
+            <p className="text-[#4B361C] mb-4 font-medium">
+              <strong>חוויות אקסטרים:</strong> שברו את השגרה עם 
+              <Link to="/services/extreme-park" className="text-[#CAA131] hover:underline mx-1">
+                Extreme Adventure Park
+              </Link>
+              - Go-Karting, Zipline, Paintball ועוד
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -37,6 +37,12 @@ import PrivacyPolicy from "./pages/legal/PrivacyPolicy";
 import TermsOfService from "./pages/legal/TermsOfService";
 import AccessibilityStatement from "./pages/legal/AccessibilityStatement";
 
+// Services pages imports
+import OurServices from "./pages/services/OurServices";
+import BarAviation from "./pages/services/BarAviation";
+import BarSOS from "./pages/services/BarSOS";
+import ExtremePark from "./pages/services/ExtremePark";
+
 // Wishlist imports
 import { WishlistProvider } from "./contexts/WishlistContext";
 import { WishlistSidebar } from "./components/Wishlist/WishlistSidebar";
@@ -105,6 +111,12 @@ export default function App() {
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/terms" element={<TermsOfService />} />
             <Route path="/accessibility" element={<AccessibilityStatement />} />
+            
+            {/* עמודי שירותים */}
+            <Route path="/services" element={<OurServices />} />
+            <Route path="/services/bar-aviation" element={<BarAviation />} />
+            <Route path="/services/bar-sos" element={<BarSOS />} />
+            <Route path="/services/extreme-park" element={<ExtremePark />} />
             
             {/* ברירת מחדל – 404 חוזר לדף הבית */}
             <Route path="*" element={<Home />} />

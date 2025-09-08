@@ -120,6 +120,97 @@ const Home: React.FC = () => {
         </div>
       </section>
 
+      {/* Services Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-10 md:mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-3 md:mb-4 font-sans">
+              השירותים שלנו
+            </h2>
+            <p className="text-lg md:text-xl text-muted font-sans">
+              שירותים מקצועיים ומותאמים אישית לחוויה מושלמת
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <Link to="/services">
+              <Card className="text-center hover:shadow-lg transition-all duration-300">
+                <div
+                  className="card-image"
+                  style={{ 
+                    backgroundImage: `url(https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/Services%2FBaraviationcard.webp?alt=media&token=760c531e-2cf9-4d40-ab23-bd816b77d9c5)`,
+                    backgroundPosition: 'center',
+                    backgroundSize: 'cover',
+                    height: '250px'
+                  }}
+                />
+                <div className="card-content">
+                  <h3 className="text-xl font-semibold mb-2 font-sans text-gray-900">
+                    שירותי תעופה
+                  </h3>
+                  <p className="text-gray-600 font-sans">
+                    טיסות ספארי, טיסות פרטיות וטיסות נוף מעל הנופים הקסומים
+                  </p>
+                  <div className="card-footer">
+                    <button className="btn-card" style={{ backgroundColor: '#CAA131', color: '#000000' }}>לפרטים נוספים</button>
+                  </div>
+                </div>
+              </Card>
+            </Link>
+
+            <Link to="/services">
+              <Card className="text-center hover:shadow-lg transition-all duration-300">
+                <div
+                  className="card-image"
+                  style={{ 
+                    backgroundImage: `url(https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/Services%2FBar%20SOS%2Fbarsos-medevac-img.jpg.webp?alt=media&token=168394a8-66ac-4311-a88d-d3420b4c0e9c)`,
+                    backgroundPosition: 'center',
+                    backgroundSize: 'cover',
+                    height: '250px'
+                  }}
+                />
+                <div className="card-content">
+                  <h3 className="text-xl font-semibold mb-2 font-sans text-gray-900">
+                    ביטחון רפואי
+                  </h3>
+                  <p className="text-gray-600 font-sans">
+                    שירותי חילוץ רפואי 24/7 - חילוץ אווירי וקרקעי בכל רחבי אוגנדה
+                  </p>
+                  <div className="card-footer">
+                    <button className="btn-card" style={{ backgroundColor: '#CAA131', color: '#000000' }}>לפרטים נוספים</button>
+                  </div>
+                </div>
+              </Card>
+            </Link>
+
+            <Link to="/services">
+              <Card className="text-center hover:shadow-lg transition-all duration-300">
+                <div
+                  className="card-image"
+                  style={{ 
+                    backgroundImage: `url(https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/Services%2FExtreme%20adventures%2Fextremeadventures-card.webp?alt=media&token=cc084dbb-9efc-4e72-8453-d96c51d4a5d0)`,
+                    backgroundPosition: 'center',
+                    backgroundSize: 'cover',
+                    height: '250px'
+                  }}
+                />
+                <div className="card-content">
+                  <h3 className="text-xl font-semibold mb-2 font-sans text-gray-900">
+                    פארק אקסטרים
+                  </h3>
+                  <p className="text-gray-600 font-sans">
+                    Go-Karting, Zipline, Paintball ועוד חוויות מלאות אדרנלין בבוסיקה
+                  </p>
+                  <div className="card-footer">
+                    <button className="btn-card" style={{ backgroundColor: '#CAA131', color: '#000000' }}>לפרטים נוספים</button>
+                  </div>
+                </div>
+              </Card>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* About Us */}
       <section className="pt-12 md:pt-16 pb-6 md:pb-8">
         <div className="container mx-auto px-4">
