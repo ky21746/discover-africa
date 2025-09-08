@@ -83,21 +83,7 @@ const WaterfallsPage: React.FC = () => {
                     {highlightText(waterfall.subtitle || "", searchQuery)}
                   </p>
 
-                  <div className="flex flex-wrap gap-1 mb-3">
-                    {waterfall.highlights?.slice(0, 3).map((highlight) => (
-                      <span
-                        key={highlight}
-                        className="bg-surface rounded px-2 py-0.5 text-xs"
-                      >
-                        {highlight}
-                      </span>
-                    ))}
-                  </div>
 
-                  <div className="flex items-center justify-between mb-3 text-sm">
-                    <span className="text-muted">משך: {waterfall.duration}</span>
-                    <span className="text-muted">קושי: {waterfall.difficulty}</span>
-                  </div>
 
                   <div className="card-footer">
                     <Link

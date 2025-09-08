@@ -7,6 +7,7 @@ import { Star, Share2, Heart, MapPin, Clock, Users, Camera, Route, Plus, X, Chev
 import { gorillasChimps } from "../content/categories/gorillas-chimps";
 import { safari } from "../content/categories/safari";
 import { water } from "../content/categories/water";
+import { extreme } from "../content/categories/extreme";
 import { parks } from "../data/parks";
 
 // ====== WISHLIST ======
@@ -317,16 +318,27 @@ const AttractionPage: React.FC = () => {
     "https://images.pexels.com/photos/6194629/pexels-photo-6194629.jpeg";
 
   // Map coordinates for different attractions
-  const getMapCoordinates = (attractionId: string) => {
+  const getMapCoordinates = (attraction: Attraction) => {
+    // אם יש קואורדינטות באטרקציה עצמה, השתמש בהן
+    if (attraction.coordinates) {
+      return {
+        lat: attraction.coordinates.lat,
+        lng: attraction.coordinates.lng,
+        bbox: `${attraction.coordinates.lng - 0.1},${attraction.coordinates.lat - 0.1},${attraction.coordinates.lng + 0.1},${attraction.coordinates.lat + 0.1}`
+      };
+    }
+    
+    // אחרת, השתמש בקואורדינטות קבועות
     const coordinates = {
       'gorillas-bwindi': { lat: -1.05, lng: 29.75, bbox: '29.4,-1.3,30.2,-0.7' },
       'gorillas-mgahinga': { lat: -1.23, lng: 29.63, bbox: '29.4,-1.4,29.9,-1.0' },
-      'chimps-kibale': { lat: 0.57, lng: 30.36, bbox: '30.1,0.3,30.6,0.8' }
+      'chimps-kibale': { lat: 0.57, lng: 30.36, bbox: '30.1,0.3,30.6,0.8' },
+      'jinja-white-nile': { lat: 0.4167, lng: 33.1833, bbox: '33.0,0.3,33.3,0.5' }
     };
-    return coordinates[attractionId as keyof typeof coordinates] || coordinates['gorillas-bwindi'];
+    return coordinates[attraction.id as keyof typeof coordinates] || coordinates['gorillas-bwindi'];
   };
 
-  const mapCoords = getMapCoordinates(a.id || a.slug || '');
+  const mapCoords = getMapCoordinates(a);
 
   // "במבט מהיר" - עכשיו במידע Hero
   const quickStats = [
@@ -676,15 +688,11 @@ const AttractionPage: React.FC = () => {
               {tips.length > 0 && (
                 <InfoCard title="חשוב לדעת" variant="gray" className="h-full">
                   <div className="bg-[#CAA131]/10 p-4 rounded-xl space-y-2">
-                    <div className="text-sm font-medium text-[#4B361C] text-right">
-                      רישיון: $300–450 ליום — להזמין חודשים מראש
-                    </div>
-                    <div className="text-sm font-medium text-[#4B361C] text-right">
-                      מיקום: קרוב לגבול DRC — בדוק אזהרות מסע עדכניות
-                    </div>
-                    <div className="text-sm font-medium text-[#4B361C] text-right">
-                      עונת השיא: מתמלאת חודשים מראש — הזמן מוקדם
-                    </div>
+                    {tips.map((tip, index) => (
+                      <div key={index} className="text-sm font-medium text-[#4B361C] text-right">
+                        {tip}
+                      </div>
+                    ))}
                   </div>
                 </InfoCard>
               )}

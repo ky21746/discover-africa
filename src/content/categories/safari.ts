@@ -242,45 +242,6 @@ export const safari: Attraction[] = [
     image: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/Lake%20Mburo%20National%20Park%2FAfrica%20sunset.%20Plains%20zebra%2C%20Equus%20quagga%2C%20in%20the%20grassy%20nature%20habitat%20with%20evening%20light%20in%20Lake%20Mburo%20NP%20in%20Uganda-Hero.webp?alt=media&token=decce22e-f118-41a1-b80c-657770874411"
   },
 
-  {
-    id: "kidepo-valley",
-    slug: "kidepo-valley",
-    name: "פארק לאומי עמק קידפו",
-    subtitle: "הפנינה הסודית - חוויה פראית ובלעדית",
-    category: "safari",
-    region: "צפון־מזרח אוגנדה",
-    description: "קידפו נחשב ל\"פנינה הסודית\" של אוגנדה – יעד פראי ובלעדי. הפארק מרוחק ומספק תחושת בלעדיות מוחלטת.\n\nהחיות כוללים מינים ייחודיים שלא נמצאים במקום אחר באוגנדה – צ'יטה, יען, קודו. זהו גן עדן לצלמים עם נופים מזכירי סרנגטי.",
-    
-    highlights: [
-      "חיות ייחודיות לאוגנדה - צ'יטה, יען",
-      "בלעדיות מוחלטת - מעט מבקרים",
-      "נופים מזכירי סרנגטי",
-      "תרבות קראמונג'ונג אותנטית",
-      "גן עדן לצלמים"
-    ],
-    
-    duration: "3-5 ימים",
-    difficulty: "בינונית-גבוהה",
-    bestSeason: "אוקטובר-אפריל",
-    permitCost: "350-600$ ליום",
-    minAge: 8,
-    
-    wildlife: ["צ'יטה (ייחודי)", "יען", "קודו", "אריות", "פילים", "ג'ירפות", "באפלו"],
-    howToGetThere: ["10-12 שעות נסיעה (מאתגר)", "טיסה פנימית מומלצת", "מישורי קראמונג'ונג"],
-    whatToBring: ["ציוד צילום מקצועי", "ביגוד למזג יבש", "כובע", "נעליים חזקות"],
-    healthSafety: ["תנאים בסיסיים", "מזג אוויר יבש וחם", "הכנה לתנאים מרוחקים"],
-    accommodation: ["Apoka Safari Lodge (800-1200$)", "Kidepo Savannah Lodge (200-400$)", "Nga'Moru Wilderness (150-250$)"],
-    nearby: ["Moroto - מרכז תרבותי", "הר מורונגולה", "כפרי קראמונג'ונג"],
-    whyUs: ["גישה בלעדית לאזור פראי", "מדריכים מקומיים אותנטיים", "חוויה ייחודית"],
-    valueAdd: ["רק 7,400 מבקרים בשנה", "דירוג 4.8/5", "שמי כוכבים נדירים"],
-    
-    gallery: [
-      "https://images.pexels.com/photos/631317/pexels-photo-631317.jpeg",
-      "https://images.pexels.com/photos/1661535/pexels-photo-1661535.jpeg",
-      "https://images.pexels.com/photos/534188/pexels-photo-534188.jpeg"
-    ],
-    image: "https://images.pexels.com/photos/631317/pexels-photo-631317.jpeg"
-  },
 
 
 

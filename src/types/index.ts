@@ -221,4 +221,10 @@ export interface Attraction {
 
   // Fun fact for "הידעת?" section
   funFact?: string;
+  
+  // Coordinates for map
+  coordinates?: {
+    lat: number;
+    lng: number;
+  };
 }

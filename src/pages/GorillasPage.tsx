@@ -75,23 +75,6 @@ const GorillasPage: React.FC = () => {
                   style={{ backgroundImage: `url(${item.image})` }}
                 />
                 <div className="card-content">
-                  <div className="mb-2 flex items-center gap-2">
-                    {item.region && (
-                      <span className="highlight-tag">
-                        {item.region}
-                      </span>
-                    )}
-                    {item.duration && (
-                      <span className="highlight-tag">
-                        {item.duration}
-                      </span>
-                    )}
-                    {item.difficulty && (
-                      <span className="highlight-tag" style={{background: '#CAA131'}}>
-                        {item.difficulty}
-                      </span>
-                    )}
-                  </div>
 
                   <h3 className="mb-2 text-lg font-semibold font-sans">
                     {highlightText(item.name || "", searchQuery)}
@@ -108,21 +91,6 @@ const GorillasPage: React.FC = () => {
                     </p>
                   )}
 
-                  {Array.isArray(item.highlights) && item.highlights.length > 0 && (
-                    <div className="highlights">
-                      <div className="highlights-title">מה תראו:</div>
-                      <div className="flex flex-wrap gap-1">
-                        {item.highlights.slice(0, 3).map((highlight, i) => (
-                          <span
-                            key={i}
-                            className="highlight-tag"
-                          >
-                            {highlight}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  )}
 
                   <div className="card-footer">
                     <Link

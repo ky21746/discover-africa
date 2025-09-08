@@ -225,22 +225,6 @@ const CategoryPage: React.FC = () => {
                       </p>
                     )}
 
-                    {Array.isArray(item.highlights) &&
-                      item.highlights.length > 0 && (
-                        <div className="highlights">
-                          <div className="highlights-title">מה תראו:</div>
-                          <div className="flex flex-wrap gap-1">
-                            {item.highlights.slice(0, 3).map((h: string, i: number) => (
-                              <span
-                                key={i}
-                                className="highlight-tag"
-                              >
-                                {h}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
-                      )}
 
                     <div className="card-footer">
                       <Link
@@ -302,21 +286,6 @@ const CategoryPage: React.FC = () => {
                       </p>
                     )}
 
-                    {Array.isArray(park.highlights) && park.highlights.length > 0 && (
-                      <div className="highlights">
-                        <div className="highlights-title">מה תראו:</div>
-                        <div className="flex flex-wrap gap-1">
-                          {park.highlights.slice(0, 3).map((h: string, i: number) => (
-                            <span
-                              key={i}
-                              className="highlight-tag"
-                            >
-                              {h}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    )}
 
                     <div className="card-footer">
                       <Link
