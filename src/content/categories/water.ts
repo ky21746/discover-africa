@@ -41,7 +41,7 @@ export const water: Attraction[] = [
       "https://images.pexels.com/photos/1661535/pexels-photo-1661535.jpeg",
       "https://images.pexels.com/photos/534188/pexels-photo-534188.jpeg"
     ],
-    image: "https://images.pexels.com/photos/631317/pexels-photo-631317.jpeg"
+    image: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FWater%2FMurchison%20Falls%2FMurchison%20Falls.webp?alt=media&token=15155199-1b7e-4be2-9723-6ba646c3fc97"
   },
 
   {
@@ -168,7 +168,7 @@ export const water: Attraction[] = [
       "https://images.pexels.com/photos/1661535/pexels-photo-1661535.jpeg",
       "https://images.pexels.com/photos/534188/pexels-photo-534188.jpeg"
     ],
-    image: "https://images.pexels.com/photos/631317/pexels-photo-631317.jpeg"
+    image: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FWater%2FLake%20Mburo%2FMpalas%20in%20lake%20Mburo%20national%20park-Hero.webp?alt=media&token=a908a57f-6143-446c-8f6b-17e5894948a5"
   },
 
   {
@@ -274,6 +274,10 @@ export const water: Attraction[] = [
     permitCost: "ללא עלות",
     minAge: 0,
     
+    heroHeight: {
+      desktop: "45vh"
+    },
+    
     wildlife: ["מאות מיני ציפורים", "דגים", "צמחיית אגם"],
     howToGetThere: ["כביש סלול לקבלה", "אוטובוסים זמינים", "7–8 שעות מקמפלה"],
     whatToBring: ["בגדי ים", "מצלמה", "כובע", "דוחה יתושים"],
@@ -284,11 +288,12 @@ export const water: Attraction[] = [
     valueAdd: ["פופולרי מאוד", "בטוח למשפחות", "נוף ייחודי"],
     
     gallery: [
-      "https://images.pexels.com/photos/631317/pexels-photo-631317.jpeg",
-      "https://images.pexels.com/photos/1661535/pexels-photo-1661535.jpeg",
-      "https://images.pexels.com/photos/534188/pexels-photo-534188.jpeg"
+      "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FWater%2FLake%20Bunyonyi%2FPanoramic%20view%20from%20Bunyonyi%20lake%20in%20Uganda.webp?alt=media&token=d101a23c-b982-4063-8575-f2e24bc5bb95",
+      "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FWater%2FLake%20Bunyonyi%2FLake%20Bunyonyi%2C%20Uganda%2C%20Africa.webp?alt=media&token=f0fb7162-6cd4-4ccb-9bf0-f5bc201d752e",
+      "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FWater%2FLake%20Bunyonyi%2FLake%20Bunyonyi%2C%20Kabale.webp?alt=media&token=6306a0d2-c4ca-478f-a6ec-d5c683604ef4",
+      "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FWater%2FLake%20Bunyonyi%2FWoman%20sitting%20on%20dock%20at%20sunset%20on%20Lake%20Bunyonyi.webp?alt=media&token=8766dbe4-f9d8-47f6-a510-332183690bb9"
     ],
-    image: "https://images.pexels.com/photos/631317/pexels-photo-631317.jpeg"
+    image: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FWater%2FLake%20Bunyonyi%2FWoman%20sitting%20on%20dock%20at%20sunset%20on%20Lake%20Bunyonyi-Hero.webp?alt=media&token=3d315584-c531-4256-990a-82e532f86de0"
   },
 
 
