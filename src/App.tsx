@@ -9,6 +9,7 @@ import GorillasPage from "./pages/GorillasPage";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import Testimonials from "./pages/Testimonials";
+import WhoWeAre from "./pages/WhoWeAre";
 import PlanYourTrip from "./pages/PlanYourTrip";
 import FAQ from "./pages/FAQ";
 import Contact from "./pages/Contact";
@@ -103,6 +104,7 @@ export default function App() {
             
             {/* עמודים נוספים */}
             <Route path="/testimonials" element={<Testimonials />} />
+            <Route path="/who-we-are" element={<WhoWeAre />} />
             <Route path="/plan-your-trip" element={<PlanYourTrip />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="/contact" element={<Contact />} />
