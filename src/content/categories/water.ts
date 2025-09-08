@@ -67,6 +67,10 @@ export const water: Attraction[] = [
     permitCost: "2,000–50,000 UGX (1–15$)",
     minAge: 8,
     
+    heroHeight: {
+      desktop: "45vh"
+    },
+    
     wildlife: ["ציפורי הרים", "צמחייה אלפינית", "חיות יער"],
     howToGetThere: ["כביש סלול עד Mbale", "דרכי עפר", "5–6 שעות מקמפלה"],
     whatToBring: ["נעלי הליכה", "מצלמה", "כובע", "מים"],
@@ -77,11 +81,12 @@ export const water: Attraction[] = [
     valueAdd: ["אתר מוכר מאוד", "שילוב טבע ותרבות", "נוף ייחודי"],
     
     gallery: [
-      "https://images.pexels.com/photos/631317/pexels-photo-631317.jpeg",
-      "https://images.pexels.com/photos/1661535/pexels-photo-1661535.jpeg",
-      "https://images.pexels.com/photos/534188/pexels-photo-534188.jpeg"
+      "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FWater%2FScenic%20view%20of%20Sipi%20Waterfall%20landscape%20with%20trees.webp?alt=media&token=16899918-3868-4aed-b8ff-57e4e26f98a5",
+      "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FWater%2FScenic%20view%20of%20Sipi%20Waterfall%20in%20Kapchorwa.webp?alt=media&token=c80ade17-81f7-4e46-bbeb-9e2193276b2d",
+      "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FWater%2FScenic%20view%20of%20Sipi%20Waterfall%20in%20Kapchorwa%2C%20Mount%20Elgon.webp?alt=media&token=15b5ca04-cd32-4b0d-8fac-f84dc560c245",
+      "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FWater%2FRear%20view%20of%20a%20hiker%20in%20a%20cave%20against%20the%20background%20of%20Sipi%20Waterfall.webp?alt=media&token=0ce863cc-78f5-43e1-b490-8a356231e274"
     ],
-    image: "https://images.pexels.com/photos/631317/pexels-photo-631317.jpeg"
+    image: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FWater%2FScenic%20view%20of%20Sipi%20Waterfall%20in%20Kapchorwa-Hero.webp?alt=media&token=587e4fa5-02a6-483c-8894-a99b4a03fdac"
   },
 
   {
