@@ -25,8 +25,9 @@ const OurServices: React.FC = () => {
               <div
                 className="h-64 bg-cover bg-center"
                 style={{ 
-                  backgroundImage: `url(https://images.pexels.com/photos/1309766/pexels-photo-1309766.jpeg)`,
-                  backgroundPosition: 'center 30%'
+                  backgroundImage: `url(https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/Services%2FBaraviationcard.webp?alt=media&token=760c531e-2cf9-4d40-ab23-bd816b77d9c5)`,
+                  backgroundPosition: 'center',
+                  backgroundSize: 'cover'
                 }}
               />
               <div className="p-6">
@@ -53,8 +54,9 @@ const OurServices: React.FC = () => {
               <div
                 className="h-64 bg-cover bg-center"
                 style={{ 
-                  backgroundImage: `url(https://images.pexels.com/photos/1661535/pexels-photo-1661535.jpeg)`,
-                  backgroundPosition: 'center 30%'
+                  backgroundImage: `url(https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/Services%2FBar%20SOS%2Fbarsos-medevac-img.jpg.webp?alt=media&token=168394a8-66ac-4311-a88d-d3420b4c0e9c)`,
+                  backgroundPosition: 'center',
+                  backgroundSize: 'cover'
                 }}
               />
               <div className="p-6">
@@ -81,8 +83,9 @@ const OurServices: React.FC = () => {
               <div
                 className="h-64 bg-cover bg-center"
                 style={{ 
-                  backgroundImage: `url(https://images.pexels.com/photos/1309766/pexels-photo-1309766.jpeg)`,
-                  backgroundPosition: 'center 30%'
+                  backgroundImage: `url(https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/Services%2FExtreme%20adventures%2Fextremeadventures-card.webp?alt=media&token=cc084dbb-9efc-4e72-8453-d96c51d4a5d0)`,
+                  backgroundPosition: 'center',
+                  backgroundSize: 'cover'
                 }}
               />
               <div className="p-6">
