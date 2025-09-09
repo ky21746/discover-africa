@@ -885,7 +885,7 @@ const AttractionPage: React.FC = () => {
                 מיקום - {a.name}
               </h3>
               <button 
-                onClick={() => setMapFullscreen(false)}
+                onClick={() =>   setMapFullscreen(false)}
                 className="p-2 hover:bg-gray-200 rounded-full transition-colors"
               >
                 <X className="w-6 h-6 text-gray-600" />
