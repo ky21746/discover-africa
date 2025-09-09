@@ -145,6 +145,13 @@ const Home: React.FC = () => {
                   }}
                 />
                 <div className="card-content">
+                  <div className="flex items-center justify-center mb-2">
+                    <img 
+                      src="/images/baraviationug.webp" 
+                      alt="BAR Aviation Logo" 
+                      className="h-8 w-auto"
+                    />
+                  </div>
                   <h3 className="text-xl font-semibold mb-2 font-sans text-gray-900">
                     שירותי תעופה
                   </h3>
@@ -170,8 +177,15 @@ const Home: React.FC = () => {
                   }}
                 />
                 <div className="card-content">
+                  <div className="flex items-center justify-center mb-2">
+                    <img 
+                      src="/images/BAR-SOS-MAGNUS-logo.webp" 
+                      alt="BAR SOS Logo" 
+                      className="h-8 w-auto"
+                    />
+                  </div>
                   <h3 className="text-xl font-semibold mb-2 font-sans text-gray-900">
-                    ביטחון רפואי
+                    איתור וחילוץ רפואי
                   </h3>
                   <p className="text-gray-600 font-sans">
                     שירותי חילוץ רפואי 24/7 - חילוץ אווירי וקרקעי בכל רחבי אוגנדה
@@ -195,6 +209,13 @@ const Home: React.FC = () => {
                   }}
                 />
                 <div className="card-content">
+                  <div className="flex items-center justify-center mb-2">
+                    <img 
+                      src="/images/extreme-adventure-park-logo.webp" 
+                      alt="Extreme Adventure Park Logo" 
+                      className="h-8 w-auto"
+                    />
+                  </div>
                   <h3 className="text-xl font-semibold mb-2 font-sans text-gray-900">
                     פארק אקסטרים
                   </h3>

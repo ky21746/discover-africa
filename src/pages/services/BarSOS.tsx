@@ -9,8 +9,15 @@ const BarSOS: React.FC = () => {
       <div className="container mx-auto px-4">
         {/* כותרת ראשית */}
         <div className="mb-12 text-center">
+          <div className="flex justify-center mb-6">
+            <img 
+              src="/images/BAR-SOS-MAGNUS-logo.webp" 
+              alt="BAR SOS Logo" 
+              className="h-20 w-auto"
+            />
+          </div>
           <h1 className="mb-4 text-4xl md:text-5xl font-bold font-sans text-[#4B361C]">
-            BAR SOS – שירותי ביטחון וחילוץ רפואי
+            BAR SOS – שירותי איתור וחילוץ רפואי
           </h1>
           <p className="mx-auto max-w-3xl text-lg md:text-xl text-muted font-sans">
             זרוע החירום והביטחון של קבוצת BAR - כיסוי מלא 24/7 בכל רחבי אוגנדה

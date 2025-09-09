@@ -9,6 +9,13 @@ const BarAviation: React.FC = () => {
       <div className="container mx-auto px-4">
         {/* כותרת ראשית */}
         <div className="mb-12 text-center">
+          <div className="flex justify-center mb-6">
+            <img 
+              src="/images/baraviationug.webp" 
+              alt="BAR Aviation Logo" 
+              className="h-20 w-auto"
+            />
+          </div>
           <h1 className="mb-4 text-4xl md:text-5xl font-bold font-sans text-[#4B361C]">
             BAR Aviation
           </h1>

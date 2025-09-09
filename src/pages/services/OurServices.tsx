@@ -1,7 +1,7 @@
 // src/pages/services/OurServices.tsx
 import React from "react";
 import { Link } from "react-router-dom";
-import { Plane, Shield, ArrowLeft } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 
 const OurServices: React.FC = () => {
   return (
@@ -31,11 +31,12 @@ const OurServices: React.FC = () => {
                 }}
               />
               <div className="p-6">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="bg-[#CAA131] p-2 rounded-lg">
-                    <Plane className="w-6 h-6 text-black" />
-                  </div>
-                  <h2 className="text-2xl font-bold text-[#4B361C]">BAR Aviation</h2>
+                <div className="flex items-center justify-center mb-6">
+                  <img 
+                    src="/images/baraviationug.webp" 
+                    alt="BAR Aviation Logo" 
+                    className="h-16 w-auto"
+                  />
                 </div>
                 <p className="text-gray-700 mb-4 leading-relaxed">
                   שירותי תעופה מקצועיים - טיסות ספארי, טיסות פרטיות וטיסות נוף מעל הנופים הקסומים של אוגנדה
@@ -60,14 +61,15 @@ const OurServices: React.FC = () => {
                 }}
               />
               <div className="p-6">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="bg-[#CAA131] p-2 rounded-lg">
-                    <Shield className="w-6 h-6 text-black" />
-                  </div>
-                  <h2 className="text-2xl font-bold text-[#4B361C]">BAR SOS</h2>
+                <div className="flex items-center justify-center mb-6">
+                  <img 
+                    src="/images/BAR-SOS-MAGNUS-logo.webp" 
+                    alt="BAR SOS Logo" 
+                    className="h-16 w-auto"
+                  />
                 </div>
                 <p className="text-gray-700 mb-4 leading-relaxed">
-                  שירותי ביטחון וחילוץ רפואי 24/7 - חילוץ אווירי וקרקעי, אפליקציית SOS ותקשורת לוויינית
+                  שירותי איתור וחילוץ רפואי 24/7 - חילוץ אווירי וקרקעי, אפליקציית SOS ותקשורת לוויינית
                 </p>
                 <div className="flex items-center text-[#CAA131] font-semibold group-hover:gap-2 transition-all duration-300">
                   לפרטים נוספים
@@ -89,11 +91,12 @@ const OurServices: React.FC = () => {
                 }}
               />
               <div className="p-6">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="bg-[#CAA131] p-2 rounded-lg">
-                    <Shield className="w-6 h-6 text-black" />
-                  </div>
-                  <h2 className="text-2xl font-bold text-[#4B361C]">Extreme Adventure Park</h2>
+                <div className="flex items-center justify-center mb-6">
+                  <img 
+                    src="/images/extreme-adventure-park-logo.webp" 
+                    alt="Extreme Adventure Park Logo" 
+                    className="h-16 w-auto"
+                  />
                 </div>
                 <p className="text-gray-700 mb-4 leading-relaxed">
                   פארק האקסטרים הגדול ביותר באוגנדה - Go-Karting, Zipline, Paintball ועוד חוויות מלאות אדרנלין
