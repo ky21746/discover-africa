@@ -15,7 +15,7 @@ import FAQ from "./pages/FAQ";
 import Contact from "./pages/Contact";
 import AttractionPage from "./pages/AttractionPage";
 import CookieBanner from "./components/CookieBanner";
-import AccessibilityButton from "./components/AccessibilityButton";
+import WhatsAppFloat from "./components/WhatsAppFloat";
 
 // Water subcategories pages
 import WaterSubcategories from "./pages/WaterSubcategories";
@@ -73,7 +73,7 @@ export default function App() {
         
         {/* באנר קוקיז - הוספתי כאן! */}
         <CookieBanner />
-        <AccessibilityButton />
+        <WhatsAppFloat />
         <Routes>
           {/* כל הדפים נכנסים תחת ה־Layout */}
           <Route element={<Layout />}>
