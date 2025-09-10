@@ -55,38 +55,38 @@ const ExtremePage: React.FC = () => {
 
         {/* כרטיסי אטרקציות */}
         {filteredAttractions.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredAttractions.map((attraction: Attraction) => (
-              <Link
+              <div
                 key={attraction.id}
-                to={`/attraction/${attraction.slug}`}
-                className="group block bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden"
+                className="category-card transition-all duration-300 hover:shadow-lg"
               >
-                <div className="relative h-48 overflow-hidden">
-                  <img
-                    src={attraction.image}
-                    alt={attraction.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                  <div className="absolute bottom-4 right-4 text-white">
-                    <span className="bg-[#CAA131] text-white px-3 py-1 rounded-full text-sm font-medium">
-                      {attraction.difficulty}
-                    </span>
+                <div
+                  className="card-image"
+                  style={{ backgroundImage: `url(${attraction.image})` }}
+                >
+                  <div className="image-overlay">
+                    <h3 className="font-sans">
+                      {attraction.name}
+                    </h3>
+                    
+                    <p className="font-sans">
+                      {attraction.subtitle && attraction.subtitle.length > 50 
+                        ? attraction.subtitle.slice(0, 50) + "." 
+                        : attraction.subtitle}
+                    </p>
                   </div>
                 </div>
                 
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-[#4B361C] mb-2 group-hover:text-[#CAA131] transition-colors">
-                    {attraction.name}
-                  </h3>
-                  <p className="text-[#666] mb-3 line-clamp-2">
-                    {attraction.subtitle}
-                  </p>
-                  
-                  
+                <div className="card-content">
+                  <Link
+                    to={`/attraction/${attraction.slug}`}
+                    className="btn-discover"
+                  >
+                    קרא עוד
+                  </Link>
                 </div>
-              </Link>
+              </div>
             ))}
           </div>
         ) : (
@@ -108,6 +108,7 @@ const ExtremePage: React.FC = () => {
           <Link to="/categories" className="btn-secondary">
             ← חזרה לקטגוריות
           </Link>
+        </div>
         </div>
       </div>
     </div>

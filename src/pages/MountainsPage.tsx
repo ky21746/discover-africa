@@ -67,7 +67,7 @@ const MountainsPage: React.FC = () => {
 
         {/* רשת הכרטיסים */}
         {filteredMountains.length > 0 ? (
-          <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {filteredMountains.map((item) => (
               <div
                 key={item.id}
@@ -76,33 +76,32 @@ const MountainsPage: React.FC = () => {
                 <div
                   className="card-image"
                   style={{ backgroundImage: `url(${item.image})` }}
-                />
-                <div className="card-content">
-
-                  <h3 className="mb-2 text-lg font-semibold font-sans">
-                    {highlightText(item.name || "", searchQuery)}
-                  </h3>
-                  
-                  {item.description && (
-                    <p className="mb-3 text-sm font-sans text-muted">
-                      {highlightText(
-                        item.description.length > 200 
-                          ? item.description.slice(0, 200) + "..." 
-                          : item.description, 
-                        searchQuery
-                      )}
-                    </p>
-                  )}
-
-
-                  <div className="card-footer">
-                    <Link
-                      to={`/attraction/${item.slug}`}
-                      className="btn-discover"
-                    >
-                      גלה עוד
-                    </Link>
+                >
+                  <div className="image-overlay">
+                    <h3 className="font-sans">
+                      {highlightText(item.name || "", searchQuery)}
+                    </h3>
+                    
+                    {item.description && (
+                      <p className="font-sans">
+                        {highlightText(
+                          item.description.length > 50 
+                            ? item.description.slice(0, 50) + "." 
+                            : item.description, 
+                          searchQuery
+                        )}
+                      </p>
+                    )}
                   </div>
+                </div>
+                
+                <div className="card-content">
+                  <Link
+                    to={`/attraction/${item.slug}`}
+                    className="btn-discover"
+                  >
+                    קרא עוד
+                  </Link>
                 </div>
               </div>
             ))}

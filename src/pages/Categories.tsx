@@ -48,58 +48,58 @@ const Categories: React.FC = () => {
           </p>
         </div>
 
-        {/* Search */}
-        <div className="mb-8">
-          <div className="max-w-2xl mx-auto mb-6">
-            <SearchBar placeholder="חפשו קטגוריה..." onSearch={setSearchQuery} />
-          </div>
-        </div>
 
         {/* Categories Grid */}
         {filteredCategories.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredCategories.map((category) => (
-              <Card
+              <div
                 key={category.id}
-                className={`hover:shadow-lg transition-all duration-300 ${
+                className={`category-card transition-all duration-300 hover:shadow-lg ${
                   category.slug === "mountains" ? "rwenzori-special" : ""
                 }`}
               >
                 <div
-                  className={`card-image ${category.slug}-image`}
+                  className="card-image"
                   style={{ backgroundImage: `url(${category.coverImage})` }}
-                />
-                <div className="card-content">
-                  <h3 className="text-xl font-semibold mb-2 font-sans">
-                    {highlightText(category.name, searchQuery)}
-                  </h3>
-
-                  <p className="text-muted mb-4 font-sans">
-                    {highlightText(category.shortDescription, searchQuery)}
-                  </p>
-
-                  <div className="card-footer">
-                    <Link
-                      to={
-                        category.slug === "water" 
-                          ? "/water" 
-                          : category.slug === "safari"
-                          ? "/safari"
-                          : category.slug === "gorillas-chimps"
-                          ? "/gorillas"
-                          : category.slug === "mountains"
-                          ? "/mountains"
-                          : category.slug === "extreme"
-                          ? "/extreme"
-                          : `/category/${category.slug}`
-                      }
-                      className="btn-card w-full"
-                    >
-                      גלו עוד
-                    </Link>
+                >
+                  <div className="image-overlay">
+                    <h3 className="font-sans">
+                      {highlightText(category.name, searchQuery)}
+                    </h3>
+                    
+                    <p className="font-sans">
+                      {highlightText(
+                        category.shortDescription.length > 50 
+                          ? category.shortDescription.slice(0, 50) + "." 
+                          : category.shortDescription, 
+                        searchQuery
+                      )}
+                    </p>
                   </div>
                 </div>
-              </Card>
+                
+                <div className="card-content">
+                  <Link
+                    to={
+                      category.slug === "water" 
+                        ? "/water" 
+                        : category.slug === "safari"
+                        ? "/safari"
+                        : category.slug === "gorillas-chimps"
+                        ? "/gorillas"
+                        : category.slug === "mountains"
+                        ? "/mountains"
+                        : category.slug === "extreme"
+                        ? "/extreme"
+                        : `/category/${category.slug}`
+                    }
+                    className="btn-discover"
+                  >
+                    קרא עוד
+                  </Link>
+                </div>
+              </div>
             ))}
           </div>
         ) : (

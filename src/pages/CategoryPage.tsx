@@ -206,27 +206,29 @@ const CategoryPage: React.FC = () => {
                   <div
                     className="card-image"
                     style={{ backgroundImage: `url(${cover})` }}
-                  />
-                  <div className="card-content">
-                    <h3 className="mb-2 text-lg font-semibold font-sans">
-                      {item.name}
-                    </h3>
-
-                    {summary && (
-                      <p className="mb-3 text-sm font-sans text-muted">
-                        {summary}
-                      </p>
-                    )}
-
-
-                    <div className="card-footer">
-                      <Link
-                        to={`/attraction/${targetSlug}`}
-                        className="btn-discover"
-                      >
-                        גלה עוד
-                      </Link>
+                  >
+                    <div className="image-overlay">
+                      <h3 className="font-sans">
+                        {item.name}
+                      </h3>
+                      
+                      {summary && (
+                        <p className="font-sans">
+                          {summary.length > 50 
+                            ? summary.slice(0, 50) + "." 
+                            : summary}
+                        </p>
+                      )}
                     </div>
+                  </div>
+                  
+                  <div className="card-content">
+                    <Link
+                      to={`/attraction/${targetSlug}`}
+                      className="btn-discover"
+                    >
+                      קרא עוד
+                    </Link>
                   </div>
                 </div>
               );
@@ -247,9 +249,24 @@ const CategoryPage: React.FC = () => {
                   <div
                     className="card-image"
                     style={{ backgroundImage: `url(${park.image})` }}
-                  />
+                  >
+                    <div className="image-overlay">
+                      <h3 className="font-sans">
+                        {park.name}
+                      </h3>
+                      
+                      {park.description && (
+                        <p className="font-sans">
+                          {park.description.length > 50 
+                            ? park.description.slice(0, 50) + "." 
+                            : park.description}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                  
                   <div className="card-content">
-                    <div className="mb-2 flex items-center gap-2">
+                    <div className="mb-3 flex items-center gap-2">
                       {park.area && (
                         <span className="highlight-tag">
                           {park.area}
@@ -266,28 +283,13 @@ const CategoryPage: React.FC = () => {
                         </span>
                       )}
                     </div>
-
-                    <h3 className="mb-2 text-lg font-semibold font-sans">
-                      {park.name}
-                    </h3>
-
-                    {park.description && (
-                      <p className="mb-3 text-sm font-sans text-muted">
-                        {park.description.length > 200 
-                          ? park.description.slice(0, 200) + "..." 
-                          : park.description}
-                      </p>
-                    )}
-
-
-                    <div className="card-footer">
-                      <Link
-                        to={`/attraction/${targetSlug}`}
-                        className="btn-discover"
-                      >
-                        גלה עוד
-                      </Link>
-                    </div>
+                    
+                    <Link
+                      to={`/attraction/${targetSlug}`}
+                      className="btn-discover"
+                    >
+                      קרא עוד
+                    </Link>
                   </div>
                 </div>
               );

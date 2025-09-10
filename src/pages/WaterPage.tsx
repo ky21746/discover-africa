@@ -82,43 +82,42 @@ const WaterPage: React.FC = () => {
 
           {/* רשת הכרטיסים */}
           {filteredWater.length > 0 ? (
-            <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
               {filteredWater.map((item) => (
                 <div
                   key={item.id}
                   className="category-card transition-all duration-300 hover:shadow-lg"
                 >
-                  <div
-                    className="card-image"
-                    style={{ backgroundImage: `url(${item.image})` }}
-                  />
-                  <div className="card-content">
-
-                    <h3 className="mb-2 text-lg font-semibold font-sans">
+                <div
+                  className="card-image"
+                  style={{ backgroundImage: `url(${item.image})` }}
+                >
+                  <div className="image-overlay">
+                    <h3 className="font-sans">
                       {highlightText(item.name || "", searchQuery)}
                     </h3>
                     
                     {item.description && (
-                      <p className="mb-3 text-sm font-sans text-muted">
+                      <p className="font-sans">
                         {highlightText(
-                          item.description.length > 200 
-                            ? item.description.slice(0, 200) + "..." 
+                          item.description.length > 50 
+                            ? item.description.slice(0, 50) + "." 
                             : item.description, 
                           searchQuery
                         )}
                       </p>
                     )}
-
-
-                    <div className="card-footer">
-                      <Link
-                        to={`/attraction/${item.slug}`}
-                        className="btn-discover"
-                      >
-                        גלה עוד
-                      </Link>
-                    </div>
                   </div>
+                </div>
+                
+                <div className="card-content">
+                  <Link
+                    to={`/attraction/${item.slug}`}
+                    className="btn-discover"
+                  >
+                    קרא עוד
+                  </Link>
+                </div>
                 </div>
               ))}
             </div>
