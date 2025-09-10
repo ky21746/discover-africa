@@ -596,18 +596,14 @@ const ParkDetail: React.FC = () => {
 
             {/* חשוב לדעת - ריבוע רחב */}
             <div className="md:col-span-2">
-              <section className="bg-gradient-to-br from-gray-50 via-gray-100 to-gray-50 border border-[#534B20]/60 rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.01] h-full">
-                <h3 className="text-xl font-bold text-[#4B361C] mb-4 border-b-2 border-[#CAA131] w-fit">חשוב לדעת</h3>
-                <div className="bg-[#CAA131]/10 p-4 rounded-xl space-y-2">
-                  <div className="text-sm font-medium text-[#4B361C] text-right">
-                    רישיון: $300–450 ליום — להזמין חודשים מראש
-                  </div>
-                  <div className="text-sm font-medium text-[#4B361C] text-right">
-                    מיקום: קרוב לגבול DRC — בדוק אזהרות מסע עדכניות
-                  </div>
-                  <div className="text-sm font-medium text-[#4B361C] text-right">
-                    עונת השיא: מתמלאת חודשים מראש — הזמן מוקדם
-                  </div>
+              <section className="bg-gradient-to-br from-amber-50 to-orange-50 border border-[#CAA131]/30 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 h-full">
+                <h3 className="text-xl font-bold text-[#4B361C] mb-4 border-b border-[#CAA131] pb-2 w-fit text-right">חשוב לדעת</h3>
+                <div className="space-y-3 text-right">
+                  <ul className="text-sm text-[#4B361C] space-y-2 text-right list-none">
+                    <li className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full">רישיון: <span className="text-[#CAA131] font-semibold">$300–450 ליום</span> — להזמין חודשים מראש</li>
+                    <li className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full">מיקום: קרוב לגבול DRC — בדוק אזהרות מסע עדכניות</li>
+                    <li className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full">עונת השיא: מתמלאת חודשים מראש — הזמן מוקדם</li>
+                  </ul>
                 </div>
               </section>
             </div>

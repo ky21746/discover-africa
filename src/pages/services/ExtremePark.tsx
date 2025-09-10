@@ -177,27 +177,17 @@ const ExtremePark: React.FC = () => {
 
         {/* חשוב לדעת */}
         <div className="mb-12">
-          <div className="bg-white rounded-2xl shadow-lg p-8">
-            <h2 className="text-2xl font-bold text-[#4B361C] mb-6 border-b-2 border-[#CAA131] w-fit">
+          <div className="bg-gradient-to-br from-amber-50 to-orange-50 border border-[#CAA131]/30 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
+            <h2 className="text-xl font-bold text-[#4B361C] mb-4 border-b border-[#CAA131] pb-2 w-fit text-right">
               חשוב לדעת
             </h2>
-            <div className="space-y-4">
-              <div className="flex items-start gap-3 p-4 bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-xl border border-[#CAA131]/30">
-                <Users className="w-5 h-5 text-[#CAA131] flex-shrink-0 mt-1" />
-                <p className="text-[#4B361C] font-medium">מתאים לכל המשפחה, אך חלק מהפעילויות מוגבלות לגיל 12+</p>
-              </div>
-              <div className="flex items-start gap-3 p-4 bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-xl border border-[#CAA131]/30">
-                <Clock className="w-5 h-5 text-[#CAA131] flex-shrink-0 mt-1" />
-                <p className="text-[#4B361C] font-medium">פתוח כל ימות השבוע</p>
-              </div>
-              <div className="flex items-start gap-3 p-4 bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-xl border border-[#CAA131]/30">
-                <Shield className="w-5 h-5 text-[#CAA131] flex-shrink-0 mt-1" />
-                <p className="text-[#4B361C] font-medium">חובה נעליים סגורות לפעילויות שטח</p>
-              </div>
-              <div className="flex items-start gap-3 p-4 bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-xl border border-[#CAA131]/30">
-                <Shield className="w-5 h-5 text-[#CAA131] flex-shrink-0 mt-1" />
-                <p className="text-[#4B361C] font-medium">בכל פעילות ישנה הדרכה מוסמכת ועמידה בתקני בטיחות</p>
-              </div>
+            <div className="space-y-3 text-right">
+              <ul className="text-sm text-[#4B361C] space-y-2 text-right list-none">
+                <li className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full">מתאים לכל המשפחה, אך חלק מהפעילויות מוגבלות לגיל <span className="text-[#CAA131] font-semibold">12+</span></li>
+                <li className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full">פתוח כל ימות השבוע</li>
+                <li className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full">חובה נעליים סגורות לפעילויות שטח</li>
+                <li className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full">בכל פעילות ישנה הדרכה מוסמכת ועמידה בתקני בטיחות</li>
+              </ul>
             </div>
           </div>
         </div>

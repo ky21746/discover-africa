@@ -64,6 +64,22 @@ const MountainsPage: React.FC = () => {
 
       <div className="py-8">
         <div className="container mx-auto px-4">
+          {/* בלוק חשוב לדעת */}
+          <div className="mb-12">
+            <div className="bg-gradient-to-br from-amber-50 to-orange-50 border border-[#CAA131]/30 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
+              <h2 className="text-xl font-bold text-[#4B361C] mb-4 border-b border-[#CAA131] pb-2 w-fit text-right">
+                חשוב לדעת
+              </h2>
+              <div className="space-y-3 text-right">
+                <ul className="text-sm text-[#4B361C] space-y-2 text-right list-none">
+                  <li className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full">רמת קושי: טרקים מאתגרים עד <span className="text-[#CAA131] font-semibold">7 ימים</span> — כושר גופני נדרש</li>
+                  <li className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full">ציוד חובה: נעלי טרקים, ביגוד חם, ציוד מחנאות</li>
+                  <li className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full">עונה מומלצת: יוני-אוגוסט ודצמבר-פברואר — מזג אוויר יציב</li>
+                  <li className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full">הדרכה: חובה מדריך מוסמך לכל הטרקים</li>
+                </ul>
+              </div>
+            </div>
+          </div>
 
         {/* רשת הכרטיסים */}
         {filteredMountains.length > 0 ? (
