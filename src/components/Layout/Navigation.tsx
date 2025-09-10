@@ -22,7 +22,7 @@ const Navigation: React.FC<NavigationProps> = ({ mobile = false, onItemClick }) 
 
   const baseClasses = mobile
     ? 'block py-3 px-4 text-lg border-b border-gray-100 hover:bg-gray-50'
-    : 'nav-link';
+    : 'nav-link-upgraded';
 
   const isActive = (path: string) =>
     path === '/'
@@ -30,13 +30,13 @@ const Navigation: React.FC<NavigationProps> = ({ mobile = false, onItemClick }) 
       : location.pathname.startsWith(path);
 
   return (
-    <nav className={mobile ? 'space-y-0' : 'flex space-x-reverse space-x-6'}>
+    <nav className={mobile ? 'space-y-0' : 'flex gap-6'}>
       {navItems.map((item) => (
         <Link
           key={item.path}
           to={item.path}
           onClick={onItemClick}
-          className={`${baseClasses} ${isActive(item.path) ? 'active' : ''}`}
+          className={`${baseClasses} ${isActive(item.path) ? 'nav-active' : ''}`}
         >
           {item.label}
         </Link>

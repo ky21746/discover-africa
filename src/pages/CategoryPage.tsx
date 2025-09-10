@@ -140,49 +140,42 @@ const CategoryPage: React.FC = () => {
   };
 
   return (
-    <div className="py-8 fade-in" dir="rtl">
-      <div className="container mx-auto px-4">
-        {/* כותרת ותיאור */}
-        <div className="category-page-header text-center">
-          <h1 className="mb-2 text-3xl md:text-4xl font-bold font-sans">
+    <div className="fade-in" dir="rtl">
+      {/* Hero Section */}
+      <section className="relative bg-gradient-to-r from-gray-900 to-gray-800 text-white h-[40vh] min-h-[300px] overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-70"
+          style={{
+            backgroundImage: category?.coverImage 
+              ? `url(${category.coverImage})`
+              : "url(https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/hero-gorilla.webp?alt=media&token=c67bec83-4363-4104-a102-757f69b351a4)"
+          }}
+        />
+        
+        {/* Gradient overlay at bottom */}
+        <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-black/60 to-transparent"></div>
+        
+        {/* Content positioned at center bottom */}
+        <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 text-center space-y-4 text-white drop-shadow-md max-w-3xl">
+          <h1 className="text-4xl md:text-5xl font-bold">
             {displayName} באוגנדה
           </h1>
           {displayDesc && (
-            <p className="mx-auto max-w-3xl text-base md:text-lg text-muted font-sans">
+            <p className="text-lg md:text-xl font-light max-w-2xl mx-auto">
               {displayDesc}
             </p>
           )}
+          
+          {/* CTA Button */}
+          <button className="bg-orange-500 text-white px-8 py-3 rounded-lg font-semibold text-lg transition-colors duration-200 hover:bg-orange-600">
+            {isSafari ? "בנה ספארי מותאם אישית" : 
+             isPrimates ? "צפה בכל המסלולים" : 
+             "צפה בכל האפשרויות"}
+          </button>
         </div>
+      </section>
 
-        {/* פילטר תגים – רק לשאר הקטגוריות */}
-        {!showAttractions && allTags.length > 0 && (
-          <div className="category-tags-filter text-center">
-            <div className="mb-2 flex items-center justify-center gap-2 text-sm">
-              <Filter className="h-4 w-4 text-muted" />
-              <span className="font-medium text-muted">סינון לפי:</span>
-            </div>
-            <div className="flex flex-wrap justify-center gap-1">
-              {allTags.map((tag) => (
-                <button
-                  key={tag}
-                  onClick={() => toggleTag(tag)}
-                  className={`filter-button ${
-                    selectedTags.includes(tag) ? "active" : ""
-                  }`}
-                >
-                  {tag}
-                </button>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {/* ספירת פריטים */}
-        <div className="category-count text-center">
-          <p className="text-sm text-muted">
-            נמצאו {showAttractions ? attractions.length : filteredParks.length} אפשרויות
-          </p>
-        </div>
+      <div className="container mx-auto px-4 py-8">
 
         {/* רשת הכרטיסים */}
         {showAttractions ? (

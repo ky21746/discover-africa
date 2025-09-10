@@ -35,34 +35,37 @@ const GorillasPage: React.FC = () => {
   };
 
   return (
-    <div className="py-8 fade-in" dir="rtl">
-      <div className="container mx-auto px-4">
-        {/* כותרת ותיאור */}
-        <div className="mb-8 text-center">
-          <h1 className="mb-4 text-4xl md:text-5xl font-bold font-sans">
-            גורילות ושימפנזים באוגנדה
-          </h1>
-          <p className="mx-auto max-w-3xl text-lg md:text-xl text-muted font-sans">
-            מפגשי פרימטים מרגשים: גורילות בווינדי/מגהינגה ושימפנזים בקיבאלה/קיאמבורה.
-          </p>
+    <div className="fade-in" dir="rtl">
+      {/* Hero Section */}
+      <section className="relative bg-gradient-to-r from-gray-900 to-gray-800 text-white h-[40vh] min-h-[300px] overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-70"
+          style={{
+            backgroundImage: "url(https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/hero-gorilla.webp?alt=media&token=c67bec83-4363-4104-a102-757f69b351a4)"
+          }}
+        />
+        
+        {/* Transparent bar at bottom */}
+        <div className="absolute bottom-0 left-0 w-full h-1/4 bg-black/40 border-t-[1.5px] border-[#CAA131]/80">
+          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-center space-y-4 text-white max-w-4xl">
+            <h1 className="text-4xl md:text-5xl font-bold drop-shadow-md">
+              גורילות ושימפנזים באוגנדה
+            </h1>
+            <p className="text-lg md:text-xl max-w-3xl mx-auto drop-shadow-md">
+              מפגשי פרימטים מרגשים: גורילות בווינדי/מגהינגה ושימפנזים בקיבאלה/קיאמבורה
+            </p>
+            
+            {/* Single CTA Button */}
+            <button className="bg-transparent border-2 border-[#CAA131] text-[#CAA131] px-8 py-3 rounded-lg font-semibold text-lg transition-colors duration-200 hover:bg-[#CAA131] hover:text-black">
+              צפה בכל המסלולים
+            </button>
+          </div>
         </div>
+      </section>
 
-        {/* חיפוש */}
-        <div className="mb-8">
-          <SearchBar
-            onSearch={setSearchQuery}
-            placeholder="חפשו גורילות ושימפנזים..."
-          />
-        </div>
-
-        {/* ספירת אטרקציות */}
-        <div className="mb-6 text-center">
-          <p className="text-sm text-muted">
-            נמצאו {filteredGorillas.length} אפשרויות
-          </p>
-        </div>
-
-        {/* רשת הכרטיסים */}
+      <div className="py-8">
+        <div className="container mx-auto px-4">
+          {/* רשת הכרטיסים */}
         {filteredGorillas.length > 0 ? (
           <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
             {filteredGorillas.map((item) => (
@@ -117,6 +120,7 @@ const GorillasPage: React.FC = () => {
             </button>
           </div>
         )}
+        </div>
       </div>
     </div>
   );

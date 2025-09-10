@@ -51,17 +51,22 @@ const Home: React.FC = () => {
               "url(https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/hero-gorilla.webp?alt=media&token=c67bec83-4363-4104-a102-757f69b351a4)",
           }}
         />
-        <div className="relative container mx-auto px-4 text-center flex flex-col items-center justify-center h-full">
-          <div className="slide-up">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 font-sans">
-              החוויה הבאה שלך באוגנדה
-              <br />
-              מתחילה כאן
-            </h1>
-            <p className="text-xl md:text-2xl max-w-3xl mx-auto font-sans">
-              טיולי אקסטרים, טבע פראי, ושירות אישי – חוויה שלא תשכח
-            </p>
-          </div>
+        
+        {/* Content positioned at center bottom */}
+        <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 text-center space-y-4 text-white drop-shadow-md max-w-2xl">
+          <h1 className="text-4xl font-bold">
+            החוויה הבאה שלך באוגנדה
+            <br />
+            מתחילה כאן
+          </h1>
+          <p className="text-lg font-light">
+            טיולי אקסטרים, טבע פראי, ושירות אישי – חוויה שלא תשכח
+          </p>
+          
+          {/* CTA Button */}
+          <button className="bg-orange-500 text-white px-8 py-3 rounded-lg font-semibold text-lg transition-colors duration-200 hover:bg-orange-600">
+            תכננו טיול כאן
+          </button>
         </div>
       </section>
 

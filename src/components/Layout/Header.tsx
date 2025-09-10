@@ -9,11 +9,11 @@ const Header: React.FC = () => {
   const isHomePage = location.pathname === '/';
 
   return (
-    <header className="bg-white shadow-md sticky top-0 z-50">
+    <header className="bg-white sticky top-0 z-50 shadow-lg border-b border-gray-200">
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* ימין: לוגו + ניווט */}
-          <div className="flex items-center gap-6 rtl:space-x-reverse">
+          <div className="flex items-center gap-8 rtl:space-x-reverse">
             <Link to="/" className="flex items-center">
               <img 
                 src="/images/discover africa logo.webp" 
@@ -21,15 +21,18 @@ const Header: React.FC = () => {
                 className="h-12 w-auto"
               />
             </Link>
-            <div className={`hidden md:flex ${isHomePage ? 'home-nav' : ''}`}>
+            <div className={`hidden md:flex ml-6 ${isHomePage ? 'home-nav' : ''}`}>
               <Navigation />
             </div>
           </div>
 
-          {/* שמאל: כפתור הכתום */}
+          {/* שמאל: כפתור CTA */}
           <div className="hidden md:block">
-            <Link to="/plan-your-trip" className="btn-primary">
-              תכננו את הטיול שלכם
+            <Link 
+              to="/plan-your-trip" 
+              className="bg-[#CAA131] text-white px-4 py-2 rounded-lg font-semibold text-base hover:bg-[#B8942A] transition-colors duration-200 min-h-[44px] flex items-center"
+            >
+              תכנן טיול
             </Link>
           </div>
 
