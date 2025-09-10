@@ -650,7 +650,7 @@ const ParkDetail: React.FC = () => {
         <div className="mt-8 space-y-4">
           <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-6 text-center border border-[#CAA131]/30">
             <p className="text-[#4B361C] mb-4 font-medium">
-              <strong>ביטחון רפואי 24/7:</strong> טיול בטוח עם 
+              <strong>איתור וחילוץ רפואי 24/7:</strong> טיול בטוח עם 
               <Link to="/services/bar-sos" className="text-[#CAA131] hover:underline mx-1">
                 BAR SOS
               </Link>

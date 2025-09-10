@@ -1,14 +1,45 @@
 // src/pages/services/BarAviation.tsx
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Plane, MapPin, Clock, Users, Shield, Star } from "lucide-react";
+import { Plane, MapPin, Clock, Users, Shield, Star, X } from "lucide-react";
 
 const BarAviation: React.FC = () => {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
+  const galleryImages = [
+    {
+      src: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/Services%2FBar%20Aviation%2Fbar%20aviation%20transport.webp?alt=media&token=82554792-233a-4626-b714-2706ca8aa41a",
+      alt: "מטוס BAR Aviation"
+    },
+    {
+      src: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/Services%2FBar%20Aviation%2Fbar%20aviation%20transport%20v5.webp?alt=media&token=0080e7cd-a225-45b3-b9ab-725420d56d9f",
+      alt: "טיסת ספארי"
+    },
+    {
+      src: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/Services%2FBar%20Aviation%2Fbar%20aviation%20transport%20v4.webp?alt=media&token=4cb28668-06cd-46cf-8876-d424b6bcbc48",
+      alt: "מטוס בשדה התעופה"
+    },
+    {
+      src: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/Services%2FBar%20Aviation%2Fbar%20aviation%20transport%20v3.webp?alt=media&token=5997047a-e32d-4663-a8c3-b6da016addf1",
+      alt: "צוות טייסים"
+    }
+  ];
+
   return (
-    <div className="py-8 fade-in" dir="rtl">
+    <div className="fade-in" dir="rtl">
+      {/* Hero Section */}
+      <section className="relative w-full h-[30vh] md:h-[45vh] min-h-[200px] mb-12">
+          <img 
+            src="https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/Services%2FBar%20Aviation%2FBar%20safari%20Hero.webp?alt=media&token=9a4c4d80-c145-43d5-9e5d-92da80069a19"
+            alt="BAR Aviation Hero"
+            className="absolute inset-0 w-full h-full object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/20 to-transparent" />
+        </section>
+
       <div className="container mx-auto px-4">
-        {/* כותרת ראשית */}
-        <div className="mb-12 text-center">
+        {/* Header */}
+        <div className="text-center mb-12">
           <div className="flex justify-center mb-6">
             <img 
               src="/images/baraviationug.webp" 
@@ -16,10 +47,10 @@ const BarAviation: React.FC = () => {
               className="h-20 w-auto"
             />
           </div>
-          <h1 className="mb-4 text-4xl md:text-5xl font-bold font-sans text-[#4B361C]">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 font-sans text-[#4B361C]">
             BAR Aviation
           </h1>
-          <p className="mx-auto max-w-3xl text-lg md:text-xl text-muted font-sans">
+          <p className="text-xl text-muted max-w-2xl mx-auto font-sans">
             חברת התעופה המובילה באוגנדה - שער המרכזי לטיולי ספארי וטיסות נוף
           </p>
         </div>
@@ -92,7 +123,7 @@ const BarAviation: React.FC = () => {
                 <div>
                   <h3 className="font-bold text-[#4B361C] mb-2">שירותי BAR SOS</h3>
                   <p className="text-[#4B361C] text-sm">
-                    כחלק מהקבוצה: ביטחון רפואי וחילוץ אווירי 24/7
+                    כחלק מהקבוצה: איתור וחילוץ רפואי וחילוץ אווירי 24/7
                   </p>
                 </div>
               </div>
@@ -106,57 +137,50 @@ const BarAviation: React.FC = () => {
             <h2 className="text-2xl font-bold text-[#4B361C] mb-6 border-b-2 border-[#CAA131] w-fit">
               גלריה
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <div className="relative group overflow-hidden rounded-xl">
-                <img
-                  src="https://images.pexels.com/photos/631317/pexels-photo-631317.jpeg"
-                  alt="מטוס ממריא משדה עפר ליד שמורה"
-                  className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="absolute bottom-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <p className="text-sm font-medium">מטוס ממריא משדה עפר</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {galleryImages.map((image, index) => (
+                <div 
+                  key={index}
+                  className="relative group overflow-hidden rounded-xl cursor-pointer"
+                  onClick={() => setSelectedImage(image.src)}
+                >
+                  <img
+                    src={image.src}
+                    alt={image.alt}
+                    className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute bottom-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <p className="text-sm font-medium">{image.alt}</p>
+                  </div>
                 </div>
-              </div>
-
-              <div className="relative group overflow-hidden rounded-xl">
-                <img
-                  src="https://images.pexels.com/photos/1661535/pexels-photo-1661535.jpeg"
-                  alt="טיסת נוף מעל אגם ויקטוריה"
-                  className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="absolute bottom-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <p className="text-sm font-medium">טיסת נוף מעל אגם ויקטוריה</p>
-                </div>
-              </div>
-
-              <div className="relative group overflow-hidden rounded-xl">
-                <img
-                  src="https://images.pexels.com/photos/534188/pexels-photo-534188.jpeg"
-                  alt="נוסעים חווים טיסה לספארי"
-                  className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="absolute bottom-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <p className="text-sm font-medium">נוסעים חווים טיסה לספארי</p>
-                </div>
-              </div>
-
-              <div className="relative group overflow-hidden rounded-xl">
-                <img
-                  src="https://images.pexels.com/photos/6194629/pexels-photo-6194629.jpeg"
-                  alt="צוות טייסים בשטח"
-                  className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="absolute bottom-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <p className="text-sm font-medium">צוות טייסים בשטח</p>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
+
+        {/* Modal לתמונה בגודל מלא */}
+        {selectedImage && (
+          <div 
+            className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4"
+            onClick={() => setSelectedImage(null)}
+          >
+            <div className="relative max-w-4xl max-h-full">
+              <button
+                onClick={() => setSelectedImage(null)}
+                className="absolute top-4 right-4 text-white hover:text-gray-300 z-10"
+              >
+                <X className="w-8 h-8" />
+              </button>
+              <img
+                src={selectedImage}
+                alt="תמונה בגודל מלא"
+                className="max-w-full max-h-full object-contain rounded-lg"
+                onClick={(e) => e.stopPropagation()}
+              />
+            </div>
+          </div>
+        )}
 
         {/* קריאה לפעולה */}
         <div className="mb-12">
@@ -179,7 +203,7 @@ const BarAviation: React.FC = () => {
               <Link to="/services/bar-sos" className="text-[#CAA131] hover:underline mx-1">
                 BAR SOS
               </Link>
-              - שירותי ביטחון וחילוץ רפואי 24/7
+              - שירותי איתור וחילוץ רפואי 24/7
             </p>
           </div>
         </div>

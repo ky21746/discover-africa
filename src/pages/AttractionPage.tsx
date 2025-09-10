@@ -330,15 +330,54 @@ const AttractionPage: React.FC = () => {
     
     // אחרת, השתמש בקואורדינטות קבועות
     const coordinates = {
-      'gorillas-bwindi': { lat: -1.05, lng: 29.75, bbox: '29.4,-1.3,30.2,-0.7' },
-      'gorillas-mgahinga': { lat: -1.23, lng: 29.63, bbox: '29.4,-1.4,29.9,-1.0' },
-      'chimps-kibale': { lat: 0.57, lng: 30.36, bbox: '30.1,0.3,30.6,0.8' },
-      'jinja-white-nile': { lat: 0.4167, lng: 33.1833, bbox: '33.0,0.3,33.3,0.5' }
+      'gorillas-bwindi': { lat: -1.05, lng: 29.75, bbox: '29.2,-1.5,30.3,-0.6' },
+      'gorillas-mgahinga': { lat: -1.23, lng: 29.63, bbox: '29.2,-1.6,30.1,-0.9' },
+      'chimps-kibale': { lat: 0.57, lng: 30.36, bbox: '29.8,0.1,30.9,1.0' },
+      'jinja-white-nile': { lat: 0.4167, lng: 33.1833, bbox: '32.8,0.1,33.5,0.7' },
+      'queen-elizabeth': { lat: -0.25, lng: 30.0, bbox: '29.5,-0.6,30.5,0.1' }
     };
     return coordinates[attraction.id as keyof typeof coordinates] || coordinates['gorillas-bwindi'];
   };
 
+  // נקודות חשובות למפה
+  const getMapMarkers = (attraction: Attraction) => {
+    const markers = [];
+    
+    // קמפלה - נקודת התחלה
+    markers.push({
+      lat: 0.3476,
+      lng: 32.5825,
+      title: 'קמפלה',
+      icon: 'city',
+      color: '#CAA131'
+    });
+    
+    // נקודת האטרקציה הנוכחית
+    const coords = getMapCoordinates(attraction);
+    markers.push({
+      lat: coords.lat,
+      lng: coords.lng,
+      title: attraction.name,
+      icon: 'attraction',
+      color: '#4B361C'
+    });
+    
+    // נקודות נוספות לפי האטרקציה
+    if (attraction.id === 'queen-elizabeth') {
+      markers.push({
+        lat: 0.2,
+        lng: 30.1,
+        title: 'Kibale Forest',
+        icon: 'forest',
+        color: '#228B22'
+      });
+    }
+    
+    return markers;
+  };
+
   const mapCoords = getMapCoordinates(a);
+  const mapMarkers = getMapMarkers(a);
 
   // "במבט מהיר" - עכשיו במידע Hero
   const quickStats = [
@@ -547,7 +586,7 @@ const AttractionPage: React.FC = () => {
                     title={`מפה – ${a.name}`}
                     className="w-full h-full rounded-xl"
                     loading="lazy"
-                    src={`https://www.openstreetmap.org/export/embed.html?bbox=${mapCoords.bbox}&layer=mapnik`}
+                    src={`https://www.openstreetmap.org/export/embed.html?bbox=${mapCoords.bbox}&layer=mapnik&marker=${mapCoords.lat}%2C${mapCoords.lng}`}
                   />
                   
                   {/* Click overlay */}
@@ -567,6 +606,39 @@ const AttractionPage: React.FC = () => {
                     </div>
                   </div>
                   
+                  {/* נקודות חשובות על המפה */}
+                  {mapMarkers.map((marker, index) => {
+                    // חישוב מיקום יחסי מדויק יותר
+                    const bboxParts = mapCoords.bbox.split(',');
+                    const minLng = parseFloat(bboxParts[0]);
+                    const minLat = parseFloat(bboxParts[1]);
+                    const maxLng = parseFloat(bboxParts[2]);
+                    const maxLat = parseFloat(bboxParts[3]);
+                    
+                    const lngPercent = ((marker.lng - minLng) / (maxLng - minLng)) * 100;
+                    const latPercent = ((maxLat - marker.lat) / (maxLat - minLat)) * 100;
+                    
+                    return (
+                      <div
+                        key={index}
+                        className="absolute z-10 transform -translate-x-1/2 -translate-y-1/2"
+                        style={{
+                          left: `${lngPercent}%`,
+                          top: `${latPercent}%`
+                        }}
+                      >
+                        <div className={`w-4 h-4 rounded-full border-2 border-white shadow-lg ${
+                          marker.icon === 'city' ? 'bg-[#CAA131]' : 
+                          marker.icon === 'attraction' ? 'bg-[#4B361C]' : 
+                          'bg-[#228B22]'
+                        }`} />
+                        <div className="absolute top-5 left-1/2 transform -translate-x-1/2 bg-black/80 text-white text-xs px-2 py-1 rounded whitespace-nowrap">
+                          {marker.title}
+                        </div>
+                      </div>
+                    );
+                  })}
+
                   {/* Custom gold marker */}
                   <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
                     <div className="relative group cursor-pointer">
@@ -842,7 +914,7 @@ const AttractionPage: React.FC = () => {
         <div className="mb-8 space-y-4">
           <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-6 text-center border border-[#CAA131]/30">
             <p className="text-[#4B361C] mb-4 font-medium">
-              <strong>ביטחון רפואי 24/7:</strong> טיול בטוח עם 
+              <strong>איתור וחילוץ רפואי 24/7:</strong> טיול בטוח עם 
               <Link to="/services/bar-sos" className="text-[#CAA131] hover:underline mx-1">
                 BAR SOS
               </Link>

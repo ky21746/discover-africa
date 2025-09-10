@@ -193,7 +193,7 @@ const BarSOS: React.FC = () => {
           <div className="bg-gradient-to-r from-[#CAA131] to-[#B8942A] rounded-2xl p-8 text-center text-white">
             <h2 className="text-2xl font-bold mb-4">הצטרף ל־BAR SOS</h2>
             <p className="text-lg mb-6 opacity-90">
-              לשקט נפשי וביטחון רפואי 24/7 – בכל מקום באוגנדה
+              לשקט נפשי ואיתור וחילוץ רפואי 24/7 – בכל מקום באוגנדה
             </p>
             <button className="bg-white text-[#4B361C] px-8 py-3 rounded-xl font-bold text-lg hover:bg-gray-100 transition-colors duration-300">
               הרשם לשירות חילוץ רפואי
