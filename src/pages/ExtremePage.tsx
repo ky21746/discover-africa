@@ -57,9 +57,10 @@ const ExtremePage: React.FC = () => {
         {filteredAttractions.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredAttractions.map((attraction: Attraction) => (
-              <div
+              <Link
                 key={attraction.id}
-                className="category-card transition-all duration-300 hover:shadow-lg"
+                to={`/attraction/${attraction.slug}`}
+                className="category-card transition-all duration-300 hover:shadow-lg cursor-pointer"
               >
                 <div
                   className="card-image"
@@ -79,14 +80,11 @@ const ExtremePage: React.FC = () => {
                 </div>
                 
                 <div className="card-content">
-                  <Link
-                    to={`/attraction/${attraction.slug}`}
-                    className="btn-discover"
-                  >
+                  <div className="btn-discover">
                     קרא עוד
-                  </Link>
+                  </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         ) : (

@@ -53,9 +53,22 @@ const Categories: React.FC = () => {
         {filteredCategories.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredCategories.map((category) => (
-              <div
+              <Link
                 key={category.id}
-                className={`category-card transition-all duration-300 hover:shadow-lg ${
+                to={
+                  category.slug === "water" 
+                    ? "/water" 
+                    : category.slug === "safari"
+                    ? "/safari"
+                    : category.slug === "gorillas-chimps"
+                    ? "/gorillas"
+                    : category.slug === "mountains"
+                    ? "/mountains"
+                    : category.slug === "extreme"
+                    ? "/extreme"
+                    : `/category/${category.slug}`
+                }
+                className={`category-card transition-all duration-300 hover:shadow-lg cursor-pointer ${
                   category.slug === "mountains" ? "rwenzori-special" : ""
                 }`}
               >
@@ -80,26 +93,11 @@ const Categories: React.FC = () => {
                 </div>
                 
                 <div className="card-content">
-                  <Link
-                    to={
-                      category.slug === "water" 
-                        ? "/water" 
-                        : category.slug === "safari"
-                        ? "/safari"
-                        : category.slug === "gorillas-chimps"
-                        ? "/gorillas"
-                        : category.slug === "mountains"
-                        ? "/mountains"
-                        : category.slug === "extreme"
-                        ? "/extreme"
-                        : `/category/${category.slug}`
-                    }
-                    className="btn-discover"
-                  >
+                  <div className="btn-discover">
                     קרא עוד
-                  </Link>
+                  </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         ) : (

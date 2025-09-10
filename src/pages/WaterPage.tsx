@@ -84,41 +84,39 @@ const WaterPage: React.FC = () => {
           {filteredWater.length > 0 ? (
             <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
               {filteredWater.map((item) => (
-                <div
+                <Link
                   key={item.id}
-                  className="category-card transition-all duration-300 hover:shadow-lg"
+                  to={`/attraction/${item.slug}`}
+                  className="category-card transition-all duration-300 hover:shadow-lg cursor-pointer"
                 >
-                <div
-                  className="card-image"
-                  style={{ backgroundImage: `url(${item.image})` }}
-                >
-                  <div className="image-overlay">
-                    <h3 className="font-sans">
-                      {highlightText(item.name || "", searchQuery)}
-                    </h3>
-                    
-                    {item.description && (
-                      <p className="font-sans">
-                        {highlightText(
-                          item.description.length > 50 
-                            ? item.description.slice(0, 50) + "." 
-                            : item.description, 
-                          searchQuery
-                        )}
-                      </p>
-                    )}
-                  </div>
-                </div>
-                
-                <div className="card-content">
-                  <Link
-                    to={`/attraction/${item.slug}`}
-                    className="btn-discover"
+                  <div
+                    className="card-image"
+                    style={{ backgroundImage: `url(${item.image})` }}
                   >
-                    קרא עוד
-                  </Link>
-                </div>
-                </div>
+                    <div className="image-overlay">
+                      <h3 className="font-sans">
+                        {highlightText(item.name || "", searchQuery)}
+                      </h3>
+                      
+                      {item.description && (
+                        <p className="font-sans">
+                          {highlightText(
+                            item.description.length > 50 
+                              ? item.description.slice(0, 50) + "." 
+                              : item.description, 
+                            searchQuery
+                          )}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                  
+                  <div className="card-content">
+                    <div className="btn-discover">
+                      קרא עוד
+                    </div>
+                  </div>
+                </Link>
               ))}
             </div>
           ) : (

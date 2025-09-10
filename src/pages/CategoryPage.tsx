@@ -199,9 +199,10 @@ const CategoryPage: React.FC = () => {
                   : item.description;
 
               return (
-                <div
+                <Link
                   key={item.id || item.slug || item.name}
-                  className="category-card transition-all duration-300 hover:shadow-lg"
+                  to={`/attraction/${targetSlug}`}
+                  className="category-card transition-all duration-300 hover:shadow-lg cursor-pointer"
                 >
                   <div
                     className="card-image"
@@ -223,14 +224,11 @@ const CategoryPage: React.FC = () => {
                   </div>
                   
                   <div className="card-content">
-                    <Link
-                      to={`/attraction/${targetSlug}`}
-                      className="btn-discover"
-                    >
+                    <div className="btn-discover">
                       קרא עוד
-                    </Link>
+                    </div>
                   </div>
-                </div>
+                </Link>
               );
             })}
           </div>
@@ -240,9 +238,10 @@ const CategoryPage: React.FC = () => {
             {filteredParks.map((park: any) => {
               const targetSlug = normalize(park.slug || park.id || park.name);
               return (
-                <div
+                <Link
                   key={park.slug || park.id || park.name}
-                  className={`category-card transition-all duration-300 hover:shadow-lg ${
+                  to={`/attraction/${targetSlug}`}
+                  className={`category-card transition-all duration-300 hover:shadow-lg cursor-pointer ${
                     categorySlug === "mountains" ? "mountains-special" : ""
                   }`}
                 >
@@ -284,14 +283,11 @@ const CategoryPage: React.FC = () => {
                       )}
                     </div>
                     
-                    <Link
-                      to={`/attraction/${targetSlug}`}
-                      className="btn-discover"
-                    >
+                    <div className="btn-discover">
                       קרא עוד
-                    </Link>
+                    </div>
                   </div>
-                </div>
+                </Link>
               );
             })}
           </div>

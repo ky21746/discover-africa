@@ -82,43 +82,51 @@ const Home: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {featuredCategories.map((category) => (
-              <Link key={category.id} to={
-                category.slug === "water" 
-                  ? "/water" 
-                  : category.slug === "safari"
-                  ? "/safari"
-                  : category.slug === "mountains"
-                  ? "/mountains"
-                  : category.slug === "gorillas-chimps"
-                  ? "/gorillas"
-                  : `/category/${category.slug}`
-              }>
-                <Card className="text-center hover:shadow-lg transition-all duration-300">
-                  <div
-                    className="card-image"
-                    style={{ 
-                      backgroundImage: `url(${category.image})`,
-                      backgroundPosition: category.slug === 'safari' ? 'center 30%' : 
-                                         category.slug === 'gorillas-chimps' ? 'center 40%' :
-                                         category.slug === 'water' ? 'center 20%' :
-                                         category.slug === 'mountains' ? 'center 25%' : 'center 50%',
-                      height: '250px'
-                    }}
-                  />
-                  <div className="card-content">
-                    <h3 className="text-xl font-semibold mb-2 font-sans text-gray-900">
+              <Link 
+                key={category.id} 
+                to={
+                  category.slug === "water" 
+                    ? "/water" 
+                    : category.slug === "safari"
+                    ? "/safari"
+                    : category.slug === "mountains"
+                    ? "/mountains"
+                    : category.slug === "gorillas-chimps"
+                    ? "/gorillas"
+                    : `/category/${category.slug}`
+                }
+                className="category-card transition-all duration-300 hover:shadow-lg cursor-pointer"
+              >
+                <div
+                  className="card-image"
+                  style={{ 
+                    backgroundImage: `url(${category.image})`,
+                    backgroundPosition: category.slug === 'safari' ? 'center 30%' : 
+                                       category.slug === 'gorillas-chimps' ? 'center 40%' :
+                                       category.slug === 'water' ? 'center 20%' :
+                                       category.slug === 'mountains' ? 'center 25%' : 'center 50%'
+                  }}
+                >
+                  <div className="image-overlay">
+                    <h3 className="font-sans">
                       {category.name}
                     </h3>
-                    <p className="text-gray-600 font-sans">
-                      {category.description}
+                    
+                    <p className="font-sans">
+                      {category.description.length > 50 
+                        ? category.description.slice(0, 50) + "." 
+                        : category.description}
                     </p>
-                    <div className="card-footer">
-                      <button className="btn-card" style={{ backgroundColor: '#CAA131', color: '#000000' }}>גלו עוד</button>
-                    </div>
                   </div>
-                </Card>
+                </div>
+                
+                <div className="card-content">
+                  <div className="btn-discover">
+                    קרא עוד
+                  </div>
+                </div>
               </Link>
             ))}
           </div>
@@ -137,101 +145,86 @@ const Home: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <Link to="/services">
-              <Card className="text-center hover:shadow-lg transition-all duration-300">
-                <div
-                  className="card-image"
-                  style={{ 
-                    backgroundImage: `url(https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/Services%2FBaraviationcard.webp?alt=media&token=760c531e-2cf9-4d40-ab23-bd816b77d9c5)`,
-                    backgroundPosition: 'center',
-                    backgroundSize: 'cover',
-                    height: '250px'
-                  }}
-                />
-                <div className="card-content">
-                  <div className="flex items-center justify-center mb-2">
-                    <img 
-                      src="/images/baraviationug.webp" 
-                      alt="BAR Aviation Logo" 
-                      className="h-8 w-auto"
-                    />
-                  </div>
-                  <h3 className="text-xl font-semibold mb-2 font-sans text-gray-900">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <Link to="/services" className="category-card transition-all duration-300 hover:shadow-lg cursor-pointer">
+              <div
+                className="card-image"
+                style={{ 
+                  backgroundImage: `url(https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/Services%2FBaraviationcard.webp?alt=media&token=760c531e-2cf9-4d40-ab23-bd816b77d9c5)`,
+                  backgroundPosition: 'center',
+                  backgroundSize: 'cover'
+                }}
+              >
+                <div className="image-overlay">
+                  <h3 className="font-sans">
                     שירותי תעופה
                   </h3>
-                  <p className="text-gray-600 font-sans">
-                    טיסות ספארי, טיסות פרטיות וטיסות נוף מעל הנופים הקסומים
+                  
+                  <p className="font-sans">
+                    טיסות ספארי, טיסות פרטיות וטיסות נוף מעל הנופים הקסומים.
                   </p>
-                  <div className="card-footer">
-                    <button className="btn-card" style={{ backgroundColor: '#CAA131', color: '#000000' }}>לפרטים נוספים</button>
-                  </div>
                 </div>
-              </Card>
+              </div>
+              
+              <div className="card-content">
+                <div className="btn-discover">
+                  לפרטים נוספים
+                </div>
+              </div>
             </Link>
 
-            <Link to="/services">
-              <Card className="text-center hover:shadow-lg transition-all duration-300">
-                <div
-                  className="card-image"
-                  style={{ 
-                    backgroundImage: `url(https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/Services%2FBar%20SOS%2Fbarsos-medevac-img.jpg.webp?alt=media&token=168394a8-66ac-4311-a88d-d3420b4c0e9c)`,
-                    backgroundPosition: 'center',
-                    backgroundSize: 'cover',
-                    height: '250px'
-                  }}
-                />
-                <div className="card-content">
-                  <div className="flex items-center justify-center mb-2">
-                    <img 
-                      src="/images/BAR-SOS-MAGNUS-logo.webp" 
-                      alt="BAR SOS Logo" 
-                      className="h-8 w-auto"
-                    />
-                  </div>
-                  <h3 className="text-xl font-semibold mb-2 font-sans text-gray-900">
+            <Link to="/services" className="category-card transition-all duration-300 hover:shadow-lg cursor-pointer">
+              <div
+                className="card-image"
+                style={{ 
+                  backgroundImage: `url(https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/Services%2FBar%20SOS%2Fbarsos-medevac-img.jpg.webp?alt=media&token=168394a8-66ac-4311-a88d-d3420b4c0e9c)`,
+                  backgroundPosition: 'center',
+                  backgroundSize: 'cover'
+                }}
+              >
+                <div className="image-overlay">
+                  <h3 className="font-sans">
                     איתור וחילוץ רפואי
                   </h3>
-                  <p className="text-gray-600 font-sans">
-                    שירותי חילוץ רפואי 24/7 - חילוץ אווירי וקרקעי בכל רחבי אוגנדה
+                  
+                  <p className="font-sans">
+                    שירותי חילוץ רפואי 24/7 - חילוץ אווירי וקרקעי בכל רחבי אוגנדה.
                   </p>
-                  <div className="card-footer">
-                    <button className="btn-card" style={{ backgroundColor: '#CAA131', color: '#000000' }}>לפרטים נוספים</button>
-                  </div>
                 </div>
-              </Card>
+              </div>
+              
+              <div className="card-content">
+                <div className="btn-discover">
+                  לפרטים נוספים
+                </div>
+              </div>
             </Link>
 
-            <Link to="/services">
-              <Card className="text-center hover:shadow-lg transition-all duration-300">
-                <div
-                  className="card-image"
-                  style={{ 
-                    backgroundImage: `url(https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/Services%2FExtreme%20adventures%2Fextremeadventures-card.webp?alt=media&token=cc084dbb-9efc-4e72-8453-d96c51d4a5d0)`,
-                    backgroundPosition: 'center',
-                    backgroundSize: 'cover',
-                    height: '250px'
-                  }}
-                />
-                <div className="card-content">
-                  <div className="flex items-center justify-center mb-2">
-                    <img 
-                      src="/images/extreme-adventure-park-logo.webp" 
-                      alt="Extreme Adventure Park Logo" 
-                      className="h-8 w-auto"
-                    />
-                  </div>
-                  <h3 className="text-xl font-semibold mb-2 font-sans text-gray-900">
+            <Link to="/services" className="category-card transition-all duration-300 hover:shadow-lg cursor-pointer">
+              <div
+                className="card-image"
+                style={{ 
+                  backgroundImage: `url(https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/Services%2FExtreme%20adventures%2Fextremeadventures-card.webp?alt=media&token=cc084dbb-9efc-4e72-8453-d96c51d4a5d0)`,
+                  backgroundPosition: 'center',
+                  backgroundSize: 'cover'
+                }}
+              >
+                <div className="image-overlay">
+                  <h3 className="font-sans">
                     פארק אקסטרים
                   </h3>
-                  <p className="text-gray-600 font-sans">
-                    Go-Karting, Zipline, Paintball ועוד חוויות מלאות אדרנלין בבוסיקה
+                  
+                  <p className="font-sans">
+                    Go-Karting, Zipline, Paintball ועוד חוויות מלאות אדרנלין בבוסיקה.
                   </p>
-                  <div className="card-footer">
-                    <button className="btn-card" style={{ backgroundColor: '#CAA131', color: '#000000' }}>לפרטים נוספים</button>
-                  </div>
                 </div>
-              </Card>
+              </div>
+              
+              <div className="card-content">
+                <div className="btn-discover">
+                  לפרטים נוספים
+                </div>
+              </div>
             </Link>
           </div>
         </div>

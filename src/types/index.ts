@@ -222,6 +222,9 @@ export interface Attraction {
   // Fun fact for "הידעת?" section
   funFact?: string;
   
+  // Important information for "חשוב לדעת" section
+  importantInfo?: string[];
+  
   // Coordinates for map
   coordinates?: {
     lat: number;

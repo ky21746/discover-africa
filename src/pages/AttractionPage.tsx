@@ -1,7 +1,7 @@
 // src/pages/AttractionPage.tsx
 import React, { useMemo, useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
-import { Star, Share2, Heart, MapPin, Clock, Users, Camera, Route, Plus, X, ChevronLeft, ChevronRight } from "lucide-react";
+import { Star, Share2, Heart, MapPin, Clock, Users, Camera, Route, Plus, X, ChevronLeft, ChevronRight, ArrowLeft } from "lucide-react";
 
 // ====== DATA ======
 import { gorillasChimps } from "../content/categories/gorillas-chimps";
@@ -388,9 +388,7 @@ const AttractionPage: React.FC = () => {
   ];
 
   const tips: string[] = [
-    ...(a.permitCost ? [`רישיון ${a.permitCost} — להזמין חודשים מראש.`] : []),
-    ...(a.healthSafety ?? []),
-    ...(a.whatToBring ?? []),
+    ...(a.importantInfo ?? []),
   ];
 
   const introFull = a.description ?? (a as any).summary ?? "";
@@ -560,9 +558,19 @@ const AttractionPage: React.FC = () => {
                   
                   {introFull && (
                     <div className="prose prose-lg max-w-none">
-                      <p className="text-[18px] leading-relaxed text-gray-700 font-medium">
-                        {expanded ? introFull : introShort}
-                      </p>
+                      <div className="text-[18px] leading-relaxed text-gray-700 font-medium">
+                        {expanded ? (
+                          <div dangerouslySetInnerHTML={{
+                            __html: introFull
+                              .replace(/## (.*?)\n\n/g, '<h2 style="text-align: right; font-weight: bold; color: #4B361C; margin: 24px 0 16px 0; font-size: 1.5rem;">$1</h2>')
+                              .replace(/\n\n/g, '</p><p style="text-align: right; margin: 16px 0;">')
+                              .replace(/^/, '<p style="text-align: right; margin: 16px 0;">')
+                              .replace(/$/, '</p>')
+                          }} />
+                        ) : (
+                          <p>{introShort}</p>
+                        )}
+                      </div>
                       {introFull.length > 280 && (
                         <button
                           onClick={() => setExpanded((v) => !v)}
@@ -666,13 +674,13 @@ const AttractionPage: React.FC = () => {
           </div>
 
           {/* שורה שנייה: גלריה + מה תגלו בדרך */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* גלריה - ריבוע */}
             <div className="md:col-span-1">
 
               {a.gallery && a.gallery.length > 0 && (
                 <section className="bg-gradient-to-br from-gray-50 via-gray-100 to-gray-50 border border-[#534B20]/60 rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.01] h-full">
-                  <h3 className="text-lg font-bold mb-4 flex items-center gap-3 text-[#4B361C]">
+                  <h3 className="text-lg font-bold mb-4 flex items-center gap-3 text-[#4B361C] text-right">
                     <Camera className="w-5 h-5 text-[#CAA131]" />
                     גלריה ({a.gallery.length} תמונות)
                   </h3>
@@ -698,9 +706,9 @@ const AttractionPage: React.FC = () => {
                           {/* Show title overlay if available */}
                           {title && (
                             <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/95 to-transparent text-white p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500">
-                              <div className="text-base font-bold">{title}</div>
+                              <div className="text-base font-bold text-right">{title}</div>
                               {description && (
-                                <div className="text-sm text-gray-200 mt-2">{description}</div>
+                                <div className="text-sm text-gray-200 mt-2 text-right">{description}</div>
                               )}
                             </div>
                           )}
@@ -723,15 +731,15 @@ const AttractionPage: React.FC = () => {
               )}
             </div>
 
-            {/* מה תגלו בדרך - ריבוע רחב */}
-            <div className="md:col-span-2">
+            {/* מה תגלו בדרך - 50% */}
+            <div className="md:col-span-1">
               {a.wildlife && a.wildlife.length > 0 && (
                 <InfoCard title="מה תגלו בדרך" className="h-full">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {a.wildlife.map((w, i) => (
                       <div key={i} className="flex items-center gap-4 p-4 bg-gradient-to-r from-[#CAA131]/15 to-[#B8942A]/15 rounded-2xl border border-[#CAA131]/50/30 hover:shadow-xl hover:scale-105 transition-all duration-500">
                         <div className="w-4 h-4 bg-gradient-to-br from-[#CAA131] to-[#B8942A] rounded-full shadow-lg"></div>
-                        <span className="text-[#4B361C] font-medium text-base">{w}</span>
+                        <span className="text-[#4B361C] font-medium text-base text-right">{w}</span>
                       </div>
                     ))}
                   </div>
@@ -749,104 +757,165 @@ const AttractionPage: React.FC = () => {
                   <span className="text-2xl">💡</span>
                   הידעת?
                 </h3>
-                <p className="text-base font-semibold text-[#4B361C] leading-relaxed">
-                  {a.funFact || "עובדה מעניינת על האטרקציה הזו תופיע כאן בקרוב!"}
-                </p>
+                <div className="space-y-3 text-right">
+                  <p className="text-base font-semibold text-[#4B361C] leading-relaxed">
+                    הפארק נקרא על שם המלכה אליזבת השנייה שביקרה בו ב־1954, והוא אחד משני הפארקים הלאומיים היחידים בעולם שבהם אפשר לראות אריות מטפסי עצים.
+                  </p>
+                  <p className="text-base font-semibold text-[#4B361C] leading-relaxed">
+                    פארק המלכה אליזבת משתרע על כמעט 2,000 קמ״ר – רק לשם השוואה, מדבר יהודה בישראל משתרע על כ־1,500 קמ״ר.
+                  </p>
+                </div>
               </section>
             </div>
 
             {/* חשוב לדעת - ריבוע רחב */}
             <div className="md:col-span-2">
               {tips.length > 0 && (
-                <InfoCard title="חשוב לדעת" variant="gray" className="h-full">
-                  <div className="bg-[#CAA131]/10 p-4 rounded-xl space-y-2">
-                    {tips.map((tip, index) => (
-                      <div key={index} className="text-sm font-medium text-[#4B361C] text-right">
-                        {tip}
+                <section className="bg-gradient-to-br from-amber-50 to-orange-50 border border-[#CAA131]/30 rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300 h-full">
+                  <h3 className="text-xl font-extrabold text-[#4B361C] mb-4 border-b-2 border-[#CAA131] w-fit flex items-center gap-2 text-right">
+                    <svg className="w-5 h-5 text-[#CAA131]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    חשוב לדעת
+                  </h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {/* עמודה שמאלית */}
+                    <div className="space-y-4 p-4">
+                      {/* עונות השנה */}
+                      <div>
+                        <h4 className="text-lg font-bold text-[#4B361C] mb-2 text-right">עונות השנה</h4>
+                        <ul className="text-sm text-[#4B361C] space-y-2 text-right">
+                          <li>העונה היבשה (דצמבר–פברואר, יוני–אוגוסט): חיות מתרכזות סביב מקורות מים, קל יותר לתצפת עליהן. הדרכים לרוב נגישות ונוחות יותר.</li>
+                          <li>העונה הרטובה (מרץ–מאי, ספטמבר–נובמבר): הנוף ירוק ועשיר במיוחד, שפע של ציפורים נודדות וחוויה טבעית מרהיבה. חלק מהדרכים עשויות להיות פחות נגישות, מה שמוסיף תחושת הרפתקה למסלול.</li>
+                        </ul>
                       </div>
-                    ))}
+                      
+                      {/* נסיעה והגעה */}
+                      <div>
+                        <h4 className="text-lg font-bold text-[#4B361C] mb-2 text-right">נסיעה והגעה</h4>
+                        <ul className="text-sm text-[#4B361C] space-y-2 text-right">
+                          <li>הנסיעה מקמפלה אורכת <strong>6–7 שעות</strong></li>
+                          <li>כדאי יציאה מוקדמת בבוקר</li>
+                          <li>אפשרות לינה ביניים בדרך</li>
+                        </ul>
+                      </div>
+                      
+                      {/* שערי כניסה */}
+                      <div>
+                        <h4 className="text-lg font-bold text-[#4B361C] mb-2 text-right">שערי כניסה</h4>
+                        <ul className="text-sm text-[#4B361C] space-y-2 text-right">
+                          <li>קאטונגו - קרוב לעיירות וללודג'ים נוחים</li>
+                          <li>איששה - מאפשר המשך ישיר לבווינדי ולגורילות</li>
+                          <li>קזונגו - צמוד לשייט בתעלת קזינגה</li>
+                        </ul>
+                      </div>
+                    </div>
+                    
+                    {/* עמודה ימנית */}
+                    <div className="space-y-4 p-4">
+                      {/* חוויות ייחודיות */}
+                      <div>
+                        <h4 className="text-lg font-bold text-[#4B361C] mb-2 text-right">חוויות ייחודיות</h4>
+                        <ul className="text-sm text-[#4B361C] space-y-2 text-right">
+                          <li>שייט בתעלת קזינגה - תיאום מראש</li>
+                          <li>סקטור איששה (אריות מטפסי עצים) - תיאום מראש</li>
+                        </ul>
+                      </div>
+                      
+                      {/* משך שהות מומלץ */}
+                      <div>
+                        <h4 className="text-lg font-bold text-[#4B361C] mb-2 text-right">משך שהות מומלץ</h4>
+                        <ul className="text-sm text-[#4B361C] space-y-2 text-right">
+                          <li>יום אחד - טעימה בלבד</li>
+                          <li><strong>2–3 ימים</strong> - שילוב מלא (ספארי, שייט, קיאמבורה)</li>
+                        </ul>
+                      </div>
+                      
+                      {/* המשך ליעדים נוספים */}
+                      <div>
+                        <h4 className="text-lg font-bold text-[#4B361C] mb-2 text-right">המשך ליעדים נוספים</h4>
+                        <ul className="text-sm text-[#4B361C] space-y-2 text-right">
+                          <li>בווינדי (גורילות) - תכנון שער יציאה</li>
+                          <li>קיבאלה (שימפנזים) - חיסכון שעות נסיעה</li>
+                          <li>מורצ'יסון (מפלים) - תכנון מסלול</li>
+                        </ul>
+                      </div>
+                    </div>
                   </div>
-                </InfoCard>
+                </section>
               )}
             </div>
           </div>
 
-          {/* שורה תחתונה: חוויות נוספות - מלא רוחב */}
+          {/* שורה תחתונה: חוויות נוספות בדרך ליעד הבא */}
           <div className="grid grid-cols-1 gap-6">
-          <section className="bg-white border border-[#534B20]/60 rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.01]">
-          <h3 className="text-lg font-bold text-center text-[#4B361C] mb-6">
-            <div className="text-[#CAA131]">חוויות נוספות</div>
-            <div>בסביבת {a.name}</div>
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {/* שימפנזים בקיבאלה */}
-            <div className="relative h-40 rounded-2xl overflow-hidden cursor-pointer group shadow-lg hover:shadow-xl transition-all duration-500">
-              <div 
-                className="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
-                style={{
-                  backgroundImage: `url('https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=400&h=300&fit=crop&crop=center')`
-                }}
-              >
-                {/* Dark gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent group-hover:from-black/90 transition-all duration-500"></div>
-                
-                {/* Content overlay */}
-                <div className="absolute bottom-0 left-0 right-0 p-3 text-center">
-                  <h4 className="text-base font-extrabold text-white drop-shadow-md mb-1">שימפנזים בקיבאלה</h4>
-                  <div className="text-xs text-gray-100 drop-shadow flex items-center gap-1 justify-center">
-                    <span>🚗</span>
-                    <span>כ־2.5–3 שעות צפונה</span>
+            <section className="bg-white border border-[#534B20]/60 rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.01]">
+              <h3 className="text-xl font-bold text-center text-[#4B361C] mb-8">
+                חוויות נוספות בדרך ליעד הבא
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {/* כרטיס 1 - בווינדי */}
+                <div className="bg-white border border-[#534B20]/60 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 h-full">
+                  <div className="h-64 bg-cover bg-center relative" style={{
+                    backgroundImage: `url('https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FPrimates%20of%20Uganda%2FGorillas%20in%20Bwindi%20Forest%2FBaby%20Gorilla%20Kisses%20Silverback%20in%20Bwindi%20Impenetrable%20National%20Park%2C%20Uganda-hero.webp?alt=media&token=f1676abc-ac4a-462b-9478-136e0399fc55')`
+                  }}>
+                    <div className="absolute top-4 right-4 bg-black/70 text-white px-3 py-1 rounded-full text-xs font-medium">
+                      כ־3 שעות דרומה
+                    </div>
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-4">
+                      <h4 className="text-lg font-bold text-white mb-1">בווינדי</h4>
+                      <p className="text-sm text-white">מפגש נדיר עם גורילות בלב יער עבות</p>
+                    </div>
+                  </div>
+                  <div className="p-4">
+                    <Link to="/attraction/bwindi-gorillas" className="w-full bg-transparent border-2 border-[#CAA131] text-[#CAA131] hover:bg-[#CAA131] hover:text-white font-semibold py-3 px-4 rounded-lg text-center block transition-all duration-300">
+                      קרא עוד
+                    </Link>
                   </div>
                 </div>
-              </div>
-            </div>
-            
-            {/* גורילות במגהינגה */}
-            <div className="relative h-40 rounded-2xl overflow-hidden cursor-pointer group shadow-lg hover:shadow-xl transition-all duration-500">
-              <div 
-                className="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
-                style={{
-                  backgroundImage: `url('https://images.unsplash.com/photo-1583417319070-4a69db38a482?w=400&h=300&fit=crop&crop=center')`
-                }}
-              >
-                {/* Dark gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent group-hover:from-black/90 transition-all duration-500"></div>
                 
-                {/* Content overlay */}
-                <div className="absolute bottom-0 left-0 right-0 p-3 text-center">
-                  <h4 className="text-base font-extrabold text-white drop-shadow-md mb-1">גורילות במגהינגה</h4>
-                  <div className="text-xs text-gray-100 drop-shadow flex items-center gap-1 justify-center">
-                    <span>🚗</span>
-                    <span>כ־4–5 שעות דרומה</span>
+                {/* כרטיס 2 - קיבאלה */}
+                <div className="bg-white border border-[#534B20]/60 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 h-full">
+                  <div className="h-64 bg-cover bg-center relative" style={{
+                    backgroundImage: `url('https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FPrimates%20of%20Uganda%2FKibale%20Chimpanzees%2Fkibale%20chimp%20chimpanzee%20Uganda%20in%20Africa-hero.webp?alt=media&token=ec93ce06-dcca-41a8-bf0a-b886d4112384')`
+                  }}>
+                    <div className="absolute top-4 right-4 bg-black/70 text-white px-3 py-1 rounded-full text-xs font-medium">
+                      כ־2.5 שעות צפונה
+                    </div>
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-4">
+                      <h4 className="text-lg font-bold text-white mb-1">קיבאלה</h4>
+                      <p className="text-sm text-white">טיול מודרך ביער טרופי לפגוש את השימפנזים</p>
+                    </div>
+                  </div>
+                  <div className="p-4">
+                    <Link to="/attraction/kibale-chimps" className="w-full bg-transparent border-2 border-[#CAA131] text-[#CAA131] hover:bg-[#CAA131] hover:text-white font-semibold py-3 px-4 rounded-lg text-center block transition-all duration-300">
+                      קרא עוד
+                    </Link>
                   </div>
                 </div>
-              </div>
-            </div>
 
-            {/* ספארי בפארק המלכה אליזבת */}
-            <div className="relative h-40 rounded-2xl overflow-hidden cursor-pointer group shadow-lg hover:shadow-xl transition-all duration-500">
-              <div 
-                className="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
-                style={{
-                  backgroundImage: `url('https://images.unsplash.com/photo-1564349683136-77e08dba1ef7?w=400&h=300&fit=crop&crop=center')`
-                }}
-              >
-                {/* Dark gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent group-hover:from-black/90 transition-all duration-500"></div>
-                
-                {/* Content overlay */}
-                <div className="absolute bottom-0 left-0 right-0 p-3 text-center">
-                  <h4 className="text-base font-extrabold text-white drop-shadow-md mb-1">ספארי בפארק המלכה אליזבת</h4>
-                  <div className="text-xs text-gray-100 drop-shadow flex items-center gap-1 justify-center">
-                    <span>🚗</span>
-                    <span>באותו אזור</span>
+                {/* כרטיס 3 - אגם בוניוניו */}
+                <div className="bg-white border border-[#534B20]/60 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 h-full">
+                  <div className="h-64 bg-cover bg-center relative" style={{
+                    backgroundImage: `url('https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FWater%2FLake%20Bunyonyi%2FWoman%20sitting%20on%20dock%20at%20sunset%20on%20Lake%20Bunyonyi-Hero.webp?alt=media&token=3d315584-c531-4256-990a-82e532f86de0')`
+                  }}>
+                    <div className="absolute top-4 right-4 bg-black/70 text-white px-3 py-1 rounded-full text-xs font-medium">
+                      כ־3 שעות דרומה
+                    </div>
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-4">
+                      <h4 className="text-lg font-bold text-white mb-1">אגם בוניוניו</h4>
+                      <p className="text-sm text-white">מנוחה קסומה בין 29 איים בלב הרי געש</p>
+                    </div>
+                  </div>
+                  <div className="p-4">
+                    <Link to="/attraction/lake-bunyonyi" className="w-full bg-transparent border-2 border-[#CAA131] text-[#CAA131] hover:bg-[#CAA131] hover:text-white font-semibold py-3 px-4 rounded-lg text-center block transition-all duration-300">
+                      קרא עוד
+                    </Link>
                   </div>
                 </div>
               </div>
-            </div>
+            </section>
           </div>
-        </section>
-        </div>
 
         </div>
       </div>
@@ -910,26 +979,80 @@ const AttractionPage: React.FC = () => {
 
       {/* כפתור חזרה לקטגוריות */}
       <div className="container mx-auto max-w-screen-xl px-4 py-8">
-        {/* קישורים לשירותים */}
-        <div className="mb-8 space-y-4">
-          <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-6 text-center border border-[#CAA131]/30">
-            <p className="text-[#4B361C] mb-4 font-medium">
-              <strong>איתור וחילוץ רפואי 24/7:</strong> טיול בטוח עם 
-              <Link to="/services/bar-sos" className="text-[#CAA131] hover:underline mx-1">
-                BAR SOS
-              </Link>
-              - שירותי חילוץ רפואי בכל רחבי אוגנדה
-            </p>
-          </div>
-          
-          <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-6 text-center border border-[#CAA131]/30">
-            <p className="text-[#4B361C] mb-4 font-medium">
-              <strong>חוויות אקסטרים:</strong> שברו את השגרה עם 
-              <Link to="/services/extreme-park" className="text-[#CAA131] hover:underline mx-1">
-                Extreme Adventure Park
-              </Link>
-              - Go-Karting, Zipline, Paintball ועוד
-            </p>
+        {/* מקטע השירותים */}
+        <div className="mb-8">
+          <h3 className="text-2xl font-bold text-center text-[#4B361C] mb-6">
+            השירותים שלנו
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Extreme Adventure Park */}
+            <Link to="/services/extreme-park" className="group">
+              <div className="bg-white border border-[#CAA131]/30 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 h-full p-6 text-center">
+                <div className="flex items-center justify-center mb-4">
+                  <img 
+                    src="/images/extreme-adventure-park-logo.webp" 
+                    alt="Extreme Adventure Park Logo" 
+                    className="h-16 w-auto"
+                  />
+                </div>
+                <h4 className="text-lg font-bold text-[#4B361C] mb-3">
+                  חוויות אדרנלין ואקסטרים
+                </h4>
+                <p className="text-[#4B361C] mb-4 text-sm leading-relaxed">
+                  פארק האקסטרים – גלישת חבלים, קרטינג, פיינטבול.
+                </p>
+                <div className="flex items-center justify-center text-[#CAA131] font-semibold group-hover:text-[#B8942A] transition-all duration-300 text-sm">
+                  הזמן חוויה
+                  <ArrowLeft className="w-3 h-3 mr-1" />
+                </div>
+              </div>
+            </Link>
+
+            {/* BAR Aviation */}
+            <Link to="/services/bar-aviation" className="group">
+              <div className="bg-white border border-[#CAA131]/30 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 h-full p-6 text-center">
+                <div className="flex items-center justify-center mb-4">
+                  <img 
+                    src="/images/baraviationug.webp" 
+                    alt="BAR Aviation Logo" 
+                    className="h-16 w-auto"
+                  />
+                </div>
+                <h4 className="text-lg font-bold text-[#4B361C] mb-3">
+                  טיסות פרטיות פנימיות
+                </h4>
+                <p className="text-[#4B361C] mb-4 text-sm leading-relaxed">
+                  טיסות מסוקים ומטוסים לכל יעד באוגנדה.
+                </p>
+                <div className="flex items-center justify-center text-[#CAA131] font-semibold group-hover:text-[#B8942A] transition-all duration-300 text-sm">
+                  לפרטים נוספים
+                  <ArrowLeft className="w-3 h-3 mr-1" />
+                </div>
+              </div>
+            </Link>
+
+            {/* BAR SOS */}
+            <Link to="/services/bar-sos" className="group">
+              <div className="bg-white border border-[#CAA131]/30 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 h-full p-6 text-center">
+                <div className="flex items-center justify-center mb-4">
+                  <img 
+                    src="/images/BAR-SOS-MAGNUS-logo.webp" 
+                    alt="BAR SOS Logo" 
+                    className="h-16 w-auto"
+                  />
+                </div>
+                <h4 className="text-lg font-bold text-[#4B361C] mb-3">
+                  חילוץ רפואי 24/7
+                </h4>
+                <p className="text-[#4B361C] mb-4 text-sm leading-relaxed">
+                  שירותי חירום רפואיים בכל רחבי אוגנדה.
+                </p>
+                <div className="flex items-center justify-center text-[#CAA131] font-semibold group-hover:text-[#B8942A] transition-all duration-300 text-sm">
+                  לפרטים נוספים
+                  <ArrowLeft className="w-3 h-3 mr-1" />
+                </div>
+              </div>
+            </Link>
           </div>
         </div>
 
@@ -984,6 +1107,7 @@ const AttractionPage: React.FC = () => {
           </div>
         </div>
       )}
+
     </div>
   );
 };
