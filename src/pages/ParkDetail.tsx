@@ -179,7 +179,7 @@ const ParkDetail: React.FC = () => {
                   style={{ height: `${h}px` }}
                   title={`${monthsHe[i]}: ${v}/5`}
                 />
-                <div className="text-[10px] mt-1 text-gray-500">{monthsHe[i]}</div>
+                <div className="text-small mt-1 text-gray-500">{monthsHe[i]}</div>
               </div>
             );
           })}
@@ -500,7 +500,7 @@ const ParkDetail: React.FC = () => {
                   <h2 className="text-2xl font-bold text-[#4B361C] mb-6 leading-tight">{park.summary || park.description.split("\n\n")[0]}</h2>
                   
                   <div className="prose prose-lg max-w-none">
-                    <p className="text-[18px] leading-relaxed text-gray-700 font-medium">
+                    <p className="text-body leading-relaxed text-gray-700 font-medium">
                       {park.description}
                     </p>
                   </div>

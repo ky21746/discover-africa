@@ -76,7 +76,7 @@ const InfoCard: React.FC<
       <h3 className="text-xl font-extrabold mb-4 text-[#4B361C] text-right border-b-2 border-[#CAA131] w-fit">
         {title}
       </h3>
-      <div className="text-[17px] leading-relaxed text-gray-700 group-hover:text-gray-800 transition-colors font-medium">{children}</div>
+      <div className="text-body leading-relaxed text-gray-700 group-hover:text-gray-800 transition-colors font-medium">{children}</div>
     </section>
   );
 };
@@ -432,12 +432,6 @@ const AttractionPage: React.FC = () => {
         
         <div className="absolute bottom-0 left-0 right-0 p-4 md:p-8">
           <div className="container mx-auto max-w-screen-xl">
-            <div className="mb-3">
-              <span className="inline-flex items-center gap-2 bg-amber-500 text-black px-3 py-1.5 rounded-full text-sm font-medium shadow-lg">
-                <MapPin className="w-4 h-4" />
-                {categoryNames[a.category || ""] || a.category}
-              </span>
-            </div>
             <h1 className="text-2xl md:text-4xl font-bold text-white mb-2 leading-tight drop-shadow-lg">
               {a.name}
             </h1>
@@ -558,7 +552,7 @@ const AttractionPage: React.FC = () => {
                   
                   {introFull && (
                     <div className="prose prose-lg max-w-none">
-                      <div className="text-[18px] leading-relaxed text-gray-700 font-medium">
+                      <div className="text-body leading-relaxed text-gray-700 font-medium">
                         {expanded ? (
                           <div dangerouslySetInnerHTML={{
                             __html: introFull
@@ -752,18 +746,24 @@ const AttractionPage: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* הידעת - ריבוע קטן */}
             <div className="md:col-span-1">
-              <section className="bg-gradient-to-r from-[#CAA131]/15 to-[#B8942A]/15 border border-[#CAA131]/30 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 h-full">
-                <h3 className="text-xl font-extrabold text-[#4B361C] mb-3 border-b-3 border-[#CAA131] w-fit flex items-center gap-2">
-                  <span className="text-2xl">💡</span>
+              <section className="bg-amber-50 border border-[#CAA131]/30 p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 h-full">
+                <h3 className="text-xl font-bold text-[#4B361C] mb-5 border-b border-[#CAA131] pb-2 w-fit text-right">
                   הידעת?
                 </h3>
-                <div className="space-y-3 text-right">
-                  <p className="text-base font-semibold text-[#4B361C] leading-relaxed">
-                    הפארק נקרא על שם המלכה אליזבת השנייה שביקרה בו ב־1954, והוא אחד משני הפארקים הלאומיים היחידים בעולם שבהם אפשר לראות אריות מטפסי עצים.
-                  </p>
-                  <p className="text-base font-semibold text-[#4B361C] leading-relaxed">
-                    פארק המלכה אליזבת משתרע על כמעט 2,000 קמ״ר – רק לשם השוואה, מדבר יהודה בישראל משתרע על כ־1,500 קמ״ר.
-                  </p>
+                <div className="space-y-5 text-right">
+                  {/* כרטיס מידע 1 */}
+                  <div className="bg-white border border-[#E6D7A7] rounded-xl p-5 shadow-lg">
+                    <p className="text-base text-[#4B361C] leading-relaxed">
+                      הפארק נקרא על שם המלכה אליזבת השנייה שביקרה בו ב־<span className="text-[#CAA131] font-semibold">1954</span>, והוא אחד משני הפארקים הלאומיים היחידים בעולם שבהם אפשר לראות אריות מטפסי עצים.
+                    </p>
+                  </div>
+                  
+                  {/* כרטיס מידע 2 */}
+                  <div className="bg-white border border-[#E6D7A7] rounded-xl p-5 shadow-lg">
+                    <p className="text-base text-[#4B361C] leading-relaxed">
+                      פארק המלכה אליזבת משתרע על כמעט <span className="text-[#CAA131] font-semibold">2,000 קמ״ר</span> – רק לשם השוואה, <span className="text-[#CAA131] font-semibold">מדבר יהודה</span> בישראל משתרע על כ־<span className="text-[#CAA131] font-semibold">1,500 קמ״ר</span>.
+                    </p>
+                  </div>
                 </div>
               </section>
             </div>
@@ -771,11 +771,8 @@ const AttractionPage: React.FC = () => {
             {/* חשוב לדעת - ריבוע רחב */}
             <div className="md:col-span-2">
               {tips.length > 0 && (
-                <section className="bg-gradient-to-br from-amber-50 to-orange-50 border border-[#CAA131]/30 rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300 h-full">
-                  <h3 className="text-xl font-extrabold text-[#4B361C] mb-4 border-b-2 border-[#CAA131] w-fit flex items-center gap-2 text-right">
-                    <svg className="w-5 h-5 text-[#CAA131]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
+                <section className="bg-gradient-to-br from-amber-50 to-orange-50 border border-[#CAA131]/30 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 h-full">
+                  <h3 className="text-xl font-bold text-[#4B361C] mb-4 border-b border-[#CAA131] pb-2 w-fit text-right">
                     חשוב לדעת
                   </h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -784,29 +781,29 @@ const AttractionPage: React.FC = () => {
                       {/* עונות השנה */}
                       <div>
                         <h4 className="text-lg font-bold text-[#4B361C] mb-2 text-right">עונות השנה</h4>
-                        <ul className="text-sm text-[#4B361C] space-y-2 text-right">
-                          <li>העונה היבשה (דצמבר–פברואר, יוני–אוגוסט): חיות מתרכזות סביב מקורות מים, קל יותר לתצפת עליהן. הדרכים לרוב נגישות ונוחות יותר.</li>
-                          <li>העונה הרטובה (מרץ–מאי, ספטמבר–נובמבר): הנוף ירוק ועשיר במיוחד, שפע של ציפורים נודדות וחוויה טבעית מרהיבה. חלק מהדרכים עשויות להיות פחות נגישות, מה שמוסיף תחושת הרפתקה למסלול.</li>
+                        <ul className="text-sm text-[#4B361C] space-y-2 text-right list-none">
+                          <li className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full">יבשה (דצמבר–פברואר, יוני–אוגוסט): חיות סביב מקורות מים, דרכים נוחות.</li>
+                          <li className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full">רטובה (מרץ–מאי, ספטמבר–נובמבר): נוף ירוק, שפע ציפורים, דרכים מאתגרות יותר.</li>
                         </ul>
                       </div>
                       
                       {/* נסיעה והגעה */}
                       <div>
                         <h4 className="text-lg font-bold text-[#4B361C] mb-2 text-right">נסיעה והגעה</h4>
-                        <ul className="text-sm text-[#4B361C] space-y-2 text-right">
-                          <li>הנסיעה מקמפלה אורכת <strong>6–7 שעות</strong></li>
-                          <li>כדאי יציאה מוקדמת בבוקר</li>
-                          <li>אפשרות לינה ביניים בדרך</li>
+                        <ul className="text-sm text-[#4B361C] space-y-2 text-right list-none">
+                          <li className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full">הנסיעה מקמפלה אורכת <strong>6–7 שעות</strong></li>
+                          <li className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full">כדאי יציאה מוקדמת בבוקר</li>
+                          <li className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full">אפשרות לינה ביניים בדרך</li>
                         </ul>
                       </div>
                       
                       {/* שערי כניסה */}
                       <div>
                         <h4 className="text-lg font-bold text-[#4B361C] mb-2 text-right">שערי כניסה</h4>
-                        <ul className="text-sm text-[#4B361C] space-y-2 text-right">
-                          <li>קאטונגו - קרוב לעיירות וללודג'ים נוחים</li>
-                          <li>איששה - מאפשר המשך ישיר לבווינדי ולגורילות</li>
-                          <li>קזונגו - צמוד לשייט בתעלת קזינגה</li>
+                        <ul className="text-sm text-[#4B361C] space-y-2 text-right list-none">
+                          <li className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full">קאטונגו - קרוב לעיירות וללודג'ים נוחים</li>
+                          <li className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full">איששה - מאפשר המשך ישיר לבווינדי ולגורילות</li>
+                          <li className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full">קזונגו - צמוד לשייט בתעלת קזינגה</li>
                         </ul>
                       </div>
                     </div>
@@ -816,30 +813,21 @@ const AttractionPage: React.FC = () => {
                       {/* חוויות ייחודיות */}
                       <div>
                         <h4 className="text-lg font-bold text-[#4B361C] mb-2 text-right">חוויות ייחודיות</h4>
-                        <ul className="text-sm text-[#4B361C] space-y-2 text-right">
-                          <li>שייט בתעלת קזינגה - תיאום מראש</li>
-                          <li>סקטור איששה (אריות מטפסי עצים) - תיאום מראש</li>
+                        <ul className="text-sm text-[#4B361C] space-y-2 text-right list-none">
+                          <li className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full">שייט בתעלת קזינגה - תיאום מראש</li>
+                          <li className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full">סקטור איששה (אריות מטפסי עצים) - תיאום מראש</li>
                         </ul>
                       </div>
                       
                       {/* משך שהות מומלץ */}
                       <div>
                         <h4 className="text-lg font-bold text-[#4B361C] mb-2 text-right">משך שהות מומלץ</h4>
-                        <ul className="text-sm text-[#4B361C] space-y-2 text-right">
-                          <li>יום אחד - טעימה בלבד</li>
-                          <li><strong>2–3 ימים</strong> - שילוב מלא (ספארי, שייט, קיאמבורה)</li>
+                        <ul className="text-sm text-[#4B361C] space-y-2 text-right list-none">
+                          <li className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full">יום אחד - טעימה בלבד</li>
+                          <li className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full"><strong>2–3 ימים</strong> - שילוב מלא (ספארי, שייט, קיאמבורה)</li>
                         </ul>
                       </div>
                       
-                      {/* המשך ליעדים נוספים */}
-                      <div>
-                        <h4 className="text-lg font-bold text-[#4B361C] mb-2 text-right">המשך ליעדים נוספים</h4>
-                        <ul className="text-sm text-[#4B361C] space-y-2 text-right">
-                          <li>בווינדי (גורילות) - תכנון שער יציאה</li>
-                          <li>קיבאלה (שימפנזים) - חיסכון שעות נסיעה</li>
-                          <li>מורצ'יסון (מפלים) - תכנון מסלול</li>
-                        </ul>
-                      </div>
                     </div>
                   </div>
                 </section>

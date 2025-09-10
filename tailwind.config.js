@@ -4,8 +4,15 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        // Heebo קודם (עברית), Poppins לאנגלית; אח"כ גיבויים
-        sans: ['Heebo', 'Poppins', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        // Poppins כפונט ראשי עם fallbacks
+        sans: ['Poppins', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+      },
+      fontSize: {
+        'h1': '36px',
+        'h2': '24px', 
+        'h3': '20px',
+        'body': '16px',
+        'small': '14px',
       },
       colors: {
         primary: {
