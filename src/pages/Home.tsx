@@ -146,7 +146,7 @@ const Home: React.FC = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <Link to="/services" className="category-card transition-all duration-300 hover:shadow-lg cursor-pointer">
+            <Link to="/services/bar-aviation" className="category-card transition-all duration-300 hover:shadow-lg cursor-pointer">
               <div
                 className="card-image"
                 style={{ 
@@ -173,7 +173,7 @@ const Home: React.FC = () => {
               </div>
             </Link>
 
-            <Link to="/services" className="category-card transition-all duration-300 hover:shadow-lg cursor-pointer">
+            <Link to="/services/bar-sos" className="category-card transition-all duration-300 hover:shadow-lg cursor-pointer">
               <div
                 className="card-image"
                 style={{ 
@@ -200,7 +200,7 @@ const Home: React.FC = () => {
               </div>
             </Link>
 
-            <Link to="/services" className="category-card transition-all duration-300 hover:shadow-lg cursor-pointer">
+            <Link to="/services/extreme-park" className="category-card transition-all duration-300 hover:shadow-lg cursor-pointer">
               <div
                 className="card-image"
                 style={{ 

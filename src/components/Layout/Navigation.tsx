@@ -14,7 +14,6 @@ const Navigation: React.FC<NavigationProps> = ({ mobile = false, onItemClick }) 
     { path: '/categories', label: 'קטגוריות' },
         { path: '/services', label: 'השירותים שלנו' },
     { path: '/blog', label: 'בלוג' },
-    { path: '/testimonials', label: 'לקוחות מספרים' },
     { path: '/who-we-are', label: 'מי אנחנו' },
     { path: '/faq', label: 'שאלות נפוצות' },
     { path: '/contact', label: 'צור קשר' }
