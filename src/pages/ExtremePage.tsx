@@ -24,7 +24,7 @@ const ExtremePage: React.FC = () => {
   return (
     <div className="fade-in" dir="rtl">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-gray-900 to-gray-800 text-white h-[40vh] min-h-[300px] overflow-hidden">
+      <section className="relative bg-gradient-to-r from-gray-900 to-gray-800 text-white h-[45vh] min-h-[300px] overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center opacity-70"
           style={{
@@ -42,32 +42,12 @@ const ExtremePage: React.FC = () => {
               חוויות אתגריות וספורט אקסטרים - רפטינג, באנג'י, טיפוס הרים ועוד
             </p>
             
-            {/* Single CTA Button */}
-            <button className="bg-transparent border-2 border-[#CAA131] text-[#CAA131] px-8 py-3 rounded-lg font-semibold text-lg transition-colors duration-200 hover:bg-[#CAA131] hover:text-black">
-              צפה בכל החוויות
-            </button>
           </div>
         </div>
       </section>
 
       <div className="py-8">
         <div className="container mx-auto px-4">
-          {/* בלוק חשוב לדעת */}
-          <div className="mb-12">
-            <div className="bg-gradient-to-br from-amber-50 to-orange-50 border border-[#CAA131]/30 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
-              <h2 className="text-xl font-bold text-[#4B361C] mb-4 border-b border-[#CAA131] pb-2 w-fit text-right">
-                חשוב לדעת
-              </h2>
-              <div className="space-y-3 text-right">
-                <ul className="text-sm text-[#4B361C] space-y-2 text-right list-none">
-                  <li className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full">רמת סיכון: פעילויות אקסטרים — חתימה על טופס שחרור אחריות</li>
-                  <li className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full">מגבלת גיל: <span className="text-[#CAA131] font-semibold">12+</span> לרוב הפעילויות, <span className="text-[#CAA131] font-semibold">16+</span> לרפטינג</li>
-                  <li className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full">ציוד: כל הציוד הבטיחותי מסופק — חובה נעליים סגורות</li>
-                  <li className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full">הדרכה: מדריכים מוסמכים עם רישיון בינלאומי</li>
-                </ul>
-              </div>
-            </div>
-          </div>
 
         {/* כרטיסי אטרקציות */}
         {filteredAttractions.length > 0 ? (
@@ -75,7 +55,7 @@ const ExtremePage: React.FC = () => {
             {filteredAttractions.map((attraction: Attraction) => (
               <Link
                 key={attraction.id}
-                to={`/attraction/${attraction.slug}`}
+                to="/under-construction"
                 className="category-card transition-all duration-300 hover:shadow-lg cursor-pointer"
               >
                 <div

@@ -36,11 +36,11 @@ const MountainsPage: React.FC = () => {
   return (
     <div className="fade-in" dir="rtl">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-gray-900 to-gray-800 text-white h-[40vh] min-h-[300px] overflow-hidden">
+      <section className="relative bg-gradient-to-r from-gray-900 to-gray-800 text-white h-[45vh] min-h-[300px] overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center opacity-70"
           style={{
-            backgroundImage: "url(https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FSafari%20Uganda%2FRwenzori%20Mountains%20National%20Park%2FHighland%20landscape%20near%20Weismann%60s%20peak%20in%20Rwenzori%20mountains%2C%20Uganda.%20Little%20lakes%20among%20the%20mossy%20rocks%20at%20high%20altitudes.webp?alt=media&token=f1df50-adf9-41e1-99cb-8eb7dfae947e)"
+            backgroundImage: "url(https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/Mount%20Elgon%20National%20Park%2FMount%20Elgon%20National%20Park%2C%20Uganda.%20A%20rich%20biodiverse%20area%20of%20protected%20wildlife%20used%20by%20hikers%20and%20protected%20by%20rangers.webp?alt=media&token=c0d47dd8-0742-4f13-a8c9-85eb7a18064d)"
           }}
         />
         
@@ -54,32 +54,12 @@ const MountainsPage: React.FC = () => {
               גלו את ההרים המרהיבים - מהר אלגון ועד הרי הרוונזורי המושלגים
             </p>
             
-            {/* Single CTA Button */}
-            <button className="bg-transparent border-2 border-[#CAA131] text-[#CAA131] px-8 py-3 rounded-lg font-semibold text-lg transition-colors duration-200 hover:bg-[#CAA131] hover:text-black">
-              צפה בכל הטרקים
-            </button>
           </div>
         </div>
       </section>
 
       <div className="py-8">
         <div className="container mx-auto px-4">
-          {/* בלוק חשוב לדעת */}
-          <div className="mb-12">
-            <div className="bg-gradient-to-br from-amber-50 to-orange-50 border border-[#CAA131]/30 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
-              <h2 className="text-xl font-bold text-[#4B361C] mb-4 border-b border-[#CAA131] pb-2 w-fit text-right">
-                חשוב לדעת
-              </h2>
-              <div className="space-y-3 text-right">
-                <ul className="text-sm text-[#4B361C] space-y-2 text-right list-none">
-                  <li className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full">רמת קושי: טרקים מאתגרים עד <span className="text-[#CAA131] font-semibold">7 ימים</span> — כושר גופני נדרש</li>
-                  <li className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full">ציוד חובה: נעלי טרקים, ביגוד חם, ציוד מחנאות</li>
-                  <li className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full">עונה מומלצת: יוני-אוגוסט ודצמבר-פברואר — מזג אוויר יציב</li>
-                  <li className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full">הדרכה: חובה מדריך מוסמך לכל הטרקים</li>
-                </ul>
-              </div>
-            </div>
-          </div>
 
         {/* רשת הכרטיסים */}
         {filteredMountains.length > 0 ? (

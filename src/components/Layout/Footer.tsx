@@ -69,9 +69,8 @@ const Footer: React.FC = () => {
               <li>טיולי יוקרה</li>
             </ul>
             <div className="mt-4 pt-4 border-t border-gray-700">
-              <p className="text-sm text-gray-400 mb-2">שירותי ביטחון:</p>
               <Link to="/services/bar-sos" className="text-[#CAA131] hover:text-[#B8942A] transition-colors text-sm">
-                איתור וחילוץ רפואי 24/7 – BAR SOS
+                ביטחון רפואי 24/7 – BAR SOS
               </Link>
             </div>
           </div>

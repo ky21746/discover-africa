@@ -772,57 +772,62 @@ const AttractionPage: React.FC = () => {
             <div className="md:col-span-2">
               {true && (
                 <section className="bg-gradient-to-br from-amber-50 to-orange-50 border border-[#CAA131]/30 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 h-full">
-                  <h3 className="text-xl font-bold text-[#4B361C] mb-4 border-b border-[#CAA131] pb-2 w-fit text-right">
+                  <h3 className="text-xl font-bold text-[#4B361C] mb-6 border-b border-[#CAA131] pb-2 w-fit text-right">
                     חשוב לדעת
                   </h3>
-                  <div className="space-y-3 text-right">
-                    <ul className="text-sm text-[#4B361C] space-y-2 text-right list-none">
-                      {/* תוכן דינמי בהתאם לקטגוריה */}
-                      {a.category === 'safari' && (
-                        <>
-                          <li className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full">עונות השנה: יבשה (דצמבר–פברואר, יוני–אוגוסט) - חיות סביב מקורות מים, דרכים נוחות</li>
-                          <li className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full">הנסיעה מקמפלה אורכת <span className="text-[#CAA131] font-semibold">6–7 שעות</span> — כדאי יציאה מוקדמת</li>
-                          <li className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full">שייט בתעלת קזינגה וסקטור איששה — תיאום מראש</li>
-                          <li className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full">משך שהות מומלץ: <span className="text-[#CAA131] font-semibold">2–3 ימים</span> לשילוב מלא</li>
-                        </>
-                      )}
-                      {a.category === 'gorillas-chimps' && (
-                        <>
-                          <li className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full">רישיון גורילות: <span className="text-[#CAA131] font-semibold">$700 ליום</span> — להזמין חודשים מראש</li>
-                          <li className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full">רישיון שימפנזים: <span className="text-[#CAA131] font-semibold">$200 ליום</span> — הזמנה מראש מומלצת</li>
-                          <li className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full">מגבלת גיל: <span className="text-[#CAA131] font-semibold">15+</span> לגורילות, <span className="text-[#CAA131] font-semibold">12+</span> לשימפנזים</li>
-                          <li className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full">עונת השיא: יוני-ספטמבר ודצמבר-פברואר — מתמלאת חודשים מראש</li>
-                        </>
-                      )}
-                      {a.category === 'mountains' && (
-                        <>
-                          <li className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full">רמת קושי: טרקים מאתגרים עד <span className="text-[#CAA131] font-semibold">7 ימים</span> — כושר גופני נדרש</li>
-                          <li className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full">ציוד חובה: נעלי טרקים, ביגוד חם, ציוד מחנאות</li>
-                          <li className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full">עונה מומלצת: יוני-אוגוסט ודצמבר-פברואר — מזג אוויר יציב</li>
-                          <li className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full">הדרכה: חובה מדריך מוסמך לכל הטרקים</li>
-                        </>
-                      )}
-                      {a.category === 'extreme' && (
-                        <>
-                          <li className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full">רמת סיכון: פעילויות אקסטרים — חתימה על טופס שחרור אחריות</li>
-                          <li className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full">מגבלת גיל: <span className="text-[#CAA131] font-semibold">12+</span> לרוב הפעילויות, <span className="text-[#CAA131] font-semibold">16+</span> לרפטינג</li>
-                          <li className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full">ציוד: כל הציוד הבטיחותי מסופק — חובה נעליים סגורות</li>
-                          <li className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full">הדרכה: מדריכים מוסמכים עם רישיון בינלאומי</li>
-                        </>
-                      )}
-                      {a.category === 'water' && (
-                        <>
-                          <li className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full">רפטינג: רמת קושי <span className="text-[#CAA131] font-semibold">3-5</span> — כושר גופני נדרש</li>
-                          <li className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full">שייט: מתאים לכל הגילאים — ציוד בטיחות מסופק</li>
-                          <li className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full">עונה מומלצת: יוני-ספטמבר ודצמבר-פברואר — מים גבוהים ויציבים</li>
-                          <li className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full">בטיחות: מדריכים מוסמכים וציוד בטיחות מקצועי</li>
-                        </>
-                      )}
-                      {/* אם יש טיפים מותאמים אישית, הצג אותם */}
-                      {tips.length > 0 && tips.map((tip, index) => (
-                        <li key={index} className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full">{tip}</li>
-                      ))}
-                    </ul>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-right">
+                    {/* עמודה ימנית */}
+                    <div className="space-y-4">
+                      {/* עונות השנה */}
+                      <div>
+                        <h4 className="text-lg font-bold text-[#4B361C] mb-3 border-b border-[#CAA131]/50 pb-1 w-fit">עונות השנה</h4>
+                        <ul className="text-sm text-[#4B361C] space-y-2 list-none">
+                          <li className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full">יבשה (דצמבר–פברואר, יוני–אוגוסט): חיות סביב מקורות מים, דרכים נוחות</li>
+                          <li className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full">רטובה (מרץ–מאי, ספטמבר–נובמבר): נוף ירוק, שפע ציפורים, דרכים מאתגרות יותר</li>
+                        </ul>
+                      </div>
+                      
+                      {/* נסיעה והגעה */}
+                      <div>
+                        <h4 className="text-lg font-bold text-[#4B361C] mb-3 border-b border-[#CAA131]/50 pb-1 w-fit">נסיעה והגעה</h4>
+                        <ul className="text-sm text-[#4B361C] space-y-2 list-none">
+                          <li className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full">הנסיעה מקמפלה אורכת <span className="text-[#CAA131] font-semibold">6–7 שעות</span></li>
+                          <li className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full">כדאי יציאה מוקדמת בבוקר</li>
+                          <li className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full">אפשרות לינה ביניים בדרך</li>
+                        </ul>
+                      </div>
+                      
+                      {/* שערי כניסה */}
+                      <div>
+                        <h4 className="text-lg font-bold text-[#4B361C] mb-3 border-b border-[#CAA131]/50 pb-1 w-fit">שערי כניסה</h4>
+                        <ul className="text-sm text-[#4B361C] space-y-2 list-none">
+                          <li className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full">קאטונגו – קרוב לעיירות וללודג'ים נוחים</li>
+                          <li className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full">איששה - מאפשר המשך ישיר לבווינדי ולגורילות</li>
+                          <li className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full">קזונגו – צמוד לשייט בתעלת קזינגה</li>
+                        </ul>
+                      </div>
+                    </div>
+                    
+                    {/* עמודה שמאלית */}
+                    <div className="space-y-4">
+                      {/* חוויות ייחודיות */}
+                      <div>
+                        <h4 className="text-lg font-bold text-[#4B361C] mb-3 border-b border-[#CAA131]/50 pb-1 w-fit">חוויות ייחודיות</h4>
+                        <ul className="text-sm text-[#4B361C] space-y-2 list-none">
+                          <li className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full">שייט בתעלת קזינגה - תיאום מראש</li>
+                          <li className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full">סקטור איששה (אריות מטפסי עצים) - תיאום מראש</li>
+                        </ul>
+                      </div>
+                      
+                      {/* משך שהות מומלץ */}
+                      <div>
+                        <h4 className="text-lg font-bold text-[#4B361C] mb-3 border-b border-[#CAA131]/50 pb-1 w-fit">משך שהות מומלץ</h4>
+                        <ul className="text-sm text-[#4B361C] space-y-2 list-none">
+                          <li className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full">יום אחד - טעימה בלבד</li>
+                          <li className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full"><span className="text-[#CAA131] font-semibold">2–3 ימים</span> – שילוב מלא (ספארי, שייט, קיאמבורה)</li>
+                        </ul>
+                      </div>
+                    </div>
                   </div>
                 </section>
               )}

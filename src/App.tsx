@@ -2,7 +2,6 @@ import React, { Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
 import Home from "./pages/Home";
-import Landing from "./pages/Landing";
 import Categories from "./pages/Categories";
 import CategoryPage from "./pages/CategoryPage";
 import ParkDetail from "./pages/ParkDetail";
@@ -15,6 +14,7 @@ import PlanYourTrip from "./pages/PlanYourTrip";
 import FAQ from "./pages/FAQ";
 import Contact from "./pages/Contact";
 import AttractionPage from "./pages/AttractionPage";
+import UnderConstruction from "./pages/UnderConstruction";
 import CookieBanner from "./components/CookieBanner";
 import WhatsAppFloat from "./components/WhatsAppFloat";
 
@@ -98,6 +98,9 @@ export default function App() {
             
             {/* אטרקציה דינמית */}
             <Route path="/attraction/:id" element={<AttractionPage />} />
+            
+            {/* עמוד בבניה */}
+            <Route path="/under-construction" element={<UnderConstruction />} />
             
             {/* בלוג */}
             <Route path="/blog" element={<Blog />} />
