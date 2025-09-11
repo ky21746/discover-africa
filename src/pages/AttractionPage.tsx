@@ -771,36 +771,58 @@ const AttractionPage: React.FC = () => {
             {/* חשוב לדעת - ריבוע רחב */}
             <div className="md:col-span-2">
               {a.importantInfo && a.importantInfo.length > 0 && (
-                <section className="bg-gradient-to-br from-amber-50 to-orange-50 border border-[#CAA131]/30 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 h-full">
-                  <h3 className="text-xl font-bold text-[#4B361C] mb-6 border-b border-[#CAA131] pb-2 w-fit text-right">
+                <section className="bg-gradient-to-br from-amber-50 to-orange-50 border border-[#CAA131]/30 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 h-full info-box" style={{fontFamily: 'Poppins', color: '#3B2F2F', lineHeight: '1.6'}}>
+                  <h3 className="text-xl font-bold text-[#2C2C2C] mb-2 border-b border-[#CAA131] pb-2 w-fit text-right">
                     חשוב לדעת
                   </h3>
-                  <div className="space-y-4 text-right">
-                    {a.importantInfo.map((info, index) => {
-                      if (info.trim() === "") {
-                        return <div key={index} className="h-2"></div>;
-                      }
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6" style={{direction: 'rtl', textAlign: 'right'}}>
+                    {/* עמודה ימנית */}
+                    <div className="space-y-4">
+                      <div>
+                        <h4 className="font-bold text-[#2C2C2C] mb-2">עונות השנה</h4>
+                        <ul className="list-disc list-inside" style={{margin: '0', paddingLeft: '20px'}}>
+                          <li className="text-[#3B2F2F] text-base mb-1.5" style={{fontSize: '1rem', marginBottom: '6px'}}>יבשה (דצמבר–פברואר, יוני–אוגוסט): חיות סביב מקורות מים, דרכים נוחות.</li>
+                          <li className="text-[#3B2F2F] text-base mb-1.5" style={{fontSize: '1rem', marginBottom: '6px'}}>רטובה (מרץ–מאי, ספטמבר–נובמבר): נוף ירוק, שפע ציפורים, דרכים מאתגרות יותר.</li>
+                        </ul>
+                      </div>
                       
-                      if (info.startsWith("🛣️") || info.startsWith("🚗") || info.startsWith("🌦️") || info.startsWith("🦁") || info.startsWith("🦍") || info.startsWith("🐒") || info.startsWith("💧") || info.startsWith("🏄") || info.startsWith("🏊") || info.startsWith("🏝️") || info.startsWith("🏔️") || info.startsWith("⏱️")) {
-                        return (
-                          <div key={index} className="mb-4">
-                            <h4 className="text-lg font-bold text-[#4B361C] mb-3 border-b border-[#CAA131]/50 pb-1 w-fit">
-                              {info.replace(/^[🛣️🚗🌦️🦁🦍🐒💧🏄🏊🏝️🏔️⏱️]+\s*\*\*(.*?)\*\*/, "$1")}
-                            </h4>
-                          </div>
-                        );
-                      }
+                      <div>
+                        <h4 className="font-bold text-[#2C2C2C] mb-2">נסיעה והגעה</h4>
+                        <ul className="list-disc list-inside" style={{margin: '0', paddingLeft: '20px'}}>
+                          <li className="text-[#3B2F2F] text-base mb-1.5" style={{fontSize: '1rem', marginBottom: '6px'}}>הנסיעה מקמפלה אורכת כ־6–7 שעות</li>
+                          <li className="text-[#3B2F2F] text-base mb-1.5" style={{fontSize: '1rem', marginBottom: '6px'}}>כדאי יציאה מוקדמת בבוקר</li>
+                          <li className="text-[#3B2F2F] text-base mb-1.5" style={{fontSize: '1rem', marginBottom: '6px'}}>אפשרות לינה ביניים בדרך</li>
+                        </ul>
+                      </div>
                       
-                      if (info.startsWith("•")) {
-                        return (
-                          <div key={index} className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full text-sm text-[#4B361C]">
-                            {info.replace(/^•\s*/, "")}
-                          </div>
-                        );
-                      }
+                      <div>
+                        <h4 className="font-bold text-[#2C2C2C] mb-2">שערי כניסה</h4>
+                        <ul className="list-disc list-inside" style={{margin: '0', paddingLeft: '20px'}}>
+                          <li className="text-[#3B2F2F] text-base mb-1.5" style={{fontSize: '1rem', marginBottom: '6px'}}>קאטונגו – קרוב לעיירות וללודגים נוחים</li>
+                          <li className="text-[#3B2F2F] text-base mb-1.5" style={{fontSize: '1rem', marginBottom: '6px'}}>איששה – מאפשר המשך ישיר לבווינדי ולגורילות</li>
+                          <li className="text-[#3B2F2F] text-base mb-1.5" style={{fontSize: '1rem', marginBottom: '6px'}}>קזונגו – צמד לשייט בתעלת קזינגה</li>
+                        </ul>
+                      </div>
+                    </div>
+                    
+                    {/* עמודה שמאלית */}
+                    <div className="space-y-4">
+                      <div>
+                        <h4 className="font-bold text-[#2C2C2C] mb-2">חוויות ייחודיות</h4>
+                        <ul className="list-disc list-inside" style={{margin: '0', paddingLeft: '20px'}}>
+                          <li className="text-[#3B2F2F] text-base mb-1.5" style={{fontSize: '1rem', marginBottom: '6px'}}>שייט בתעלת קזינגה – תיאום מראש</li>
+                          <li className="text-[#3B2F2F] text-base mb-1.5" style={{fontSize: '1rem', marginBottom: '6px'}}>סקטור איששה (אריות מטפסי עצים) – תיאום מראש</li>
+                        </ul>
+                      </div>
                       
-                      return null;
-                    })}
+                      <div>
+                        <h4 className="font-bold text-[#2C2C2C] mb-2">משך שהות מומלץ</h4>
+                        <ul className="list-disc list-inside" style={{margin: '0', paddingLeft: '20px'}}>
+                          <li className="text-[#3B2F2F] text-base mb-1.5" style={{fontSize: '1rem', marginBottom: '6px'}}>יום אחד – טעימה בלבד</li>
+                          <li className="text-[#3B2F2F] text-base mb-1.5" style={{fontSize: '1rem', marginBottom: '6px'}}>2–3 ימים – שילוב מלא (ספארי, שייט, קיאמבורה)</li>
+                        </ul>
+                      </div>
+                    </div>
                   </div>
                 </section>
               )}
