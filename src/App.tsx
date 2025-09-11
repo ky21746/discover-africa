@@ -2,6 +2,7 @@ import React, { Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
 import Home from "./pages/Home";
+import Landing from "./pages/Landing";
 import Categories from "./pages/Categories";
 import CategoryPage from "./pages/CategoryPage";
 import ParkDetail from "./pages/ParkDetail";

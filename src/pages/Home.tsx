@@ -43,7 +43,7 @@ const Home: React.FC = () => {
   return (
     <div className="fade-in" dir="rtl">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-gray-900 to-gray-800 text-white h-[30vh] md:h-[45vh] min-h-[200px] overflow-hidden">
+      <section className="relative bg-gradient-to-r from-gray-900 to-gray-800 text-white h-[50vh] md:h-[45vh] min-h-[300px] md:min-h-[200px] overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center opacity-65"
           style={{
@@ -53,18 +53,18 @@ const Home: React.FC = () => {
         />
         
         {/* Content positioned at center bottom */}
-        <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 text-center space-y-4 text-white drop-shadow-md max-w-2xl">
-          <h1 className="text-4xl font-bold">
+        <div className="absolute bottom-8 md:bottom-12 left-1/2 transform -translate-x-1/2 text-center space-y-3 md:space-y-4 text-white drop-shadow-md max-w-2xl px-4">
+          <h1 className="text-3xl md:text-4xl font-bold leading-tight">
             החוויה הבאה שלך באוגנדה
             <br />
             מתחילה כאן
           </h1>
-          <p className="text-lg font-light">
+          <p className="text-base md:text-lg font-light">
             טיולי אקסטרים, טבע פראי, ושירות אישי – חוויה שלא תשכח
           </p>
           
           {/* CTA Button */}
-          <button className="bg-orange-500 text-white px-8 py-3 rounded-lg font-semibold text-lg transition-colors duration-200 hover:bg-orange-600">
+          <button className="bg-orange-500 text-white px-6 md:px-8 py-2 md:py-3 rounded-lg font-semibold text-base md:text-lg transition-colors duration-200 hover:bg-orange-600">
             תכננו טיול כאן
           </button>
         </div>

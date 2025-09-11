@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { MapPin, Phone, Mail, Clock, MessageCircle } from 'lucide-react';
 import { ContactForm } from '../types';
+import emailjs from '@emailjs/browser';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState<ContactForm>({
@@ -58,8 +59,25 @@ const Contact: React.FC = () => {
 
     setIsSubmitting(true);
 
-    // Simulate form submission
-    setTimeout(() => {
+    try {
+      // EmailJS configuration
+      const serviceId = 'service_f70116g';
+      const templateId = 'template_contact';
+      const publicKey = 'fffzoME-DNQ1xssuP';
+
+      // Prepare template parameters
+      const templateParams = {
+        from_name: formData.fullName,
+        from_email: formData.email,
+        phone: formData.phone,
+        subject: formData.subject,
+        message: formData.message,
+        to_email: 'info@discoverafrica.co.il'
+      };
+
+      // Send email using EmailJS
+      await emailjs.send(serviceId, templateId, templateParams, publicKey);
+      
       setIsSubmitting(false);
       setIsSubmitted(true);
       setFormData({
@@ -70,7 +88,12 @@ const Contact: React.FC = () => {
         message: '',
         newsletter: false
       });
-    }, 1500);
+    } catch (error) {
+      console.error('Error sending email:', error);
+      setIsSubmitting(false);
+      // You can add error handling here if needed
+      alert('שגיאה בשליחת ההודעה. אנא נסו שוב או התקשרו אלינו ישירות.');
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -254,7 +277,7 @@ const Contact: React.FC = () => {
                   </div>
                   <div>
                     <div className="font-semibold font-sans">טלפון</div>
-                    <div className="text-muted font-sans">+972-50-123-4567</div>
+                    <div className="text-muted font-sans">+972-54-615-2683</div>
                   </div>
                 </div>
 
@@ -264,7 +287,7 @@ const Contact: React.FC = () => {
                   </div>
                   <div>
                     <div className="font-semibold font-sans">וואטסאפ</div>
-                    <div className="text-muted font-sans">+972-50-123-4567</div>
+                    <div className="text-muted font-sans">+972-54-615-2683</div>
                   </div>
                 </div>
 
@@ -274,17 +297,7 @@ const Contact: React.FC = () => {
                   </div>
                   <div>
                     <div className="font-semibold font-sans">אימייל</div>
-                    <div className="text-muted font-sans">info@uganda-adventures.co.il</div>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-4">
-                  <div className="bg-primary text-white rounded-full w-10 h-10 flex items-center justify-center">
-                    <MapPin className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <div className="font-semibold font-sans">כתובת</div>
-                    <div className="text-muted font-sans">רחוב הרצל 123, תל אביב</div>
+                    <div className="text-muted font-sans">info@discoverafrica.co.il</div>
                   </div>
                 </div>
 
@@ -301,40 +314,7 @@ const Contact: React.FC = () => {
               </div>
             </div>
 
-            {/* Map */}
-            <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3380.3282628188604!2d34.7748068!3d32.0852999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151d4ca6193b7c1f%3A0x4e9427a0d9b72e3e!2sHerzl%20St%20123%2C%20Tel%20Aviv-Yafo!5e0!3m2!1sen!2sil!4v1620000000000!5m2!1sen!2sil"
-                width="100%"
-                height="300"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="מיקום המשרד"
-              ></iframe>
-            </div>
 
-            {/* Quick Actions */}
-            <div className="bg-primary text-white rounded-2xl p-6 text-center">
-              <h3 className="text-xl font-bold mb-4 font-sans">צריכים תשובה מהירה?</h3>
-              <div className="flex flex-col sm:flex-row gap-3">
-                <a
-                  href="https://wa.me/972501234567"
-                  className="bg-white text-primary px-4 py-2 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  וואטסאפ
-                </a>
-                <a
-                  href="tel:+972501234567"
-                  className="bg-white text-primary px-4 py-2 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
-                >
-                  התקשרו עכשיו
-                </a>
-              </div>
-            </div>
           </div>
         </div>
       </div>
