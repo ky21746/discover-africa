@@ -1,3 +1,4 @@
+
 import React, { Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
@@ -122,8 +123,7 @@ export default function App() {
             <Route path="/services" element={<OurServices />} />
             <Route path="/services/bar-aviation" element={<BarAviation />} />
             <Route path="/services/bar-sos" element={<BarSOS />} />
-            <Route path="/services/extreme-park" element={<ExtremePark />} />
-            
+            <Route path="/services/extreme-park" element={<ExtremePark />} />            
             {/* ברירת מחדל – 404 חוזר לדף הבית */}
             <Route path="*" element={<Home />} />
           </Route>
