@@ -770,64 +770,37 @@ const AttractionPage: React.FC = () => {
 
             {/* חשוב לדעת - ריבוע רחב */}
             <div className="md:col-span-2">
-              {true && (
+              {a.importantInfo && a.importantInfo.length > 0 && (
                 <section className="bg-gradient-to-br from-amber-50 to-orange-50 border border-[#CAA131]/30 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 h-full">
                   <h3 className="text-xl font-bold text-[#4B361C] mb-6 border-b border-[#CAA131] pb-2 w-fit text-right">
                     חשוב לדעת
                   </h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-right">
-                    {/* עמודה ימנית */}
-                    <div className="space-y-4">
-                      {/* עונות השנה */}
-                      <div>
-                        <h4 className="text-lg font-bold text-[#4B361C] mb-3 border-b border-[#CAA131]/50 pb-1 w-fit">עונות השנה</h4>
-                        <ul className="text-sm text-[#4B361C] space-y-2 list-none">
-                          <li className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full">יבשה (דצמבר–פברואר, יוני–אוגוסט): חיות סביב מקורות מים, דרכים נוחות</li>
-                          <li className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full">רטובה (מרץ–מאי, ספטמבר–נובמבר): נוף ירוק, שפע ציפורים, דרכים מאתגרות יותר</li>
-                        </ul>
-                      </div>
+                  <div className="space-y-4 text-right">
+                    {a.importantInfo.map((info, index) => {
+                      if (info.trim() === "") {
+                        return <div key={index} className="h-2"></div>;
+                      }
                       
-                      {/* נסיעה והגעה */}
-                      <div>
-                        <h4 className="text-lg font-bold text-[#4B361C] mb-3 border-b border-[#CAA131]/50 pb-1 w-fit">נסיעה והגעה</h4>
-                        <ul className="text-sm text-[#4B361C] space-y-2 list-none">
-                          <li className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full">הנסיעה מקמפלה אורכת <span className="text-[#CAA131] font-semibold">6–7 שעות</span></li>
-                          <li className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full">כדאי יציאה מוקדמת בבוקר</li>
-                          <li className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full">אפשרות לינה ביניים בדרך</li>
-                        </ul>
-                      </div>
+                      if (info.startsWith("🛣️") || info.startsWith("🚗") || info.startsWith("🌦️") || info.startsWith("🦁") || info.startsWith("🦍") || info.startsWith("🐒") || info.startsWith("💧") || info.startsWith("🏄") || info.startsWith("🏊") || info.startsWith("🏝️") || info.startsWith("🏔️") || info.startsWith("⏱️")) {
+                        return (
+                          <div key={index} className="mb-4">
+                            <h4 className="text-lg font-bold text-[#4B361C] mb-3 border-b border-[#CAA131]/50 pb-1 w-fit">
+                              {info.replace(/^[🛣️🚗🌦️🦁🦍🐒💧🏄🏊🏝️🏔️⏱️]+\s*\*\*(.*?)\*\*/, "$1")}
+                            </h4>
+                          </div>
+                        );
+                      }
                       
-                      {/* שערי כניסה */}
-                      <div>
-                        <h4 className="text-lg font-bold text-[#4B361C] mb-3 border-b border-[#CAA131]/50 pb-1 w-fit">שערי כניסה</h4>
-                        <ul className="text-sm text-[#4B361C] space-y-2 list-none">
-                          <li className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full">קאטונגו – קרוב לעיירות וללודג'ים נוחים</li>
-                          <li className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full">איששה - מאפשר המשך ישיר לבווינדי ולגורילות</li>
-                          <li className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full">קזונגו – צמוד לשייט בתעלת קזינגה</li>
-                        </ul>
-                      </div>
-                    </div>
-                    
-                    {/* עמודה שמאלית */}
-                    <div className="space-y-4">
-                      {/* חוויות ייחודיות */}
-                      <div>
-                        <h4 className="text-lg font-bold text-[#4B361C] mb-3 border-b border-[#CAA131]/50 pb-1 w-fit">חוויות ייחודיות</h4>
-                        <ul className="text-sm text-[#4B361C] space-y-2 list-none">
-                          <li className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full">שייט בתעלת קזינגה - תיאום מראש</li>
-                          <li className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full">סקטור איששה (אריות מטפסי עצים) - תיאום מראש</li>
-                        </ul>
-                      </div>
+                      if (info.startsWith("•")) {
+                        return (
+                          <div key={index} className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full text-sm text-[#4B361C]">
+                            {info.replace(/^•\s*/, "")}
+                          </div>
+                        );
+                      }
                       
-                      {/* משך שהות מומלץ */}
-                      <div>
-                        <h4 className="text-lg font-bold text-[#4B361C] mb-3 border-b border-[#CAA131]/50 pb-1 w-fit">משך שהות מומלץ</h4>
-                        <ul className="text-sm text-[#4B361C] space-y-2 list-none">
-                          <li className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full">יום אחד - טעימה בלבד</li>
-                          <li className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full"><span className="text-[#CAA131] font-semibold">2–3 ימים</span> – שילוב מלא (ספארי, שייט, קיאמבורה)</li>
-                        </ul>
-                      </div>
-                    </div>
+                      return null;
+                    })}
                   </div>
                 </section>
               )}
