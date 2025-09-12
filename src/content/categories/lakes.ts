@@ -283,7 +283,7 @@ export const lakes: Attraction[] = [
   },
 
   {
-    id: "lake-mburo",
+    id: "lake-mburo-lake",
     slug: "lake-mburo",
     name: "אגם מבורו",
     subtitle: "אגם הספארי הקרוב - חיות בר מגוונות",

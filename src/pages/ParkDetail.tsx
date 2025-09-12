@@ -12,8 +12,7 @@ import {
   Star,
   ChevronDown,
 } from "lucide-react";
-import Breadcrumbs from "../components/Common/Breadcrumbs";
-import { getParkBySlug, getRelatedParks, getParkBySlug as findPark } from "../data/parks";
+import { getParkBySlug, getRelatedParks, getParkBySlug as findPark, Park } from "../data/parks";
 import { categories } from "../data/categories";
 
 type TravelerType = "משפחות" | "זוגות" | "בודדים" | "קבוצה";
@@ -437,15 +436,7 @@ const ParkDetail: React.FC = () => {
           <div className="absolute inset-0 bg-black/40" />
           <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 text-white">
             <div className="container mx-auto">
-              <Breadcrumbs
-                items={[
-                  { label: "בית", path: "/" },
-                  { label: "קטגוריות", path: "/categories" },
-                  { label: category.name, path: `/category/${slug}` },
-                  { label: park.name },
-                ]}
-              />
-              <h1 className="text-3xl md:text-5xl font-bold font-sans mt-2">
+              <h1 className="text-3xl md:text-5xl font-bold font-sans">
                 {park.name}
               </h1>
               <div className="mt-3 flex flex-wrap items-center gap-3">

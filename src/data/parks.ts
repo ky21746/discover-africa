@@ -40,6 +40,12 @@ export interface Park {
   gallery: string[];
   image: string;
   tags: string[];
+  
+  // Fun fact for "הידעת?" section
+  funFact?: string;
+  
+  // Important information for "חשוב לדעת" section
+  importantInfo?: string[];
 }
 
 export const parks: Park[] = [
@@ -315,7 +321,7 @@ export const parks: Park[] = [
     cost_est: "$$",
     season: "כל השנה",
     highlights: ["שייט לבסיס המפלים", "היפופוטמים", "תנינים", "ציפורי מים"],
-    combos: ["murchison-falls"],
+    combos: ["murchison-falls-safari"],
     summary: "הפלגה אל בסיס המפלים ותצפיות חיות משובחות.",
     description:
       "מסלול שייט לאורך הנילוס עד בסיס מפלי מורצ'יסון עם מפגשים קרובים להיפו ותנינים.",
@@ -501,7 +507,7 @@ export const parks: Park[] = [
     cost_est: "$$",
     season: "כל השנה",
     highlights: ["קרנפים לבנים בהליכה מודרכת", "סיור ריינג'רים", "צפרות מעולה"],
-    combos: ["murchison-falls"],
+    combos: ["murchison-falls-safari"],
     summary: "עצירת ביניים מעולה לצפייה מודרכת בקרנפים לבנים.",
     description:
       "סיור הליכה בטוח ומודרך, היכרות עם מאמצי השימור וצפרות נהדרת באזור.",

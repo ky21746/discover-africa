@@ -3,7 +3,7 @@ import { Attraction } from "../../types";
 
 export const water: Attraction[] = [
   {
-    id: "murchison-falls",
+    id: "murchison-falls-water",
     slug: "murchison-falls",
     name: "מפלי מורצ'יסון",
     subtitle: "המפל העוצמתי ביותר בעולם - הנילוס נדחס ב-7 מטר",
@@ -211,7 +211,7 @@ export const water: Attraction[] = [
   },
 
   {
-    id: "lake-mburo",
+    id: "lake-mburo-water",
     slug: "lake-mburo",
     name: "אגם מבורו",
     subtitle: "אגם קטן עם ספארי עשיר - מושלם לטיול קצר",

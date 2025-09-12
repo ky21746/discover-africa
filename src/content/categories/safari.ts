@@ -120,7 +120,7 @@ export const safari: Attraction[] = [
   },
 
   {
-    id: "murchison-falls",
+    id: "murchison-falls-safari",
     slug: "murchison-falls",
     name: "פארק לאומי מורצ'יסון פולס",
     subtitle: "הפארק הגדול באוגנדה עם המפל העוצמתי ביותר בעולם",
@@ -240,7 +240,7 @@ export const safari: Attraction[] = [
   },
 
   {
-    id: "lake-mburo",
+    id: "lake-mburo-safari",
     slug: "lake-mburo",
     name: "פארק לאומי אגם מבורו",
     subtitle: "הפארק הקטן עם הזברות וחוויות ייחודיות",

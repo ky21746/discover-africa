@@ -97,53 +97,6 @@ const Rating: React.FC<{ rating: number; reviewCount: number }> = ({ rating, rev
   </div>
 );
 
-// קומפוננט Breadcrumb
-const Breadcrumb: React.FC<{ category?: string; attractionName: string }> = ({ 
-  category, 
-  attractionName 
-}) => (
-  <nav className="bg-gray-50 border-b">
-    <div className="container mx-auto max-w-screen-xl px-4 py-3">
-      <div className="flex items-center space-x-2 rtl:space-x-reverse text-sm text-gray-600">
-        <Link to="/" className="hover:text-primary-600 transition-colors">
-          בית
-        </Link>
-        <span className="text-gray-400">/</span>
-        <Link to="/categories" className="hover:text-primary-600 transition-colors">
-          קטגוריות
-        </Link>
-        {category && (
-          <>
-            <span className="text-gray-400">/</span>
-            <Link 
-              to={category === "waterfalls" || category === "lakes" || category === "rivers" 
-                ? `/water` 
-                : `/category/${category}`} 
-              className="hover:text-primary-600 transition-colors"
-            >
-              {category === "waterfalls" || category === "lakes" || category === "rivers" 
-                ? "אגמים, מפלים ונהרות" 
-                : categoryNames[category] || category}
-            </Link>
-            {(category === "waterfalls" || category === "lakes" || category === "rivers") && (
-              <>
-                <span className="text-gray-400">/</span>
-                <Link 
-                  to={`/water/${category}`} 
-                  className="hover:text-primary-600 transition-colors"
-                >
-                  {categoryNames[category]}
-                </Link>
-              </>
-            )}
-          </>
-        )}
-        <span className="text-gray-400">/</span>
-        <span className="text-gray-900 font-medium truncate">{attractionName}</span>
-      </div>
-    </div>
-  </nav>
-);
 
 // Helper function to get image source from gallery item
 const getImageSrc = (item: string | GalleryItem): string => {
@@ -508,8 +461,6 @@ const AttractionPage: React.FC = () => {
         </div>
       </div>
       
-      {/* ===== BREADCRUMB ===== */}
-      <Breadcrumb category={a.category} attractionName={a.name} />
 
 
       {/* ===== BODY ===== */}
