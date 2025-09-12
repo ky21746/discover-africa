@@ -839,6 +839,367 @@ const AttractionPage: React.FC = () => {
             </div>
           )}
 
+          {/* גריד מידע חשוב לפארק המלכה אליזבת */}
+          {(a.id === 'queen-elizabeth' || a.slug === 'queen-elizabeth') && (
+            <div className="grid grid-cols-1 gap-6">
+              <section className="bg-gradient-to-br from-white via-gray-50 to-white border border-[#CAA131]/60 rounded-3xl p-8 shadow-2xl">
+                <h3 className="text-2xl font-bold text-center text-black mb-8" style={{fontFamily: 'Poppins'}}>
+                  מידע חשוב
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6" style={{fontFamily: 'Poppins'}}>
+                  {/* עמודה שמאלית */}
+                  <div className="space-y-6">
+                    <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
+                      <h4 className="font-bold text-black mb-3 text-lg">עונות השנה</h4>
+                      <div className="space-y-2 text-black">
+                        <p className="text-base">
+                          <strong>הערה כללית:</strong> אוגנדה נמצאת על קו המשווה ולכן אפשר לטייל בה כל השנה. ההבדל הוא בין עונה יבשה לעונה רטובה.
+                        </p>
+                        <ul className="space-y-1 list-disc list-inside text-[#CAA131]">
+                          <li className="text-base text-black"><strong>יבשה</strong> (דצמבר–פברואר, יוני–אוגוסט): חיות סביב מקורות מים, דרכים נוחות</li>
+                          <li className="text-base text-black"><strong>רטובה</strong> (מרץ–מאי, ספטמבר–נובמבר): נוף ירוק, שפע ציפורים, דרכים מאתגרות יותר</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
+                      <h4 className="font-bold text-black mb-3 text-lg">נסיעה והגעה</h4>
+                      <ul className="space-y-1 text-black list-disc list-inside" style={{color: '#CAA131'}}>
+                        <li className="text-base text-black">הנסיעה מקמפלה אורכת <strong>6–7 שעות</strong></li>
+                        <li className="text-base text-black">כדאי יציאה מוקדמת בבוקר</li>
+                        <li className="text-base text-black">אפשרות לינה ביניים בדרך</li>
+                        <li className="text-base text-black"><strong>טיסות פנימיות:</strong> מופעלות על ידי Bar Aviation משדות התעופה Entebbe/Kajjansi</li>
+                      </ul>
+                    </div>
+
+                    <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
+                      <h4 className="font-bold text-black mb-3 text-lg">שערי כניסה</h4>
+                      <ul className="space-y-1 text-black list-disc list-inside" style={{color: '#CAA131'}}>
+                        <li className="text-base text-black"><strong>קאטונגו</strong> – קרוב לעיירות וללודגים נוחים</li>
+                        <li className="text-base text-black"><strong>איששה</strong> – מאפשר המשך ישיר לבווינדי ולגורילות</li>
+                        <li className="text-base text-black"><strong>קזונגו</strong> – צמוד לשייט בתעלת קזינגה</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  {/* עמודה ימנית */}
+                  <div className="space-y-6">
+                    <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
+                      <h4 className="font-bold text-black mb-3 text-lg">חוויות ייחודיות</h4>
+                      <ul className="space-y-1 text-black list-disc list-inside" style={{color: '#CAA131'}}>
+                        <li className="text-base text-black"><strong>שייט בתעלת קזינגה</strong> – תיאום מראש</li>
+                        <li className="text-base text-black"><strong>סקטור איששה</strong> (אריות מטפסי עצים) – תיאום מראש</li>
+                      </ul>
+                    </div>
+
+                    <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
+                      <h4 className="font-bold text-black mb-3 text-lg">משך שהות מומלץ</h4>
+                      <ul className="space-y-1 text-black list-disc list-inside" style={{color: '#CAA131'}}>
+                        <li className="text-base text-black"><strong>יום אחד</strong> – טעימה בלבד</li>
+                        <li className="text-base text-black"><strong>2–3 ימים</strong> – שילוב מלא (ספארי, שייט, קיאמבורה)</li>
+                      </ul>
+                    </div>
+                    
+                    <div className="bg-white rounded-2xl p-5 border-2 border-[#CAA131]">
+                      <h4 className="font-bold text-black mb-3 text-lg">הידעת?</h4>
+                      <div className="space-y-3 text-black">
+                        <div className="bg-white rounded-xl p-4 shadow-sm border border-[#CAA131]">
+                          <p className="text-base leading-relaxed">
+                            הפארק נקרא על שם המלכה אליזבת השנייה שביקרה בו ב־<span className="text-[#CAA131] font-bold">1954</span>
+                          </p>
+                        </div>
+                        
+                        <div className="bg-white rounded-xl p-4 shadow-sm border border-[#CAA131]">
+                          <p className="text-base leading-relaxed">
+                            זהו אחד משני הפארקים הלאומיים היחידים בעולם שבהם אפשר לראות <span className="text-[#CAA131] font-bold">אריות מטפסי עצים</span>
+                          </p>
+                        </div>
+                        
+                        <div className="bg-white rounded-xl p-4 shadow-sm border border-[#CAA131]">
+                          <p className="text-base leading-relaxed">
+                            הפארק משתרע על כמעט <span className="text-[#CAA131] font-bold">2,000 קמ"ר</span> – הגדול באוגנדה. רק לשם השוואה, <span className="text-[#CAA131] font-bold">מדבר יהודה</span> בישראל משתרע על כ־<span className="text-[#CAA131] font-bold">1,500 קמ"ר</span>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+          )}
+
+          {/* גריד מידע חשוב לפארק אגם מבורו */}
+          {(a.id === 'lake-mburo-safari' || a.id === 'lake-mburo-lake' || a.id === 'lake-mburo-water' || a.slug === 'lake-mburo') && (
+            <div className="grid grid-cols-1 gap-6">
+              <section className="bg-gradient-to-br from-white via-gray-50 to-white border border-[#CAA131]/60 rounded-3xl p-8 shadow-2xl">
+                <h3 className="text-2xl font-bold text-center text-black mb-8" style={{fontFamily: 'Poppins'}}>
+                  מידע חשוב
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6" style={{fontFamily: 'Poppins'}}>
+                  {/* עמודה שמאלית */}
+                  <div className="space-y-6">
+                    <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
+                      <h4 className="font-bold text-black mb-3 text-lg">עונות השנה</h4>
+                      <div className="space-y-2 text-black">
+                        <p className="text-base">
+                          <strong>הערה כללית:</strong> אוגנדה נמצאת על קו המשווה ולכן ניתן לטייל בה כל השנה. ההבדל הוא בין עונה יבשה לעונה רטובה.
+                        </p>
+                        <ul className="space-y-1 list-disc list-inside text-[#CAA131]">
+                          <li className="text-base text-black"><strong>יבשה</strong> (יוני–אוגוסט, דצמבר–פברואר): בעלי חיים מתרכזים סביב האגם, קל לתצפת; מזג האוויר נעים לפעילויות חוץ</li>
+                          <li className="text-base text-black"><strong>רטובה</strong> (מרץ–מאי, ספטמבר–נובמבר): הנוף ירוק ושופע, עונת לידות של חיות רבות – אידיאלי לצילום נופים</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
+                      <h4 className="font-bold text-black mb-3 text-lg">נסיעה והגעה</h4>
+                      <ul className="space-y-1 text-black list-disc list-inside text-[#CAA131]">
+                        <li className="text-base text-black">הפארק נמצא כ-<strong>228 ק"מ</strong> מקמפלה, נסיעה של <strong>3.5–4 שעות</strong> בלבד</li>
+                        <li className="text-base text-black">ניתן להגיע גם בטיסה פנימית למנחת ניאקישאררה (Nyakisharara) הסמוך</li>
+                        <li className="text-base text-black">מתאים מאוד כעצירת ביניים בדרך לפארקים בדרום-מערב אוגנדה</li>
+                        <li className="text-base text-black"><strong>טיסות פנימיות:</strong> מופעלות על ידי Bar Aviation משדות התעופה Entebbe/Kajjansi</li>
+                      </ul>
+                    </div>
+
+                    <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
+                      <h4 className="font-bold text-black mb-3 text-lg">שערי כניסה</h4>
+                      <ul className="space-y-1 text-black list-disc list-inside text-[#CAA131]">
+                        <li className="text-base text-black"><strong>שער נשארה (Nshara Gate):</strong> כ-5 ק"מ מהכביש הראשי מקמפלה</li>
+                        <li className="text-base text-black"><strong>שער סנגה (Sanga Gate):</strong> כ-13 ק"מ מהעיירה סנגה</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  {/* עמודה ימנית */}
+                  <div className="space-y-6">
+                    <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
+                      <h4 className="font-bold text-black mb-3 text-lg">חוויות ייחודיות</h4>
+                      <ul className="space-y-1 text-black list-disc list-inside text-[#CAA131]">
+                        <li className="text-base text-black"><strong>ספארי רגלי</strong> – אחד המקומות היחידים באוגנדה בהם ניתן לרדת מהרכב ולצפות בזברות, אימפלות וקרנפים לבנים</li>
+                        <li className="text-base text-black"><strong>ספארי רכיבה על סוסים ואופני הרים</strong> – חוויה אינטימית וייחודית</li>
+                        <li className="text-base text-black"><strong>שייט על האגם</strong> – צפייה בהיפופוטמים, תנינים וציפורי מים</li>
+                        <li className="text-base text-black"><strong>ספארי לילה</strong> – אפשרות לראות חיות ליליות כמו צבועים ונמרים</li>
+                      </ul>
+                    </div>
+
+                    <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
+                      <h4 className="font-bold text-black mb-3 text-lg">משך שהות מומלץ</h4>
+                      <ul className="space-y-1 text-black list-disc list-inside text-[#CAA131]">
+                        <li className="text-base text-black"><strong>2–3 ימים</strong> – מספיקים לספארי, שייט וספארי לילה</li>
+                        <li className="text-base text-black"><strong>3–4 ימים</strong> – למטיילים המעוניינים גם בצפרות ופעילויות אקטיביות נוספות</li>
+                      </ul>
+                    </div>
+                    
+                    <div className="bg-white rounded-2xl p-5 border-2 border-[#CAA131]">
+                      <h4 className="font-bold text-black mb-3 text-lg">הידעת?</h4>
+                      <div className="space-y-3 text-black">
+                        <div className="bg-white rounded-xl p-4 shadow-sm border border-[#CAA131]">
+                          <p className="text-base leading-relaxed">
+                            זהו הפארק <span className="text-[#CAA131] font-bold">היחיד באוגנדה</span> עם זברות ואימפלות במספרים גדולים
+                          </p>
+                        </div>
+                        
+                        <div className="bg-white rounded-xl p-4 shadow-sm border border-[#CAA131]">
+                          <p className="text-base leading-relaxed">
+                            הפארק הקטן ביותר באוגנדה - רק <span className="text-[#CAA131] font-bold">260 קמ"ר</span>
+                          </p>
+                        </div>
+                        
+                        <div className="bg-white rounded-xl p-4 shadow-sm border border-[#CAA131]">
+                          <p className="text-base leading-relaxed">
+                            ללא אריות - מה שמאפשר <span className="text-[#CAA131] font-bold">סיורי הליכה חופשיים</span> ובטוחים
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+          )}
+
+          {/* גריד מידע חשוב לפארק סמוליקי */}
+          {(a.id === 'semuliki' || a.slug === 'semuliki') && (
+            <div className="grid grid-cols-1 gap-6">
+              <section className="bg-gradient-to-br from-white via-gray-50 to-white border border-[#CAA131]/60 rounded-3xl p-8 shadow-2xl">
+                <h3 className="text-2xl font-bold text-center text-black mb-8" style={{fontFamily: 'Poppins'}}>
+                  מידע חשוב
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6" style={{fontFamily: 'Poppins'}}>
+                  {/* עמודה שמאלית */}
+                  <div className="space-y-6">
+                    <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
+                      <h4 className="font-bold text-black mb-3 text-lg">עונות השנה</h4>
+                      <div className="space-y-2 text-black">
+                        <p className="text-base">
+                          אוגנדה שוכנת על קו המשווה ולכן ניתן לטייל בה בכל ימות השנה. עם זאת, ההבדלים בין העונות משפיעים על החוויה:
+                        </p>
+                        <ul className="space-y-1 list-disc list-inside text-[#CAA131]">
+                          <li className="text-base text-black"><strong>עונה יבשה</strong> (דצמבר–פברואר, יוני–אוגוסט): מזג אוויר יבש, שבילים נוחים יותר וקלות גבוהה לצפייה בחיות</li>
+                          <li className="text-base text-black"><strong>עונה רטובה</strong> (מרץ–מאי, ספטמבר–נובמבר): נוף ירוק ועשיר במיוחד, שפע של ציפורים נודדות וחוויה טבעית מרהיבה, אך השבילים עשויים להיות בוציים ומאתגרים</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
+                      <h4 className="font-bold text-black mb-3 text-lg">נסיעה והגעה</h4>
+                      <ul className="space-y-1 text-black list-disc list-inside text-[#CAA131]">
+                        <li className="text-base text-black">מרחק מקמפלה: כ־<strong>305 ק״מ</strong>, כ־<strong>4–5 שעות</strong> נסיעה ברכב עד Fort Portal ועוד כשעה לשער הפארק</li>
+                        <li className="text-base text-black">אפשרות הגעה בטיסות פנימיות לשדה התעופה Toro–Semuliki, עם המשך קצר ברכב</li>
+                        <li className="text-base text-black"><strong>טיסות פנימיות:</strong> מופעלות על ידי Bar Aviation משדות התעופה Entebbe/Kajjansi</li>
+                      </ul>
+                    </div>
+
+                    <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
+                      <h4 className="font-bold text-black mb-3 text-lg">שערי כניסה</h4>
+                      <ul className="space-y-1 text-black list-disc list-inside text-[#CAA131]">
+                        <li className="text-base text-black"><strong>Kirumia Gate</strong> – שער מרכזי לטרקים ארוכים וצפייה בציפורים</li>
+                        <li className="text-base text-black"><strong>Sempaya Gate</strong> – נגיש ונמצא ליד המעיינות החמים, נקודת מוצא לטיולי טבע</li>
+                        <li className="text-base text-black"><strong>Ntandi Gate</strong> – קרוב לאגם אלברט, מתאים לשייט ופעילויות תרבותיות</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  {/* עמודה ימנית */}
+                  <div className="space-y-6">
+                    <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
+                      <h4 className="font-bold text-black mb-3 text-lg">חוויות ייחודיות</h4>
+                      <ul className="space-y-1 text-black list-disc list-inside text-[#CAA131]">
+                        <li className="text-base text-black"><strong>Sempaya Hot Springs</strong> – המעיינות החמים המבעבעים בלב היער</li>
+                        <li className="text-base text-black"><strong>צפרות</strong> – מעל 440 מיני ציפורים, כולל מינים נדירים שמאפיינים את יערות קונגו</li>
+                        <li className="text-base text-black"><strong>פרימטים</strong> – שימפנזים, קופים זהובים, קופים אדומים, בבונים ועוד</li>
+                        <li className="text-base text-black"><strong>טרקים רגליים</strong> – שבילים כמו Kirumia Trail ו־Red Monkey Trail</li>
+                        <li className="text-base text-black"><strong>מפגשים תרבותיים</strong> – עם בני הבטווה (Batwa pygmies) החיים בסמוך ליער</li>
+                      </ul>
+                    </div>
+
+                    <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
+                      <h4 className="font-bold text-black mb-3 text-lg">משך שהות מומלץ</h4>
+                      <ul className="space-y-1 text-black list-disc list-inside text-[#CAA131]">
+                        <li className="text-base text-black"><strong>1–2 ימים:</strong> ביקור במעיינות החמים ובמסלול קצר</li>
+                        <li className="text-base text-black"><strong>2–3 ימים:</strong> מתאים למי שמעוניין לשלב טרקים ארוכים, חוויות תרבותיות וצפרות מעמיקה</li>
+                      </ul>
+                    </div>
+                    
+                    <div className="bg-white rounded-2xl p-5 border-2 border-[#CAA131]">
+                      <h4 className="font-bold text-black mb-3 text-lg">הידעת?</h4>
+                      <div className="space-y-3 text-black">
+                        <div className="bg-white rounded-xl p-4 shadow-sm border border-[#CAA131]">
+                          <p className="text-base leading-relaxed">
+                            זהו הפארק <span className="text-[#CAA131] font-bold">היחיד באוגנדה</span> עם יער גשם טרופי נמוך
+                          </p>
+                        </div>
+                        
+                        <div className="bg-white rounded-xl p-4 shadow-sm border border-[#CAA131]">
+                          <p className="text-base leading-relaxed">
+                            מעל <span className="text-[#CAA131] font-bold">440 מיני ציפורים</span> - אחד המקומות הטובים ביותר לצפרות באוגנדה
+                          </p>
+                        </div>
+                        
+                        <div className="bg-white rounded-xl p-4 shadow-sm border border-[#CAA131]">
+                          <p className="text-base leading-relaxed">
+                            המעיינות החמים <span className="text-[#CAA131] font-bold">מרתיחים ביצים</span> - חום של מעל 100 מעלות!
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+          )}
+
+          {/* גריד מידע חשוב לגורילות ביער בווינדי */}
+          {(a.id === 'bwindi-gorillas' || a.slug === 'bwindi-gorillas' || a.id === 'bwindi-impenetrable' || a.slug === 'bwindi-impenetrable') && (
+            <div className="grid grid-cols-1 gap-6">
+              <section className="bg-gradient-to-br from-white via-gray-50 to-white border border-[#CAA131]/60 rounded-3xl p-8 shadow-2xl">
+                <h3 className="text-2xl font-bold text-center text-black mb-8" style={{fontFamily: 'Poppins'}}>
+                  מידע חשוב
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6" style={{fontFamily: 'Poppins'}}>
+                  {/* עמודה שמאלית */}
+                  <div className="space-y-6">
+                    <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
+                      <h4 className="font-bold text-black mb-3 text-lg">עונות השנה</h4>
+                      <div className="space-y-2 text-black">
+                        <p className="text-base">
+                          אוגנדה שוכנת על קו המשווה ולכן אפשר לטייל כל השנה, אך ההבדלים בין העונות משפיעים:
+                        </p>
+                        <ul className="space-y-1 list-disc list-inside text-[#CAA131]">
+                          <li className="text-base text-black"><strong>עונה יבשה</strong> (יוני–ספטמבר, דצמבר–פברואר): שבילים יבשים ונוחים, ראות טובה יותר במפגש עם גורילות. מומלץ במיוחד לטרקים</li>
+                          <li className="text-base text-black"><strong>עונה רטובה</strong> (מרץ–מאי, אוקטובר–נובמבר): שבילים חלקלקים ומאתגרים, אך פחות תיירים ומחירים נמוכים יותר</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
+                      <h4 className="font-bold text-black mb-3 text-lg">נסיעה והגעה</h4>
+                      <ul className="space-y-1 text-black list-disc list-inside text-[#CAA131]">
+                        <li className="text-base text-black">נסיעה מקמפלה/אנטבה: כ־<strong>9–10 שעות</strong> ברכב</li>
+                        <li className="text-base text-black">נסיעה מקיגאלי (רואנדה): קצרה יותר – כ־<strong>4 שעות</strong></li>
+                        <li className="text-base text-black"><strong>טיסות פנימיות:</strong> מופעלות על ידי Bar Aviation משדות התעופה Entebbe/Kajjansi</li>
+                      </ul>
+                    </div>
+
+                    <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
+                      <h4 className="font-bold text-black mb-3 text-lg">שערי כניסה (מגזרים)</h4>
+                      <ul className="space-y-1 text-black list-disc list-inside text-[#CAA131]">
+                        <li className="text-base text-black"><strong>Buhoma</strong> – נגיש ביותר, טרקים קלים יחסית, חוויות תרבותיות עם בני הבטווה</li>
+                        <li className="text-base text-black"><strong>Rushaga</strong> – הכי הרבה משפחות גורילות, כולל חוויית הסתגלות (Habituation)</li>
+                        <li className="text-base text-black"><strong>Nkuringo</strong> – טרקים קשים ותלולים, נופים מרהיבים</li>
+                        <li className="text-base text-black"><strong>Ruhija</strong> – טרקים נוחים, גן עדן לצפרים</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  {/* עמודה ימנית */}
+                  <div className="space-y-6">
+                    <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
+                      <h4 className="font-bold text-black mb-3 text-lg">חוויות ייחודיות</h4>
+                      <ul className="space-y-1 text-black list-disc list-inside text-[#CAA131]">
+                        <li className="text-base text-black"><strong>טרקינג גורילות</strong> – שעה במחיצת גורילות הרים שהורגלו לנוכחות אדם</li>
+                        <li className="text-base text-black"><strong>חוויית הסתגלות גורילות</strong> – בילוי של 4 שעות עם משפחה בתהליך הסתגלות, יחד עם חוקרים</li>
+                        <li className="text-base text-black"><strong>חוויות תרבותיות</strong> – מפגש עם קהילות מקומיות (Batwa)</li>
+                      </ul>
+                    </div>
+
+                    <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
+                      <h4 className="font-bold text-black mb-3 text-lg">משך שהות מומלץ</h4>
+                      <ul className="space-y-1 text-black list-disc list-inside text-[#CAA131]">
+                        <li className="text-base text-black"><strong>2–3 ימים:</strong> מספיק לטרקינג גורילות יחיד</li>
+                        <li className="text-base text-black"><strong>4+ ימים:</strong> מאפשר שילוב טרקים נוספים, תרבות מקומית וטיולי טבע</li>
+                      </ul>
+                    </div>
+                    
+                    <div className="bg-white rounded-2xl p-5 border-2 border-[#CAA131]">
+                      <h4 className="font-bold text-black mb-3 text-lg">הידעת?</h4>
+                      <div className="space-y-3 text-black">
+                        <div className="bg-white rounded-xl p-4 shadow-sm border border-[#CAA131]">
+                          <p className="text-base leading-relaxed">
+                            בווינדי הוא הבית של כמחצית מ<span className="text-[#CAA131] font-bold">גורילות ההרים</span> שנותרו בעולם
+                          </p>
+                        </div>
+                        
+                        <div className="bg-white rounded-xl p-4 shadow-sm border border-[#CAA131]">
+                          <p className="text-base leading-relaxed">
+                            היער נקרא <span className="text-[#CAA131] font-bold">"בלתי חדיר"</span> בגלל הצמחייה הצפופה והטרקים המאתגרים
+                          </p>
+                        </div>
+                        
+                        <div className="bg-white rounded-xl p-4 shadow-sm border border-[#CAA131]">
+                          <p className="text-base leading-relaxed">
+                            רק <span className="text-[#CAA131] font-bold">8 אנשים ביום</span> יכולים לבקר בכל משפחת גורילות
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+          )}
+
+
 
           {/* שורה תחתונה: חוויות נוספות בדרך ליעד הבא */}
           <div className="grid grid-cols-1 gap-6">
