@@ -810,6 +810,29 @@ const AttractionPage: React.FC = () => {
                         </li>
                       </ul>
                     </div>
+                    
+                    <div className="bg-white rounded-2xl p-5 border-2 border-[#CAA131]">
+                      <h4 className="font-bold text-black mb-3 text-lg">הידעת?</h4>
+                      <div className="space-y-3 text-black">
+                        <div className="bg-white rounded-xl p-4 shadow-sm border border-[#CAA131]">
+                          <p className="text-base leading-relaxed">
+                            המפלים נקראים גם <span className="text-[#CAA131] font-bold">Kabalega Falls</span> על שם מלך בוניורו המקומי
+                          </p>
+                        </div>
+                        
+                        <div className="bg-white rounded-xl p-4 shadow-sm border border-[#CAA131]">
+                          <p className="text-base leading-relaxed">
+                            הנילוס נדחס מ-<span className="text-[#CAA131] font-bold">50 מטר</span> ל-<span className="text-[#CAA131] font-bold">7 מטר</span> בלבד
+                          </p>
+                        </div>
+                        
+                        <div className="bg-white rounded-xl p-4 shadow-sm border border-[#CAA131]">
+                          <p className="text-base leading-relaxed">
+                            הפארק משתרע על <span className="text-[#CAA131] font-bold">3,893 קמ"ר</span> - הגדול באוגנדה
+                          </p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </section>
