@@ -55,10 +55,6 @@ const GorillasPage: React.FC = () => {
               מפגשי פרימטים מרגשים: גורילות בווינדי/מגהינגה ושימפנזים בקיבאלה/קיאמבורה
             </p>
             
-            {/* Single CTA Button */}
-            <button className="bg-transparent border-2 border-[#CAA131] text-[#CAA131] px-8 py-3 rounded-lg font-semibold text-lg transition-colors duration-200 hover:bg-[#CAA131] hover:text-black">
-              צפה בכל המסלולים
-            </button>
           </div>
         </div>
       </section>

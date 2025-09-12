@@ -55,10 +55,6 @@ const SafariPage: React.FC = () => {
               גלו את חוויית הספארי המרהיבה של אוגנדה - ממורצ'יסון ועד המלכה אליזבת
             </p>
             
-            {/* Single CTA Button */}
-            <button className="bg-transparent border-2 border-[#CAA131] text-[#CAA131] px-8 py-3 rounded-lg font-semibold text-lg transition-colors duration-200 hover:bg-[#CAA131] hover:text-black">
-              בנה ספארי מותאם אישי
-            </button>
           </div>
         </div>
       </section>
