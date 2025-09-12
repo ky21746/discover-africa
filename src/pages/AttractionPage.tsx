@@ -691,6 +691,18 @@ const AttractionPage: React.FC = () => {
                     ))}
                   </div>
                 </InfoCard>
+              ) : (a.id === 'rwenzori-mountains' || a.slug === 'rwenzori-mountains') ? (
+                /* עבור הרי הרוונזורי - מה תראו בדרך */
+                <InfoCard title="מה תראו בדרך" className="h-full">
+                  <div className="grid grid-cols-1 gap-4">
+                    {(a as any).howToGetThere && (a as any).howToGetThere.map((item: string, i: number) => (
+                      <div key={i} className="flex items-center gap-4 p-4 bg-gradient-to-r from-[#CAA131]/15 to-[#B8942A]/15 rounded-2xl border border-[#CAA131]/50/30 hover:shadow-xl hover:scale-105 transition-all duration-500">
+                        <div className="w-4 h-4 bg-gradient-to-br from-[#CAA131] to-[#B8942A] rounded-full shadow-lg"></div>
+                        <span className="text-[#4B361C] font-medium text-base text-right">{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                </InfoCard>
               ) : (
                 /* עבור שאר האטרקציות - מה תגלו בדרך */
                 a.wildlife && a.wildlife.length > 0 && (
@@ -1781,6 +1793,88 @@ const AttractionPage: React.FC = () => {
                         <div className="bg-white rounded-xl p-4 shadow-sm border border-[#CAA131]">
                           <p className="text-base leading-relaxed">
                             הקלדרה של אלגון היא <span className="text-[#CAA131] font-bold">אחת מהגדולות בעולם</span> - 8 ק"מ רוחב
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+          )}
+
+          {/* גריד מידע חשוב להרי הרוונזורי */}
+          {(a.id === 'rwenzori-mountains' || a.slug === 'rwenzori-mountains') && (
+            <div className="grid grid-cols-1 gap-6">
+              <section className="bg-gradient-to-br from-white via-gray-50 to-white border border-[#CAA131]/60 rounded-3xl p-8 shadow-2xl">
+                <h3 className="text-2xl font-bold text-center text-black mb-8" style={{fontFamily: 'Poppins'}}>
+                  מידע חשוב
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6" style={{fontFamily: 'Poppins'}}>
+                  {/* עמודה שמאלית */}
+                  <div className="space-y-6">
+                    <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
+                      <h4 className="font-bold text-black mb-3 text-lg">עונות השנה</h4>
+                      <div className="space-y-2 text-black">
+                        <p className="text-base">
+                          הערה כללית: ניתן לטייל כל השנה, אך תנאי מזג האוויר עלולים להשתנות בפתאומיות.
+                        </p>
+                        <ul className="space-y-1 list-disc list-inside text-[#CAA131]">
+                          <li className="text-base text-black"><strong>יבשה</strong> (יוני–אוגוסט, דצמבר–פברואר): העונה הטובה ביותר לטרקים, נגישות גבוהה יותר</li>
+                          <li className="text-base text-black"><strong>רטובה</strong> (מרץ–מאי, ספטמבר–נובמבר): שלג, ברד וגשם אפשריים – מתאימה למטיילים מנוסים המחפשים אתגר</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
+                      <h4 className="font-bold text-black mb-3 text-lg">נסיעה והגעה</h4>
+                      <ul className="space-y-1 text-black list-disc list-inside text-[#CAA131]">
+                        <li className="text-base text-black"><strong>יבשתית:</strong> ~375 ק״מ מקמפלה, 6–7 שעות נסיעה</li>
+                        <li className="text-base text-black"><strong>טיסות פנימיות:</strong> עם Bar Aviation מ־Entebbe / Kajjansi אל מנחת Kasese, השער הקרוב לפארק</li>
+                      </ul>
+                    </div>
+
+                    <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
+                      <h4 className="font-bold text-black mb-3 text-lg">שערי כניסה</h4>
+                      <ul className="space-y-1 text-black list-disc list-inside text-[#CAA131]">
+                        <li className="text-base text-black"><strong>Central Circuit</strong> – המסלול הקלאסי לטרקים של 6–9 ימים</li>
+                        <li className="text-base text-black"><strong>Kilembe Trail</strong> – מסלול חדש יותר, 7–12 ימים, כולל טיפוס לפסגת מרגריטה</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  {/* עמודה ימנית */}
+                  <div className="space-y-6">
+                    <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
+                      <h4 className="font-bold text-black mb-3 text-lg">חוויות ייחודיות</h4>
+                      <ul className="space-y-1 text-black list-disc list-inside text-[#CAA131]">
+                        <li className="text-base text-black"><strong>טיפוס לפסגת Margherita Peak</strong> על הר סטנלי (5,109 מ') – הפסגה הגבוהה באוגנדה</li>
+                        <li className="text-base text-black"><strong>קרחוני עד נדירים</strong> באפריקה</li>
+                        <li className="text-base text-black"><strong>מגוון אקולוגי</strong> – מנופי טרופיים ועד קרחונים אלפיניים</li>
+                        <li className="text-base text-black"><strong>צפרות</strong> – מעל 200 מיני ציפורים, חלקם אנדמיים</li>
+                      </ul>
+                    </div>
+
+                    <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
+                      <h4 className="font-bold text-black mb-3 text-lg">משך שהות מומלץ</h4>
+                      <ul className="space-y-1 text-black list-disc list-inside text-[#CAA131]">
+                        <li className="text-base text-black"><strong>2–4 ימים</strong> – טרקים קצרים ונמוכים יותר</li>
+                        <li className="text-base text-black"><strong>7–12 ימים</strong> – טיפוס לפסגות הגבוהות</li>
+                      </ul>
+                    </div>
+                    
+                    <div className="bg-white rounded-2xl p-5 border-2 border-[#CAA131]">
+                      <h4 className="font-bold text-black mb-3 text-lg">הידעת?</h4>
+                      <div className="space-y-3 text-black">
+                        <div className="bg-white rounded-xl p-4 shadow-sm border border-[#CAA131]">
+                          <p className="text-base leading-relaxed">
+                            הרי הרוונזורי מכונים <span className="text-[#CAA131] font-bold">"ההרים של הירח"</span> ומכילים את הקרחונים הטרופיים היחידים באפריקה
+                          </p>
+                        </div>
+                        
+                        <div className="bg-white rounded-xl p-4 shadow-sm border border-[#CAA131]">
+                          <p className="text-base leading-relaxed">
+                            הפסגה הגבוהה ביותר היא <span className="text-[#CAA131] font-bold">מרגריטה פיק (5,109 מ')</span> - השלישי בגובהו באפריקה
                           </p>
                         </div>
                       </div>
