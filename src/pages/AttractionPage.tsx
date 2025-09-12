@@ -1110,7 +1110,7 @@ const AttractionPage: React.FC = () => {
           )}
 
           {/* גריד מידע חשוב לגורילות ביער בווינדי */}
-          {(a.id === 'bwindi-gorillas' || a.slug === 'bwindi-gorillas' || a.id === 'bwindi-impenetrable' || a.slug === 'bwindi-impenetrable') && (
+          {(a.id === 'gorillas-bwindi' || a.slug === 'gorillas-bwindi' || a.id === 'bwindi-impenetrable' || a.slug === 'bwindi-impenetrable') && (
             <div className="grid grid-cols-1 gap-6">
               <section className="bg-gradient-to-br from-white via-gray-50 to-white border border-[#CAA131]/60 rounded-3xl p-8 shadow-2xl">
                 <h3 className="text-2xl font-bold text-center text-black mb-8" style={{fontFamily: 'Poppins'}}>
@@ -1199,7 +1199,169 @@ const AttractionPage: React.FC = () => {
             </div>
           )}
 
+          {/* גריד מידע חשוב לגורילות מגהינגה */}
+          {(a.id === 'gorillas-mgahinga' || a.slug === 'gorillas-mgahinga') && (
+            <div className="grid grid-cols-1 gap-6">
+              <section className="bg-gradient-to-br from-white via-gray-50 to-white border border-[#CAA131]/60 rounded-3xl p-8 shadow-2xl">
+                <h3 className="text-2xl font-bold text-center text-black mb-8" style={{fontFamily: 'Poppins'}}>
+                  מידע חשוב
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6" style={{fontFamily: 'Poppins'}}>
+                  {/* עמודה שמאלית */}
+                  <div className="space-y-6">
+                    <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
+                      <h4 className="font-bold text-black mb-3 text-lg">עונות השנה</h4>
+                      <div className="space-y-2 text-black">
+                        <p className="text-base">
+                          אוגנדה על קו המשווה ולכן ניתן לטייל כל השנה, אך התנאים משתנים:
+                        </p>
+                        <ul className="space-y-1 list-disc list-inside text-[#CAA131]">
+                          <li className="text-base text-black"><strong>עונה יבשה</strong> (יוני–ספטמבר, דצמבר–פברואר): שבילים נוחים יותר לטרקים, מומלץ במיוחד</li>
+                          <li className="text-base text-black"><strong>עונה רטובה</strong> (מרץ–מאי, ספטמבר–נובמבר): שבילים חלקלקים יותר, פחות תיירים ומחירים נוחים יותר</li>
+                        </ul>
+                      </div>
+                    </div>
 
+                    <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
+                      <h4 className="font-bold text-black mb-3 text-lg">נסיעה והגעה</h4>
+                      <ul className="space-y-1 text-black list-disc list-inside text-[#CAA131]">
+                        <li className="text-base text-black">הפארק נמצא בדרום־מערב אוגנדה, ליד העיירה קיסורו (Kisoro)</li>
+                        <li className="text-base text-black">נסיעה מקמפלה: כ־<strong>9–10 שעות</strong></li>
+                        <li className="text-base text-black">נסיעה מקיגאלי (רואנדה): כ־<strong>3–4 שעות</strong> בלבד, מה שהופך אותו לנגיש מאוד</li>
+                        <li className="text-base text-black"><strong>טיסות פנימיות:</strong> מופעלות על ידי Bar Aviation משדות התעופה Entebbe/Kajjansi</li>
+                      </ul>
+                    </div>
+
+                    <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
+                      <h4 className="font-bold text-black mb-3 text-lg">שערי כניסה</h4>
+                      <ul className="space-y-1 text-black list-disc list-inside text-[#CAA131]">
+                        <li className="text-base text-black">הפעילויות יוצאות ממרכז המבקרים הראשי של הפארק (Ntebeko Visitor Centre)</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  {/* עמודה ימנית */}
+                  <div className="space-y-6">
+                    <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
+                      <h4 className="font-bold text-black mb-3 text-lg">חוויות ייחודיות</h4>
+                      <ul className="space-y-1 text-black list-disc list-inside text-[#CAA131]">
+                        <li className="text-base text-black"><strong>טרקינג גורילות:</strong> חוויה דומה לזו שבבווינדי, עם אוכלוסייה קטנה יותר אך לעיתים צפייה נוחה יותר</li>
+                        <li className="text-base text-black"><strong>קופים זהובים (Golden Monkeys):</strong> מין נדיר ואנדמי לאזור הרי וירונגה – חוויה ייחודית למגהינגה</li>
+                        <li className="text-base text-black"><strong>טיפוס הרי געש כבויים:</strong> הר סאביניו (Mt. Sabyinyo), הר גהינגה (Mt. Gahinga), הר מוהאבורה (Mt. Muhabura). כל אחד מהם מציע נופים עוצרי נשימה ורמות קושי שונות</li>
+                      </ul>
+                    </div>
+
+                    <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
+                      <h4 className="font-bold text-black mb-3 text-lg">משך שהות מומלץ</h4>
+                      <ul className="space-y-1 text-black list-disc list-inside text-[#CAA131]">
+                        <li className="text-base text-black"><strong>יום אחד:</strong> מתאים לטרקינג יחיד (גורילות או קופים זהובים)</li>
+                        <li className="text-base text-black"><strong>2–3 ימים:</strong> מאפשר שילוב של טרקינג פרימטים עם טיפוס הר געש או חוויות תרבותיות</li>
+                      </ul>
+                    </div>
+                    
+                    <div className="bg-white rounded-2xl p-5 border-2 border-[#CAA131]">
+                      <h4 className="font-bold text-black mb-3 text-lg">הידעת?</h4>
+                      <div className="space-y-3 text-black">
+                        <div className="bg-white rounded-xl p-4 shadow-sm border border-[#CAA131]">
+                          <p className="text-base leading-relaxed">
+                            מגהינגה הוא הפארק <span className="text-[#CAA131] font-bold">הקטן ביותר</span> באוגנדה - רק 33.7 קמ"ר
+                          </p>
+                        </div>
+                        
+                        <div className="bg-white rounded-xl p-4 shadow-sm border border-[#CAA131]">
+                          <p className="text-base leading-relaxed">
+                            זהו המקום היחיד באוגנדה שבו אפשר לראות גם <span className="text-[#CAA131] font-bold">גורילות הרים</span> וגם <span className="text-[#CAA131] font-bold">קופים זהובים</span>
+                          </p>
+                        </div>
+                        
+                        <div className="bg-white rounded-xl p-4 shadow-sm border border-[#CAA131]">
+                          <p className="text-base leading-relaxed">
+                            רק <span className="text-[#CAA131] font-bold">משפחת גורילות אחת</span> זמינה למטיילים - חוויה אקסקלוסיבית
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+          )}
+
+          {/* גריד מידע חשוב לשימפנזים בקיבאלה */}
+          {(a.id === 'chimps-kibale' || a.slug === 'chimps-kibale') && (
+            <div className="grid grid-cols-1 gap-6">
+              <section className="bg-gradient-to-br from-white via-gray-50 to-white border border-[#CAA131]/60 rounded-3xl p-8 shadow-2xl">
+                <h3 className="text-2xl font-bold text-center text-black mb-8" style={{fontFamily: 'Poppins'}}>
+                  מידע חשוב
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6" style={{fontFamily: 'Poppins'}}>
+                  {/* עמודה שמאלית */}
+                  <div className="space-y-6">
+                    <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
+                      <h4 className="font-bold text-black mb-3 text-lg">עונות השנה</h4>
+                      <div className="space-y-2 text-black">
+                        <p className="text-base">
+                          אוגנדה על קו המשווה ולכן ניתן לטייל כל השנה, אך התנאים משתנים:
+                        </p>
+                        <ul className="space-y-1 list-disc list-inside text-[#CAA131]">
+                          <li className="text-base text-black"><strong>עונה יבשה</strong> (דצמבר–מרץ, יוני–ספטמבר): מזג אוויר נוח, שבילים יבשים, סיכוי גבוה לפגוש שימפנזים</li>
+                          <li className="text-base text-black"><strong>עונה רטובה</strong> (אפריל–מאי, אוקטובר–נובמבר): פחות מבקרים, הנקיק ירוק ושופע, השימפנזים נשארים קרוב למקורות מזון – מה שמקל על איתורם</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
+                      <h4 className="font-bold text-black mb-3 text-lg">נסיעה והגעה</h4>
+                      <ul className="space-y-1 text-black list-disc list-inside text-[#CAA131]">
+                        <li className="text-base text-black">הפארק נמצא במערב אוגנדה, ליד העיירה פורט פורטל (Fort Portal)</li>
+                        <li className="text-base text-black">נסיעה מקמפלה: כ־<strong>5–6 שעות</strong> ברכב</li>
+                        <li className="text-base text-black"><strong>טיסות פנימיות:</strong> מופעלות על ידי Bar Aviation משדות התעופה Entebbe/Kajjansi</li>
+                      </ul>
+                    </div>
+
+                    <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
+                      <h4 className="font-bold text-black mb-3 text-lg">שערי כניסה</h4>
+                      <ul className="space-y-1 text-black list-disc list-inside text-[#CAA131]">
+                        <li className="text-base text-black"><strong>Kanyanchu Visitor Centre</strong> – נקודת המוצא העיקרית לטרקינג שימפנזים</li>
+                        <li className="text-base text-black">קיימות נקודות גישה נוספות לטרקים רגליים וצפרות בשולי הפארק</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  {/* עמודה ימנית */}
+                  <div className="space-y-6">
+                    <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
+                      <h4 className="font-bold text-black mb-3 text-lg">חוויות ייחודיות</h4>
+                      <ul className="space-y-1 text-black list-disc list-inside text-[#CAA131]">
+                        <li className="text-base text-black"><strong>טרקינג שימפנזים:</strong> מסלול של 2–3 שעות, כולל שעה של תצפית ישירה על הקבוצה לאחר מציאתה</li>
+                        <li className="text-base text-black"><strong>חוויית הסתגלות (Habituation Experience):</strong> בילוי של יום שלם עם חוקרים, תוך צפייה בהתנהגות השימפנזים והשתתפות במעקב – חוויה מעמיקה ונדירה</li>
+                        <li className="text-base text-black"><strong>צפרות ובעלי חיים נוספים:</strong> הפארק הוא אחד מאתרי הצפרות הטובים באפריקה עם יותר מ־370 מיני ציפורים, וכן קופים אדומים, קופים קולובוס ובבונים</li>
+                      </ul>
+                    </div>
+
+                    <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
+                      <h4 className="font-bold text-black mb-3 text-lg">משך שהות מומלץ</h4>
+                      <ul className="space-y-1 text-black list-disc list-inside text-[#CAA131]">
+                        <li className="text-base text-black"><strong>יום אחד:</strong> טרקינג שימפנזים רגיל</li>
+                        <li className="text-base text-black"><strong>2–3 ימים:</strong> שילוב של טרקינג שימפנזים, חווית הסתגלות וצפרות או טיולי טבע נוספים</li>
+                      </ul>
+                    </div>
+                    
+                    <div className="bg-white rounded-2xl p-5 border-2 border-[#CAA131]">
+                      <h4 className="font-bold text-black mb-3 text-lg">הידעת?</h4>
+                      <div className="space-y-3 text-black">
+                        <div className="bg-white rounded-xl p-4 shadow-sm border border-[#CAA131]">
+                          <p className="text-base leading-relaxed">
+                            קיבאלה הוא הבית של <span className="text-[#CAA131] font-bold">האוכלוסייה הגדולה ביותר</span> של שימפנזים באוגנדה
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+          )}
 
           {/* שורה תחתונה: חוויות נוספות בדרך ליעד הבא */}
           <div className="grid grid-cols-1 gap-6">
