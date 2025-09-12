@@ -693,6 +693,129 @@ const AttractionPage: React.FC = () => {
             </div>
           </div>
 
+          {/* גריד מיוחד למפלי מרצ'ינסון - מידע חשוב */}
+          {(a.id === 'murchison-falls-safari' || a.id === 'murchison-falls-water' || a.id === 'murchison-falls-waterfalls' || a.slug === 'murchison-falls') && (
+            <div className="grid grid-cols-1 gap-6">
+              <section className="bg-gradient-to-br from-white via-gray-50 to-white border border-[#CAA131]/60 rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.01] h-full">
+                <h3 className="text-xl font-extrabold mb-6 text-[#4B361C] text-right border-b-2 border-[#CAA131] w-fit">
+                  מידע חשוב
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-right" style={{fontFamily: 'Poppins'}}>
+                  {/* עמודה שמאלית */}
+                  <div className="space-y-4">
+                    <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
+                      <h4 className="font-bold text-black mb-3 text-lg">עונות השנה</h4>
+                      <div className="space-y-3 text-black">
+                        <p className="text-base mb-3"><strong>הערה כללית:</strong> אוגנדה נמצאת על קו המשווה ולכן אפשר לטייל בה כל השנה.</p>
+                        <div className="space-y-2">
+                          <div className="flex items-start gap-2">
+                            <div className="w-2 h-2 bg-[#CAA131] rounded-full mt-2"></div>
+                            <div>
+                              <span className="font-semibold text-black text-base">יבשה (דצמבר–פברואר, יוני–אוגוסט):</span>
+                              <span className="block text-base">חיות מתרכזות סביב מקורות מים, דרכים נוחות יותר.</span>
+                            </div>
+                          </div>
+                          <div className="flex items-start gap-2">
+                            <div className="w-2 h-2 bg-[#CAA131] rounded-full mt-2"></div>
+                            <div>
+                              <span className="font-semibold text-black text-base">רטובה (מרץ–מאי, ספטמבר–נובמבר):</span>
+                              <span className="block text-base">נוף ירוק, שפע ציפורים, פחות תיירים ומחירים נמוכים יותר.</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
+                      <h4 className="font-bold text-black mb-3 text-lg">נסיעה והגעה</h4>
+                      <ul className="space-y-2 text-black">
+                        <li className="flex items-start gap-2">
+                          <div className="w-2 h-2 bg-[#CAA131] rounded-full mt-1.5"></div>
+                          <span className="text-base">כ-<strong>305 ק"מ מקמפלה</strong>, נסיעה של <strong>4–5 שעות</strong></span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <div className="w-2 h-2 bg-[#CAA131] rounded-full mt-1.5"></div>
+                          <span className="text-base">טיסה פנימית (כ-<strong>1 שעה</strong>) למנחתי פאקובה או בוגונגו</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <div className="w-2 h-2 bg-[#CAA131] rounded-full mt-1.5"></div>
+                          <span className="text-base">מעבר במעבורת בין הגדות</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <div className="w-2 h-2 bg-[#CAA131] rounded-full mt-1.5"></div>
+                          <span className="text-base"><strong>Bar Aviation</strong> משדות Entebbe/Kajjansi</span>
+                        </li>
+                      </ul>
+                    </div>
+                    
+                    <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
+                      <h4 className="font-bold text-black mb-3 text-lg">שערי כניסה</h4>
+                      <div className="space-y-2">
+                        <div>
+                          <span className="font-semibold text-black text-base">דרומיים:</span>
+                          <div className="mt-2 space-y-1">
+                            <div className="flex items-start gap-2">
+                              <div className="w-2 h-2 bg-[#CAA131] rounded-full mt-1.5"></div>
+                              <span className="text-base text-black">קיצ'ומבניובו, בוגונגו – מסלול נופי דרך יער בודונגו</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div>
+                          <span className="font-semibold text-black text-base">צפוניים:</span>
+                          <div className="mt-2 space-y-1">
+                            <div className="flex items-start gap-2">
+                              <div className="w-2 h-2 bg-[#CAA131] rounded-full mt-1.5"></div>
+                              <span className="text-base text-black">טנגי, וונקוואר, צ'ובה – נוחים מקידפו או מגולו</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* עמודה ימנית */}
+                  <div className="space-y-4">
+                    <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
+                      <h4 className="font-bold text-black mb-3 text-lg">חוויות ייחודיות</h4>
+                      <ul className="space-y-2 text-black">
+                        <li className="flex items-start gap-2">
+                          <div className="w-2 h-2 bg-[#CAA131] rounded-full mt-1.5"></div>
+                          <span className="text-base"><strong>מפלי מורצ'יסון</strong> – הנילוס נדחס ל-8 מטר בלבד</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <div className="w-2 h-2 bg-[#CAA131] rounded-full mt-1.5"></div>
+                          <span className="text-base"><strong>שייט בסירה</strong> – היפופוטמים, תנינים וציפורים</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <div className="w-2 h-2 bg-[#CAA131] rounded-full mt-1.5"></div>
+                          <span className="text-base"><strong>ספארי לילה</strong> – אחד המקומות היחידים באוגנדה</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <div className="w-2 h-2 bg-[#CAA131] rounded-full mt-1.5"></div>
+                          <span className="text-base"><strong>חמשת הגדולים</strong> – מלבד קרנפים (בזיבה)</span>
+                        </li>
+                      </ul>
+                    </div>
+                    
+                    <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
+                      <h4 className="font-bold text-black mb-3 text-lg">משך שהות מומלץ</h4>
+                      <ul className="space-y-2 text-black">
+                        <li className="flex items-start gap-2">
+                          <div className="w-2 h-2 bg-[#CAA131] rounded-full mt-1.5"></div>
+                          <span className="text-base"><strong>2–3 ימים</strong> – ספארי, שייט, טרק קצר</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <div className="w-2 h-2 bg-[#CAA131] rounded-full mt-1.5"></div>
+                          <span className="text-base"><strong>3+ ימים</strong> – צפרות או טרקינג שימפנזים</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+          )}
+
           {/* שורה שלישית: הידעת + חשוב לדעת */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* הידעת - ריבוע קטן */}
