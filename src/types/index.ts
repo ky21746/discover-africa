@@ -176,6 +176,12 @@ export interface Park {
   difficulty?: 'קל' | 'בינוני' | 'קשה' | string;
   min_age?: number;           // e.g. 12
   license_cost?: string;      // e.g. "$700"
+  
+  // Fun fact for "הידעת?" section
+  funFact?: string;
+  
+  // Important information for "חשוב לדעת" section
+  importantInfo?: string[];
 }
 // Gallery item type
 export interface GalleryItem {
