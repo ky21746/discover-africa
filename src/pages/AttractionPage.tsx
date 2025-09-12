@@ -1363,6 +1363,331 @@ const AttractionPage: React.FC = () => {
             </div>
           )}
 
+          {/* גריד מידע חשוב למפלי סיפי */}
+          {(a.id === 'sipi-falls' || a.slug === 'sipi-falls') && (
+            <div className="grid grid-cols-1 gap-6">
+              <section className="bg-gradient-to-br from-white via-gray-50 to-white border border-[#CAA131]/60 rounded-3xl p-8 shadow-2xl">
+                <h3 className="text-2xl font-bold text-center text-black mb-8" style={{fontFamily: 'Poppins'}}>
+                  מידע חשוב
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6" style={{fontFamily: 'Poppins'}}>
+                  {/* עמודה שמאלית */}
+                  <div className="space-y-6">
+                    <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
+                      <h4 className="font-bold text-black mb-3 text-lg">עונות השנה</h4>
+                      <div className="space-y-2 text-black">
+                        <p className="text-base">
+                          אוגנדה על קו המשווה ולכן ניתן לטייל כל השנה, אך התנאים משתנים:
+                        </p>
+                        <ul className="space-y-1 list-disc list-inside text-[#CAA131]">
+                          <li className="text-base text-black"><strong>עונה יבשה</strong> (יוני–אוקטובר, דצמבר–פברואר): מזג אוויר נוח יותר, השבילים יבשים ומתאימים לטרקים</li>
+                          <li className="text-base text-black"><strong>עונה רטובה</strong> (מרץ–מאי, ספטמבר–נובמבר): הנוף ירוק ושופע, המפלים בשיא עוצמתם, אך השבילים חלקים ומאתגרים</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
+                      <h4 className="font-bold text-black mb-3 text-lg">נסיעה והגעה</h4>
+                      <ul className="space-y-1 text-black list-disc list-inside text-[#CAA131]">
+                        <li className="text-base text-black">מרחק: כ־<strong>220 ק"מ</strong> מקמפלה (<strong>5–6 שעות</strong> נסיעה)</li>
+                        <li className="text-base text-black">נקודת גישה עיקרית: העיירה סיפי (Sipi) הקרובה, הסמוכה לעיר מבאלה (Mbale)</li>
+                        <li className="text-base text-black">ניתן להגיע ברכב פרטי, מונית מקומית או כחלק מטיול מאורגן</li>
+                        <li className="text-base text-black"><strong>טיסות פנימיות:</strong> מופעלות על ידי Bar Aviation משדות התעופה Entebbe/Kajjansi</li>
+                      </ul>
+                    </div>
+
+                    <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
+                      <h4 className="font-bold text-black mb-3 text-lg">שערי כניסה</h4>
+                      <ul className="space-y-1 text-black list-disc list-inside text-[#CAA131]">
+                        <li className="text-base text-black">אין שערי כניסה רשמיים כמו בפארקים הלאומיים; הביקור מתבצע דרך מרכזי המבקרים בסביבת סיפי או דרך לודג'ים מקומיים המציעים מדריכים</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  {/* עמודה ימנית */}
+                  <div className="space-y-6">
+                    <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
+                      <h4 className="font-bold text-black mb-3 text-lg">חוויות ייחודיות</h4>
+                      <ul className="space-y-1 text-black list-disc list-inside text-[#CAA131]">
+                        <li className="text-base text-black"><strong>טרקים לשלושת המפלים המרכזיים</strong> (65 מ', 85 מ', 100 מ')</li>
+                        <li className="text-base text-black"><strong>גלישה בחבלים (Abseiling)</strong> מהמפל הגבוה ביותר – חוויה אקסטרימית נדירה באוגנדה</li>
+                        <li className="text-base text-black"><strong>סיורי קפה מקומיים</strong> (גידול קפה ערביקה באזור סיפי)</li>
+                        <li className="text-base text-black"><strong>טיולי יום באזור שמורת הר אלגון</strong> הסמוכה</li>
+                      </ul>
+                    </div>
+
+                    <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
+                      <h4 className="font-bold text-black mb-3 text-lg">משך שהות מומלץ</h4>
+                      <ul className="space-y-1 text-black list-disc list-inside text-[#CAA131]">
+                        <li className="text-base text-black"><strong>1–2 ימים</strong> מספקים חוויה מלאה: יום אחד לטרק המפלים, יום נוסף לפעילות אקסטרים או סיור קפה</li>
+                      </ul>
+                    </div>
+                    
+                    <div className="bg-white rounded-2xl p-5 border-2 border-[#CAA131]">
+                      <h4 className="font-bold text-black mb-3 text-lg">הידעת?</h4>
+                      <div className="space-y-3 text-black">
+                        <div className="bg-white rounded-xl p-4 shadow-sm border border-[#CAA131]">
+                          <p className="text-base leading-relaxed">
+                            מפלי סיפי מורכבים מ<span className="text-[#CAA131] font-bold">שלושה מפלים</span> בגבהים שונים: 65, 85 ו-100 מטר
+                          </p>
+                        </div>
+                        
+                        <div className="bg-white rounded-xl p-4 shadow-sm border border-[#CAA131]">
+                          <p className="text-base leading-relaxed">
+                            זהו אחד המקומות היחידים באוגנדה שבהם אפשר לחוות <span className="text-[#CAA131] font-bold">גלישה בחבלים</span> מהמפל הגבוה ביותר
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+          )}
+
+          {/* גריד מידע חשוב לג'ינג'ה – מקור הנילוס */}
+          {(a.id === 'jinja-white-nile' || a.slug === 'jinja-white-nile') && (
+            <div className="grid grid-cols-1 gap-6">
+              <section className="bg-gradient-to-br from-white via-gray-50 to-white border border-[#CAA131]/60 rounded-3xl p-8 shadow-2xl">
+                <h3 className="text-2xl font-bold text-center text-black mb-8" style={{fontFamily: 'Poppins'}}>
+                  מידע חשוב
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6" style={{fontFamily: 'Poppins'}}>
+                  {/* עמודה שמאלית */}
+                  <div className="space-y-6">
+                    <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
+                      <h4 className="font-bold text-black mb-3 text-lg">עונות השנה</h4>
+                      <div className="space-y-2 text-black">
+                        <p className="text-base">
+                          ניתן לטייל בג'ינג'ה לאורך כל השנה.
+                        </p>
+                        <ul className="space-y-1 list-disc list-inside text-[#CAA131]">
+                          <li className="text-base text-black"><strong>בעונה היבשה</strong> (דצמבר–פברואר, יוני–אוגוסט) – תנאים נוחים לפעילויות מים ורפטינג</li>
+                          <li className="text-base text-black"><strong>בעונה הרטובה</strong> (מרץ–מאי, ספטמבר–נובמבר) – הזרימות בנילוס חזקות יותר, מה שמעצים חוויות כמו קיאקים ורפטינג, אך ייתכנו ימים גשומים</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
+                      <h4 className="font-bold text-black mb-3 text-lg">נסיעה והגעה</h4>
+                      <ul className="space-y-1 text-black list-disc list-inside text-[#CAA131]">
+                        <li className="text-base text-black">ג'ינג'ה נמצאת כ־<strong>80 ק"מ</strong> מקמפלה, כ־<strong>2–2.5 שעות</strong> נסיעה ברכב</li>
+                        <li className="text-base text-black">ניתן להגיע בתחבורה ציבורית (מיניבוס או מוניות Boda-Boda) או ברכב שכור</li>
+                      </ul>
+                    </div>
+
+                    <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
+                      <h4 className="font-bold text-black mb-3 text-lg">שערי כניסה</h4>
+                      <ul className="space-y-1 text-black list-disc list-inside text-[#CAA131]">
+                        <li className="text-base text-black">אין "שערי פארק" – הכניסה היא ישירות לעיר ג'ינג'ה ולמרכזי הפעילות לאורך גדות הנילוס</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  {/* עמודה ימנית */}
+                  <div className="space-y-6">
+                    <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
+                      <h4 className="font-bold text-black mb-3 text-lg">חוויות ייחודיות</h4>
+                      <ul className="space-y-1 text-black list-disc list-inside text-[#CAA131]">
+                        <li className="text-base text-black"><strong>ביקור במעיין נקרו (Speke Monument)</strong> – נקודת הסימון ההיסטורית של מקור הנילוס</li>
+                        <li className="text-base text-black"><strong>רפטינג וקיאקים במים לבנים</strong> – מהטובים ביותר באפריקה</li>
+                        <li className="text-base text-black"><strong>שיט רגוע בסירה</strong> על הנילוס</li>
+                        <li className="text-base text-black"><strong>פעילויות אקסטרים</strong> כמו בנג'י מעל הנהר, Zipline ו־Quad Biking</li>
+                      </ul>
+                    </div>
+                    
+                    <div className="bg-white rounded-2xl p-5 border-2 border-[#CAA131]">
+                      <h4 className="font-bold text-black mb-3 text-lg">הידעת?</h4>
+                      <div className="space-y-3 text-black">
+                        <div className="bg-white rounded-xl p-4 shadow-sm border border-[#CAA131]">
+                          <p className="text-base leading-relaxed">
+                            ג'ינג'ה היא <span className="text-[#CAA131] font-bold">מקור הנילוס הלבן</span> - הנהר הארוך ביותר בעולם
+                          </p>
+                        </div>
+                        
+                        <div className="bg-white rounded-xl p-4 shadow-sm border border-[#CAA131]">
+                          <p className="text-base leading-relaxed">
+                            זהו אחד מאתרי <span className="text-[#CAA131] font-bold">הרפטינג הטובים ביותר</span> באפריקה עם רמות קושי שונות
+                          </p>
+                        </div>
+                        
+                        <div className="bg-white rounded-xl p-4 shadow-sm border border-[#CAA131]">
+                          <p className="text-base leading-relaxed">
+                            הנילוס זורם <span className="text-[#CAA131] font-bold">6,650 ק"מ</span> מג'ינג'ה עד הים התיכון
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+          )}
+
+          {/* גריד מידע חשוב לאגם ויקטוריה */}
+          {(a.id === 'lake-victoria' || a.slug === 'lake-victoria') && (
+            <div className="grid grid-cols-1 gap-6">
+              <section className="bg-gradient-to-br from-white via-gray-50 to-white border border-[#CAA131]/60 rounded-3xl p-8 shadow-2xl">
+                <h3 className="text-2xl font-bold text-center text-black mb-8" style={{fontFamily: 'Poppins'}}>
+                  מידע חשוב
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6" style={{fontFamily: 'Poppins'}}>
+                  {/* עמודה שמאלית */}
+                  <div className="space-y-6">
+                    <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
+                      <h4 className="font-bold text-black mb-3 text-lg">עונות השנה</h4>
+                      <div className="space-y-2 text-black">
+                        <p className="text-base">
+                          הערה כללית: אוגנדה נמצאת על קו המשווה ולכן אפשר לטייל בה כל השנה. ההבדל הוא בין עונה יבשה לעונה רטובה.
+                        </p>
+                        <ul className="space-y-1 list-disc list-inside text-[#CAA131]">
+                          <li className="text-base text-black"><strong>בעונה היבשה</strong> (דצמבר–פברואר, יוני–אוגוסט): מזג אוויר נעים לשייט, דיג וביקור באיים</li>
+                          <li className="text-base text-black"><strong>בעונה הרטובה</strong> (מרץ–מאי, ספטמבר–נובמבר): האגם מתמלא, הנופים ירוקים, אך ייתכנו גשמים וסופות מקומיות</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
+                      <h4 className="font-bold text-black mb-3 text-lg">נסיעה והגעה</h4>
+                      <ul className="space-y-1 text-black list-disc list-inside text-[#CAA131]">
+                        <li className="text-base text-black">האגם נגיש ממספר נקודות באוגנדה: אנטבה (קרוב לשדה התעופה), קמפלה, ג'ינג'ה, ומספר עיירות נוספות</li>
+                        <li className="text-base text-black">הנסיעה מקמפלה לחוף אנטבה – כ־<strong>1 שעה</strong></li>
+                      </ul>
+                    </div>
+
+                    <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
+                      <h4 className="font-bold text-black mb-3 text-lg">שערי כניסה</h4>
+                      <ul className="space-y-1 text-black list-disc list-inside text-[#CAA131]">
+                        <li className="text-base text-black">אין שערי כניסה רשמיים. הפעילות מתבצעת דרך נמלים מקומיים ומרכזי תיירות (כגון אנטבה וג'ינג'ה)</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  {/* עמודה ימנית */}
+                  <div className="space-y-6">
+                    <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
+                      <h4 className="font-bold text-black mb-3 text-lg">חוויות ייחודיות</h4>
+                      <ul className="space-y-1 text-black list-disc list-inside text-[#CAA131]">
+                        <li className="text-base text-black"><strong>שייט לאיי סססה (Ssese Islands)</strong> – יעד אקזוטי ופחות מתויר</li>
+                        <li className="text-base text-black"><strong>דיג טילפיה ונילוס פרץ</strong> – מהגדולים בעולם</li>
+                        <li className="text-base text-black"><strong>ביקור בחופים</strong> (חוף לוטיקי, חוף ספניש)</li>
+                        <li className="text-base text-black"><strong>תצפיות ציפורים</strong> – פלמינגו, שלדגים ועוד</li>
+                      </ul>
+                    </div>
+
+                    <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
+                      <h4 className="font-bold text-black mb-3 text-lg">משך שהות מומלץ</h4>
+                      <ul className="space-y-1 text-black list-disc list-inside text-[#CAA131]">
+                        <li className="text-base text-black"><strong>1–2 ימים</strong> לביקור קצר מחופי אנטבה/קמפלה</li>
+                      </ul>
+                    </div>
+                    
+                    <div className="bg-white rounded-2xl p-5 border-2 border-[#CAA131]">
+                      <h4 className="font-bold text-black mb-3 text-lg">הידעת?</h4>
+                      <div className="space-y-3 text-black">
+                        <div className="bg-white rounded-xl p-4 shadow-sm border border-[#CAA131]">
+                          <p className="text-base leading-relaxed">
+                            אגם ויקטוריה הוא <span className="text-[#CAA131] font-bold">האגם הטרופי הגדול ביותר</span> בעולם
+                          </p>
+                        </div>
+                        
+                        <div className="bg-white rounded-xl p-4 shadow-sm border border-[#CAA131]">
+                          <p className="text-base leading-relaxed">
+                            האגם משתרע על <span className="text-[#CAA131] font-bold">68,800 קמ"ר</span> - גדול יותר מישראל
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+          )}
+
+          {/* גריד מידע חשוב לאגם בוניוני */}
+          {(a.id === 'lake-bunyonyi' || a.slug === 'lake-bunyonyi') && (
+            <div className="grid grid-cols-1 gap-6">
+              <section className="bg-gradient-to-br from-white via-gray-50 to-white border border-[#CAA131]/60 rounded-3xl p-8 shadow-2xl">
+                <h3 className="text-2xl font-bold text-center text-black mb-8" style={{fontFamily: 'Poppins'}}>
+                  מידע חשוב
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6" style={{fontFamily: 'Poppins'}}>
+                  {/* עמודה שמאלית */}
+                  <div className="space-y-6">
+                    <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
+                      <h4 className="font-bold text-black mb-3 text-lg">עונות השנה</h4>
+                      <div className="space-y-2 text-black">
+                        <p className="text-base">
+                          הערה כללית: אוגנדה נמצאת על קו המשווה ולכן אפשר לטייל בה כל השנה. ההבדל הוא בין עונה יבשה לעונה רטובה.
+                        </p>
+                        <ul className="space-y-1 list-disc list-inside text-[#CAA131]">
+                          <li className="text-base text-black"><strong>בעונה היבשה</strong> (דצמבר–פברואר, יוני–אוגוסט): מזג אוויר יציב ונוח לשייט, טרקים וסיורים בין האיים</li>
+                          <li className="text-base text-black"><strong>בעונה הרטובה</strong> (מרץ–מאי, ספטמבר–נובמבר): הנוף ירוק ורענן במיוחד, מושלם לצילום, אך שבילי ההרים עלולים להיות חלקים</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
+                      <h4 className="font-bold text-black mb-3 text-lg">נסיעה והגעה</h4>
+                      <ul className="space-y-1 text-black list-disc list-inside text-[#CAA131]">
+                        <li className="text-base text-black">האגם נמצא בדרום־מערב אוגנדה, סמוך לגבול עם רואנדה</li>
+                        <li className="text-base text-black">נסיעה מקמפלה נמשכת כ־<strong>7–8 שעות</strong> ברכב</li>
+                        <li className="text-base text-black">ניתן להגיע גם בטיסה פנימית לקיסורו (Kisoro) ומשם נסיעה קצרה</li>
+                        <li className="text-base text-black"><strong>טיסות פנימיות:</strong> מופעלות על ידי Bar Aviation משדות התעופה Entebbe/Kajjansi</li>
+                      </ul>
+                    </div>
+
+                    <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
+                      <h4 className="font-bold text-black mb-3 text-lg">שערי כניסה</h4>
+                      <ul className="space-y-1 text-black list-disc list-inside text-[#CAA131]">
+                        <li className="text-base text-black">אין שערים רשמיים – ההגעה היא ישירות לעיירה קאבאלה (Kabale) או לקיסורו, ומשם אל האגם והאיים</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  {/* עמודה ימנית */}
+                  <div className="space-y-6">
+                    <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
+                      <h4 className="font-bold text-black mb-3 text-lg">חוויות ייחודיות</h4>
+                      <ul className="space-y-1 text-black list-disc list-inside text-[#CAA131]">
+                        <li className="text-base text-black"><strong>שיט בקאנו מסורתי</strong> בין 29 האיים הפזורים באגם</li>
+                        <li className="text-base text-black"><strong>לינה בבקתות</strong> על איים מבודדים</li>
+                        <li className="text-base text-black"><strong>ביקור ב"אי העונשים" (Punishment Island)</strong> – בעל משמעות תרבותית־היסטורית</li>
+                        <li className="text-base text-black"><strong>טיולי הליכה ו־Birdwatching</strong> – האגם הוא גן עדן לצפרים</li>
+                        <li className="text-base text-black"><strong>Zipline מעל האגם</strong> – פעילות אדרנלין פופולרית</li>
+                      </ul>
+                    </div>
+
+                    <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
+                      <h4 className="font-bold text-black mb-3 text-lg">משך שהות מומלץ</h4>
+                      <ul className="space-y-1 text-black list-disc list-inside text-[#CAA131]">
+                        <li className="text-base text-black"><strong>2–3 ימים</strong> כדי ליהנות מהשקט ומהפעילויות</li>
+                        <li className="text-base text-black">ניתן לשלב כחלק מהמסלול אל/מפארקי הגורילות (בווינדי/מגהינגה)</li>
+                      </ul>
+                    </div>
+                    
+                    <div className="bg-white rounded-2xl p-5 border-2 border-[#CAA131]">
+                      <h4 className="font-bold text-black mb-3 text-lg">הידעת?</h4>
+                      <div className="space-y-3 text-black">
+                        <div className="bg-white rounded-xl p-4 shadow-sm border border-[#CAA131]">
+                          <p className="text-base leading-relaxed">
+                            אגם בוניוני מכיל <span className="text-[#CAA131] font-bold">29 איים</span> שונים - כל אחד עם סיפור ייחודי
+                          </p>
+                        </div>
+                        
+                        <div className="bg-white rounded-xl p-4 shadow-sm border border-[#CAA131]">
+                          <p className="text-base leading-relaxed">
+                            האגם הוא <span className="text-[#CAA131] font-bold">אחד האגמים העמוקים ביותר</span> באפריקה - עד 900 מטר עומק
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+          )}
+
           {/* שורה תחתונה: חוויות נוספות בדרך ליעד הבא */}
           <div className="grid grid-cols-1 gap-6">
             <section className="bg-white border border-[#534B20]/60 rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.01]">
