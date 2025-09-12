@@ -7,6 +7,7 @@ import { Star, Share2, Heart, MapPin, Clock, Users, Camera, Route, Plus, X, Chev
 import { gorillasChimps } from "../content/categories/gorillas-chimps";
 import { safari } from "../content/categories/safari";
 import { water } from "../content/categories/water";
+import { mountains } from "../content/categories/mountains";
 import { extreme } from "../content/categories/extreme";
 import { parks } from "../data/parks";
 
@@ -44,7 +45,7 @@ const parksAsAttractions: AttractionWithMock[] = parks.map(park => ({
   // שדות נוספים לפי הצורך
 }));
 
-const allAttractions: AttractionWithMock[] = [...gorillasChimps, ...safari, ...water, ...parksAsAttractions];
+const allAttractions: AttractionWithMock[] = [...gorillasChimps, ...safari, ...water, ...mountains, ...parksAsAttractions];
 
 // מיפוי קטגוריות לשמות בעברית
 const categoryNames: Record<string, string> = {
@@ -678,17 +679,32 @@ const AttractionPage: React.FC = () => {
 
             {/* מה תגלו בדרך - 50% */}
             <div className="md:col-span-1">
-              {a.wildlife && a.wildlife.length > 0 && (
-                <InfoCard title="מה תגלו בדרך" className="h-full">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {a.wildlife.map((w, i) => (
+              {/* עבור הר אלגון - מה תראו בדרך */}
+              {(a.id === 'mount-elgon' || a.slug === 'mount-elgon') ? (
+                <InfoCard title="מה תראו בדרך" className="h-full">
+                  <div className="grid grid-cols-1 gap-4">
+                    {(a as any).howToGetThere && (a as any).howToGetThere.map((item: string, i: number) => (
                       <div key={i} className="flex items-center gap-4 p-4 bg-gradient-to-r from-[#CAA131]/15 to-[#B8942A]/15 rounded-2xl border border-[#CAA131]/50/30 hover:shadow-xl hover:scale-105 transition-all duration-500">
                         <div className="w-4 h-4 bg-gradient-to-br from-[#CAA131] to-[#B8942A] rounded-full shadow-lg"></div>
-                        <span className="text-[#4B361C] font-medium text-base text-right">{w}</span>
+                        <span className="text-[#4B361C] font-medium text-base text-right">{item}</span>
                       </div>
                     ))}
                   </div>
                 </InfoCard>
+              ) : (
+                /* עבור שאר האטרקציות - מה תגלו בדרך */
+                a.wildlife && a.wildlife.length > 0 && (
+                  <InfoCard title="מה תגלו בדרך" className="h-full">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      {a.wildlife.map((w, i) => (
+                        <div key={i} className="flex items-center gap-4 p-4 bg-gradient-to-r from-[#CAA131]/15 to-[#B8942A]/15 rounded-2xl border border-[#CAA131]/50/30 hover:shadow-xl hover:scale-105 transition-all duration-500">
+                          <div className="w-4 h-4 bg-gradient-to-br from-[#CAA131] to-[#B8942A] rounded-full shadow-lg"></div>
+                          <span className="text-[#4B361C] font-medium text-base text-right">{w}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </InfoCard>
+                )
               )}
             </div>
           </div>
@@ -1678,6 +1694,93 @@ const AttractionPage: React.FC = () => {
                         <div className="bg-white rounded-xl p-4 shadow-sm border border-[#CAA131]">
                           <p className="text-base leading-relaxed">
                             האגם הוא <span className="text-[#CAA131] font-bold">אחד האגמים העמוקים ביותר</span> באפריקה - עד 900 מטר עומק
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+          )}
+
+          {/* גריד מידע חשוב להר אלגון */}
+          {(a.id === 'mount-elgon' || a.slug === 'mount-elgon') && (
+            <div className="grid grid-cols-1 gap-6">
+              <section className="bg-gradient-to-br from-white via-gray-50 to-white border border-[#CAA131]/60 rounded-3xl p-8 shadow-2xl">
+                <h3 className="text-2xl font-bold text-center text-black mb-8" style={{fontFamily: 'Poppins'}}>
+                  מידע חשוב
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6" style={{fontFamily: 'Poppins'}}>
+                  {/* עמודה שמאלית */}
+                  <div className="space-y-6">
+                    <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
+                      <h4 className="font-bold text-black mb-3 text-lg">עונות השנה</h4>
+                      <div className="space-y-2 text-black">
+                        <p className="text-base">
+                          הערה כללית: אוגנדה נמצאת על קו המשווה ולכן ניתן לטייל בה כל השנה. ההבדל הוא בין עונה יבשה לעונה רטובה.
+                        </p>
+                        <ul className="space-y-1 list-disc list-inside text-[#CAA131]">
+                          <li className="text-base text-black"><strong>עונה יבשה</strong> (דצמבר–פברואר, יוני–ספטמבר): מזג אוויר יציב, שבילים יבשים ונוחים לטרקים, ראות טובה מהפסגות</li>
+                          <li className="text-base text-black"><strong>עונה רטובה</strong> (מרץ–מאי, אוקטובר–נובמבר): הנוף ירוק ושופע, מפלי סיפי בשיא עוצמתם, אך שבילים חלקים ומאתגרים</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
+                      <h4 className="font-bold text-black mb-3 text-lg">נסיעה והגעה</h4>
+                      <ul className="space-y-1 text-black list-disc list-inside text-[#CAA131]">
+                        <li className="text-base text-black">הפארק נמצא במזרח אוגנדה, ליד העיירה מבאלה (Mbale)</li>
+                        <li className="text-base text-black">נסיעה מקמפלה: כ־<strong>4–5 שעות</strong> ברכב</li>
+                        <li className="text-base text-black">נסיעה ממבאלה: כ־<strong>30 דקות</strong> לשער הפארק</li>
+                        <li className="text-base text-black"><strong>טיסות פנימיות:</strong> מופעלות על ידי Bar Aviation משדות התעופה Entebbe/Kajjansi</li>
+                      </ul>
+                    </div>
+
+                    <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
+                      <h4 className="font-bold text-black mb-3 text-lg">שערי כניסה</h4>
+                      <ul className="space-y-1 text-black list-disc list-inside text-[#CAA131]">
+                        <li className="text-base text-black"><strong>שער מבאלה (Mbale Gate)</strong> – השער הראשי והנגיש ביותר</li>
+                        <li className="text-base text-black"><strong>שער סיפי (Sipi Gate)</strong> – קרוב למפלי סיפי, מתאים לשילוב טרקים</li>
+                        <li className="text-base text-black"><strong>שער קפוורוט (Kapchorwa Gate)</strong> – נקודת גישה מהצד הקנייתי</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  {/* עמודה ימנית */}
+                  <div className="space-y-6">
+                    <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
+                      <h4 className="font-bold text-black mb-3 text-lg">חוויות ייחודיות</h4>
+                      <ul className="space-y-1 text-black list-disc list-inside text-[#CAA131]">
+                        <li className="text-base text-black"><strong>טרק לפסגה</strong> – טיפוס לפסגת ווגאגאי (4,321 מ')</li>
+                        <li className="text-base text-black"><strong>טרק הקלדרה</strong> – הליכה בתוך הקלדרה העצומה</li>
+                        <li className="text-base text-black"><strong>מפלי סיפי</strong> – 3 מפלים מרהיבים (65, 85, 100 מטר)</li>
+                        <li className="text-base text-black"><strong>טיפוס בסלע</strong> – פעילות אקסטרים במפלי סיפי</li>
+                        <li className="text-base text-black"><strong>סיורי קפה</strong> – ביקור במטעי קפה מקומיים</li>
+                      </ul>
+                    </div>
+
+                    <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
+                      <h4 className="font-bold text-black mb-3 text-lg">משך שהות מומלץ</h4>
+                      <ul className="space-y-1 text-black list-disc list-inside text-[#CAA131]">
+                        <li className="text-base text-black"><strong>3–4 ימים</strong> – טרק קצר לפסגה + מפלי סיפי</li>
+                        <li className="text-base text-black"><strong>5–6 ימים</strong> – טרק מלא עם הקלדרה + פעילויות נוספות</li>
+                        <li className="text-base text-black">ניתן לשלב עם ביקור במבאלה וסיורי קפה</li>
+                      </ul>
+                    </div>
+                    
+                    <div className="bg-white rounded-2xl p-5 border-2 border-[#CAA131]">
+                      <h4 className="font-bold text-black mb-3 text-lg">הידעת?</h4>
+                      <div className="space-y-3 text-black">
+                        <div className="bg-white rounded-xl p-4 shadow-sm border border-[#CAA131]">
+                          <p className="text-base leading-relaxed">
+                            הר אלגון הוא <span className="text-[#CAA131] font-bold">הר הגעש הכבוי הרביעי בגובהו באפריקה</span> - 4,321 מטר
+                          </p>
+                        </div>
+                        
+                        <div className="bg-white rounded-xl p-4 shadow-sm border border-[#CAA131]">
+                          <p className="text-base leading-relaxed">
+                            הקלדרה של אלגון היא <span className="text-[#CAA131] font-bold">אחת מהגדולות בעולם</span> - 8 ק"מ רוחב
                           </p>
                         </div>
                       </div>
