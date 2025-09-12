@@ -186,11 +186,6 @@ export const safari: Attraction[] = [
     
     gallery: [
       {
-        src: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FMurchison%20Falls%20National%20Park%2Fmurchison-falls-hero.webp?alt=media&token=56ccea2c-c574-46a6-ac3a-a0ecc2fbc3a5",
-        title: "מפלי מורצ'יסון",
-        description: "המפל העוצמתי ביותר בעולם - הנילוס נדחס ב-7 מטר"
-      },
-      {
         src: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FMurchison%20Falls%20National%20Park%2FMurchison%20Falls.webp?alt=media&token=f1eca0ab-4803-4ae5-bdce-74f08f66fe47",
         title: "המפל העוצמתי",
         description: "הנילוס נדחס דרך נקיק צר ויוצר מפל אדיר"

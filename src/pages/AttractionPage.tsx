@@ -491,11 +491,11 @@ const AttractionPage: React.FC = () => {
         </div>
 
         {/* גריד מושלם מסודר */}
-        <div className="space-y-6">
+        <div className="space-y-6 flex flex-col md:block">
           {/* שורה עליונה: תיאור האטרקציה + מפה */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
             {/* תיאור האטרקציה - ריבוע רחב */}
-            <div className="md:col-span-2">
+            <div className="md:col-span-2 order-2 md:order-1">
               <section className="bg-gradient-to-br from-white via-gray-50 to-white border border-[#534B20]/60 rounded-3xl p-8 md:p-10 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.01] h-full">
                 <div className="space-y-8">
                   {a.subtitle && (
@@ -533,7 +533,7 @@ const AttractionPage: React.FC = () => {
             </div>
 
             {/* מפה - ריבוע */}
-            <div className="md:col-span-1">
+            <div className="md:col-span-1 order-6 md:order-2">
               <section className="rounded-2xl overflow-hidden border border-[#534B20]/60 bg-white shadow-lg hover:shadow-xl transition-all duration-300 h-full">
                 <div className="relative cursor-pointer h-full" onClick={() => setMapFullscreen(true)}>
                   <iframe
@@ -622,7 +622,7 @@ const AttractionPage: React.FC = () => {
           {/* שורה שנייה: גלריה + מה תגלו בדרך */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* גלריה - ריבוע */}
-            <div className="md:col-span-1">
+            <div className="md:col-span-1 order-5 md:order-1">
 
               {a.gallery && a.gallery.length > 0 && (
                 <section className="bg-gradient-to-br from-gray-50 via-gray-100 to-gray-50 border border-[#534B20]/60 rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.01] h-full">
@@ -678,7 +678,7 @@ const AttractionPage: React.FC = () => {
             </div>
 
             {/* מה תגלו בדרך - 50% */}
-            <div className="md:col-span-1">
+            <div className="md:col-span-1 order-3 md:order-2">
               {/* עבור הר אלגון - מה תראו בדרך */}
               {(a.id === 'mount-elgon' || a.slug === 'mount-elgon') ? (
                 <InfoCard title="מה תראו בדרך" className="h-full">
@@ -723,7 +723,7 @@ const AttractionPage: React.FC = () => {
 
           {/* גריד מיוחד למפלי מרצ'ינסון - מידע חשוב */}
           {(a.id === 'murchison-falls-safari' || a.id === 'murchison-falls-water' || a.id === 'murchison-falls-waterfalls' || a.slug === 'murchison-falls') && (
-            <div className="grid grid-cols-1 gap-6">
+            <div className="grid grid-cols-1 gap-6 order-4 md:order-none">
               <section className="bg-gradient-to-br from-white via-gray-50 to-white border border-[#CAA131]/60 rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.01] h-full">
                 <h3 className="text-xl font-extrabold mb-6 text-[#4B361C] text-right border-b-2 border-[#CAA131] w-fit">
                   מידע חשוב
@@ -869,7 +869,7 @@ const AttractionPage: React.FC = () => {
 
           {/* גריד מידע חשוב לפארק המלכה אליזבת */}
           {(a.id === 'queen-elizabeth' || a.slug === 'queen-elizabeth') && (
-            <div className="grid grid-cols-1 gap-6">
+            <div className="grid grid-cols-1 gap-6 order-4 md:order-none">
               <section className="bg-gradient-to-br from-white via-gray-50 to-white border border-[#CAA131]/60 rounded-3xl p-8 shadow-2xl">
                 <h3 className="text-2xl font-bold text-center text-black mb-8" style={{fontFamily: 'Poppins'}}>
                   מידע חשוב
@@ -958,7 +958,7 @@ const AttractionPage: React.FC = () => {
 
           {/* גריד מידע חשוב לפארק אגם מבורו */}
           {(a.id === 'lake-mburo-safari' || a.id === 'lake-mburo-lake' || a.id === 'lake-mburo-water' || a.slug === 'lake-mburo') && (
-            <div className="grid grid-cols-1 gap-6">
+            <div className="grid grid-cols-1 gap-6 order-4 md:order-none">
               <section className="bg-gradient-to-br from-white via-gray-50 to-white border border-[#CAA131]/60 rounded-3xl p-8 shadow-2xl">
                 <h3 className="text-2xl font-bold text-center text-black mb-8" style={{fontFamily: 'Poppins'}}>
                   מידע חשוב
@@ -1048,7 +1048,7 @@ const AttractionPage: React.FC = () => {
 
           {/* גריד מידע חשוב לפארק סמוליקי */}
           {(a.id === 'semuliki' || a.slug === 'semuliki') && (
-            <div className="grid grid-cols-1 gap-6">
+            <div className="grid grid-cols-1 gap-6 order-4 md:order-none">
               <section className="bg-gradient-to-br from-white via-gray-50 to-white border border-[#CAA131]/60 rounded-3xl p-8 shadow-2xl">
                 <h3 className="text-2xl font-bold text-center text-black mb-8" style={{fontFamily: 'Poppins'}}>
                   מידע חשוב
@@ -1139,7 +1139,7 @@ const AttractionPage: React.FC = () => {
 
           {/* גריד מידע חשוב לגורילות ביער בווינדי */}
           {(a.id === 'gorillas-bwindi' || a.slug === 'gorillas-bwindi' || a.id === 'bwindi-impenetrable' || a.slug === 'bwindi-impenetrable') && (
-            <div className="grid grid-cols-1 gap-6">
+            <div className="grid grid-cols-1 gap-6 order-4 md:order-none">
               <section className="bg-gradient-to-br from-white via-gray-50 to-white border border-[#CAA131]/60 rounded-3xl p-8 shadow-2xl">
                 <h3 className="text-2xl font-bold text-center text-black mb-8" style={{fontFamily: 'Poppins'}}>
                   מידע חשוב
@@ -1229,7 +1229,7 @@ const AttractionPage: React.FC = () => {
 
           {/* גריד מידע חשוב לגורילות מגהינגה */}
           {(a.id === 'gorillas-mgahinga' || a.slug === 'gorillas-mgahinga') && (
-            <div className="grid grid-cols-1 gap-6">
+            <div className="grid grid-cols-1 gap-6 order-4 md:order-none">
               <section className="bg-gradient-to-br from-white via-gray-50 to-white border border-[#CAA131]/60 rounded-3xl p-8 shadow-2xl">
                 <h3 className="text-2xl font-bold text-center text-black mb-8" style={{fontFamily: 'Poppins'}}>
                   מידע חשוב
@@ -1317,7 +1317,7 @@ const AttractionPage: React.FC = () => {
 
           {/* גריד מידע חשוב לשימפנזים בקיבאלה */}
           {(a.id === 'chimps-kibale' || a.slug === 'chimps-kibale') && (
-            <div className="grid grid-cols-1 gap-6">
+            <div className="grid grid-cols-1 gap-6 order-4 md:order-none">
               <section className="bg-gradient-to-br from-white via-gray-50 to-white border border-[#CAA131]/60 rounded-3xl p-8 shadow-2xl">
                 <h3 className="text-2xl font-bold text-center text-black mb-8" style={{fontFamily: 'Poppins'}}>
                   מידע חשוב
@@ -1393,7 +1393,7 @@ const AttractionPage: React.FC = () => {
 
           {/* גריד מידע חשוב למפלי סיפי */}
           {(a.id === 'sipi-falls' || a.slug === 'sipi-falls') && (
-            <div className="grid grid-cols-1 gap-6">
+            <div className="grid grid-cols-1 gap-6 order-4 md:order-none">
               <section className="bg-gradient-to-br from-white via-gray-50 to-white border border-[#CAA131]/60 rounded-3xl p-8 shadow-2xl">
                 <h3 className="text-2xl font-bold text-center text-black mb-8" style={{fontFamily: 'Poppins'}}>
                   מידע חשוב
@@ -1475,7 +1475,7 @@ const AttractionPage: React.FC = () => {
 
           {/* גריד מידע חשוב לג'ינג'ה – מקור הנילוס */}
           {(a.id === 'jinja-white-nile' || a.slug === 'jinja-white-nile') && (
-            <div className="grid grid-cols-1 gap-6">
+            <div className="grid grid-cols-1 gap-6 order-4 md:order-none">
               <section className="bg-gradient-to-br from-white via-gray-50 to-white border border-[#CAA131]/60 rounded-3xl p-8 shadow-2xl">
                 <h3 className="text-2xl font-bold text-center text-black mb-8" style={{fontFamily: 'Poppins'}}>
                   מידע חשוב
@@ -1554,7 +1554,7 @@ const AttractionPage: React.FC = () => {
 
           {/* גריד מידע חשוב לאגם ויקטוריה */}
           {(a.id === 'lake-victoria' || a.slug === 'lake-victoria') && (
-            <div className="grid grid-cols-1 gap-6">
+            <div className="grid grid-cols-1 gap-6 order-4 md:order-none">
               <section className="bg-gradient-to-br from-white via-gray-50 to-white border border-[#CAA131]/60 rounded-3xl p-8 shadow-2xl">
                 <h3 className="text-2xl font-bold text-center text-black mb-8" style={{fontFamily: 'Poppins'}}>
                   מידע חשוב
@@ -1634,7 +1634,7 @@ const AttractionPage: React.FC = () => {
 
           {/* גריד מידע חשוב לאגם בוניוני */}
           {(a.id === 'lake-bunyonyi' || a.slug === 'lake-bunyonyi') && (
-            <div className="grid grid-cols-1 gap-6">
+            <div className="grid grid-cols-1 gap-6 order-4 md:order-none">
               <section className="bg-gradient-to-br from-white via-gray-50 to-white border border-[#CAA131]/60 rounded-3xl p-8 shadow-2xl">
                 <h3 className="text-2xl font-bold text-center text-black mb-8" style={{fontFamily: 'Poppins'}}>
                   מידע חשוב
@@ -1718,7 +1718,7 @@ const AttractionPage: React.FC = () => {
 
           {/* גריד מידע חשוב להר אלגון */}
           {(a.id === 'mount-elgon' || a.slug === 'mount-elgon') && (
-            <div className="grid grid-cols-1 gap-6">
+            <div className="grid grid-cols-1 gap-6 order-4 md:order-none">
               <section className="bg-gradient-to-br from-white via-gray-50 to-white border border-[#CAA131]/60 rounded-3xl p-8 shadow-2xl">
                 <h3 className="text-2xl font-bold text-center text-black mb-8" style={{fontFamily: 'Poppins'}}>
                   מידע חשוב
@@ -1805,7 +1805,7 @@ const AttractionPage: React.FC = () => {
 
           {/* גריד מידע חשוב להרי הרוונזורי */}
           {(a.id === 'rwenzori-mountains' || a.slug === 'rwenzori-mountains') && (
-            <div className="grid grid-cols-1 gap-6">
+            <div className="grid grid-cols-1 gap-6 order-4 md:order-none">
               <section className="bg-gradient-to-br from-white via-gray-50 to-white border border-[#CAA131]/60 rounded-3xl p-8 shadow-2xl">
                 <h3 className="text-2xl font-bold text-center text-black mb-8" style={{fontFamily: 'Poppins'}}>
                   מידע חשוב
@@ -1886,7 +1886,7 @@ const AttractionPage: React.FC = () => {
           )}
 
           {/* שורה תחתונה: חוויות נוספות בדרך ליעד הבא */}
-          <div className="grid grid-cols-1 gap-6">
+          <div className="grid grid-cols-1 gap-6 order-7 md:order-none">
             <section className="bg-white border border-[#534B20]/60 rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.01]">
               <h3 className="text-xl font-bold text-center text-[#4B361C] mb-8">
                 חוויות נוספות בדרך ליעד הבא
@@ -2018,7 +2018,7 @@ const AttractionPage: React.FC = () => {
       {/* כפתור חזרה לקטגוריות */}
       <div className="container mx-auto max-w-screen-xl px-4 py-8">
         {/* מקטע השירותים */}
-        <div className="mb-8">
+        <div className="mb-8 order-8 md:order-none">
           <h3 className="text-2xl font-bold text-center text-[#4B361C] mb-6">
             השירותים שלנו
           </h3>
