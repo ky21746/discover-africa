@@ -70,7 +70,7 @@ const Footer: React.FC = () => {
             </ul>
             <div className="mt-4 pt-4 border-t border-gray-700">
               <Link to="/services/bar-sos" className="text-[#CAA131] hover:text-[#B8942A] transition-colors text-sm">
-                ביטחון רפואי 24/7 – BAR SOS
+                איתור וחילוץ רפואי 24/7 – BAR SOS
               </Link>
             </div>
           </div>
