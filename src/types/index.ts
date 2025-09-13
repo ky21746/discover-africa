@@ -190,6 +190,13 @@ export interface GalleryItem {
   description: string;
 }
 
+// Extended Attraction with mock data for demo
+export type AttractionWithMock = Attraction & {
+  rating?: number;
+  reviewCount?: number;
+  price?: string;
+};
+
 // ===== Attractions (new unified type) =====
 export interface Attraction {
   id: string;                 // למשל "gorillas-bwindi"
