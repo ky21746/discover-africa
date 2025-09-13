@@ -734,7 +734,7 @@ const AttractionPage: React.FC = () => {
                     <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
                       <h4 className="font-bold text-black mb-3 text-lg">עונות השנה</h4>
                       <div className="space-y-3 text-black">
-                        <p className="text-base mb-3"><strong>הערה כללית:</strong> אוגנדה נמצאת על קו המשווה ולכן אפשר לטייל בה כל השנה.</p>
+                        <p className="text-base mb-3"><strong>הערה כללית:</strong> הודות למיקומה על קו המשווה, אוגנדה מציעה חוויית ספארי וטיולים המתאימה לכל עונה.</p>
                         <div className="space-y-2">
                           <div className="flex items-start gap-2">
                             <div className="w-2 h-2 bg-[#CAA131] rounded-full mt-2"></div>
@@ -763,15 +763,11 @@ const AttractionPage: React.FC = () => {
                         </li>
                         <li className="flex items-start gap-2">
                           <div className="w-2 h-2 bg-[#CAA131] rounded-full mt-1.5"></div>
-                          <span className="text-base">טיסה פנימית (כ-<strong>1 שעה</strong>) למנחתי פאקובה או בוגונגו</span>
+                          <span className="text-base">טיסה פנימית (כ-<strong>1 שעה</strong>) עם <strong>Bar Aviation</strong> משדות Entebbe/Kajjansi</span>
                         </li>
                         <li className="flex items-start gap-2">
                           <div className="w-2 h-2 bg-[#CAA131] rounded-full mt-1.5"></div>
                           <span className="text-base">מעבר במעבורת בין הגדות</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <div className="w-2 h-2 bg-[#CAA131] rounded-full mt-1.5"></div>
-                          <span className="text-base"><strong>Bar Aviation</strong> משדות Entebbe/Kajjansi</span>
                         </li>
                       </ul>
                     </div>
@@ -808,7 +804,7 @@ const AttractionPage: React.FC = () => {
                       <ul className="space-y-2 text-black">
                         <li className="flex items-start gap-2">
                           <div className="w-2 h-2 bg-[#CAA131] rounded-full mt-1.5"></div>
-                          <span className="text-base"><strong>מפלי מורצ'יסון</strong> – הנילוס נדחס ל-8 מטר בלבד</span>
+                          <span className="text-base"><strong>מפלי מורצ'יסון</strong> – הנילוס נדחס מ-48 מטר ל-7 מטר בלבד</span>
                         </li>
                         <li className="flex items-start gap-2">
                           <div className="w-2 h-2 bg-[#CAA131] rounded-full mt-1.5"></div>
@@ -839,6 +835,20 @@ const AttractionPage: React.FC = () => {
                       </ul>
                     </div>
                     
+                    <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
+                      <h4 className="font-bold text-black mb-3 text-lg">דמי כניסה</h4>
+                      <ul className="space-y-2 text-black">
+                        <li className="flex items-start gap-2">
+                          <div className="w-2 h-2 bg-[#CAA131] rounded-full mt-1.5"></div>
+                          <span className="text-base"><strong>$35 למבקר בינלאומי</strong> ליום</span>
+                        </li>
+                        <li className="flex items-start gap-2">
+                          <div className="w-2 h-2 bg-[#CAA131] rounded-full mt-1.5"></div>
+                          <span className="text-base">כולל גישה לכל האזורים והפעילויות</span>
+                        </li>
+                      </ul>
+                    </div>
+                    
                     <div className="bg-white rounded-2xl p-5 border-2 border-[#CAA131]">
                       <h4 className="font-bold text-black mb-3 text-lg">הידעת?</h4>
                       <div className="space-y-3 text-black">
@@ -848,19 +858,9 @@ const AttractionPage: React.FC = () => {
                           </p>
                         </div>
                         
-                        <div className="bg-white rounded-xl p-4 shadow-sm border border-[#CAA131]">
-                          <p className="text-base leading-relaxed">
-                            הנילוס נדחס מ-<span className="text-[#CAA131] font-bold">50 מטר</span> ל-<span className="text-[#CAA131] font-bold">7 מטר</span> בלבד
-                          </p>
-                        </div>
-                        
-                        <div className="bg-white rounded-xl p-4 shadow-sm border border-[#CAA131]">
-                          <p className="text-base leading-relaxed">
-                            הפארק משתרע על <span className="text-[#CAA131] font-bold">3,893 קמ"ר</span> - הגדול באוגנדה
-                          </p>
-                        </div>
                       </div>
                     </div>
+                    
                   </div>
                 </div>
               </section>
