@@ -1116,8 +1116,8 @@ const AttractionPage: React.FC = () => {
                           <li className="text-base text-black"><strong>עונה רטובה</strong> (מרץ–מאי, ספטמבר–נובמבר): שבילים חלקלקים יותר, פחות תיירים ומחירים נוחים יותר</li>
                         </ul>
                       </div>
-            </div>
-
+                      </div>
+                      
                     <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
                       <h4 className="font-bold text-black mb-3 text-lg">נסיעה והגעה</h4>
                       <ul className="space-y-1 text-black list-disc list-inside text-[#CAA131]">
@@ -1753,67 +1753,6 @@ const AttractionPage: React.FC = () => {
             </div>
           )}
 
-
-        </div>
-      </div>
-
-      {/* Lightbox */}
-      {selectedImage !== null && a.gallery && (
-        <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center">
-          <div 
-            className="relative w-full h-full flex items-center justify-center"
-            onTouchStart={handleTouchStart}
-            onTouchMove={handleTouchMove}
-            onTouchEnd={handleTouchEnd}
-          >
-            {/* Close button */}
-            <button
-              onClick={closeLightbox}
-              className="absolute top-4 right-4 z-10 text-white hover:text-gray-300 transition-colors"
-            >
-              <X className="w-8 h-8" />
-            </button>
-
-            {/* Navigation buttons */}
-            <button
-              onClick={prevImage}
-              className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white hover:text-gray-300 transition-colors"
-            >
-              <ChevronLeft className="w-8 h-8" />
-            </button>
-
-            <button
-              onClick={nextImage}
-              className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white hover:text-gray-300 transition-colors"
-            >
-              <ChevronRight className="w-8 h-8" />
-            </button>
-
-            {/* Image */}
-            <img
-              src={getImageSrc(a.gallery[selectedImage])}
-              alt={getImageTitle(a.gallery[selectedImage]) || `${a.name} ${selectedImage + 1}`}
-              className="max-w-full max-h-full object-contain"
-            />
-
-            {/* Image info overlay */}
-            {getImageTitle(a.gallery[selectedImage]) && (
-              <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 text-white bg-black/70 px-4 py-2 rounded-lg text-center max-w-md">
-                <div className="font-medium">{getImageTitle(a.gallery[selectedImage])}</div>
-                {getImageDescription(a.gallery[selectedImage]) && (
-                  <div className="text-sm text-gray-300 mt-1">{getImageDescription(a.gallery[selectedImage])}</div>
-                )}
-              </div>
-            )}
-
-            {/* Image counter */}
-            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white bg-black/50 px-3 py-1 rounded-full text-sm">
-              {selectedImage + 1} / {a.gallery.length}
-            </div>
-          </div>
-        </div>
-      )}
-
           {/* גריד חדש - 2/3 ו-1/3 */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {/* חלק 2/3 */}
@@ -1897,17 +1836,77 @@ const AttractionPage: React.FC = () => {
             </div>
           </div>
 
-        {/* כפתור חזרה לקטגוריות */}
-        <div className="container mx-auto max-w-screen-xl px-4 py-8">
-          {/* מקטע השירותים */}
+        </div>
+      </div>
+
+      {/* Lightbox */}
+      {selectedImage !== null && a.gallery && (
+        <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center">
+          <div 
+            className="relative w-full h-full flex items-center justify-center"
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+          >
+            {/* Close button */}
+            <button
+              onClick={closeLightbox}
+              className="absolute top-4 right-4 z-10 text-white hover:text-gray-300 transition-colors"
+            >
+              <X className="w-8 h-8" />
+            </button>
+
+            {/* Navigation buttons */}
+            <button
+              onClick={prevImage}
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white hover:text-gray-300 transition-colors"
+            >
+              <ChevronLeft className="w-8 h-8" />
+            </button>
+
+            <button
+              onClick={nextImage}
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white hover:text-gray-300 transition-colors"
+            >
+              <ChevronRight className="w-8 h-8" />
+            </button>
+
+            {/* Image */}
+            <img
+              src={getImageSrc(a.gallery[selectedImage])}
+              alt={getImageTitle(a.gallery[selectedImage]) || `${a.name} ${selectedImage + 1}`}
+              className="max-w-full max-h-full object-contain"
+            />
+
+            {/* Image info overlay */}
+            {getImageTitle(a.gallery[selectedImage]) && (
+              <div className="absolute bottom-16 left-1/2 transform -translate-x-1/2 text-white bg-black/70 px-4 py-2 rounded-lg text-center max-w-md">
+                <div className="font-medium">{getImageTitle(a.gallery[selectedImage])}</div>
+                {getImageDescription(a.gallery[selectedImage]) && (
+                  <div className="text-sm text-gray-300 mt-1">{getImageDescription(a.gallery[selectedImage])}</div>
+                )}
+              </div>
+            )}
+
+            {/* Image counter */}
+            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white bg-black/50 px-3 py-1 rounded-full text-sm">
+              {selectedImage + 1} / {a.gallery.length}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* כפתור חזרה לקטגוריות */}
+      <div className="container mx-auto max-w-screen-xl px-4 py-8">
+        {/* מקטע השירותים */}
           <div className="mb-8 order-8 md:order-none">
-            <h3 className="text-2xl font-bold text-center text-[#4B361C] mb-6">
-              השירותים שלנו
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {/* Extreme Adventure Park */}
-              <Link to="/services/extreme-park" className="group">
-                <div className="bg-white border border-[#CAA131]/30 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 h-full p-6 text-center">
+          <h3 className="text-2xl font-bold text-center text-[#4B361C] mb-6">
+            השירותים שלנו
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Extreme Adventure Park */}
+            <Link to="/services/extreme-park" className="group">
+              <div className="bg-white border border-[#CAA131]/30 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 h-full p-6 text-center">
                 <div className="flex items-center justify-center mb-4">
                   <img 
                     src="/images/extreme-adventure-park-logo.webp" 
