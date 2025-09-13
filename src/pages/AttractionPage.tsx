@@ -14,6 +14,10 @@ import { parks } from "../data/parks";
 // ====== WISHLIST ======
 import { WishlistButton } from "../components/Wishlist/WishlistButton";
 
+// ====== MAP ======
+// import MapComponent from "../components/Map/MapComponent"; // Temporarily disabled
+// import GoogleMap from "../components/GoogleMap"; // Temporarily disabled
+
 // Import types
 import { Attraction, Park } from "../types";
 
@@ -592,7 +596,7 @@ const AttractionPage: React.FC = () => {
                 </section>
               )}
             </div>
-          </div>
+            </div>
 
           {/* שורה שנייה: מידע חשוב */}
           {(a.id === 'murchison-falls-safari' || a.id === 'murchison-falls-water' || a.id === 'murchison-falls-waterfalls' || a.slug === 'murchison-falls') && (
@@ -614,8 +618,8 @@ const AttractionPage: React.FC = () => {
                             <div>
                               <span className="font-semibold text-black text-base">יבשה (דצמבר–פברואר, יוני–אוגוסט):</span>
                               <span className="block text-base">חיות מתרכזות סביב מקורות מים, דרכים נוחות יותר.</span>
-                            </div>
-                          </div>
+                      </div>
+                  </div>
                           <div className="flex items-start gap-2">
                             <div className="w-2 h-2 bg-[#CAA131] rounded-full mt-2"></div>
                             <div>
@@ -729,164 +733,6 @@ const AttractionPage: React.FC = () => {
             </div>
           )}
 
-          {/* שורה שלישית: מפה + חוויות נוספות */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {/* מפה - 2/3 */}
-            <div className="md:col-span-2 order-6 md:order-3">
-              <section className="rounded-2xl overflow-hidden border border-[#534B20]/60 bg-white shadow-lg hover:shadow-xl transition-all duration-300 h-full">
-                <div className="relative cursor-pointer h-full" onClick={() => setMapFullscreen(true)}>
-                  <iframe
-                    title={`מפה – ${a.name}`}
-                    className="w-full h-full rounded-xl"
-                    loading="lazy"
-                    src={`https://www.openstreetmap.org/export/embed.html?bbox=${mapCoords.bbox}&layer=mapnik&marker=${mapCoords.lat}%2C${mapCoords.lng}`}
-                  />
-                  
-                  {/* Click overlay */}
-                  <div className="absolute inset-0 bg-black/0 hover:bg-black/5 transition-colors duration-300 flex items-center justify-center">
-                    <div className="opacity-0 hover:opacity-100 transition-opacity duration-300 bg-white/90 backdrop-blur-sm rounded-full p-3 shadow-lg">
-                      <svg className="w-6 h-6 text-[#CAA131]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
-                      </svg>
-                    </div>
-                  </div>
-                  
-                  {/* Floating info card */}
-                  <div className="absolute top-4 right-4 z-10">
-                    <div className="bg-white/90 backdrop-blur-sm rounded-lg p-3 shadow-lg border border-white/20">
-                      <h4 className="font-bold text-[#4B361C] text-sm mb-1 text-right">מערב אוגנדה</h4>
-                      <p className="text-gray-600 text-xs text-right">6 שעות מקמפלה | טיסה פנימית 45 דק'</p>
-                    </div>
-                  </div>
-                  
-                  {/* נקודות חשובות על המפה */}
-                  {mapMarkers.map((marker, index) => {
-                    // חישוב מיקום יחסי מדויק יותר
-                    const bboxParts = mapCoords.bbox.split(',');
-                    const minLng = parseFloat(bboxParts[0]);
-                    const minLat = parseFloat(bboxParts[1]);
-                    const maxLng = parseFloat(bboxParts[2]);
-                    const maxLat = parseFloat(bboxParts[3]);
-                    
-                    const lngPercent = ((marker.lng - minLng) / (maxLng - minLng)) * 100;
-                    const latPercent = ((maxLat - marker.lat) / (maxLat - minLat)) * 100;
-                    
-                    return (
-                      <div
-                        key={index}
-                        className="absolute z-10 transform -translate-x-1/2 -translate-y-1/2"
-                        style={{
-                          left: `${lngPercent}%`,
-                          top: `${latPercent}%`
-                        }}
-                      >
-                        <div className={`w-4 h-4 rounded-full border-2 border-white shadow-lg ${
-                          marker.icon === 'city' ? 'bg-[#CAA131]' : 
-                          marker.icon === 'attraction' ? 'bg-[#4B361C]' : 
-                          'bg-[#228B22]'
-                        }`} />
-                        <div className="absolute top-5 left-1/2 transform -translate-x-1/2 bg-black/80 text-white text-xs px-2 py-1 rounded whitespace-nowrap">
-                          {marker.title}
-                        </div>
-                      </div>
-                    );
-                  })}
-
-                  {/* Custom gold marker */}
-                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10">
-                    <div className="relative group cursor-pointer">
-                      <div className="w-6 h-6 bg-[#CAA131] rounded-full border-2 border-white shadow-lg flex items-center justify-center">
-                        <div className="w-2 h-2 bg-white rounded-full"></div>
-                      </div>
-                      {/* Popup */}
-                      <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                        <div className="bg-white border border-[#CAA131]/50 rounded-lg p-3 shadow-xl min-w-[200px]">
-                          <h4 className="font-bold text-[#4B361C] text-sm mb-1 text-right">{a.name}</h4>
-                          <p className="text-gray-600 text-xs leading-relaxed text-right">
-                            {a.name === "Queen Elizabeth National Park" 
-                              ? "שמורה ייחודית במערב אוגנדה, ידועה באריות המטפסים על עצים ובמגוון חיות בר נדירות."
-                              : "אטרקציה מרהיבה באוגנדה עם נופים וחיות בר ייחודיות."
-                            }
-                          </p>
-                          <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-white"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </section>
-            </div>
-
-            {/* חוויות נוספות - 1/3 */}
-            <div className="md:col-span-1 order-7 md:order-3">
-              <section className="bg-white border border-[#534B20]/60 rounded-3xl p-6 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.01] h-full">
-                <h3 className="text-lg font-bold text-center text-[#4B361C] mb-6">
-                  חוויות נוספות בדרך ליעד הבא
-                </h3>
-                <div className="space-y-4">
-                  {/* כרטיס 1 - בווינדי */}
-                  <div className="bg-white border border-[#534B20]/60 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-                    <div className="h-32 bg-cover bg-center relative" style={{
-                      backgroundImage: `url('https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FPrimates%20of%20Uganda%2FGorillas%20in%20Bwindi%20Forest%2FBaby%20Gorilla%20Kisses%20Silverback%20in%20Bwindi%20Impenetrable%20National%20Park%2C%20Uganda-hero.webp?alt=media&token=f1676abc-ac4a-462b-9478-136e0399fc55')`
-                    }}>
-                      <div className="absolute top-2 right-2 bg-black/70 text-white px-2 py-1 rounded-full text-xs font-medium">
-                        כ־3 שעות דרומה
-                      </div>
-                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-3">
-                        <h4 className="text-sm font-bold text-white mb-1">בווינדי</h4>
-                        <p className="text-xs text-white">מפגש נדיר עם גורילות</p>
-                      </div>
-                    </div>
-                    <div className="p-3">
-                      <Link to="/attraction/bwindi-gorillas" className="w-full bg-transparent border-2 border-[#CAA131] text-[#CAA131] hover:bg-[#CAA131] hover:text-white font-semibold py-2 px-3 rounded-lg text-center block transition-all duration-300 text-sm">
-                        קרא עוד
-                      </Link>
-                    </div>
-                  </div>
-                  
-                  {/* כרטיס 2 - קיבאלה */}
-                  <div className="bg-white border border-[#534B20]/60 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-                    <div className="h-32 bg-cover bg-center relative" style={{
-                      backgroundImage: `url('https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FPrimates%20of%20Uganda%2FKibale%20Chimpanzees%2Fkibale%20chimp%20chimpanzee%20Uganda%20in%20Africa-hero.webp?alt=media&token=ec93ce06-dcca-41a8-bf0a-b886d4112384')`
-                    }}>
-                      <div className="absolute top-2 right-2 bg-black/70 text-white px-2 py-1 rounded-full text-xs font-medium">
-                        כ־2.5 שעות צפונה
-                      </div>
-                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-3">
-                        <h4 className="text-sm font-bold text-white mb-1">קיבאלה</h4>
-                        <p className="text-xs text-white">טיול מודרך ביער טרופי</p>
-                      </div>
-                    </div>
-                    <div className="p-3">
-                      <Link to="/attraction/kibale-chimps" className="w-full bg-transparent border-2 border-[#CAA131] text-[#CAA131] hover:bg-[#CAA131] hover:text-white font-semibold py-2 px-3 rounded-lg text-center block transition-all duration-300 text-sm">
-                        קרא עוד
-                      </Link>
-                    </div>
-                  </div>
-
-                  {/* כרטיס 3 - אגם בוניוניו */}
-                  <div className="bg-white border border-[#534B20]/60 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-                    <div className="h-32 bg-cover bg-center relative" style={{
-                      backgroundImage: `url('https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FWater%2FLake%20Bunyonyi%2FWoman%20sitting%20on%20dock%20at%20sunset%20on%20Lake%20Bunyonyi-Hero.webp?alt=media&token=3d315584-c531-4256-990a-82e532f86de0')`
-                    }}>
-                      <div className="absolute top-2 right-2 bg-black/70 text-white px-2 py-1 rounded-full text-xs font-medium">
-                        כ־3 שעות דרומה
-                      </div>
-                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-3">
-                        <h4 className="text-sm font-bold text-white mb-1">אגם בוניוניו</h4>
-                        <p className="text-xs text-white">מנוחה קסומה בין 29 איים</p>
-                      </div>
-                    </div>
-                    <div className="p-3">
-                      <Link to="/attraction/lake-bunyonyi" className="w-full bg-transparent border-2 border-[#CAA131] text-[#CAA131] hover:bg-[#CAA131] hover:text-white font-semibold py-2 px-3 rounded-lg text-center block transition-all duration-300 text-sm">
-                        קרא עוד
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </section>
-            </div>
-          </div>
 
 
           {/* גריד מידע חשוב לפארק המלכה אליזבת */}
@@ -909,8 +755,8 @@ const AttractionPage: React.FC = () => {
                           <li className="text-base text-black"><strong>יבשה</strong> (דצמבר–פברואר, יוני–אוגוסט): חיות סביב מקורות מים, דרכים נוחות</li>
                           <li className="text-base text-black"><strong>רטובה</strong> (מרץ–מאי, ספטמבר–נובמבר): נוף ירוק, שפע ציפורים, דרכים מאתגרות יותר</li>
                         </ul>
-                      </div>
-                    </div>
+            </div>
+          </div>
 
                     <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
                       <h4 className="font-bold text-black mb-3 text-lg">נסיעה והגעה</h4>
@@ -984,7 +830,7 @@ const AttractionPage: React.FC = () => {
               <section className="bg-gradient-to-br from-white via-gray-50 to-white border border-[#CAA131]/60 rounded-3xl p-8 shadow-2xl">
                 <h3 className="text-2xl font-bold text-center text-black mb-8" style={{fontFamily: 'Poppins'}}>
                   מידע חשוב
-                  </h3>
+                </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6" style={{fontFamily: 'Poppins'}}>
                   {/* עמודה שמאלית */}
                   <div className="space-y-6">
@@ -999,8 +845,8 @@ const AttractionPage: React.FC = () => {
                           <li className="text-base text-black"><strong>רטובה</strong> (מרץ–מאי, ספטמבר–נובמבר): הנוף ירוק ושופע, עונת לידות של חיות רבות – אידיאלי לצילום נופים</li>
                         </ul>
                       </div>
-                    </div>
-
+                  </div>
+                  
                     <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
                       <h4 className="font-bold text-black mb-3 text-lg">נסיעה והגעה</h4>
                       <ul className="space-y-1 text-black list-disc list-inside text-[#CAA131]">
@@ -1065,7 +911,7 @@ const AttractionPage: React.FC = () => {
                   </div>
                 </div>
               </section>
-                            </div>
+            </div>
                           )}
 
           {/* גריד מידע חשוב לפארק סמוליקי */}
@@ -1074,7 +920,7 @@ const AttractionPage: React.FC = () => {
               <section className="bg-gradient-to-br from-white via-gray-50 to-white border border-[#CAA131]/60 rounded-3xl p-8 shadow-2xl">
                 <h3 className="text-2xl font-bold text-center text-black mb-8" style={{fontFamily: 'Poppins'}}>
                   מידע חשוב
-                </h3>
+                  </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6" style={{fontFamily: 'Poppins'}}>
                   {/* עמודה שמאלית */}
                   <div className="space-y-6">
@@ -1110,7 +956,7 @@ const AttractionPage: React.FC = () => {
                     </div>
                   </div>
 
-                  {/* עמודה ימנית */}
+                    {/* עמודה ימנית */}
                   <div className="space-y-6">
                     <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
                       <h4 className="font-bold text-black mb-3 text-lg">חוויות ייחודיות</h4>
@@ -1120,17 +966,17 @@ const AttractionPage: React.FC = () => {
                         <li className="text-base text-black"><strong>פרימטים</strong> – שימפנזים, קופים זהובים, קופים אדומים, בבונים ועוד</li>
                         <li className="text-base text-black"><strong>טרקים רגליים</strong> – שבילים כמו Kirumia Trail ו־Red Monkey Trail</li>
                         <li className="text-base text-black"><strong>מפגשים תרבותיים</strong> – עם בני הבטווה (Batwa pygmies) החיים בסמוך ליער</li>
-                      </ul>
-                    </div>
-
+                        </ul>
+                      </div>
+                      
                     <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
                       <h4 className="font-bold text-black mb-3 text-lg">משך שהות מומלץ</h4>
                       <ul className="space-y-1 text-black list-disc list-inside text-[#CAA131]">
                         <li className="text-base text-black"><strong>1–2 ימים:</strong> ביקור במעיינות החמים ובמסלול קצר</li>
                         <li className="text-base text-black"><strong>2–3 ימים:</strong> מתאים למי שמעוניין לשלב טרקים ארוכים, חוויות תרבותיות וצפרות מעמיקה</li>
-                      </ul>
-                    </div>
-                    
+                        </ul>
+                      </div>
+                      
                     <div className="bg-white rounded-2xl p-5 border-2 border-[#CAA131]">
                       <h4 className="font-bold text-black mb-3 text-lg">הידעת?</h4>
                       <div className="space-y-3 text-black">
@@ -1179,9 +1025,9 @@ const AttractionPage: React.FC = () => {
                           <li className="text-base text-black"><strong>עונה יבשה</strong> (יוני–ספטמבר, דצמבר–פברואר): שבילים יבשים ונוחים, ראות טובה יותר במפגש עם גורילות. מומלץ במיוחד לטרקים</li>
                           <li className="text-base text-black"><strong>עונה רטובה</strong> (מרץ–מאי, אוקטובר–נובמבר): שבילים חלקלקים ומאתגרים, אך פחות תיירים ומחירים נמוכים יותר</li>
                         </ul>
-                        </div>
-                  </div>
-                      
+                      </div>
+                    </div>
+                    
                     <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
                       <h4 className="font-bold text-black mb-3 text-lg">נסיעה והגעה</h4>
                       <ul className="space-y-1 text-black list-disc list-inside text-[#CAA131]">
@@ -1257,7 +1103,7 @@ const AttractionPage: React.FC = () => {
                   מידע חשוב
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6" style={{fontFamily: 'Poppins'}}>
-                  {/* עמודה שמאלית */}
+                    {/* עמודה שמאלית */}
                   <div className="space-y-6">
                     <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
                       <h4 className="font-bold text-black mb-3 text-lg">עונות השנה</h4>
@@ -1269,7 +1115,7 @@ const AttractionPage: React.FC = () => {
                           <li className="text-base text-black"><strong>עונה יבשה</strong> (יוני–ספטמבר, דצמבר–פברואר): שבילים נוחים יותר לטרקים, מומלץ במיוחד</li>
                           <li className="text-base text-black"><strong>עונה רטובה</strong> (מרץ–מאי, ספטמבר–נובמבר): שבילים חלקלקים יותר, פחות תיירים ומחירים נוחים יותר</li>
                         </ul>
-            </div>
+                      </div>
             </div>
 
                     <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
@@ -1279,7 +1125,7 @@ const AttractionPage: React.FC = () => {
                         <li className="text-base text-black">נסיעה מקמפלה: כ־<strong>9–10 שעות</strong></li>
                         <li className="text-base text-black">נסיעה מקיגאלי (רואנדה): כ־<strong>3–4 שעות</strong> בלבד, מה שהופך אותו לנגיש מאוד</li>
                         <li className="text-base text-black"><strong>טיסות פנימיות:</strong> מופעלות על ידי Bar Aviation משדות התעופה Entebbe/Kajjansi</li>
-                      </ul>
+                        </ul>
                       </div>
 
                     <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
@@ -1330,10 +1176,10 @@ const AttractionPage: React.FC = () => {
                           </p>
                         </div>
                       </div>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </section>
+                </section>
             </div>
           )}
 
@@ -1419,7 +1265,7 @@ const AttractionPage: React.FC = () => {
               <section className="bg-gradient-to-br from-white via-gray-50 to-white border border-[#CAA131]/60 rounded-3xl p-8 shadow-2xl">
                 <h3 className="text-2xl font-bold text-center text-black mb-8" style={{fontFamily: 'Poppins'}}>
                   מידע חשוב
-                </h3>
+              </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6" style={{fontFamily: 'Poppins'}}>
                   {/* עמודה שמאלית */}
                   <div className="space-y-6">
@@ -1433,8 +1279,8 @@ const AttractionPage: React.FC = () => {
                           <li className="text-base text-black"><strong>עונה יבשה</strong> (יוני–אוקטובר, דצמבר–פברואר): מזג אוויר נוח יותר, השבילים יבשים ומתאימים לטרקים</li>
                           <li className="text-base text-black"><strong>עונה רטובה</strong> (מרץ–מאי, ספטמבר–נובמבר): הנוף ירוק ושופע, המפלים בשיא עוצמתם, אך השבילים חלקים ומאתגרים</li>
                         </ul>
-                      </div>
-                  </div>
+                    </div>
+                    </div>
                   
                     <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
                       <h4 className="font-bold text-black mb-3 text-lg">נסיעה והגעה</h4>
@@ -1444,16 +1290,16 @@ const AttractionPage: React.FC = () => {
                         <li className="text-base text-black">ניתן להגיע ברכב פרטי, מונית מקומית או כחלק מטיול מאורגן</li>
                         <li className="text-base text-black"><strong>טיסות פנימיות:</strong> מופעלות על ידי Bar Aviation משדות התעופה Entebbe/Kajjansi</li>
                       </ul>
-                    </div>
+                  </div>
 
                     <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
                       <h4 className="font-bold text-black mb-3 text-lg">שערי כניסה</h4>
                       <ul className="space-y-1 text-black list-disc list-inside text-[#CAA131]">
                         <li className="text-base text-black">אין שערי כניסה רשמיים כמו בפארקים הלאומיים; הביקור מתבצע דרך מרכזי המבקרים בסביבת סיפי או דרך לודג'ים מקומיים המציעים מדריכים</li>
                       </ul>
-                    </div>
                   </div>
-
+                </div>
+                
                   {/* עמודה ימנית */}
                   <div className="space-y-6">
                     <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
@@ -1480,14 +1326,14 @@ const AttractionPage: React.FC = () => {
                           <p className="text-base leading-relaxed">
                             מפלי סיפי מורכבים מ<span className="text-[#CAA131] font-bold">שלושה מפלים</span> בגבהים שונים: 65, 85 ו-100 מטר
                           </p>
-                        </div>
+                  </div>
                         
                         <div className="bg-white rounded-xl p-4 shadow-sm border border-[#CAA131]">
                           <p className="text-base leading-relaxed">
                             זהו אחד המקומות היחידים באוגנדה שבהם אפשר לחוות <span className="text-[#CAA131] font-bold">גלישה בחבלים</span> מהמפל הגבוה ביותר
                           </p>
-                        </div>
-                      </div>
+                  </div>
+                </div>
                     </div>
                   </div>
                 </div>
@@ -1515,7 +1361,7 @@ const AttractionPage: React.FC = () => {
                           <li className="text-base text-black"><strong>בעונה היבשה</strong> (דצמבר–פברואר, יוני–אוגוסט) – תנאים נוחים לפעילויות מים ורפטינג</li>
                           <li className="text-base text-black"><strong>בעונה הרטובה</strong> (מרץ–מאי, ספטמבר–נובמבר) – הזרימות בנילוס חזקות יותר, מה שמעצים חוויות כמו קיאקים ורפטינג, אך ייתכנו ימים גשומים</li>
                         </ul>
-                      </div>
+                    </div>
                     </div>
 
                     <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
@@ -1524,7 +1370,7 @@ const AttractionPage: React.FC = () => {
                         <li className="text-base text-black">ג'ינג'ה נמצאת כ־<strong>80 ק"מ</strong> מקמפלה, כ־<strong>2–2.5 שעות</strong> נסיעה ברכב</li>
                         <li className="text-base text-black">ניתן להגיע בתחבורה ציבורית (מיניבוס או מוניות Boda-Boda) או ברכב שכור</li>
                       </ul>
-                    </div>
+                  </div>
 
                     <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
                       <h4 className="font-bold text-black mb-3 text-lg">שערי כניסה</h4>
@@ -1567,11 +1413,11 @@ const AttractionPage: React.FC = () => {
                           </p>
                         </div>
                       </div>
-                    </div>
                   </div>
                 </div>
-              </section>
-            </div>
+              </div>
+            </section>
+          </div>
           )}
 
           {/* גריד מידע חשוב לאגם ויקטוריה */}
@@ -1968,17 +1814,100 @@ const AttractionPage: React.FC = () => {
         </div>
       )}
 
-      {/* כפתור חזרה לקטגוריות */}
-      <div className="container mx-auto max-w-screen-xl px-4 py-8">
-        {/* מקטע השירותים */}
-        <div className="mb-8 order-8 md:order-none">
-          <h3 className="text-2xl font-bold text-center text-[#4B361C] mb-6">
-            השירותים שלנו
-          </h3>
+          {/* גריד חדש - 2/3 ו-1/3 */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {/* Extreme Adventure Park */}
-            <Link to="/services/extreme-park" className="group">
-              <div className="bg-white border border-[#CAA131]/30 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 h-full p-6 text-center">
+            {/* חלק 2/3 */}
+            <div className="md:col-span-2">
+              <section className="bg-white border border-[#534B20]/60 rounded-3xl p-6 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.01] h-full">
+                <h3 className="text-xl font-bold text-[#4B361C] mb-4">מפה</h3>
+                <div className="w-full h-96 bg-gray-200 rounded-lg flex items-center justify-center">
+                  <p className="text-gray-600">מפה תתווסף כאן</p>
+                </div>
+              </section>
+            </div>
+            
+            {/* חלק 1/3 */}
+            <div className="md:col-span-1">
+              <section className="bg-white border border-[#534B20]/60 rounded-3xl p-6 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.01] h-full">
+                <h3 className="text-lg font-bold text-center text-[#4B361C] mb-6">
+                  חוויות נוספות בדרך ליעד הבא
+                </h3>
+                <div className="space-y-4">
+                  {/* כרטיס 1 - בווינדי */}
+                  <div className="bg-white border border-[#534B20]/60 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                    <div className="h-32 bg-cover bg-center relative" style={{
+                      backgroundImage: `url('https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FPrimates%20of%20Uganda%2FGorillas%20in%20Bwindi%20Forest%2FBaby%20Gorilla%20Kisses%20Silverback%20in%20Bwindi%20Impenetrable%20National%20Park%2C%20Uganda-hero.webp?alt=media&token=f1676abc-ac4a-462b-9478-136e0399fc55')`
+                    }}>
+                      <div className="absolute top-2 right-2 bg-black/70 text-white px-2 py-1 rounded-full text-xs font-medium">
+                        כ־3 שעות דרומה
+                      </div>
+                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-3">
+                        <h4 className="text-sm font-bold text-white mb-1">בווינדי</h4>
+                        <p className="text-xs text-white">מפגש נדיר עם גורילות</p>
+                      </div>
+                    </div>
+                    <div className="p-3">
+                      <Link to="/attraction/bwindi-gorillas" className="w-full bg-transparent border-2 border-[#CAA131] text-[#CAA131] hover:bg-[#CAA131] hover:text-white font-semibold py-2 px-3 rounded-lg text-center block transition-all duration-300 text-sm">
+                        קרא עוד
+                      </Link>
+                    </div>
+                  </div>
+                  
+                  {/* כרטיס 2 - קיבאלה */}
+                  <div className="bg-white border border-[#534B20]/60 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                    <div className="h-32 bg-cover bg-center relative" style={{
+                      backgroundImage: `url('https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FPrimates%20of%20Uganda%2FKibale%20Chimpanzees%2Fkibale%20chimp%20chimpanzee%20Uganda%20in%20Africa-hero.webp?alt=media&token=ec93ce06-dcca-41a8-bf0a-b886d4112384')`
+                    }}>
+                      <div className="absolute top-2 right-2 bg-black/70 text-white px-2 py-1 rounded-full text-xs font-medium">
+                        כ־2.5 שעות צפונה
+                      </div>
+                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-3">
+                        <h4 className="text-sm font-bold text-white mb-1">קיבאלה</h4>
+                        <p className="text-xs text-white">טיול מודרך ביער טרופי</p>
+                      </div>
+                    </div>
+                    <div className="p-3">
+                      <Link to="/attraction/kibale-chimps" className="w-full bg-transparent border-2 border-[#CAA131] text-[#CAA131] hover:bg-[#CAA131] hover:text-white font-semibold py-2 px-3 rounded-lg text-center block transition-all duration-300 text-sm">
+                        קרא עוד
+                      </Link>
+                    </div>
+                  </div>
+
+                  {/* כרטיס 3 - אגם בוניוניו */}
+                  <div className="bg-white border border-[#534B20]/60 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                    <div className="h-32 bg-cover bg-center relative" style={{
+                      backgroundImage: `url('https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FWater%2FLake%20Bunyonyi%2FWoman%20sitting%20on%20dock%20at%20sunset%20on%20Lake%20Bunyonyi-Hero.webp?alt=media&token=3d315584-c531-4256-990a-82e532f86de0')`
+                    }}>
+                      <div className="absolute top-2 right-2 bg-black/70 text-white px-2 py-1 rounded-full text-xs font-medium">
+                        כ־3 שעות דרומה
+                      </div>
+                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-3">
+                        <h4 className="text-sm font-bold text-white mb-1">אגם בוניוניו</h4>
+                        <p className="text-xs text-white">מנוחה קסומה בין 29 איים</p>
+                      </div>
+                    </div>
+                    <div className="p-3">
+                      <Link to="/attraction/lake-bunyonyi" className="w-full bg-transparent border-2 border-[#CAA131] text-[#CAA131] hover:bg-[#CAA131] hover:text-white font-semibold py-2 px-3 rounded-lg text-center block transition-all duration-300 text-sm">
+                        קרא עוד
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+
+        {/* כפתור חזרה לקטגוריות */}
+        <div className="container mx-auto max-w-screen-xl px-4 py-8">
+          {/* מקטע השירותים */}
+          <div className="mb-8 order-8 md:order-none">
+            <h3 className="text-2xl font-bold text-center text-[#4B361C] mb-6">
+              השירותים שלנו
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {/* Extreme Adventure Park */}
+              <Link to="/services/extreme-park" className="group">
+                <div className="bg-white border border-[#CAA131]/30 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 h-full p-6 text-center">
                 <div className="flex items-center justify-center mb-4">
                   <img 
                     src="/images/extreme-adventure-park-logo.webp" 
@@ -2049,13 +1978,13 @@ const AttractionPage: React.FC = () => {
 
         <div className="flex justify-center">
           <Link 
-            to={`/category/${a.category}`}
+            to={`/category/${a?.category}`}
             className="inline-flex items-center gap-3 bg-gradient-to-r from-[#CAA131] to-[#B8942A] text-black px-8 py-4 rounded-2xl font-bold text-lg shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 hover:from-[#B8942A] hover:to-[#A68525]"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
             </svg>
-            חזור לקטגוריית {categoryNames[a.category || ""] || a.category}
+            חזור לקטגוריית {categoryNames[a?.category || ""] || a?.category}
           </Link>
         </div>
       </div>
@@ -2068,7 +1997,7 @@ const AttractionPage: React.FC = () => {
             <div className="p-4 bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 border-b border-gray-200 flex items-center justify-between">
               <h3 className="font-bold text-[#4B361C] text-xl flex items-center gap-3">
                 <MapPin className="w-6 h-6 text-[#CAA131]" />
-                מיקום - {a.name}
+                מיקום - {a?.name}
               </h3>
               <button 
                 onClick={() =>   setMapFullscreen(false)}
@@ -2080,12 +2009,9 @@ const AttractionPage: React.FC = () => {
             
             {/* Fullscreen Map */}
             <div className="relative h-[calc(100%-80px)]">
-              <iframe
-                title={`מפה מלאה – ${a.name}`}
-                className="w-full h-full"
-                loading="lazy"
-                src={`https://www.openstreetmap.org/export/embed.html?bbox=${mapCoords.bbox}&layer=mapnik&marker=${mapCoords.lat}%2C${mapCoords.lng}`}
-              />
+              <div className="w-full h-full bg-gray-100 flex items-center justify-center">
+                <p>מפה מלאה תתווסף כאן</p>
+              </div>
               
               {/* Floating info card */}
               <div className="absolute top-4 right-4 z-10">
