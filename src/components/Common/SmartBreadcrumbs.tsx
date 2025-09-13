@@ -17,13 +17,12 @@ const categoryNames: Record<string, string> = {
   "gorillas-chimps": "גורילות ושימפנזים",
   "safari": "ספארי",
   "water": "אגמים, מפלים ונהרות",
-  "mountains": "הרים",
-  "extreme": "אקסטרים"
+  "mountains": "הרים"
 };
 
 // פונקציה למציאת אטרקציה לפי ID
 const findAttractionById = (id: string) => {
-  const allAttractions = [...gorillasChimps, ...safari, ...water, ...extreme];
+  const allAttractions = [...gorillasChimps, ...safari, ...water];
   return allAttractions.find(attraction => attraction.id === id);
 };
 
