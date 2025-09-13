@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const AttractionExperiences: React.FC = () => {
   return (
-    <div className="md:col-span-1">
+    <div className="md:col-span-1 order-7 md:order-none">
       <section className="bg-white border border-[#534B20]/60 rounded-3xl p-6 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.01] h-full">
         <h3 className="text-lg font-bold text-center text-[#4B361C] mb-6">
           חוויות נוספות בדרך ליעד הבא

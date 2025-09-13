@@ -1,20 +1,15 @@
 import React, { useEffect } from "react";
-import { Route } from "lucide-react";
 import { WishlistButton } from "../Wishlist/WishlistButton";
 import { AttractionWithMock } from "../../types";
 
 interface AttractionHeroProps {
   attraction: AttractionWithMock;
   heroImage: string;
-  isAdded: boolean;
-  setIsAdded: (value: boolean) => void;
 }
 
 const AttractionHero: React.FC<AttractionHeroProps> = ({
   attraction,
-  heroImage,
-  isAdded,
-  setIsAdded
+  heroImage
 }) => {
   // ===== Responsive Hero Height =====
   useEffect(() => {
@@ -153,32 +148,6 @@ const AttractionHero: React.FC<AttractionHeroProps> = ({
         </div>
       </div>
 
-      {/* ===== BODY ===== */}
-      <div className="container mx-auto max-w-screen-xl px-4 py-8 md:py-10 space-y-6">
-        
-        {/* הדרכה ל-Wishlist */}
-        <div className="bg-gradient-to-r from-amber-50 to-orange-50 border border-[#CAA131]/50 rounded-2xl p-5 flex items-center gap-4 shadow-lg">
-          <div className="bg-amber-500 text-white rounded-full p-2 flex-shrink-0">
-            <Route className="w-5 h-5" />
-          </div>
-          <div className="flex-1">
-            <h3 className="font-bold text-black">בונה מסלול חכם</h3>
-            <p className="text-black text-sm">הוסף חוויות למסלול שלך ואנחנו נבנה לך תכנית טיול מושלמת עם מחירים ומפת נסיעה</p>
-          </div>
-          <div className="flex-shrink-0">
-            <button 
-              onClick={() => setIsAdded(!isAdded)}
-              className={`px-6 py-2 rounded-full font-bold text-sm shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 ${
-                isAdded 
-                  ? 'bg-gradient-to-r from-green-500 to-green-600 text-white' 
-                  : 'bg-gradient-to-r from-[#CAA131] to-[#B8942A] text-black hover:from-[#B8942A] hover:to-[#A68525]'
-              }`}
-            >
-              {isAdded ? 'נוסף למסלול!' : 'הוסף מסלול'}
-            </button>
-          </div>
-        </div>
-      </div>
     </>
   );
 };

@@ -1,7 +1,7 @@
 // src/pages/AttractionPage.tsx
 import React, { useMemo, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Route } from "lucide-react";
 
 // ====== DATA ======
 import { gorillasChimps } from "../content/categories/gorillas-chimps";
@@ -111,13 +111,34 @@ const AttractionPage: React.FC = () => {
       <AttractionHero 
         attraction={a}
         heroImage={heroImage}
-        isAdded={isAdded}
-        setIsAdded={setIsAdded}
       />
 
       {/* Main Content Grid */}
       <div className="container mx-auto max-w-screen-xl px-4 py-8 md:py-10 space-y-6">
         
+        {/* הדרכה ל-Wishlist */}
+        <div className="bg-gradient-to-r from-amber-50 to-orange-50 border border-[#CAA131]/50 rounded-2xl p-5 flex items-center gap-4 shadow-lg order-1 md:order-none">
+          <div className="bg-amber-500 text-white rounded-full p-2 flex-shrink-0">
+            <Route className="w-5 h-5" />
+          </div>
+          <div className="flex-1">
+            <h3 className="font-bold text-black">בונה מסלול חכם</h3>
+            <p className="text-black text-sm">הוסף חוויות למסלול שלך ואנחנו נבנה לך תכנית טיול מושלמת עם מחירים ומפת נסיעה</p>
+          </div>
+          <div className="flex-shrink-0">
+            <button 
+              onClick={() => setIsAdded(!isAdded)}
+              className={`px-6 py-2 rounded-full font-bold text-sm shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 ${
+                isAdded 
+                  ? 'bg-gradient-to-r from-green-500 to-green-600 text-white' 
+                  : 'bg-gradient-to-r from-[#CAA131] to-[#B8942A] text-black hover:from-[#B8942A] hover:to-[#A68525]'
+              }`}
+            >
+              {isAdded ? 'נוסף למסלול!' : 'הוסף מסלול'}
+            </button>
+          </div>
+        </div>
+
         {/* גריד מושלם מסודר */}
         <div className="space-y-6 flex flex-col md:block">
           {/* שורה עליונה: תיאור האטרקציה + גלריה */}
@@ -136,8 +157,8 @@ const AttractionPage: React.FC = () => {
         {/* Services Section */}
         <AttractionServices />
 
-        {/* כפתור חזרה לקטגוריות */}
-        <div className="container mx-auto max-w-screen-xl px-4 py-8">
+      {/* כפתור חזרה לקטגוריות */}
+      <div className="container mx-auto max-w-screen-xl px-4 py-8">
           <div className="text-center">
             <Link 
               to="/categories" 
