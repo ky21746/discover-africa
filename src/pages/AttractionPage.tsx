@@ -492,11 +492,11 @@ const AttractionPage: React.FC = () => {
 
         {/* גריד מושלם מסודר */}
         <div className="space-y-6 flex flex-col md:block">
-          {/* שורה עליונה: תיאור האטרקציה + מפה */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+          {/* שורה עליונה: תיאור האטרקציה + גלריה */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
             {/* תיאור האטרקציה - ריבוע רחב */}
-            <div className="md:col-span-2 order-2 md:order-1">
-              <section className="bg-gradient-to-br from-white via-gray-50 to-white border border-[#534B20]/60 rounded-3xl p-8 md:p-10 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.01] h-full">
+            <div className="md:col-span-1 order-2 md:order-1">
+              <section className="bg-white border border-[#534B20]/60 rounded-3xl p-8 md:p-12 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.01] h-full">
                 <div className="space-y-8">
                   {a.subtitle && (
                     <h2 className="text-2xl font-bold text-[#4B361C] mb-6 leading-tight">{a.subtitle}</h2>
@@ -504,17 +504,22 @@ const AttractionPage: React.FC = () => {
                   
                   {introFull && (
                     <div className="prose prose-lg max-w-none">
-                      <div className="text-body leading-relaxed text-gray-700 font-medium">
+                      <div className="text-body leading-relaxed text-gray-700 font-medium" style={{lineHeight: '1.7'}}>
                         {expanded ? (
                           <div dangerouslySetInnerHTML={{
                             __html: introFull
-                              .replace(/## (.*?)\n\n/g, '<h2 style="text-align: right; font-weight: bold; color: #4B361C; margin: 24px 0 16px 0; font-size: 1.5rem;">$1</h2>')
-                              .replace(/\n\n/g, '</p><p style="text-align: right; margin: 16px 0;">')
-                              .replace(/^/, '<p style="text-align: right; margin: 16px 0;">')
+                              .replace(/^# (.*?)$/gm, '<h1 style="text-align: right; font-weight: bold; color: #3B2E1A; margin: 32px 0 24px 0; font-size: 2rem; line-height: 1.3;">$1</h1>')
+                              .replace(/^## (.*?)$/gm, '<h2 style="text-align: right; font-weight: bold; color: #3B2E1A; margin: 24px 0 16px 0; font-size: 1.25rem; line-height: 1.4;">$1</h2>')
+                              .replace(/^- (.*?)$/gm, '<li style="text-align: right; margin: 8px 0; color: #444; list-style: none; position: relative; padding-right: 20px;"><span style="color: #C6A664; position: absolute; right: 0; top: 0;">•</span>$1</li>')
+                              .replace(/^<li/gm, '<ul style="margin: 16px 0; padding: 0;"><li')
+                              .replace(/<\/li>(?!\s*<li)/g, '</li></ul>')
+                              .replace(/\*(.*?)\*/g, '<em style="color: #444; font-style: italic;">$1</em>')
+                              .replace(/\n\n/g, '</p><p style="text-align: right; margin: 24px 0; line-height: 1.7;">')
+                              .replace(/^/, '<p style="text-align: right; margin: 24px 0; line-height: 1.7;">')
                               .replace(/$/, '</p>')
                           }} />
                         ) : (
-                          <p>{introShort}</p>
+                          <p style={{textAlign: 'right', margin: '24px 0', lineHeight: '1.7'}}>{introShort}</p>
                         )}
                       </div>
                       {introFull.length > 280 && (
@@ -532,8 +537,202 @@ const AttractionPage: React.FC = () => {
               </section>
             </div>
 
+            {/* גלריה - ריבוע */}
+            <div className="md:col-span-1 order-5 md:order-1">
+
+              {a.gallery && a.gallery.length > 0 && (
+                <section className="bg-gradient-to-br from-gray-50 via-gray-100 to-gray-50 border border-[#534B20]/60 rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.01] h-full">
+                  <h3 className="text-lg font-bold mb-4 flex items-center gap-3 text-[#4B361C] text-right">
+                    <Camera className="w-5 h-5 text-[#CAA131]" />
+                    גלריה ({a.gallery.length} תמונות)
+                  </h3>
+                  <div className="grid grid-cols-2 gap-4">
+                    {a.gallery.slice(0, 4).map((item, i) => {
+                      const src = getImageSrc(item);
+                      const title = getImageTitle(item);
+                      const description = getImageDescription(item);
+                      
+                      return (
+                        <div 
+                          key={i} 
+                          className="relative group rounded-2xl overflow-hidden cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105"
+                          onClick={() => openLightbox(i)}
+                        >
+                          <img
+                            src={src}
+                            alt={title || `${a.name} ${i + 1}`}
+                            className="w-full h-32 md:h-36 object-cover transition-transform group-hover:scale-110 duration-700"
+                            loading="lazy"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                          {/* Show title overlay if available */}
+                          {title && (
+                            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/95 to-transparent text-white p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                              <div className="text-base font-bold text-right">{title}</div>
+                              {description && (
+                                <div className="text-sm text-gray-200 mt-2 text-right">{description}</div>
+                              )}
+                            </div>
+                          )}
+                          {i === 3 && a.gallery!.length > 4 && (
+                            <div className="absolute inset-0 bg-black/80 flex items-center justify-center text-white font-bold text-xl backdrop-blur-md">
+                              +{a.gallery!.length - 4}
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
+                  <button 
+                    className="w-full mt-6 py-4 text-[#CAA131] hover:text-white font-bold border border-[#CAA131]/50 rounded-2xl hover:bg-[#CAA131] transition-all duration-500 hover:scale-105 shadow-xl hover:shadow-2xl text-base"
+                    onClick={() => openLightbox(0)}
+                  >
+                    צפה בכל התמונות
+                  </button>
+                </section>
+              )}
+            </div>
+          </div>
+
+          {/* שורה שנייה: מידע חשוב */}
+          {(a.id === 'murchison-falls-safari' || a.id === 'murchison-falls-water' || a.id === 'murchison-falls-waterfalls' || a.slug === 'murchison-falls') && (
+            <div className="grid grid-cols-1 gap-6 order-4 md:order-2">
+              <section className="bg-gradient-to-br from-white via-gray-50 to-white border border-[#CAA131]/60 rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.01] h-full">
+                <h3 className="text-xl font-extrabold mb-6 text-[#4B361C] text-right border-b-2 border-[#CAA131] w-fit">
+                  מידע חשוב
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-right" style={{fontFamily: 'Poppins'}}>
+                  {/* עמודה שמאלית */}
+                  <div className="space-y-4">
+                    <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
+                      <h4 className="font-bold text-black mb-3 text-lg">עונות השנה</h4>
+                      <div className="space-y-3 text-black">
+                        <p className="text-base mb-3"><strong>הערה כללית:</strong> הודות למיקומה על קו המשווה, אוגנדה מציעה חוויית ספארי וטיולים המתאימה לכל עונה.</p>
+                        <div className="space-y-2">
+                          <div className="flex items-start gap-2">
+                            <div className="w-2 h-2 bg-[#CAA131] rounded-full mt-2"></div>
+                            <div>
+                              <span className="font-semibold text-black text-base">יבשה (דצמבר–פברואר, יוני–אוגוסט):</span>
+                              <span className="block text-base">חיות מתרכזות סביב מקורות מים, דרכים נוחות יותר.</span>
+                            </div>
+                          </div>
+                          <div className="flex items-start gap-2">
+                            <div className="w-2 h-2 bg-[#CAA131] rounded-full mt-2"></div>
+                            <div>
+                              <span className="font-semibold text-black text-base">ירוקה (מרץ–מאי, ספטמבר–נובמבר):</span>
+                              <span className="block text-base">נופים ירוקים, פחות תיירים, מחירים נמוכים יותר.</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
+                      <h4 className="font-bold text-black mb-3 text-lg">נסיעה והגעה</h4>
+                      <div className="space-y-2 text-black">
+                        <div className="flex items-start gap-2">
+                          <div className="w-2 h-2 bg-[#CAA131] rounded-full mt-2"></div>
+                          <span className="text-base">נסיעה יבשתית (כ-4-5 שעות מקמפלה)</span>
+                        </div>
+                        <div className="flex items-start gap-2">
+                          <div className="w-2 h-2 bg-[#CAA131] rounded-full mt-2"></div>
+                          <span className="text-base">טיסה פנימית (כ-1 שעה) עם Bar Aviation משדות Entebbe/Kajjansi</span>
+                        </div>
+                        <div className="flex items-start gap-2">
+                          <div className="w-2 h-2 bg-[#CAA131] rounded-full mt-2"></div>
+                          <span className="text-base">נחיתה במנחתי פאקובה או בוגונגו</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
+                      <h4 className="font-bold text-black mb-3 text-lg">שערי כניסה</h4>
+                      <div className="space-y-2 text-black">
+                        <div className="flex items-start gap-2">
+                          <div className="w-2 h-2 bg-[#CAA131] rounded-full mt-2"></div>
+                          <span className="text-base">שער צפוני (Paraa) - מרכז הפארק</span>
+                        </div>
+                        <div className="flex items-start gap-2">
+                          <div className="w-2 h-2 bg-[#CAA131] rounded-full mt-2"></div>
+                          <span className="text-base">שער דרומי (Kichumbanyobo) - מיקמפלה</span>
+                        </div>
+                        <div className="flex items-start gap-2">
+                          <div className="w-2 h-2 bg-[#CAA131] rounded-full mt-2"></div>
+                          <span className="text-base">שער מערבי (Wankwar) - מ-Masindi</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* עמודה ימנית */}
+                  <div className="space-y-4">
+                    <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
+                      <h4 className="font-bold text-black mb-3 text-lg">חוויות ייחודיות</h4>
+                      <div className="space-y-2 text-black">
+                        <div className="flex items-start gap-2">
+                          <div className="w-2 h-2 bg-[#CAA131] rounded-full mt-2"></div>
+                          <span className="text-base">מפלי מורצ'יסון - הנילוס נדחס מ-48 מטר ל-7 מטר בלבד</span>
+                        </div>
+                        <div className="flex items-start gap-2">
+                          <div className="w-2 h-2 bg-[#CAA131] rounded-full mt-2"></div>
+                          <span className="text-base">שייט על הנילוס עד בסיס המפלים</span>
+                        </div>
+                        <div className="flex items-start gap-2">
+                          <div className="w-2 h-2 bg-[#CAA131] rounded-full mt-2"></div>
+                          <span className="text-base">תצפית מראש המפל</span>
+                        </div>
+                        <div className="flex items-start gap-2">
+                          <div className="w-2 h-2 bg-[#CAA131] rounded-full mt-2"></div>
+                          <span className="text-base">ספארי יומי ברכבי שטח</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
+                      <h4 className="font-bold text-black mb-3 text-lg">משך שהות מומלץ</h4>
+                      <div className="space-y-2 text-black">
+                        <div className="flex items-start gap-2">
+                          <div className="w-2 h-2 bg-[#CAA131] rounded-full mt-2"></div>
+                          <span className="text-base">טיול יום - 6-8 שעות</span>
+                        </div>
+                        <div className="flex items-start gap-2">
+                          <div className="w-2 h-2 bg-[#CAA131] rounded-full mt-2"></div>
+                          <span className="text-base">סוף שבוע - 2-3 ימים</span>
+                        </div>
+                        <div className="flex items-start gap-2">
+                          <div className="w-2 h-2 bg-[#CAA131] rounded-full mt-2"></div>
+                          <span className="text-base">חופשה מלאה - 4-5 ימים</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="bg-white border border-[#CAA131] rounded-2xl p-5">
+                      <h4 className="font-bold text-[#4B361C] mb-3 text-lg">הידעת?</h4>
+                      <div className="space-y-2 text-[#4B361C]">
+                        <div className="flex items-start gap-2">
+                          <div className="w-2 h-2 bg-[#CAA131] rounded-full mt-2"></div>
+                          <span className="text-base">הפארק הוקם ב-1952 והוא הפארק הלאומי הגדול והוותיק ביותר באוגנדה</span>
+                        </div>
+                        <div className="flex items-start gap-2">
+                          <div className="w-2 h-2 bg-[#CAA131] rounded-full mt-2"></div>
+                          <span className="text-base">דמי כניסה: $35 למבקר בינלאומי</span>
+                        </div>
+                        <div className="flex items-start gap-2">
+                          <div className="w-2 h-2 bg-[#CAA131] rounded-full mt-2"></div>
+                          <span className="text-base">המפלים נוצרו לפני כ-15,000 שנה כתוצאה מתנועות טקטוניות</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </div>
+          )}
+
+          {/* שורה שלישית: מפה */}
+          <div className="grid grid-cols-1 gap-6">
             {/* מפה - ריבוע */}
-            <div className="md:col-span-1 order-6 md:order-2">
+            <div className="order-6 md:order-3">
               <section className="rounded-2xl overflow-hidden border border-[#534B20]/60 bg-white shadow-lg hover:shadow-xl transition-all duration-300 h-full">
                 <div className="relative cursor-pointer h-full" onClick={() => setMapFullscreen(true)}>
                   <iframe
@@ -617,255 +816,9 @@ const AttractionPage: React.FC = () => {
                 </div>
               </section>
             </div>
+
           </div>
 
-          {/* שורה שנייה: גלריה + מה תגלו בדרך */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* גלריה - ריבוע */}
-            <div className="md:col-span-1 order-5 md:order-1">
-
-              {a.gallery && a.gallery.length > 0 && (
-                <section className="bg-gradient-to-br from-gray-50 via-gray-100 to-gray-50 border border-[#534B20]/60 rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.01] h-full">
-                  <h3 className="text-lg font-bold mb-4 flex items-center gap-3 text-[#4B361C] text-right">
-                    <Camera className="w-5 h-5 text-[#CAA131]" />
-                    גלריה ({a.gallery.length} תמונות)
-                  </h3>
-                  <div className="grid grid-cols-2 gap-4">
-                    {a.gallery.slice(0, 4).map((item, i) => {
-                      const src = getImageSrc(item);
-                      const title = getImageTitle(item);
-                      const description = getImageDescription(item);
-                      
-                      return (
-                        <div 
-                          key={i} 
-                          className="relative group rounded-2xl overflow-hidden cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105"
-                          onClick={() => openLightbox(i)}
-                        >
-                          <img
-                            src={src}
-                            alt={title || `${a.name} ${i + 1}`}
-                            className="w-full h-32 md:h-36 object-cover transition-transform group-hover:scale-110 duration-700"
-                            loading="lazy"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                          {/* Show title overlay if available */}
-                          {title && (
-                            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/95 to-transparent text-white p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500">
-                              <div className="text-base font-bold text-right">{title}</div>
-                              {description && (
-                                <div className="text-sm text-gray-200 mt-2 text-right">{description}</div>
-                              )}
-                            </div>
-                          )}
-                          {i === 3 && a.gallery!.length > 4 && (
-                            <div className="absolute inset-0 bg-black/80 flex items-center justify-center text-white font-bold text-xl backdrop-blur-md">
-                              +{a.gallery!.length - 4}
-                            </div>
-                          )}
-                        </div>
-                      );
-                    })}
-                  </div>
-                  <button 
-                    className="w-full mt-6 py-4 text-[#CAA131] hover:text-white font-bold border border-[#CAA131]/50 rounded-2xl hover:bg-[#CAA131] transition-all duration-500 hover:scale-105 shadow-xl hover:shadow-2xl text-base"
-                    onClick={() => openLightbox(0)}
-                  >
-                    צפה בכל התמונות
-                  </button>
-                </section>
-              )}
-            </div>
-
-            {/* מה תגלו בדרך - 50% */}
-            <div className="md:col-span-1 order-3 md:order-2">
-              {/* עבור הר אלגון - מה תראו בדרך */}
-              {(a.id === 'mount-elgon' || a.slug === 'mount-elgon') ? (
-                <InfoCard title="מה תראו בדרך" className="h-full">
-                  <div className="grid grid-cols-1 gap-4">
-                    {(a as any).howToGetThere && (a as any).howToGetThere.map((item: string, i: number) => (
-                      <div key={i} className="flex items-center gap-4 p-4 bg-gradient-to-r from-[#CAA131]/15 to-[#B8942A]/15 rounded-2xl border border-[#CAA131]/50/30 hover:shadow-xl hover:scale-105 transition-all duration-500">
-                        <div className="w-4 h-4 bg-gradient-to-br from-[#CAA131] to-[#B8942A] rounded-full shadow-lg"></div>
-                        <span className="text-[#4B361C] font-medium text-base text-right">{item}</span>
-                      </div>
-                    ))}
-                  </div>
-                </InfoCard>
-              ) : (a.id === 'rwenzori-mountains' || a.slug === 'rwenzori-mountains') ? (
-                /* עבור הרי הרוונזורי - מה תראו בדרך */
-                <InfoCard title="מה תראו בדרך" className="h-full">
-                  <div className="grid grid-cols-1 gap-4">
-                    {(a as any).howToGetThere && (a as any).howToGetThere.map((item: string, i: number) => (
-                      <div key={i} className="flex items-center gap-4 p-4 bg-gradient-to-r from-[#CAA131]/15 to-[#B8942A]/15 rounded-2xl border border-[#CAA131]/50/30 hover:shadow-xl hover:scale-105 transition-all duration-500">
-                        <div className="w-4 h-4 bg-gradient-to-br from-[#CAA131] to-[#B8942A] rounded-full shadow-lg"></div>
-                        <span className="text-[#4B361C] font-medium text-base text-right">{item}</span>
-                      </div>
-                    ))}
-                  </div>
-                </InfoCard>
-              ) : (
-                /* עבור שאר האטרקציות - מה תגלו בדרך */
-                a.wildlife && a.wildlife.length > 0 && (
-                  <InfoCard title="מה תגלו בדרך" className="h-full">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      {a.wildlife.map((w, i) => (
-                        <div key={i} className="flex items-center gap-4 p-4 bg-gradient-to-r from-[#CAA131]/15 to-[#B8942A]/15 rounded-2xl border border-[#CAA131]/50/30 hover:shadow-xl hover:scale-105 transition-all duration-500">
-                          <div className="w-4 h-4 bg-gradient-to-br from-[#CAA131] to-[#B8942A] rounded-full shadow-lg"></div>
-                          <span className="text-[#4B361C] font-medium text-base text-right">{w}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </InfoCard>
-                )
-              )}
-            </div>
-          </div>
-
-          {/* גריד מיוחד למפלי מרצ'ינסון - מידע חשוב */}
-          {(a.id === 'murchison-falls-safari' || a.id === 'murchison-falls-water' || a.id === 'murchison-falls-waterfalls' || a.slug === 'murchison-falls') && (
-            <div className="grid grid-cols-1 gap-6 order-4 md:order-none">
-              <section className="bg-gradient-to-br from-white via-gray-50 to-white border border-[#CAA131]/60 rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.01] h-full">
-                <h3 className="text-xl font-extrabold mb-6 text-[#4B361C] text-right border-b-2 border-[#CAA131] w-fit">
-                  מידע חשוב
-                </h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-right" style={{fontFamily: 'Poppins'}}>
-                  {/* עמודה שמאלית */}
-                  <div className="space-y-4">
-                    <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
-                      <h4 className="font-bold text-black mb-3 text-lg">עונות השנה</h4>
-                      <div className="space-y-3 text-black">
-                        <p className="text-base mb-3"><strong>הערה כללית:</strong> הודות למיקומה על קו המשווה, אוגנדה מציעה חוויית ספארי וטיולים המתאימה לכל עונה.</p>
-                        <div className="space-y-2">
-                          <div className="flex items-start gap-2">
-                            <div className="w-2 h-2 bg-[#CAA131] rounded-full mt-2"></div>
-                            <div>
-                              <span className="font-semibold text-black text-base">יבשה (דצמבר–פברואר, יוני–אוגוסט):</span>
-                              <span className="block text-base">חיות מתרכזות סביב מקורות מים, דרכים נוחות יותר.</span>
-                            </div>
-                          </div>
-                          <div className="flex items-start gap-2">
-                            <div className="w-2 h-2 bg-[#CAA131] rounded-full mt-2"></div>
-                            <div>
-                              <span className="font-semibold text-black text-base">רטובה (מרץ–מאי, ספטמבר–נובמבר):</span>
-                              <span className="block text-base">נוף ירוק, שפע ציפורים, פחות תיירים ומחירים נמוכים יותר.</span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
-                      <h4 className="font-bold text-black mb-3 text-lg">נסיעה והגעה</h4>
-                      <ul className="space-y-2 text-black">
-                        <li className="flex items-start gap-2">
-                          <div className="w-2 h-2 bg-[#CAA131] rounded-full mt-1.5"></div>
-                          <span className="text-base">כ-<strong>305 ק"מ מקמפלה</strong>, נסיעה של <strong>4–5 שעות</strong></span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <div className="w-2 h-2 bg-[#CAA131] rounded-full mt-1.5"></div>
-                          <span className="text-base">טיסה פנימית (כ-<strong>1 שעה</strong>) עם <strong>Bar Aviation</strong> משדות Entebbe/Kajjansi</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <div className="w-2 h-2 bg-[#CAA131] rounded-full mt-1.5"></div>
-                          <span className="text-base">מעבר במעבורת בין הגדות</span>
-                        </li>
-                      </ul>
-                    </div>
-                    
-                    <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
-                      <h4 className="font-bold text-black mb-3 text-lg">שערי כניסה</h4>
-                      <div className="space-y-2">
-                        <div>
-                          <span className="font-semibold text-black text-base">דרומיים:</span>
-                          <div className="mt-2 space-y-1">
-                            <div className="flex items-start gap-2">
-                              <div className="w-2 h-2 bg-[#CAA131] rounded-full mt-1.5"></div>
-                              <span className="text-base text-black">קיצ'ומבניובו, בוגונגו – מסלול נופי דרך יער בודונגו</span>
-                            </div>
-                          </div>
-                        </div>
-                        <div>
-                          <span className="font-semibold text-black text-base">צפוניים:</span>
-                          <div className="mt-2 space-y-1">
-                            <div className="flex items-start gap-2">
-                              <div className="w-2 h-2 bg-[#CAA131] rounded-full mt-1.5"></div>
-                              <span className="text-base text-black">טנגי, וונקוואר, צ'ובה – נוחים מקידפו או מגולו</span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  {/* עמודה ימנית */}
-                  <div className="space-y-4">
-                    <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
-                      <h4 className="font-bold text-black mb-3 text-lg">חוויות ייחודיות</h4>
-                      <ul className="space-y-2 text-black">
-                        <li className="flex items-start gap-2">
-                          <div className="w-2 h-2 bg-[#CAA131] rounded-full mt-1.5"></div>
-                          <span className="text-base"><strong>מפלי מורצ'יסון</strong> – הנילוס נדחס מ-48 מטר ל-7 מטר בלבד</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <div className="w-2 h-2 bg-[#CAA131] rounded-full mt-1.5"></div>
-                          <span className="text-base"><strong>שייט בסירה</strong> – היפופוטמים, תנינים וציפורים</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <div className="w-2 h-2 bg-[#CAA131] rounded-full mt-1.5"></div>
-                          <span className="text-base"><strong>ספארי לילה</strong> – אחד המקומות היחידים באוגנדה</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <div className="w-2 h-2 bg-[#CAA131] rounded-full mt-1.5"></div>
-                          <span className="text-base"><strong>חמשת הגדולים</strong> – מלבד קרנפים (בזיבה)</span>
-                        </li>
-                      </ul>
-                    </div>
-                    
-                    <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
-                      <h4 className="font-bold text-black mb-3 text-lg">משך שהות מומלץ</h4>
-                      <ul className="space-y-2 text-black">
-                        <li className="flex items-start gap-2">
-                          <div className="w-2 h-2 bg-[#CAA131] rounded-full mt-1.5"></div>
-                          <span className="text-base"><strong>2–3 ימים</strong> – ספארי, שייט, טרק קצר</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <div className="w-2 h-2 bg-[#CAA131] rounded-full mt-1.5"></div>
-                          <span className="text-base"><strong>3+ ימים</strong> – צפרות או טרקינג שימפנזים</span>
-                        </li>
-                      </ul>
-                    </div>
-                    
-                    <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
-                      <h4 className="font-bold text-black mb-3 text-lg">דמי כניסה</h4>
-                      <ul className="space-y-2 text-black">
-                        <li className="flex items-start gap-2">
-                          <div className="w-2 h-2 bg-[#CAA131] rounded-full mt-1.5"></div>
-                          <span className="text-base"><strong>$35 למבקר בינלאומי</strong> ליום</span>
-                        </li>
-                        <li className="flex items-start gap-2">
-                          <div className="w-2 h-2 bg-[#CAA131] rounded-full mt-1.5"></div>
-                          <span className="text-base">כולל גישה לכל האזורים והפעילויות</span>
-                        </li>
-                      </ul>
-                    </div>
-                    
-                    <div className="bg-white rounded-2xl p-5 border-2 border-[#CAA131]">
-                      <h4 className="font-bold text-black mb-3 text-lg">הידעת?</h4>
-                      <div className="space-y-3 text-black">
-                        <div className="bg-white rounded-xl p-4 shadow-sm border border-[#CAA131]">
-                          <p className="text-base leading-relaxed">
-                            המפלים נקראים גם <span className="text-[#CAA131] font-bold">Kabalega Falls</span> על שם מלך בוניורו המקומי
-                          </p>
-                        </div>
-                        
-                      </div>
-                    </div>
-                    
-                  </div>
-                </div>
-              </section>
-            </div>
-          )}
 
           {/* גריד מידע חשוב לפארק המלכה אליזבת */}
           {(a.id === 'queen-elizabeth' || a.slug === 'queen-elizabeth') && (
@@ -873,7 +826,7 @@ const AttractionPage: React.FC = () => {
               <section className="bg-gradient-to-br from-white via-gray-50 to-white border border-[#CAA131]/60 rounded-3xl p-8 shadow-2xl">
                 <h3 className="text-2xl font-bold text-center text-black mb-8" style={{fontFamily: 'Poppins'}}>
                   מידע חשוב
-                </h3>
+                  </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6" style={{fontFamily: 'Poppins'}}>
                   {/* עמודה שמאלית */}
                   <div className="space-y-6">
@@ -962,7 +915,7 @@ const AttractionPage: React.FC = () => {
               <section className="bg-gradient-to-br from-white via-gray-50 to-white border border-[#CAA131]/60 rounded-3xl p-8 shadow-2xl">
                 <h3 className="text-2xl font-bold text-center text-black mb-8" style={{fontFamily: 'Poppins'}}>
                   מידע חשוב
-                </h3>
+                  </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6" style={{fontFamily: 'Poppins'}}>
                   {/* עמודה שמאלית */}
                   <div className="space-y-6">
@@ -998,7 +951,7 @@ const AttractionPage: React.FC = () => {
                     </div>
                   </div>
 
-                  {/* עמודה ימנית */}
+                    {/* עמודה ימנית */}
                   <div className="space-y-6">
                     <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
                       <h4 className="font-bold text-black mb-3 text-lg">חוויות ייחודיות</h4>
@@ -1007,17 +960,17 @@ const AttractionPage: React.FC = () => {
                         <li className="text-base text-black"><strong>ספארי רכיבה על סוסים ואופני הרים</strong> – חוויה אינטימית וייחודית</li>
                         <li className="text-base text-black"><strong>שייט על האגם</strong> – צפייה בהיפופוטמים, תנינים וציפורי מים</li>
                         <li className="text-base text-black"><strong>ספארי לילה</strong> – אפשרות לראות חיות ליליות כמו צבועים ונמרים</li>
-                      </ul>
-                    </div>
-
+                        </ul>
+                      </div>
+                      
                     <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
                       <h4 className="font-bold text-black mb-3 text-lg">משך שהות מומלץ</h4>
                       <ul className="space-y-1 text-black list-disc list-inside text-[#CAA131]">
                         <li className="text-base text-black"><strong>2–3 ימים</strong> – מספיקים לספארי, שייט וספארי לילה</li>
                         <li className="text-base text-black"><strong>3–4 ימים</strong> – למטיילים המעוניינים גם בצפרות ופעילויות אקטיביות נוספות</li>
-                      </ul>
-                    </div>
-                    
+                        </ul>
+                      </div>
+                      
                     <div className="bg-white rounded-2xl p-5 border-2 border-[#CAA131]">
                       <h4 className="font-bold text-black mb-3 text-lg">הידעת?</h4>
                       <div className="space-y-3 text-black">
@@ -1043,8 +996,8 @@ const AttractionPage: React.FC = () => {
                   </div>
                 </div>
               </section>
-            </div>
-          )}
+                            </div>
+                          )}
 
           {/* גריד מידע חשוב לפארק סמוליקי */}
           {(a.id === 'semuliki' || a.slug === 'semuliki') && (
@@ -1068,7 +1021,7 @@ const AttractionPage: React.FC = () => {
                         </ul>
                       </div>
                     </div>
-
+                    
                     <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
                       <h4 className="font-bold text-black mb-3 text-lg">נסיעה והגעה</h4>
                       <ul className="space-y-1 text-black list-disc list-inside text-[#CAA131]">
@@ -1134,8 +1087,8 @@ const AttractionPage: React.FC = () => {
                   </div>
                 </div>
               </section>
-            </div>
-          )}
+                            </div>
+                          )}
 
           {/* גריד מידע חשוב לגורילות ביער בווינדי */}
           {(a.id === 'gorillas-bwindi' || a.slug === 'gorillas-bwindi' || a.id === 'bwindi-impenetrable' || a.slug === 'bwindi-impenetrable') && (
@@ -1145,7 +1098,7 @@ const AttractionPage: React.FC = () => {
                   מידע חשוב
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6" style={{fontFamily: 'Poppins'}}>
-                  {/* עמודה שמאלית */}
+                    {/* עמודה שמאלית */}
                   <div className="space-y-6">
                     <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
                       <h4 className="font-bold text-black mb-3 text-lg">עונות השנה</h4>
@@ -1157,17 +1110,17 @@ const AttractionPage: React.FC = () => {
                           <li className="text-base text-black"><strong>עונה יבשה</strong> (יוני–ספטמבר, דצמבר–פברואר): שבילים יבשים ונוחים, ראות טובה יותר במפגש עם גורילות. מומלץ במיוחד לטרקים</li>
                           <li className="text-base text-black"><strong>עונה רטובה</strong> (מרץ–מאי, אוקטובר–נובמבר): שבילים חלקלקים ומאתגרים, אך פחות תיירים ומחירים נמוכים יותר</li>
                         </ul>
-                      </div>
-                    </div>
-
+                        </div>
+                  </div>
+                      
                     <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
                       <h4 className="font-bold text-black mb-3 text-lg">נסיעה והגעה</h4>
                       <ul className="space-y-1 text-black list-disc list-inside text-[#CAA131]">
                         <li className="text-base text-black">נסיעה מקמפלה/אנטבה: כ־<strong>9–10 שעות</strong> ברכב</li>
                         <li className="text-base text-black">נסיעה מקיגאלי (רואנדה): קצרה יותר – כ־<strong>4 שעות</strong></li>
                         <li className="text-base text-black"><strong>טיסות פנימיות:</strong> מופעלות על ידי Bar Aviation משדות התעופה Entebbe/Kajjansi</li>
-                      </ul>
-                    </div>
+                        </ul>
+                      </div>
 
                     <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
                       <h4 className="font-bold text-black mb-3 text-lg">שערי כניסה (מגזרים)</h4>
@@ -1221,9 +1174,9 @@ const AttractionPage: React.FC = () => {
                         </div>
                       </div>
                     </div>
+                    </div>
                   </div>
-                </div>
-              </section>
+                </section>
             </div>
           )}
 
@@ -1247,8 +1200,8 @@ const AttractionPage: React.FC = () => {
                           <li className="text-base text-black"><strong>עונה יבשה</strong> (יוני–ספטמבר, דצמבר–פברואר): שבילים נוחים יותר לטרקים, מומלץ במיוחד</li>
                           <li className="text-base text-black"><strong>עונה רטובה</strong> (מרץ–מאי, ספטמבר–נובמבר): שבילים חלקלקים יותר, פחות תיירים ומחירים נוחים יותר</li>
                         </ul>
-                      </div>
-                    </div>
+            </div>
+            </div>
 
                     <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
                       <h4 className="font-bold text-black mb-3 text-lg">נסיעה והגעה</h4>
@@ -1258,14 +1211,14 @@ const AttractionPage: React.FC = () => {
                         <li className="text-base text-black">נסיעה מקיגאלי (רואנדה): כ־<strong>3–4 שעות</strong> בלבד, מה שהופך אותו לנגיש מאוד</li>
                         <li className="text-base text-black"><strong>טיסות פנימיות:</strong> מופעלות על ידי Bar Aviation משדות התעופה Entebbe/Kajjansi</li>
                       </ul>
-                    </div>
+                      </div>
 
                     <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
                       <h4 className="font-bold text-black mb-3 text-lg">שערי כניסה</h4>
                       <ul className="space-y-1 text-black list-disc list-inside text-[#CAA131]">
                         <li className="text-base text-black">הפעילויות יוצאות ממרכז המבקרים הראשי של הפארק (Ntebeko Visitor Centre)</li>
                       </ul>
-                    </div>
+                  </div>
                   </div>
 
                   {/* עמודה ימנית */}
@@ -1335,8 +1288,8 @@ const AttractionPage: React.FC = () => {
                           <li className="text-base text-black"><strong>עונה יבשה</strong> (דצמבר–מרץ, יוני–ספטמבר): מזג אוויר נוח, שבילים יבשים, סיכוי גבוה לפגוש שימפנזים</li>
                           <li className="text-base text-black"><strong>עונה רטובה</strong> (אפריל–מאי, אוקטובר–נובמבר): פחות מבקרים, הנקיק ירוק ושופע, השימפנזים נשארים קרוב למקורות מזון – מה שמקל על איתורם</li>
                         </ul>
-                      </div>
-                    </div>
+            </div>
+          </div>
 
                     <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
                       <h4 className="font-bold text-black mb-3 text-lg">נסיעה והגעה</h4>
@@ -1412,8 +1365,8 @@ const AttractionPage: React.FC = () => {
                           <li className="text-base text-black"><strong>עונה רטובה</strong> (מרץ–מאי, ספטמבר–נובמבר): הנוף ירוק ושופע, המפלים בשיא עוצמתם, אך השבילים חלקים ומאתגרים</li>
                         </ul>
                       </div>
-                    </div>
-
+                  </div>
+                  
                     <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
                       <h4 className="font-bold text-black mb-3 text-lg">נסיעה והגעה</h4>
                       <ul className="space-y-1 text-black list-disc list-inside text-[#CAA131]">
@@ -1479,7 +1432,7 @@ const AttractionPage: React.FC = () => {
               <section className="bg-gradient-to-br from-white via-gray-50 to-white border border-[#CAA131]/60 rounded-3xl p-8 shadow-2xl">
                 <h3 className="text-2xl font-bold text-center text-black mb-8" style={{fontFamily: 'Poppins'}}>
                   מידע חשוב
-                </h3>
+                  </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6" style={{fontFamily: 'Poppins'}}>
                   {/* עמודה שמאלית */}
                   <div className="space-y-6">
@@ -1512,7 +1465,7 @@ const AttractionPage: React.FC = () => {
                     </div>
                   </div>
 
-                  {/* עמודה ימנית */}
+                    {/* עמודה ימנית */}
                   <div className="space-y-6">
                     <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
                       <h4 className="font-bold text-black mb-3 text-lg">חוויות ייחודיות</h4>
@@ -1521,9 +1474,9 @@ const AttractionPage: React.FC = () => {
                         <li className="text-base text-black"><strong>רפטינג וקיאקים במים לבנים</strong> – מהטובים ביותר באפריקה</li>
                         <li className="text-base text-black"><strong>שיט רגוע בסירה</strong> על הנילוס</li>
                         <li className="text-base text-black"><strong>פעילויות אקסטרים</strong> כמו בנג'י מעל הנהר, Zipline ו־Quad Biking</li>
-                      </ul>
-                    </div>
-                    
+                        </ul>
+                      </div>
+                      
                     <div className="bg-white rounded-2xl p-5 border-2 border-[#CAA131]">
                       <h4 className="font-bold text-black mb-3 text-lg">הידעת?</h4>
                       <div className="space-y-3 text-black">
@@ -1573,8 +1526,8 @@ const AttractionPage: React.FC = () => {
                           <li className="text-base text-black"><strong>בעונה הרטובה</strong> (מרץ–מאי, ספטמבר–נובמבר): האגם מתמלא, הנופים ירוקים, אך ייתכנו גשמים וסופות מקומיות</li>
                         </ul>
                       </div>
-                    </div>
-
+                      </div>
+                      
                     <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
                       <h4 className="font-bold text-black mb-3 text-lg">נסיעה והגעה</h4>
                       <ul className="space-y-1 text-black list-disc list-inside text-[#CAA131]">
@@ -1587,10 +1540,10 @@ const AttractionPage: React.FC = () => {
                       <h4 className="font-bold text-black mb-3 text-lg">שערי כניסה</h4>
                       <ul className="space-y-1 text-black list-disc list-inside text-[#CAA131]">
                         <li className="text-base text-black">אין שערי כניסה רשמיים. הפעילות מתבצעת דרך נמלים מקומיים ומרכזי תיירות (כגון אנטבה וג'ינג'ה)</li>
-                      </ul>
+                        </ul>
+                      </div>
                     </div>
-                  </div>
-
+                    
                   {/* עמודה ימנית */}
                   <div className="space-y-6">
                     <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
@@ -1640,7 +1593,7 @@ const AttractionPage: React.FC = () => {
                   מידע חשוב
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6" style={{fontFamily: 'Poppins'}}>
-                  {/* עמודה שמאלית */}
+                    {/* עמודה שמאלית */}
                   <div className="space-y-6">
                     <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
                       <h4 className="font-bold text-black mb-3 text-lg">עונות השנה</h4>
@@ -1653,8 +1606,8 @@ const AttractionPage: React.FC = () => {
                           <li className="text-base text-black"><strong>בעונה הרטובה</strong> (מרץ–מאי, ספטמבר–נובמבר): הנוף ירוק ורענן במיוחד, מושלם לצילום, אך שבילי ההרים עלולים להיות חלקים</li>
                         </ul>
                       </div>
-                    </div>
-
+                      </div>
+                      
                     <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
                       <h4 className="font-bold text-black mb-3 text-lg">נסיעה והגעה</h4>
                       <ul className="space-y-1 text-black list-disc list-inside text-[#CAA131]">
@@ -1662,8 +1615,8 @@ const AttractionPage: React.FC = () => {
                         <li className="text-base text-black">נסיעה מקמפלה נמשכת כ־<strong>7–8 שעות</strong> ברכב</li>
                         <li className="text-base text-black">ניתן להגיע גם בטיסה פנימית לקיסורו (Kisoro) ומשם נסיעה קצרה</li>
                         <li className="text-base text-black"><strong>טיסות פנימיות:</strong> מופעלות על ידי Bar Aviation משדות התעופה Entebbe/Kajjansi</li>
-                      </ul>
-                    </div>
+                        </ul>
+                      </div>
 
                     <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
                       <h4 className="font-bold text-black mb-3 text-lg">שערי כניסה</h4>
@@ -1710,9 +1663,9 @@ const AttractionPage: React.FC = () => {
                         </div>
                       </div>
                     </div>
+                    </div>
                   </div>
-                </div>
-              </section>
+                </section>
             </div>
           )}
 
@@ -1736,8 +1689,8 @@ const AttractionPage: React.FC = () => {
                           <li className="text-base text-black"><strong>עונה יבשה</strong> (דצמבר–פברואר, יוני–ספטמבר): מזג אוויר יציב, שבילים יבשים ונוחים לטרקים, ראות טובה מהפסגות</li>
                           <li className="text-base text-black"><strong>עונה רטובה</strong> (מרץ–מאי, אוקטובר–נובמבר): הנוף ירוק ושופע, מפלי סיפי בשיא עוצמתם, אך שבילים חלקים ומאתגרים</li>
                         </ul>
-                      </div>
-                    </div>
+            </div>
+          </div>
 
                     <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-5 border border-[#CAA131]/30">
                       <h4 className="font-bold text-black mb-3 text-lg">נסיעה והגעה</h4>
