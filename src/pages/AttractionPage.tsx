@@ -8,11 +8,10 @@ import { gorillasChimps } from "../content/categories/gorillas-chimps";
 import { safari } from "../content/categories/safari";
 import { water } from "../content/categories/water";
 import { mountains } from "../content/categories/mountains";
-import { extreme } from "../content/categories/extreme";
 import { parks } from "../data/parks";
 
 // Import types
-import { Attraction, Park, AttractionWithMock } from "../types";
+import { Attraction, AttractionWithMock } from "../types";
 
 // ====== COMPONENTS ======
 import AttractionHero from "../components/AttractionPage/AttractionHero";

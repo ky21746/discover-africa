@@ -2,7 +2,6 @@
 import React, { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import SearchBar from "../components/Common/SearchBar";
-import { extreme } from "../content/categories/extreme";
 import { Attraction } from "../types";
 
 const ExtremePage: React.FC = () => {

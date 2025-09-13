@@ -6,7 +6,6 @@ import { getParkBySlug } from '../../data/parks';
 import { gorillasChimps } from '../../content/categories/gorillas-chimps';
 import { safari } from '../../content/categories/safari';
 import { water } from '../../content/categories/water';
-import { extreme } from '../../content/categories/extreme';
 
 interface BreadcrumbItem {
   label: string;
@@ -171,9 +170,6 @@ const SmartBreadcrumbs: React.FC = () => {
 
   const breadcrumbs = generateBreadcrumbs();
 
-  // Debug: הצגת הנתיב הנוכחי
-  console.log('Current pathname:', pathname);
-  console.log('Generated breadcrumbs:', breadcrumbs);
 
   // אם יש רק פריט אחד (בית), לא מציגים breadcrumbs
   if (breadcrumbs.length <= 1) {

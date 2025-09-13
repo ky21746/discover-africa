@@ -114,31 +114,6 @@ export interface GeneratedTrip {
 }
 
 // ===== Parks / Wildlife pages =====
-export type TravelerType = 'משפחות' | 'זוגות' | 'בודדים' | 'קבוצה';
-
-export interface Review {
-  id: string;
-  author: string;
-  country?: string;
-  rating: number;     // 1..5
-  date: string;       // ISO date
-  text: string;
-  travelerType?: TravelerType;
-}
-
-export type SeasonalityMap = Record<
-  // he-IL 3-letter short month labels we used ("ינו","פבר",...)
-  'ינו' | 'פבר' | 'מרץ' | 'אפר' | 'מאי' | 'יוני' |
-  'יולי' | 'אוג' | 'ספט' | 'אוק' | 'נוב' | 'דצמ',
-  number
->;
-
-export interface Logistics {
-  drive_from_kla?: string;   // e.g. "6–7 שעות"
-  flight_option?: string;    // e.g. "טיסה פנימית זמינה"
-  best_time?: string;        // e.g. "בוקר מוקדם"
-  duration_hours?: number;   // average activity duration
-}
 
 export interface Park {
   slug: string;
