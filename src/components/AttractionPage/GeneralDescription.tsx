@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { ChevronDown, ChevronUp } from "lucide-react";
 
 interface GeneralDescriptionProps {
   title: string;
@@ -8,47 +9,71 @@ interface GeneralDescriptionProps {
 const GeneralDescription: React.FC<GeneralDescriptionProps> = ({ title, description }) => {
   const [expanded, setExpanded] = useState(false);
 
-  // Clean description - remove markdown formatting and convert to plain text
-  const cleanDescription = description
-    .replace(/#{1,6}\s+/g, '') // Remove markdown headers
-    .replace(/\*\*(.*?)\*\*/g, '$1') // Remove bold formatting
-    .replace(/\*(.*?)\*/g, '$1') // Remove italic formatting
-    .replace(/\n\n/g, '\n') // Normalize line breaks
-    .trim();
+  // Function to render content with markdown parsing
+  const renderContent = (text: string) => {
+    return text.split('\n').map((line, index) => {
+      if (line.startsWith('## ')) {
+        // Subtitle
+        return (
+          <h3 key={index} className="text-xl font-semibold text-[#4B361C] border-b-2 border-[#CAA131] pb-2 mb-4 mt-6">
+            {line.substring(3).trim()}
+          </h3>
+        );
+      } else if (line.startsWith('- ')) {
+        // List item
+        return (
+          <li key={index} className="text-gray-800 leading-relaxed mb-2 list-disc list-inside">
+            {line.substring(2).trim()}
+          </li>
+        );
+      } else if (line.trim() === '---') {
+        // Horizontal rule
+        return <hr key={index} className="my-6 border-[#CAA131]/50" />;
+      } else if (line.trim() === '') {
+        // Empty line for spacing
+        return <p key={index} className="mb-4"></p>;
+      } else {
+        // Regular paragraph
+        return (
+          <p key={index} className="text-gray-800 leading-relaxed mb-4">
+            {line.trim()}
+          </p>
+        );
+      }
+    });
+  };
 
   return (
     <div className="bg-gradient-to-br from-gray-50 via-gray-100 to-gray-50 border border-[#534B20]/60 rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.01] h-full flex flex-col">
-      {/* כותרת */}
-      <h2 className="text-2xl font-bold mb-6 text-[#4B361C] leading-tight">{title}</h2>
+      {/* כותרת ראשית */}
+      <h2 className="text-3xl font-bold text-[#CAA131] mb-8 leading-tight">{title}</h2>
 
       {/* Content wrapper with flex layout */}
       <div className="h-full flex flex-col">
         {/* Text content with collapse functionality */}
-        <div className={`relative leading-relaxed text-gray-700 font-medium transition-all duration-300 w-full flex-1 ${
-          expanded ? "max-h-none" : "max-h-64 overflow-hidden"
+        <div className={`relative text-gray-800 transition-all duration-300 w-full flex-1 ${
+          expanded ? "max-h-none" : "max-h-64 overflow-hidden" // ~8 lines
         }`} style={{ fontFamily: 'Poppins' }}>
-          {cleanDescription.split('\n').map((paragraph, index) => (
-            paragraph.trim() && (
-              <p key={index} className="mb-4 last:mb-0 w-full">
-                {paragraph}
-              </p>
-            )
-          ))}
-          
+          {renderContent(description)}
         </div>
 
         {/* Button positioned at bottom right */}
-        <div className="mt-4 flex justify-end">
+        <div className="mt-6 flex justify-end">
           <button
             type="button"
             aria-expanded={expanded}
-            onClick={() => {
-              console.log('Button clicked! Current expanded:', expanded);
-              setExpanded(v => !v);
-            }}
-            className="px-4 py-4 border-2 border-[#CAA131] text-[#CAA131] rounded-xl font-bold text-base hover:bg-[#CAA131]/10 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-[#CAA131]/50 focus:ring-offset-2"
+            onClick={() => setExpanded(v => !v)}
+            className="bg-[#CAA131] text-white px-6 py-2 rounded-xl font-semibold hover:bg-[#B8942A] transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-[#CAA131]/50 focus:ring-offset-2 flex items-center gap-2"
           >
-            {expanded ? "קרא פחות" : "קרא עוד"}
+            {expanded ? (
+              <>
+                קרא פחות <ChevronUp className="w-5 h-5" />
+              </>
+            ) : (
+              <>
+                קרא עוד <ChevronDown className="w-5 h-5" />
+              </>
+            )}
           </button>
         </div>
       </div>
