@@ -218,4 +218,14 @@ export interface Attraction {
     lat: number;
     lng: number;
   };
+  
+  // Info Grid data for AttractionInfoGrid component
+  infoGrid?: {
+    seasons?: string[];
+    access?: string[];
+    gates?: string[];
+    experiences?: string[];
+    duration?: string[];
+    didYouKnow?: string[];
+  };
 }

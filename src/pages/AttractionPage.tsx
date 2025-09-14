@@ -15,8 +15,9 @@ import { Attraction, AttractionWithMock } from "../types";
 
 // ====== COMPONENTS ======
 import AttractionHero from "../components/AttractionPage/AttractionHero";
+import AttractionInfoGrid from "../components/AttractionPage/AttractionInfoGrid";
 import AttractionGallery from "../components/AttractionPage/AttractionGallery";
-import AttractionInfo from "../components/AttractionPage/AttractionInfo";
+import GeneralDescription from "../components/AttractionPage/GeneralDescription";
 import AttractionMap from "../components/AttractionPage/AttractionMap";
 import AttractionExperiences from "../components/AttractionPage/AttractionExperiences";
 import AttractionServices from "../components/AttractionPage/AttractionServices";
@@ -112,9 +113,9 @@ const AttractionPage: React.FC = () => {
         heroImage={heroImage}
       />
 
-      {/* Main Content Grid */}
+      {/* Main Content Wrapper */}
       <div className="container mx-auto max-w-screen-xl px-4 py-8 md:py-10 space-y-6">
-        
+
         {/* הדרכה ל-Wishlist */}
         <div className="bg-gradient-to-r from-amber-50 to-orange-50 border border-[#CAA131]/50 rounded-2xl p-5 flex items-center gap-4 shadow-lg order-1 md:order-none">
           <div className="bg-amber-500 text-white rounded-full p-2 flex-shrink-0">
@@ -125,11 +126,11 @@ const AttractionPage: React.FC = () => {
             <p className="text-black text-sm">הוסף חוויות למסלול שלך ואנחנו נבנה לך תכנית טיול מושלמת עם מחירים ומפת נסיעה</p>
           </div>
           <div className="flex-shrink-0">
-            <button 
+            <button
               onClick={() => setIsAdded(!isAdded)}
               className={`px-6 py-2 rounded-full font-bold text-sm shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 ${
-                isAdded 
-                  ? 'bg-gradient-to-r from-green-500 to-green-600 text-white' 
+                isAdded
+                  ? 'bg-gradient-to-r from-green-500 to-green-600 text-white'
                   : 'bg-gradient-to-r from-[#CAA131] to-[#B8942A] text-black hover:from-[#B8942A] hover:to-[#A68525]'
               }`}
             >
@@ -138,17 +139,36 @@ const AttractionPage: React.FC = () => {
           </div>
         </div>
 
-        {/* גריד מושלם מסודר */}
-        <div className="space-y-6 flex flex-col md:block">
-          {/* שורה עליונה: תיאור האטרקציה + גלריה */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
-            <AttractionInfo attraction={a} />
+        {/* 2. General Description Block - Left: description, Right: gallery */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
+          {/* Left side: General description */}
+          <div className="h-full">
+            <GeneralDescription 
+              title={a.subtitle || a.name}
+              description={a.description || ''}
+            />
+          </div>
+          
+          {/* Right side: Gallery */}
+          <div className="h-full">
             <AttractionGallery attraction={a} />
           </div>
+        </div>
 
-          {/* גריד חדש - 2/3 ו-1/3 */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <AttractionMap attraction={a} />
+        {/* 3. Important Information ("מידע חשוב") - Only one AttractionInfoGrid */}
+        {a.infoGrid && <AttractionInfoGrid data={a.infoGrid} />}
+
+        {/* 4. Map and Experiences Grid - 2/3 for map, 1/3 for experiences */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* Map Section - 2/3 */}
+          <div className="md:col-span-2">
+            <div className="bg-gradient-to-br from-gray-50 via-gray-100 to-gray-50 border border-[#534B20]/60 rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.01] h-full">
+              <AttractionMap attraction={a} />
+            </div>
+          </div>
+          
+          {/* Additional Experiences - 1/3 */}
+          <div className="md:col-span-1">
             <AttractionExperiences />
           </div>
         </div>
@@ -156,17 +176,15 @@ const AttractionPage: React.FC = () => {
         {/* Services Section */}
         <AttractionServices />
 
-      {/* כפתור חזרה לקטגוריות */}
-      <div className="container mx-auto max-w-screen-xl px-4 py-8">
-          <div className="text-center">
-            <Link 
-              to="/categories" 
-              className="inline-flex items-center gap-2 bg-[#CAA131] hover:bg-[#B8942A] text-white font-bold py-3 px-6 rounded-full transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
-            >
-              <ArrowLeft className="w-5 h-5" />
-              חזרה לקטגוריות
-            </Link>
-          </div>
+        {/* כפתור חזרה לקטגוריות */}
+        <div className="text-center">
+          <Link 
+            to="/categories" 
+            className="inline-flex items-center gap-2 bg-[#CAA131] hover:bg-[#B8942A] text-white font-bold py-3 px-6 rounded-full transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
+          >
+            <ArrowLeft className="w-5 h-5" />
+            חזרה לקטגוריות
+          </Link>
         </div>
       </div>
     </div>
