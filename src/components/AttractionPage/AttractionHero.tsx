@@ -50,7 +50,7 @@ const AttractionHero: React.FC<AttractionHeroProps> = ({
           src={heroImage}
           alt="Hero"
           className="absolute inset-0 w-full h-full object-cover object-center"
-          style={{ objectPosition: 'center 30%' }}
+          style={{ objectPosition: attraction?.heroImagePosition || 'center 30%' }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/30" />
         

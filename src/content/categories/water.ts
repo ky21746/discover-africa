@@ -444,6 +444,15 @@ export const water: Attraction[] = [
     whyUs: ["מדריכים מומחי אגם", "גישה לאיים", "קשרים עם דייגים"],
     valueAdd: ["אתר דגל לאומי", "היסטוריה עשירה", "נגישות גבוהה"],
     
+    // Hero section customization - שליטה ספציפית בגובה התמונה
+    heroHeight: {
+      mobile: "30vh",    // גובה קטן יותר במובייל
+      desktop: "45vh"    // גובה 45vh בדסקטופ
+    },
+    
+    // מיקום התמונה בהירו - הסירות בחלק העליון
+    heroImagePosition: "center 75%",
+    
     importantInfo: [
       "🛣️ **שערי כניסה**",
       "• אנטבה (Entebbe) - שער ראשי עם נמל תעופה",
@@ -470,11 +479,12 @@ export const water: Attraction[] = [
     ],
     
     gallery: [
-      "https://images.pexels.com/photos/631317/pexels-photo-631317.jpeg",
-      "https://images.pexels.com/photos/1661535/pexels-photo-1661535.jpeg",
-      "https://images.pexels.com/photos/534188/pexels-photo-534188.jpeg"
+      "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FWater%2FLake%20Victoria%2FLake%20victoria%20fishermen%20go%20to%20work.webp?alt=media&token=79b10def-8b9d-4b9b-8312-fc2e2e2f9b04",
+      "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FWater%2FLake%20Victoria%2FPrehistoric-looking%20Shoebill%20Stork%20in%20the%20Mabamba%20Swamps%20of%20Lake%20Victoria%20at%20Entebbe%2C%20Uganda%2C%20Africa.webp?alt=media&token=1b457898-c083-4f72-9de8-195b53338cd2",
+      "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FWater%2FLake%20Victoria%2FFisherman%20throws%20a%20net%20in%20Lake%20Victoria.webp?alt=media&token=10928d21-88b5-4fa0-ab58-1bffd9b14a29",
+      "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FWater%2FLake%20Victoria%2FAfrican%20stork%20bird%20marabou%20near%20boat%20on%20Victoria%20Lake%20shore.%20Entebbe%2C%20Uganda%2C%20Eastern%20Africa.webp?alt=media&token=0f05993e-6517-4295-9131-d68493c9e029"
     ],
-    image: "https://images.pexels.com/photos/631317/pexels-photo-631317.jpeg",
+    image: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FWater%2FLake%20Victoria%2FLake%20victoria%20fishermen%20go%20to%20work-Hero.webp?alt=media&token=cfab0621-1bb5-4fc4-8595-23673bd1d3e1",
     
     // Info Grid data for AttractionInfoGrid component
     infoGrid: {
