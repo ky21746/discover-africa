@@ -32,6 +32,7 @@ const parksAsAttractions: AttractionWithMock[] = parks.map(park => ({
   highlights: park.highlights,
   image: park.image,
   gallery: park.gallery,
+  infoGrid: park.infoGrid,
   // שדות נוספים לפי הצורך
 }));
 

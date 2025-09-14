@@ -268,7 +268,41 @@ export const safari: Attraction[] = [
         description: "דרך עפר טיפוסית לספארי בשעת שקיעה"
       }
     ],
-    image: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FMurchison%20Falls%20National%20Park%2Fmurchison-falls-hero.webp?alt=media&token=56ccea2c-c574-46a6-ac3a-a0ecc2fbc3a5"
+    image: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FMurchison%20Falls%20National%20Park%2Fmurchison-falls-hero.webp?alt=media&token=56ccea2c-c574-46a6-ac3a-a0ecc2fbc3a5",
+    
+    // Info Grid data for AttractionInfoGrid component
+    infoGrid: {
+      seasons: [
+        "אוגנדה שוכנת על קו המשווה, הטמפרטורות יציבות כל השנה וההבדל העיקרי הוא בכמות הגשמים",
+        "עונות יבשות (דצמבר–פברואר, יוני–אוגוסט): בעלי החיים מתרכזים סביב מקורות מים, הדרכים נוחות יותר והצפייה קלה",
+        "עונות גשומות (מרץ–מאי, ספטמבר–נובמבר): נופים ירוקים ועשירים, צפרות מצוינת, אך הדרכים חלקלקות"
+      ],
+      access: [
+        "ברכב: כ־5–6 שעות מקמפלה דרך מסינדי",
+        "בטיסה: טיסות פנימיות עם Bar Aviation מאנטבה אל מנחת Pakuba"
+      ],
+      gates: [
+        "פראה (Paraa) – שער ראשי עם לודג'ים יוקרתיים",
+        "קיצומבוניו (Kichumbanyobo) – שער צפוני נוח",
+        "טנגי (Tangi) – שער דרומי עם גישה למפלים"
+      ],
+      experiences: [
+        "מפלי מורצ'יסון – המפלים החזקים בעולם",
+        "שייט על הנילוס – תצפית על היפופוטמים ותנינים",
+        "ספארי יבשתי – 4 מתוך ה-Big Five",
+        "ג'ירפות רוטשילד נדירות – אוכלוסייה ייחודית"
+      ],
+      duration: [
+        "מינימום: 2 ימים לספארי בסיסי ושייט",
+        "מומלץ: 3–4 לילות לחוויה מלאה עם לינה",
+        "מורחב: 5–6 לילות לשילוב עם אטרקציות נוספות"
+      ],
+      didYouKnow: [
+        "פארק מורצ'יסון הוא הפארק הגדול באוגנדה",
+        "מפלי מורצ'יסון הם המפלים החזקים בעולם - 300 מטרים של מים נופלים דרך צוואר בקבוק צר",
+        "הפארק מאכלס את אוכלוסיית הג'ירפות רוטשילד הנדירה"
+      ]
+    }
   },
 
   {
@@ -368,7 +402,41 @@ export const safari: Attraction[] = [
         description: "עדר אימפלות יפות בסבנה"
       }
     ],
-    image: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/Lake%20Mburo%20National%20Park%2FAfrica%20sunset.%20Plains%20zebra%2C%20Equus%20quagga%2C%20in%20the%20grassy%20nature%20habitat%20with%20evening%20light%20in%20Lake%20Mburo%20NP%20in%20Uganda-Hero.webp?alt=media&token=decce22e-f118-41a1-b80c-657770874411"
+    image: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/Lake%20Mburo%20National%20Park%2FAfrica%20sunset.%20Plains%20zebra%2C%20Equus%20quagga%2C%20in%20the%20grassy%20nature%20habitat%20with%20evening%20light%20in%20Lake%20Mburo%20NP%20in%20Uganda-Hero.webp?alt=media&token=decce22e-f118-41a1-b80c-657770874411",
+    
+    // Info Grid data for AttractionInfoGrid component
+    infoGrid: {
+      seasons: [
+        "אוגנדה שוכנת על קו המשווה, הטמפרטורות יציבות כל השנה וההבדל העיקרי הוא בכמות הגשמים",
+        "עונות יבשות (דצמבר–פברואר, יוני–אוגוסט): בעלי החיים מתרכזים סביב מקורות מים, הדרכים נוחות יותר והצפייה קלה",
+        "עונות גשומות (מרץ–מאי, ספטמבר–נובמבר): נופים ירוקים ועשירים, צפרות מצוינת, אך הדרכים חלקלקות"
+      ],
+      access: [
+        "ברכב: כ־4 שעות מקמפלה דרך סוואנות ירוקות",
+        "בטיסה: טיסות פנימיות עם Bar Aviation מאנטבה אל מנחת Mbarara"
+      ],
+      gates: [
+        "נשארה (Nshara) – שער ראשי עם גישה נוחה",
+        "סנגה (Sanga) – שער דרומי עם לודג'ים",
+        "רוואקאבו (Rwakobo) – שער מערבי עם נוף מרהיב"
+      ],
+      experiences: [
+        "זברות ואימפלות – הפארק היחיד עם זברות באוגנדה",
+        "סיורי הליכה חופשיים – ללא אריות, בטוח להליכה",
+        "רכיבה על סוסים ואופניים – חוויות ייחודיות",
+        "ספארי מים – שייט עם תצפית על היפופוטמים ותנינים"
+      ],
+      duration: [
+        "מינימום: יום אחד לספארי קצר ושייט",
+        "מומלץ: 2–3 לילות לחוויה מלאה עם לינה",
+        "מורחב: 4–5 לילות לשילוב עם אטרקציות נוספות"
+      ],
+      didYouKnow: [
+        "אגם מבורו הוא הפארק הלאומי הקטן ביותר באוגנדה (370 קמ\"ר)",
+        "זהו הפארק היחיד שמכיל זברות ללא רעמה - תת-מין ייחודי",
+        "הפארק אידיאלי למשפחות ולטיולי סוף שבוע"
+      ]
+    }
   },
 
 
@@ -461,6 +529,40 @@ export const safari: Attraction[] = [
         description: "מעיינות החמים הסאמפיה המרתיחים ביצים"
       }
     ],
-    image: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FSafari%20Uganda%2FSemuliki%20National%20Park%2FHot%20Springs%20in%20Semuliki%20National%20Park%20Uganda-hero.webp?alt=media&token=228dff7f-a458-4f59-bbcc-d29fdb5c9075"
+    image: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FSafari%20Uganda%2FSemuliki%20National%20Park%2FHot%20Springs%20in%20Semuliki%20National%20Park%20Uganda-hero.webp?alt=media&token=228dff7f-a458-4f59-bbcc-d29fdb5c9075",
+    
+    // Info Grid data for AttractionInfoGrid component
+    infoGrid: {
+      seasons: [
+        "אוגנדה שוכנת על קו המשווה, הטמפרטורות יציבות כל השנה וההבדל העיקרי הוא בכמות הגשמים",
+        "עונות יבשות (דצמבר–פברואר, יוני–אוגוסט): בעלי החיים מתרכזים סביב מקורות מים, הדרכים נוחות יותר והצפייה קלה",
+        "עונות גשומות (מרץ–מאי, ספטמבר–נובמבר): נופים ירוקים ועשירים, צפרות מצוינת, אך הדרכים חלקלקות"
+      ],
+      access: [
+        "ברכב: כ־שעה מפורט פורטל דרך אגמים קטנים",
+        "בטיסה: טיסות פנימיות עם Bar Aviation מאנטבה אל מנחת פורט פורטל"
+      ],
+      gates: [
+        "סמפיה (Sempaya) – שער ראשי עם מעיינות חמים",
+        "נטורוגו (Ntorogo) – שער צפוני עם גישה ליער",
+        "בונדיבוגיו (Bundibugyo) – שער דרומי נוח"
+      ],
+      experiences: [
+        "מעיינות חמים סאמפיה – מים מבעבעים ומרתיחים ביצים",
+        "צפרות עשירה – מעל 440 מיני ציפורים נדירות",
+        "יער גשם טרופי – ייחודי באוגנדה",
+        "גבול עם קונגו – חוויה תרבותית-ביולוגית"
+      ],
+      duration: [
+        "מינימום: 2 ימים לצפרות ומעיינות חמים",
+        "מומלץ: 3–4 לילות לחוויה מלאה עם לינה",
+        "מורחב: 5–6 לילות לשילוב עם אטרקציות נוספות"
+      ],
+      didYouKnow: [
+        "פארק סמוליקי הוא הפארק הלאומי היחיד באוגנדה עם יער גשם טרופי",
+        "הפארק מכיל יותר מ-440 מיני ציפורים - יותר מכל פארק אחר במדינה",
+        "הפארק חולש על קצה יערות האיטורי של קונגו"
+      ]
+    }
   }
 ];

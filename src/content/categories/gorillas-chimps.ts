@@ -118,7 +118,41 @@ export const gorillasChimps: Attraction[] = [
         description: "רגע מרגש של חיבה בין גורילון לסילברבק"
       }
     ],
-    image: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FPrimates%20of%20Uganda%2FGorillas%20in%20Bwindi%20Forest%2FBaby%20Gorilla%20Kisses%20Silverback%20in%20Bwindi%20Impenetrable%20National%20Park%2C%20Uganda-hero.webp?alt=media&token=f1676abc-ac4a-462b-9478-136e0399fc55"
+    image: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FPrimates%20of%20Uganda%2FGorillas%20in%20Bwindi%20Forest%2FBaby%20Gorilla%20Kisses%20Silverback%20in%20Bwindi%20Impenetrable%20National%20Park%2C%20Uganda-hero.webp?alt=media&token=f1676abc-ac4a-462b-9478-136e0399fc55",
+    
+    // Info Grid data for AttractionInfoGrid component
+    infoGrid: {
+      seasons: [
+        "אוגנדה שוכנת על קו המשווה, הטמפרטורות יציבות כל השנה וההבדל העיקרי הוא בכמות הגשמים",
+        "עונות יבשות (דצמבר–פברואר, יוני–אוגוסט): בעלי החיים מתרכזים סביב מקורות מים, הדרכים נוחות יותר והצפייה קלה",
+        "עונות גשומות (מרץ–מאי, ספטמבר–נובמבר): נופים ירוקים ועשירים, צפרות מצוינת, אך הדרכים חלקלקות"
+      ],
+      access: [
+        "טיסה פנימית מאנטבה ל-Kisoro או Kihihi (כשעה)",
+        "ברכב – 8–9 שעות מקמפלה או 4–5 שעות מקיגאלי"
+      ],
+      gates: [
+        "בוהומה (Buhoma) – שער ראשי עם מרכז מבקרים",
+        "רוהיג'ה (Ruhija) – שער מזרחי עם לודג'ים",
+        "נקאטונגו (Nkuringo) – שער דרומי נוח"
+      ],
+      experiences: [
+        "טרק 3–6 שעות בממוצע – דרגת קושי בינונית–גבוהה",
+        "מפגש שעה עם גורילות ההרים – חוויה מרגשת ועוצמתית",
+        "יערות גשם בני אלפי שנים – אתר מורשת עולמית של אונסק\"ו",
+        "צפרות עשירה – מאות מיני ציפורים כולל Shoebill"
+      ],
+      duration: [
+        "מינימום: 3 ימים לטרק בסיסי ומפגש עם גורילות",
+        "מומלץ: 4–5 לילות לחוויה מלאה עם לינה",
+        "מורחב: 6–7 לילות לשילוב עם אטרקציות נוספות"
+      ],
+      didYouKnow: [
+        "יער בווינדי הוא הבית של כמעט מחצית מאוכלוסיית גורילות ההרים שנותרה בעולם",
+        "הפארק הוא אתר מורשת עולמית של אונסק\"ו",
+        "זהו אחד היערות המסתוריים והעשירים באפריקה"
+      ]
+    }
   },
   {
     id: "gorillas-mgahinga",
@@ -239,7 +273,41 @@ export const gorillasChimps: Attraction[] = [
         description: "גורילון חמוד מסתכל ישירות למצלמה"
       }
     ],
-    image: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FPrimates%20of%20Uganda%2FMgahinga%20Gorillas%2FMountain%20gorilla%20Mgahinga%20National%20park%2C%20Uganda-hero.webp?alt=media&token=16f0a4a3-4c15-44e7-b41f-60571b6dadc1"
+    image: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FPrimates%20of%20Uganda%2FMgahinga%20Gorillas%2FMountain%20gorilla%20Mgahinga%20National%20park%2C%20Uganda-hero.webp?alt=media&token=16f0a4a3-4c15-44e7-b41f-60571b6dadc1",
+    
+    // Info Grid data for AttractionInfoGrid component
+    infoGrid: {
+      seasons: [
+        "אוגנדה שוכנת על קו המשווה, הטמפרטורות יציבות כל השנה וההבדל העיקרי הוא בכמות הגשמים",
+        "עונות יבשות (דצמבר–פברואר, יוני–אוגוסט): בעלי החיים מתרכזים סביב מקורות מים, הדרכים נוחות יותר והצפייה קלה",
+        "עונות גשומות (מרץ–מאי, ספטמבר–נובמבר): נופים ירוקים ועשירים, צפרות מצוינת, אך הדרכים חלקלקות"
+      ],
+      access: [
+        "ברכב – 8–9 שעות מקמפלה דרך הרים תלולים",
+        "טיסה פנימית לקיסורו מומלצת"
+      ],
+      gates: [
+        "נטבקו (Ntebeko) – שער ראשי עם נוף להרי געש",
+        "קיסורו (Kisoro) – שער דרומי עם גישה נוחה",
+        "גבול רואנדה – גישה ישירה מרואנדה"
+      ],
+      experiences: [
+        "טרק גורילות – משפחה אחת בלבד (אקסקלוסיבי)",
+        "טרק קופי זהב – ייחודי למגהינגה",
+        "טיפוס להרי געש – חוויה מאתגרת",
+        "שביל התרבות של הבאטווה – חוויה תרבותית"
+      ],
+      duration: [
+        "מינימום: 3 ימים לטרק בסיסי ומפגש עם גורילות",
+        "מומלץ: 4–5 לילות לחוויה מלאה עם לינה",
+        "מורחב: 6–7 לילות לשילוב עם אטרקציות נוספות"
+      ],
+      didYouKnow: [
+        "פארק מגהינגה הוא הפארק הלאומי הקטן ביותר באוגנדה (33.7 קמ\"ר)",
+        "הפארק הוא היחיד שמכיל את כל שלושת הרי הגעש הפעילים של אוגנדה",
+        "זהו הפארק היחיד שמכיל גם גורילות וגם קופי זהב"
+      ]
+    }
   },
   {
     id: "chimps-kibale",
@@ -366,6 +434,40 @@ export const gorillasChimps: Attraction[] = [
         description: "שימפנזה יפה בסביבתו הטבעית"
       }
     ],
-    image: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FPrimates%20of%20Uganda%2FKibale%20Chimpanzees%2Fkibale%20chimp%20chimpanzee%20Uganda%20in%20Africa-hero.webp?alt=media&token=ec93ce06-dcca-41a8-bf0a-b886d4112384"
+    image: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FPrimates%20of%20Uganda%2FKibale%20Chimpanzees%2Fkibale%20chimp%20chimpanzee%20Uganda%20in%20Africa-hero.webp?alt=media&token=ec93ce06-dcca-41a8-bf0a-b886d4112384",
+    
+    // Info Grid data for AttractionInfoGrid component
+    infoGrid: {
+      seasons: [
+        "אוגנדה שוכנת על קו המשווה, הטמפרטורות יציבות כל השנה וההבדל העיקרי הוא בכמות הגשמים",
+        "עונות יבשות (דצמבר–פברואר, יוני–אוגוסט): בעלי החיים מתרכזים סביב מקורות מים, הדרכים נוחות יותר והצפייה קלה",
+        "עונות גשומות (מרץ–מאי, ספטמבר–נובמבר): נופים ירוקים ועשירים, צפרות מצוינת, אך הדרכים חלקלקות"
+      ],
+      access: [
+        "ברכב – 5–6 שעות מקמפלה דרך שדות תה",
+        "בטיסה: טיסות פנימיות עם Bar Aviation מאנטבה אל מנחת פורט פורטל"
+      ],
+      gates: [
+        "קניאנצ'ו (Kanyanchu) – שער ראשי עם מרכז מבקרים",
+        "סיג'י (Sejii) – שער צפוני עם גישה ליער",
+        "פורט פורטל – שער מערבי נוח"
+      ],
+      experiences: [
+        "טרק שימפנזים – 2–4 שעות בממוצע",
+        "מפגש שעה עם שימפנזים – חוויה מרגשת ועוצמתית",
+        "יער קיבאלה – הצפיפות הגבוהה ביותר של פרימטים באפריקה",
+        "צפרות עשירה – מאות מיני ציפורים ייחודיים"
+      ],
+      duration: [
+        "מינימום: יום אחד לטרק בסיסי ומפגש עם שימפנזים",
+        "מומלץ: 2–3 לילות לחוויה מלאה עם לינה",
+        "מורחב: 4–5 לילות לשילוב עם אטרקציות נוספות"
+      ],
+      didYouKnow: [
+        "יער קיבאלה מכיל את הצפיפות הגבוהה ביותר של פרימטים באפריקה",
+        "יותר מ-1,500 שימפנזים חיים כאן, יותר מכל מקום אחר בעולם",
+        "זהו המקום הטוב ביותר בעולם לצפייה בשימפנזים"
+      ]
+    }
   },
 ];

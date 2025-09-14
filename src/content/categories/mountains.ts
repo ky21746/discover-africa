@@ -89,7 +89,41 @@ export const mountains: Attraction[] = [
         description: "אזור עשיר במגוון ביולוגי עם חיות בר מוגנות"
       }
     ],
-    image: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FSafari%20Uganda%2FMount%20Elgon%20National%20Park%2FMount%20Elgon%20national%20park%20in%20Uganda-hero.webp?alt=media&token=f311d9a8-eedc-497a-961d-01145b159634"
+    image: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FSafari%20Uganda%2FMount%20Elgon%20National%20Park%2FMount%20Elgon%20national%20park%20in%20Uganda-hero.webp?alt=media&token=f311d9a8-eedc-497a-961d-01145b159634",
+    
+    // Info Grid data for AttractionInfoGrid component
+    infoGrid: {
+      seasons: [
+        "אוגנדה שוכנת על קו המשווה, הטמפרטורות יציבות כל השנה וההבדל העיקרי הוא בכמות הגשמים",
+        "עונות יבשות (דצמבר–פברואר, יוני–אוגוסט): בעלי החיים מתרכזים סביב מקורות מים, הדרכים נוחות יותר והצפייה קלה",
+        "עונות גשומות (מרץ–מאי, ספטמבר–נובמבר): נופים ירוקים ועשירים, צפרות מצוינת, אך הדרכים חלקלקות"
+      ],
+      access: [
+        "ברכב: כ־4–5 שעות מקמפלה דרך מבאלה",
+        "בטיסה: טיסות פנימיות עם Bar Aviation מאנטבה אל מנחת מבאלה"
+      ],
+      gates: [
+        "בודדירי (Budadiri) – שער ראשי עם מרכז מבקרים",
+        "סיפי (Sipi) – שער מערבי עם לודג'ים",
+        "מבאלה (Mbale) – שער מזרחי נוח"
+      ],
+      experiences: [
+        "הר געש כבוי – הרביעי בגובהו באפריקה (4,321 מ')",
+        "קלדרה עצומה – מהגדולות בעולם שניתן לטייל בה ברגל",
+        "מפלי סיפי המרהיבים – יעד תיירותי בפני עצמו",
+        "טרקים נוחים יותר מרוונזורי – מתאים למתחילים"
+      ],
+      duration: [
+        "מינימום: 3 ימים לטרק בסיסי",
+        "מומלץ: 4–5 לילות לחוויה מלאה עם לינה",
+        "מורחב: 6–7 לילות לשילוב עם אטרקציות נוספות"
+      ],
+      didYouKnow: [
+        "הר אלגון הוא הר הגעש הכבוי הגדול ביותר באפריקה עם קלדרה בקוטר של 8 קילומטר",
+        "זהו ההר הרביעי בגובהו באפריקה עם פסגה של 4,321 מטרים",
+        "הפארק משתרע על 1,279 קמ\"ר וכולל יערות גשם, מפלים ועמקים ירוקים"
+      ]
+    }
   },
 
   {
@@ -179,6 +213,40 @@ export const mountains: Attraction[] = [
         description: "שימפנזה נח על עץ ביער קיבאלה בהרי הרוונזורי"
       }
     ],
-    image: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FSafari%20Uganda%2FRwenzori%20Mountains%20National%20Park%2FHighland%20landscape%20near%20Weismann%60s%20peak%20in%20Rwenzori%20mountains%2C%20Uganda.%20Little%20lakes%20among%20the%20mossy%20rocks%20at%20high%20altitudes-hero.webp?alt=media&token=7333ef02-d1b2-4014-9596-df917bad950c"
+    image: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FSafari%20Uganda%2FRwenzori%20Mountains%20National%20Park%2FHighland%20landscape%20near%20Weismann%60s%20peak%20in%20Rwenzori%20mountains%2C%20Uganda.%20Little%20lakes%20among%20the%20mossy%20rocks%20at%20high%20altitudes-hero.webp?alt=media&token=7333ef02-d1b2-4014-9596-df917bad950c",
+    
+    // Info Grid data for AttractionInfoGrid component
+    infoGrid: {
+      seasons: [
+        "אוגנדה שוכנת על קו המשווה, הטמפרטורות יציבות כל השנה וההבדל העיקרי הוא בכמות הגשמים",
+        "עונות יבשות (דצמבר–פברואר, יוני–אוגוסט): בעלי החיים מתרכזים סביב מקורות מים, הדרכים נוחות יותר והצפייה קלה",
+        "עונות גשומות (מרץ–מאי, ספטמבר–נובמבר): נופים ירוקים ועשירים, צפרות מצוינת, אך הדרכים חלקלקות"
+      ],
+      access: [
+        "ברכב: כ־6–7 שעות מקמפלה דרך קאסנגה",
+        "בטיסה: טיסות פנימיות עם Bar Aviation מאנטבה אל מנחת קאסנגה"
+      ],
+      gates: [
+        "ניאקאלנגיג'ה (Nyakalengija) – שער ראשי עם מרכז מבקרים",
+        "קאסנגה (Kasese) – שער עירוני עם שירותים",
+        "רובוני (Ruboni) – שער קהילתי עם לודג'ים"
+      ],
+      experiences: [
+        "קרחונים על קו המשווה – ייחודי באפריקה",
+        "חמישה אזורי צמחייה ייחודיים – מג'ונגל ועד נוף אלפיני קפוא",
+        "פסגה 5,109 מ' – השלישי באפריקה",
+        "אתר מורשת עולמית של אונסק\"ו"
+      ],
+      duration: [
+        "מינימום: 7 ימים לטרק בסיסי",
+        "מומלץ: 8–10 לילות לחוויה מלאה עם לינה",
+        "מורחב: 11–12 לילות לשילוב עם אטרקציות נוספות"
+      ],
+      didYouKnow: [
+        "הרי הרוונזורי מכונים 'ההרים של הירח' ומכילים את הקרחונים הטרופיים היחידים באפריקה",
+        "זהו המקום היחיד באפריקה שבו רואים קרחונים של ממש על קו המשווה",
+        "הפארק משתרע על 998 קמ\"ר ומוכר כאתר מורשת עולמית של אונסק\"ו"
+      ]
+    }
   }
 ];
