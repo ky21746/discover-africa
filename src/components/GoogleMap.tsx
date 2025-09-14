@@ -1,51 +1,28 @@
-import React, { useEffect, useRef, useState } from "react";
+// src/components/GoogleMap.tsx
+import React from "react";
+import { GoogleMap as GMap, LoadScript, Marker } from "@react-google-maps/api";
 
 interface GoogleMapProps {
-  lat: number;
-  lng: number;
-  zoom: number;
+  lat?: number;
+  lng?: number;
+  zoom?: number;
 }
 
-const GoogleMap: React.FC<GoogleMapProps> = ({ lat, lng, zoom }) => {
-  const mapRef = useRef<HTMLDivElement>(null);
-  const [mapError, setMapError] = useState(false);
+const GoogleMap: React.FC<GoogleMapProps> = ({ lat, lng, zoom = 8 }) => {
+  const defaultCenter = { lat: -1.05, lng: 29.75 }; // ברירת מחדל - אוגנדה
+  const center = lat && lng ? { lat, lng } : defaultCenter;
 
-  useEffect(() => {
-    const initMap = () => {
-      if (mapRef.current && window.google) {
-        try {
-          new window.google.maps.Map(mapRef.current, {
-            center: { lat, lng },
-            zoom,
-          });
-        } catch (error) {
-          console.error('Google Maps error:', error);
-          setMapError(true);
-        }
-      }
-    };
-
-    if (window.google) {
-      initMap();
-    } else {
-      // Fallback: show placeholder
-      setMapError(true);
-    }
-  }, [lat, lng, zoom]);
-
-  if (mapError) {
-    return (
-      <div className="w-full h-96 rounded-2xl border-2 border-dashed border-gray-300 flex items-center justify-center bg-gray-50">
-        <div className="text-center text-gray-600">
-          <div className="text-2xl mb-2">🗺️</div>
-          <p className="font-semibold">מפה תתווסף כאן</p>
-          <p className="text-sm mt-1">Google Maps API</p>
-        </div>
-      </div>
-    );
-  }
-
-  return <div ref={mapRef} className="w-full h-96 rounded-2xl border" />;
+  return (
+    <LoadScript googleMapsApiKey="AIzaSyBIpVuULr0sVtJR8WFjoDKbd354X04cszI">
+      <GMap
+        mapContainerStyle={{ width: "100%", height: "100%", borderRadius: "12px" }}
+        center={center}
+        zoom={zoom}
+      >
+        <Marker position={center} />
+      </GMap>
+    </LoadScript>
+  );
 };
 
 export default GoogleMap;
