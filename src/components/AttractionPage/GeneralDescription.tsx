@@ -57,13 +57,13 @@ const GeneralDescription: React.FC<GeneralDescriptionProps> = ({ title, descript
           {renderContent(description)}
         </div>
 
-        {/* Button positioned at bottom right */}
-        <div className="mt-6 flex justify-end">
+        {/* Button positioned at bottom center */}
+        <div className="mt-6 flex justify-center">
           <button
             type="button"
             aria-expanded={expanded}
             onClick={() => setExpanded(v => !v)}
-            className="bg-[#CAA131] text-white px-6 py-2 rounded-xl font-semibold hover:bg-[#B8942A] transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-[#CAA131]/50 focus:ring-offset-2 flex items-center gap-2"
+            className="bg-[#CAA131] text-white font-bold py-3 px-6 rounded-lg text-center mx-auto hover:bg-[#B8942A] transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-[#CAA131]/50 focus:ring-offset-2 flex items-center gap-2"
           >
             {expanded ? (
               <>

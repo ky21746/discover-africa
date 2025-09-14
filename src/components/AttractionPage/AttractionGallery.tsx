@@ -123,24 +123,24 @@ const AttractionGallery: React.FC<AttractionGalleryProps> = ({ attraction }) => 
               return (
                 <div 
                   key={i} 
-                  className="relative group rounded-2xl overflow-hidden cursor-pointer shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105"
+                  className="relative group rounded-xl overflow-hidden cursor-pointer border border-[#CAA131] shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
                   onClick={() => openLightbox(i)}
                 >
                   <img
                     src={src}
                     alt={title || `${attraction.name} ${i + 1}`}
-                    className="w-full h-32 md:h-36 object-cover transition-transform group-hover:scale-110 duration-700"
+                    className="w-full h-32 md:h-36 object-cover transition-all duration-300 group-hover:brightness-75"
                   />
-                  {(title || description) && (
-                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-3">
-                      {title && (
-                        <div className="text-white font-bold text-sm mb-1 text-right">{title}</div>
-                      )}
-                      {description && (
-                        <div className="text-sm text-gray-200 mt-2 text-right">{description}</div>
-                      )}
-                    </div>
-                  )}
+                  
+                  {/* Hover overlay with title */}
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+                    {title && (
+                      <div className="text-white font-bold text-center px-4 py-2 bg-black/50 rounded-lg backdrop-blur-sm">
+                        {title}
+                      </div>
+                    )}
+                  </div>
+                  
                   {i === 3 && attraction.gallery!.length > 4 && (
                     <div className="absolute inset-0 bg-black/80 flex items-center justify-center text-white font-bold text-xl backdrop-blur-md">
                       +{attraction.gallery!.length - 4}
