@@ -66,7 +66,41 @@ export const water: Attraction[] = [
       "https://images.pexels.com/photos/1661535/pexels-photo-1661535.jpeg",
       "https://images.pexels.com/photos/534188/pexels-photo-534188.jpeg"
     ],
-    image: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FWater%2FMurchison%20Falls%2FMurchison%20Falls.webp?alt=media&token=15155199-1b7e-4be2-9723-6ba646c3fc97"
+    image: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FWater%2FMurchison%20Falls%2FMurchison%20Falls.webp?alt=media&token=15155199-1b7e-4be2-9723-6ba646c3fc97",
+    
+    // Info Grid data for AttractionInfoGrid component
+    infoGrid: {
+      seasons: [
+        "אוגנדה שוכנת על קו המשווה, הטמפרטורות יציבות כל השנה וההבדל העיקרי הוא בכמות הגשמים",
+        "עונות יבשות (דצמבר–פברואר, יוני–אוגוסט): בעלי החיים מתרכזים סביב מקורות מים, הדרכים נוחות יותר והצפייה קלה",
+        "עונות גשומות (מרץ–מאי, ספטמבר–נובמבר): נופים ירוקים ועשירים, צפרות מצוינת, אך הדרכים חלקלקות"
+      ],
+      access: [
+        "ברכב: כ־5–6 שעות מקמפלה דרך מסינדי",
+        "בטיסה: טיסות פנימיות עם Bar Aviation מאנטבה אל מנחת Pakuba"
+      ],
+      gates: [
+        "שער צפוני – קרוב למפלים ולמרכז הפארק",
+        "שער דרומי – גישה נוחה מהכביש הראשי",
+        "שער מערבי – ליד אזור השייט"
+      ],
+      experiences: [
+        "מפלי מורצ'יסון – המפלים החזקים בעולם",
+        "שייט על הנילוס – תצפית על היפופוטמים ותנינים",
+        "ספארי יבשתי – אריות, פילים, ג'ירפות ועוד",
+        "צפרות עשירה – מעל 450 מיני עופות ייחודיים"
+      ],
+      duration: [
+        "מינימום: יום אחד לביקור במפלים ושייט קצר",
+        "מומלץ: 2–3 לילות לספארי מלא עם לינה",
+        "מורחב: 4–5 לילות לשילוב עם אטרקציות נוספות"
+      ],
+      didYouKnow: [
+        "מפלי מורצ'יסון הם המפלים החזקים בעולם - 300 מטרים של מים נופלים דרך צוואר בקבוק צר",
+        "הפארק נקרא על שם רודריק מורצ'יסון, גיאולוג סקוטי שגילה את המפלים ב-1864",
+        "הנילוס נדחס לפתע למעבר צר של שבעה מטרים בלבד לפני הנפילה"
+      ]
+    }
   },
 
   {
@@ -136,7 +170,41 @@ export const water: Attraction[] = [
       "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FWater%2FScenic%20view%20of%20Sipi%20Waterfall%20in%20Kapchorwa%2C%20Mount%20Elgon.webp?alt=media&token=15b5ca04-cd32-4b0d-8fac-f84dc560c245",
       "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FWater%2FRear%20view%20of%20a%20hiker%20in%20a%20cave%20against%20the%20background%20of%20Sipi%20Waterfall.webp?alt=media&token=0ce863cc-78f5-43e1-b490-8a356231e274"
     ],
-    image: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FWater%2FScenic%20view%20of%20Sipi%20Waterfall%20in%20Kapchorwa-Hero.webp?alt=media&token=587e4fa5-02a6-483c-8894-a99b4a03fdac"
+    image: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FWater%2FScenic%20view%20of%20Sipi%20Waterfall%20in%20Kapchorwa-Hero.webp?alt=media&token=587e4fa5-02a6-483c-8894-a99b4a03fdac",
+    
+    // Info Grid data for AttractionInfoGrid component
+    infoGrid: {
+      seasons: [
+        "אוגנדה שוכנת על קו המשווה, הטמפרטורות יציבות כל השנה וההבדל העיקרי הוא בכמות הגשמים",
+        "עונות יבשות (דצמבר–פברואר, יוני–אוגוסט): בעלי החיים מתרכזים סביב מקורות מים, הדרכים נוחות יותר והצפייה קלה",
+        "עונות גשומות (מרץ–מאי, ספטמבר–נובמבר): נופים ירוקים ועשירים, צפרות מצוינת, אך הדרכים חלקלקות"
+      ],
+      access: [
+        "ברכב: כ־4–5 שעות מקמפלה דרך ג'ינג'ה",
+        "בטיסה: טיסות פנימיות עם Bar Aviation מאנטבה אל מנחת Mbale"
+      ],
+      gates: [
+        "שער מרכזי – ליד הכפר סיפי",
+        "שער מזרחי – גישה למפלים העליונים",
+        "שער מערבי – ליד מפלי נאפוקוני"
+      ],
+      experiences: [
+        "מפלי סיפי – שלושה מפלים מרהיבים בגבהים שונים",
+        "טרקים רגליים – מסלולים עם נופים עוצרי נשימה",
+        "צפרות עשירה – מעל 200 מיני עופות ייחודיים",
+        "קפה מקומי – ביקור במטעי קפה מסורתיים"
+      ],
+      duration: [
+        "מינימום: יום אחד לביקור במפלים וטרק קצר",
+        "מומלץ: 2–3 לילות לטרקים מלאים ולינה",
+        "מורחב: 4–5 לילות לשילוב עם אטרקציות נוספות"
+      ],
+      didYouKnow: [
+        "מפלי סיפי הם חלק מהר אלון ומתנשאים לגובה של 100 מטרים",
+        "המפלים נקראים על שם צמח הסיפי שגדל באזור",
+        "האזור ידוע בגידול קפה איכותי וטרקים מרהיבים"
+      ]
+    }
   },
 
   {
@@ -207,7 +275,41 @@ export const water: Attraction[] = [
       "https://images.pexels.com/photos/1661535/pexels-photo-1661535.jpeg",
       "https://images.pexels.com/photos/534188/pexels-photo-534188.jpeg"
     ],
-    image: "https://images.pexels.com/photos/631317/pexels-photo-631317.jpeg"
+    image: "https://images.pexels.com/photos/631317/pexels-photo-631317.jpeg",
+    
+    // Info Grid data for AttractionInfoGrid component
+    infoGrid: {
+      seasons: [
+        "אוגנדה שוכנת על קו המשווה, הטמפרטורות יציבות כל השנה וההבדל העיקרי הוא בכמות הגשמים",
+        "עונות יבשות (דצמבר–פברואר, יוני–אוגוסט): בעלי החיים מתרכזים סביב מקורות מים, הדרכים נוחות יותר והצפייה קלה",
+        "עונות גשומות (מרץ–מאי, ספטמבר–נובמבר): נופים ירוקים ועשירים, צפרות מצוינת, אך הדרכים חלקלקות"
+      ],
+      access: [
+        "ברכב: כ־2 שעות מקמפלה דרך כבישים סלולים",
+        "בטיסה: טיסות פנימיות עם Bar Aviation מאנטבה אל מנחת ג'ינג'ה"
+      ],
+      gates: [
+        "שער מרכזי – ליד מקור הנילוס",
+        "שער מזרחי – גישה לאזור הרפטינג",
+        "שער מערבי – ליד גשר הנילוס"
+      ],
+      experiences: [
+        "רפטינג וקיאקים – ברמה עולמית בזרמים עזים",
+        "באנג'י מגשר הנילוס – קפיצה אתגרית מגובה 44 מטרים",
+        "שייט רגוע – תצפית על מקור הנילוס ההיסטורי",
+        "צפרות עשירה – מעל 300 מיני עופות ייחודיים"
+      ],
+      duration: [
+        "מינימום: יום אחד לפעילות אתגרית או שייט רגוע",
+        "מומלץ: 2–3 לילות לחוויות מגוונות ולינה",
+        "מורחב: 4–5 לילות לשילוב עם אטרקציות נוספות"
+      ],
+      didYouKnow: [
+        "ג'ינג'ה נחשבת לבירת האקסטרים של מזרח אפריקה",
+        "מכאן מתחיל הנילוס הלבן את מסעו צפונה מאגם ויקטוריה",
+        "המקום זכה לתהודה עולמית מאז גילויו על ידי החוקר ג'ון האנינג ספייק במאה ה-19"
+      ]
+    }
   },
 
   {
@@ -272,7 +374,41 @@ export const water: Attraction[] = [
       "https://images.pexels.com/photos/1661535/pexels-photo-1661535.jpeg",
       "https://images.pexels.com/photos/534188/pexels-photo-534188.jpeg"
     ],
-    image: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FWater%2FLake%20Mburo%2FMpalas%20in%20lake%20Mburo%20national%20park-Hero.webp?alt=media&token=a908a57f-6143-446c-8f6b-17e5894948a5"
+    image: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FWater%2FLake%20Mburo%2FMpalas%20in%20lake%20Mburo%20national%20park-Hero.webp?alt=media&token=a908a57f-6143-446c-8f6b-17e5894948a5",
+    
+    // Info Grid data for AttractionInfoGrid component
+    infoGrid: {
+      seasons: [
+        "אוגנדה שוכנת על קו המשווה, הטמפרטורות יציבות כל השנה וההבדל העיקרי הוא בכמות הגשמים",
+        "עונות יבשות (דצמבר–פברואר, יוני–אוגוסט): בעלי החיים מתרכזים סביב מקורות מים, הדרכים נוחות יותר והצפייה קלה",
+        "עונות גשומות (מרץ–מאי, ספטמבר–נובמבר): נופים ירוקים ועשירים, צפרות מצוינת, אך הדרכים חלקלקות"
+      ],
+      access: [
+        "ברכב: כ־3–4 שעות מקמפלה דרך כבישים סלולים",
+        "בטיסה: טיסות פנימיות עם Bar Aviation מאנטבה אל מנחת Mbarara"
+      ],
+      gates: [
+        "שער מרכזי – ליד הכפר מבורו",
+        "שער מזרחי – גישה לאזור הספארי",
+        "שער מערבי – ליד האגם"
+      ],
+      experiences: [
+        "ספארי מים – שייט עם תצפית על היפופוטמים ותנינים",
+        "ספארי יבשתי – זברות, אימפלות, תאו ועוד",
+        "צפרות עשירה – מעל 350 מיני עופות ייחודיים",
+        "טרקים רגליים – מסלולים עם נופים מרהיבים"
+      ],
+      duration: [
+        "מינימום: יום אחד לספארי קצר ושייט",
+        "מומלץ: 2–3 לילות לחוויה מלאה עם לינה",
+        "מורחב: 4–5 לילות לשילוב עם אטרקציות נוספות"
+      ],
+      didYouKnow: [
+        "אגם מבורו הוא הקטן יחסית (260 קמ\"ר) אך עשיר בבעלי חיים",
+        "האגם מהווה מוקד לספארי מים עם להקות היפופוטמים ותנינים",
+        "זהו האתר המושלם לטיול קצר בדרך בין קמפלה למערב אוגנדה"
+      ]
+    }
   },
 
 
@@ -338,7 +474,41 @@ export const water: Attraction[] = [
       "https://images.pexels.com/photos/1661535/pexels-photo-1661535.jpeg",
       "https://images.pexels.com/photos/534188/pexels-photo-534188.jpeg"
     ],
-    image: "https://images.pexels.com/photos/631317/pexels-photo-631317.jpeg"
+    image: "https://images.pexels.com/photos/631317/pexels-photo-631317.jpeg",
+    
+    // Info Grid data for AttractionInfoGrid component
+    infoGrid: {
+      seasons: [
+        "אוגנדה שוכנת על קו המשווה, הטמפרטורות יציבות כל השנה וההבדל העיקרי הוא בכמות הגשמים",
+        "עונות יבשות (דצמבר–פברואר, יוני–אוגוסט): בעלי החיים מתרכזים סביב מקורות מים, הדרכים נוחות יותר והצפייה קלה",
+        "עונות גשומות (מרץ–מאי, ספטמבר–נובמבר): נופים ירוקים ועשירים, צפרות מצוינת, אך הדרכים חלקלקות"
+      ],
+      access: [
+        "ברכב: כ־15–30 דקות מאנטבה או קמפלה",
+        "בטיסה: טיסות פנימיות עם Bar Aviation מאנטבה אל מנחת Entebbe"
+      ],
+      gates: [
+        "שער מרכזי – ליד הנמל הראשי",
+        "שער מזרחי – גישה לאזור הדיג",
+        "שער מערבי – ליד איי ססה"
+      ],
+      experiences: [
+        "שייט לאיי ססה – איים טרופיים מרהיבים",
+        "דיג מסורתי – חוויה עם דייגים מקומיים",
+        "צפרות עשירה – מעל 200 מיני עופות ייחודיים",
+        "תרבות מקומית – שווקים ססגוניים וכפרי דייגים"
+      ],
+      duration: [
+        "מינימום: חצי יום לשייט קצר ותצפית",
+        "מומלץ: יום אחד לחוויה מלאה עם איי ססה",
+        "מורחב: 2–3 לילות לשילוב עם אטרקציות נוספות"
+      ],
+      didYouKnow: [
+        "אגם ויקטוריה הוא גוף המים הגדול ביותר באפריקה (כ-59,947 קמ\"ר)",
+        "זהו מקורו של נהר הנילוס הלבן",
+        "האגם מכיל מאות איים – הבולטים הם איי ססה שהפכו לאתר נופש פופולרי"
+      ]
+    }
   },
 
   {
@@ -408,7 +578,41 @@ export const water: Attraction[] = [
       "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FWater%2FLake%20Bunyonyi%2FLake%20Bunyonyi%2C%20Kabale.webp?alt=media&token=6306a0d2-c4ca-478f-a6ec-d5c683604ef4",
       "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FWater%2FLake%20Bunyonyi%2FWoman%20sitting%20on%20dock%20at%20sunset%20on%20Lake%20Bunyonyi.webp?alt=media&token=8766dbe4-f9d8-47f6-a510-332183690bb9"
     ],
-    image: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FWater%2FLake%20Bunyonyi%2FWoman%20sitting%20on%20dock%20at%20sunset%20on%20Lake%20Bunyonyi-Hero.webp?alt=media&token=3d315584-c531-4256-990a-82e532f86de0"
+    image: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FWater%2FLake%20Bunyonyi%2FWoman%20sitting%20on%20dock%20at%20sunset%20on%20Lake%20Bunyonyi-Hero.webp?alt=media&token=3d315584-c531-4256-990a-82e532f86de0",
+    
+    // Info Grid data for AttractionInfoGrid component
+    infoGrid: {
+      seasons: [
+        "אוגנדה שוכנת על קו המשווה, הטמפרטורות יציבות כל השנה וההבדל העיקרי הוא בכמות הגשמים",
+        "עונות יבשות (דצמבר–פברואר, יוני–אוגוסט): בעלי החיים מתרכזים סביב מקורות מים, הדרכים נוחות יותר והצפייה קלה",
+        "עונות גשומות (מרץ–מאי, ספטמבר–נובמבר): נופים ירוקים ועשירים, צפרות מצוינת, אך הדרכים חלקלקות"
+      ],
+      access: [
+        "ברכב: כ־6–7 שעות מקמפלה דרך כבישים סלולים",
+        "בטיסה: טיסות פנימיות עם Bar Aviation מאנטבה אל מנחת Kabale"
+      ],
+      gates: [
+        "שער מרכזי – ליד הכפר בוניוני",
+        "שער מזרחי – גישה לאזור השייט",
+        "שער מערבי – ליד האיים"
+      ],
+      experiences: [
+        "שייט בין איים – 29 איים מרהיבים עם נופים עוצרי נשימה",
+        "שחייה בטוחה – המקום הבטוח ביותר לשחייה באוגנדה",
+        "צפרות עשירה – מעל 200 מיני עופות ייחודיים",
+        "תרבות מקומית – כפרי דייגים מסורתיים"
+      ],
+      duration: [
+        "מינימום: יום אחד לשייט קצר ותצפית",
+        "מומלץ: 2–3 לילות לחוויה מלאה עם לינה",
+        "מורחב: 4–5 לילות לשילוב עם אטרקציות נוספות"
+      ],
+      didYouKnow: [
+        "אגם בוניוני נקרא 'אגם הציפורים הקטנות' ומכיל 29 איים",
+        "זהו המקום הבטוח ביותר לשחייה באוגנדה - ללא תנינים או בילהרציה",
+        "האגם נמצא בגובה 1,962 מטרים מעל פני הים"
+      ]
+    }
   },
 
 
