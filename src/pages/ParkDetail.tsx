@@ -593,50 +593,11 @@ const ParkDetail: React.FC = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6" style={{direction: 'rtl', textAlign: 'right'}}>
                     {/* עמודה ימנית */}
                     <div className="space-y-4">
-                      <div>
-                        <h4 className="font-bold text-[#2C2C2C] mb-2">עונות השנה</h4>
-                        <ul className="list-disc list-inside" style={{margin: '0', paddingLeft: '20px'}}>
-                          <li className="text-[#3B2F2F] text-base mb-1.5" style={{fontSize: '1rem', marginBottom: '6px'}}>יבשה (דצמבר–פברואר, יוני–אוגוסט): חיות סביב מקורות מים, דרכים נוחות.</li>
-                          <li className="text-[#3B2F2F] text-base mb-1.5" style={{fontSize: '1rem', marginBottom: '6px'}}>רטובה (מרץ–מאי, ספטמבר–נובמבר): נוף ירוק, שפע ציפורים, דרכים מאתגרות יותר.</li>
-                        </ul>
-                      </div>
-                      
-                      <div>
-                        <h4 className="font-bold text-[#2C2C2C] mb-2">נסיעה והגעה</h4>
-                        <ul className="list-disc list-inside" style={{margin: '0', paddingLeft: '20px'}}>
-                          <li className="text-[#3B2F2F] text-base mb-1.5" style={{fontSize: '1rem', marginBottom: '6px'}}>הנסיעה מקמפלה אורכת כ־6–7 שעות</li>
-                          <li className="text-[#3B2F2F] text-base mb-1.5" style={{fontSize: '1rem', marginBottom: '6px'}}>כדאי יציאה מוקדמת בבוקר</li>
-                          <li className="text-[#3B2F2F] text-base mb-1.5" style={{fontSize: '1rem', marginBottom: '6px'}}>אפשרות לינה ביניים בדרך</li>
-                        </ul>
-                      </div>
-                      
-                      <div>
-                        <h4 className="font-bold text-[#2C2C2C] mb-2">שערי כניסה</h4>
-                        <ul className="list-disc list-inside" style={{margin: '0', paddingLeft: '20px'}}>
-                          <li className="text-[#3B2F2F] text-base mb-1.5" style={{fontSize: '1rem', marginBottom: '6px'}}>קאטונגו – קרוב לעיירות וללודגים נוחים</li>
-                          <li className="text-[#3B2F2F] text-base mb-1.5" style={{fontSize: '1rem', marginBottom: '6px'}}>איששה – מאפשר המשך ישיר לבווינדי ולגורילות</li>
-                          <li className="text-[#3B2F2F] text-base mb-1.5" style={{fontSize: '1rem', marginBottom: '6px'}}>קזונגו – צמד לשייט בתעלת קזינגה</li>
-                        </ul>
-                      </div>
-                    </div>
-                    
-                    {/* עמודה שמאלית */}
-                    <div className="space-y-4">
-                      <div>
-                        <h4 className="font-bold text-[#2C2C2C] mb-2">חוויות ייחודיות</h4>
-                        <ul className="list-disc list-inside" style={{margin: '0', paddingLeft: '20px'}}>
-                          <li className="text-[#3B2F2F] text-base mb-1.5" style={{fontSize: '1rem', marginBottom: '6px'}}>שייט בתעלת קזינגה – תיאום מראש</li>
-                          <li className="text-[#3B2F2F] text-base mb-1.5" style={{fontSize: '1rem', marginBottom: '6px'}}>סקטור איששה (אריות מטפסי עצים) – תיאום מראש</li>
-                        </ul>
-                      </div>
-                      
-                      <div>
-                        <h4 className="font-bold text-[#2C2C2C] mb-2">משך שהות מומלץ</h4>
-                        <ul className="list-disc list-inside" style={{margin: '0', paddingLeft: '20px'}}>
-                          <li className="text-[#3B2F2F] text-base mb-1.5" style={{fontSize: '1rem', marginBottom: '6px'}}>יום אחד – טעימה בלבד</li>
-                          <li className="text-[#3B2F2F] text-base mb-1.5" style={{fontSize: '1rem', marginBottom: '6px'}}>2–3 ימים – שילוב מלא (ספארי, שייט, קיאמבורה)</li>
-                        </ul>
-                      </div>
+                      {park.importantInfo.map((item, index) => (
+                        <div key={index}>
+                          <p className="text-[#3B2F2F] text-base mb-1.5" style={{fontSize: '1rem', marginBottom: '6px'}}>{item}</p>
+                        </div>
+                      ))}
                     </div>
                   </div>
                 </section>

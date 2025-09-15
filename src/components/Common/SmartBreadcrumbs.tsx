@@ -13,11 +13,65 @@ interface BreadcrumbItem {
 }
 
 // מיפוי קטגוריות לשמות בעברית
-const categoryNames: Record<string, string> = {
-  "gorillas-chimps": "גורילות ושימפנזים",
-  "safari": "ספארי",
-  "water": "אגמים, מפלים ונהרות",
-  "mountains": "הרים"
+const categoryNames: { [key: string]: string } = {
+  '/safari': 'ספארי',
+  '/gorillas': 'גורילות ושימפנזים',
+  '/water': 'אגמים, מפלים ונהרות',
+  '/mountains': 'הרים',
+  '/extreme': 'אקסטרים',
+  '/lakes': 'אגמים',
+  '/waterfalls': 'מפלים',
+  '/rivers': 'נהרות',
+  'gorillas-chimps': 'גורילות ושימפנזים',
+  'safari': 'ספארי',
+  'water': 'אגמים, מפלים ונהרות',
+  'mountains': 'הרים',
+  'extreme': 'אקסטרים',
+  'lakes': 'אגמים',
+  'waterfalls': 'מפלים',
+  'rivers': 'נהרות'
+};
+
+// מיפוי אטרקציות לשמות בעברית
+const attractionNames: { [key: string]: string } = {
+  // 🦁 ספארי
+  'queen-elizabeth': 'פארק המלכה אליזבת הלאומי',
+  'murchison-falls-safari': 'פארק לאומי מורצ׳יסון פולס',
+  'lake-mburo-safari': 'פארק לאומי אגם מבורו',
+  'semuliki': 'פארק לאומי סמוליקי',
+
+  // 🦍 גורילות ושימפנזים
+  'gorillas-bwindi': 'גורילות ביער בווינדי',
+  'gorillas-mgahinga': 'גורילות מגהינגה',
+  'chimps-kibale': 'שימפנזים בקיבאלה',
+
+  // 💧 אגמים
+  'lake-victoria': 'אגם ויקטוריה',
+  'lake-bunyonyi': 'אגם בוניוני',
+  'lake-albert': 'אגם אלברט',
+  'lake-kyoga': 'אגם קיוגה',
+  'lake-edward': 'אגם אדוארד',
+  'lake-george': 'אגם ג׳ורג׳',
+  'lake-mutanda': 'אגם מוטנדה',
+  'lake-mburo-lake': 'אגם מבורו',
+
+  // 🌊 מפלים
+  'murchison-falls-waterfalls': 'מפלי מורצ׳יסון',
+  'sipi-falls': 'מפלי סיפי',
+  'kisiizi-falls': 'מפלי קיסיזי',
+  'karuma-falls': 'מפלי קארומה',
+  'itanda-falls': 'מפלי איטנדה',
+  'sezibwa-falls': 'מפלי סזיבווה',
+  'aruu-falls': 'מפלי ארואו',
+  'bujagali-falls': 'מפלי בוג׳גאלי',
+
+  // 🌊 נהרות
+  'nile-river': 'נהר הנילוס הלבן',
+  'source-of-nile': 'מקור הנילוס',
+
+  // 🏔️ הרים
+  'mount-elgon': 'פארק לאומי הר אלגון',
+  'rwenzori-mountains': 'פארק לאומי הרי הרוונזורי'
 };
 
 // פונקציה למציאת אטרקציה לפי ID
@@ -50,13 +104,6 @@ const SmartBreadcrumbs: React.FC = () => {
 
     // עמודי קטגוריות ראשיות
     const mainCategories = ['/safari', '/gorillas', '/mountains', '/water', '/extreme'];
-    const categoryNames: { [key: string]: string } = {
-      '/safari': 'ספארי',
-      '/gorillas': 'גורילות ושימפנזים',
-      '/mountains': 'הרים',
-      '/water': 'אגמים, מפלים ונהרות',
-      '/extreme': 'אקסטרים'
-    };
 
     for (const category of mainCategories) {
       if (pathname === category) {
@@ -73,6 +120,10 @@ const SmartBreadcrumbs: React.FC = () => {
       
       if (pathname === '/water/waterfalls') {
         items.push({ label: "מפלים" });
+      } else if (pathname === '/water/lakes') {
+        items.push({ label: "אגמים" });
+      } else if (pathname === '/water/rivers') {
+        items.push({ label: "נהרות" });
       }
       return items;
     }
@@ -110,10 +161,10 @@ const SmartBreadcrumbs: React.FC = () => {
         if (attraction) {
           items.push({ label: "קטגוריות", path: "/categories" });
           items.push({ label: categoryNames[attraction.category] || attraction.category, path: `/category/${attraction.category}` });
-          items.push({ label: attraction.name });
+          items.push({ label: attractionNames[id] || attraction.name });
         } else {
           items.push({ label: "קטגוריות", path: "/categories" });
-          items.push({ label: `אטרקציה ${id}` });
+          items.push({ label: attractionNames[id] || `אטרקציה ${id}` });
         }
       }
       return items;
