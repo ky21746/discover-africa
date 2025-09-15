@@ -314,6 +314,19 @@ const Contact: React.FC = () => {
               </div>
             </div>
 
+            {/* Company Information */}
+            <div className="bg-surface rounded-2xl p-8">
+              <h2 className="text-2xl font-bold mb-6 font-sans">פרטי החברה</h2>
+              <div className="space-y-4">
+                <div className="text-muted font-sans leading-relaxed">
+                  <p className="mb-2">Discover Africa מופעל על ידי Yuval Katz, עוסק מורשה</p>
+                  <p className="mb-2">גבעון 13, גני תקווה, מרכז 5591110, ישראל</p>
+                  <p className="text-sm text-gray-500 mt-4">Discover Africa is operated by Yuval Katz, Sole Proprietor</p>
+                  <p className="text-sm text-gray-500">Givon 13, Ganei Tikva, Center 5591110, Israel</p>
+                </div>
+              </div>
+            </div>
+
 
           </div>
         </div>

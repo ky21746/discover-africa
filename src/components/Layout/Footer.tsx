@@ -94,6 +94,16 @@ const Footer: React.FC = () => {
                 <span className="text-gray-300">ראשון-חמישי: 9:00–18:00</span>
               </div>
             </div>
+            
+            {/* Company Information */}
+            <div className="mt-6 pt-4 border-t border-gray-700">
+              <div className="text-sm text-gray-400 space-y-1">
+                <p>Discover Africa מופעל על ידי Yuval Katz, עוסק מורשה</p>
+                <p>גבעון 13, גני תקווה, מרכז 5591110, ישראל</p>
+                <p className="text-xs text-gray-500 mt-2">Discover Africa is operated by Yuval Katz, Sole Proprietor</p>
+                <p className="text-xs text-gray-500">Givon 13, Ganei Tikva, Center 5591110, Israel</p>
+              </div>
+            </div>
           </div>
         </div>
         
