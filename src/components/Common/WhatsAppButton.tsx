@@ -6,18 +6,20 @@ const WhatsAppButton: React.FC = () => {
   const message = encodeURIComponent('שלום, אני מעוניין במידע נוסף על הטיול שלי');
 
   const handleClick = () => {
-    const url = `https://wa.me/${phoneNumber}?text=${message}`;
+    const waUrl = `whatsapp://send?phone=${phoneNumber}&text=${message}`;
+    const fallbackUrl = `https://wa.me/${phoneNumber}?text=${message}`;
     
-    // פתיחה שמתאימה לכל הדפדפנים
-    const isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
-    
-    if (isChrome) {
-      // Chrome - פתיחה בטאב חדש
-      window.open(url, '_blank');
-    } else {
-      // דפדפנים אחרים - ניסיון לפתוח באפליקציה
-      window.location.href = url;
-    }
+    // פתיחה עם deep link
+    const now = Date.now();
+    // ננסה לפתוח את האפליקציה
+    window.location.href = waUrl;
+
+    // אם לא נפתח (נשארים בדפדפן) – אחרי 2 שניות נפתח לינק רגיל
+    setTimeout(() => {
+      if (Date.now() - now < 2100) {
+        window.open(fallbackUrl, "_blank");
+      }
+    }, 2000);
   };
 
   return (

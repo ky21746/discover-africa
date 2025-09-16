@@ -42,21 +42,23 @@ const WhatsAppFloat: React.FC<WhatsAppFloatProps> = ({
       });
     }
 
-    // בניית הקישור
+    // בניית הקישורים
     const encodedText = encodeURIComponent(text);
-    const baseUrl = `https://wa.me/${number}?text=${encodedText}`;
-    const finalUrl = refParam ? `${baseUrl}&ref=${encodeURIComponent(refParam)}` : baseUrl;
+    const waUrl = `whatsapp://send?phone=${number}&text=${encodedText}`;
+    const fallbackUrl = `https://wa.me/${number}?text=${encodedText}`;
+    const finalFallbackUrl = refParam ? `${fallbackUrl}&ref=${encodeURIComponent(refParam)}` : fallbackUrl;
     
-    // פתיחה שמתאימה לכל הדפדפנים
-    const isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
-    
-    if (isChrome) {
-      // Chrome - פתיחה בטאב חדש
-      window.open(finalUrl, '_blank');
-    } else {
-      // דפדפנים אחרים - ניסיון לפתוח באפליקציה
-      window.location.href = finalUrl;
-    }
+    // פתיחה עם deep link
+    const now = Date.now();
+    // ננסה לפתוח את האפליקציה
+    window.location.href = waUrl;
+
+    // אם לא נפתח (נשארים בדפדפן) – אחרי 2 שניות נפתח לינק רגיל
+    setTimeout(() => {
+      if (Date.now() - now < 2100) {
+        window.open(finalFallbackUrl, "_blank");
+      }
+    }, 2000);
     
     setIsOpen(false);
   };
@@ -88,7 +90,7 @@ const WhatsAppFloat: React.FC<WhatsAppFloatProps> = ({
           <div className="w-8 h-8 bg-blue-500/85 backdrop-blur-md border border-blue-400/50 rounded-full flex items-center justify-center">
             <Accessibility className="w-4 h-4 text-white" />
           </div>
-          <span className="text-white text-sm font-medium whitespace-nowrap">נגישות</span>
+          <span className="text-white text-sm font-bold whitespace-nowrap">נגישות</span>
         </button>
         
         {/* כפתור הוסף למסלול */}
@@ -100,7 +102,7 @@ const WhatsAppFloat: React.FC<WhatsAppFloatProps> = ({
           <div className="w-8 h-8 bg-amber-500/85 backdrop-blur-md border border-amber-400/50 rounded-full flex items-center justify-center">
             <MapPin className="w-4 h-4 text-white" />
           </div>
-          <span className="text-white text-sm font-medium whitespace-nowrap">הוסף למסלול</span>
+          <span className="text-white text-sm font-bold whitespace-nowrap">הוסף למסלול</span>
         </button>
         
         {/* כפתור ווטסאפ */}
@@ -112,7 +114,7 @@ const WhatsAppFloat: React.FC<WhatsAppFloatProps> = ({
           <div className="w-8 h-8 bg-green-500/85 backdrop-blur-md border border-green-400/50 rounded-full flex items-center justify-center">
             <MessageCircle className="w-4 h-4 text-white" />
           </div>
-          <span className="text-white text-sm font-medium whitespace-nowrap">WhatsApp</span>
+          <span className="text-white text-sm font-bold whitespace-nowrap">WhatsApp</span>
         </button>
       </div>
 
