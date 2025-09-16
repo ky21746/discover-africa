@@ -8,7 +8,7 @@ interface GoogleMapProps {
 }
 
 const GoogleMapComponent: React.FC<GoogleMapProps> = ({ lat, lng, zoom = 8 }) => {
-  const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
+  const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY || "AIzaSyD9GUDvMXOiX-Je_VoVKhE79JyJKzEi47A";
   
   // בדיקת המפתח של Google Maps
   console.log("Google Maps API Key:", apiKey);
