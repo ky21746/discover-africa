@@ -47,8 +47,14 @@ const WhatsAppFloat: React.FC<WhatsAppFloatProps> = ({
     const baseUrl = `https://wa.me/${number}?text=${encodedText}`;
     const finalUrl = refParam ? `${baseUrl}&ref=${encodeURIComponent(refParam)}` : baseUrl;
     
-    // פתיחה ישירה - במובייל יפתח אפליקציה, בדסקטופ יפתח בדפדפן
-    window.location.href = finalUrl;
+    // פתיחה שמתאימה לכל הדפדפנים
+    try {
+      // ניסיון לפתוח באפליקציה
+      window.location.href = finalUrl;
+    } catch (error) {
+      // אם זה לא עובד, פתיחה בטאב חדש
+      window.open(finalUrl, '_blank');
+    }
     
     setIsOpen(false);
   };
