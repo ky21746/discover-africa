@@ -462,18 +462,19 @@ const ParkDetail: React.FC = () => {
       <div className="container mx-auto max-w-screen-xl px-4 py-8 md:py-10 space-y-6">
         
         {/* הדרכה ל-Wishlist */}
-        <div className="bg-gradient-to-r from-amber-50 to-orange-50 border border-[#CAA131]/50 rounded-2xl p-5 flex items-center gap-4 shadow-lg">
+        <div className="bg-gradient-to-r from-amber-50 to-orange-50 border border-[#CAA131]/50 rounded-2xl p-4 md:p-5 flex items-center gap-3 md:gap-4 shadow-lg">
           <div className="bg-amber-500 text-white rounded-full p-2 flex-shrink-0">
-            <MapPin className="w-5 h-5" />
+            <MapPin className="w-4 h-4 md:w-5 md:h-5" />
           </div>
-          <div className="flex-1">
-            <h3 className="font-bold text-black">בונה מסלול חכם</h3>
-            <p className="text-black text-sm">הוסף חוויות למסלול שלך ואנחנו נבנה לך תכנית טיול מושלמת עם מחירים ומפת נסיעה</p>
+          <div className="flex-1 min-w-0">
+            <h3 className="font-bold text-black text-sm md:text-base">בונה מסלול חכם</h3>
+            <p className="text-black text-xs md:text-sm hidden md:block">הוסף חוויות למסלול שלך ואנחנו נבנה לך תכנית טיול מושלמת עם מחירים ומפת נסיעה</p>
+            <p className="text-black text-xs md:hidden">הוסף חוויות למסלול שלך</p>
           </div>
           <div className="flex-shrink-0">
             <Link
               to="/contact"
-              className="px-6 py-2 rounded-full font-bold text-sm shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 bg-gradient-to-r from-[#CAA131] to-[#B8942A] text-black hover:from-[#B8942A] hover:to-[#A68525]"
+              className="px-4 py-2 md:px-6 md:py-2 rounded-full font-bold text-xs md:text-sm shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 bg-gradient-to-r from-[#CAA131] to-[#B8942A] text-black hover:from-[#B8942A] hover:to-[#A68525]"
             >
               הוסף מסלול
             </Link>
