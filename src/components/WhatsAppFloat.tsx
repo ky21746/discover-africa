@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { MessageCircle, Plus, MapPin, Accessibility } from 'lucide-react';
+import { MessageCircle, Plus, Route, Accessibility } from 'lucide-react';
 
 interface WhatsAppFloatProps {
   number?: string;
@@ -100,7 +100,7 @@ const WhatsAppFloat: React.FC<WhatsAppFloatProps> = ({
           aria-label="הוסף למסלול"
         >
           <div className="w-8 h-8 bg-amber-500/85 backdrop-blur-md border border-amber-400/50 rounded-full flex items-center justify-center">
-            <MapPin className="w-4 h-4 text-white" />
+            <Route className="w-4 h-4 text-white" />
           </div>
           <span className="text-white text-sm font-bold whitespace-nowrap">הוסף למסלול</span>
         </button>

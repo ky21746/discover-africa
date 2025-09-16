@@ -21,6 +21,7 @@ import GeneralDescription from "../components/AttractionPage/GeneralDescription"
 import AttractionMap from "../components/AttractionPage/AttractionMap";
 import AttractionExperiences from "../components/AttractionPage/AttractionExperiences";
 import AttractionServices from "../components/AttractionPage/AttractionServices";
+import { useWishlist } from "../contexts/WishlistContext";
 
 // המרת פארקים לפורמט Attraction
 const parksAsAttractions: AttractionWithMock[] = parks.map(park => ({
@@ -63,6 +64,68 @@ const getImageSrc = (item: string | any): string => {
 const AttractionPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const [isAdded, setIsAdded] = useState(false);
+  const { items, addItem, removeItem } = useWishlist();
+
+  // בדיקה אם האטרקציה נמצאת ב-wishlist
+  const isInWishlist = items.some(item => item.attractionId === id);
+
+  // פונקציה לטיפול בלחיצה על כפתור הוספה למסלול
+  const handleAddToWishlist = () => {
+    if (!a) return;
+
+    if (isInWishlist) {
+      const existingItem = items.find(item => item.attractionId === a.id);
+      if (existingItem) {
+        removeItem(existingItem.id);
+      }
+    } else {
+      // יצירת פריט wishlist עם resolutions ברירת מחדל
+      const defaultResolutions = [
+        {
+          id: 'accommodation-luxury',
+          type: 'accommodation',
+          name: 'Sanctuary Gorilla Forest Camp',
+          description: 'יוקרתי בלב היער',
+          price: '+$400',
+          selected: false
+        },
+        {
+          id: 'accommodation-standard',
+          type: 'accommodation',
+          name: 'Buhoma Lodge',
+          description: 'נוף ישיר ליער',
+          price: '+$200',
+          selected: false
+        },
+        {
+          id: 'transport-flight',
+          type: 'transport',
+          name: 'טיסה פנימית',
+          description: 'מאנטבה לקיסורו (שעה)',
+          price: '+$300',
+          selected: false
+        },
+        {
+          id: 'transport-drive',
+          type: 'transport',
+          name: 'נסיעה ברכב',
+          description: '8-9 שעות מקמפלה',
+          price: 'כלול',
+          selected: true
+        }
+      ];
+
+      addItem({
+        id: `attraction-${a.id}`,
+        attractionId: a.id,
+        name: a.name,
+        subtitle: a.category,
+        image: a.heroImage || a.gallery?.[0] || '',
+        basePrice: '₪500',
+        resolutions: defaultResolutions
+      });
+    }
+  };
 
   const a = useMemo(() => {
     if (!id) return undefined;
@@ -129,14 +192,14 @@ const AttractionPage: React.FC = () => {
           </div>
           <div className="flex-shrink-0">
             <button
-              onClick={() => setIsAdded(!isAdded)}
+              onClick={handleAddToWishlist}
               className={`px-4 py-2 md:px-6 md:py-2 rounded-full font-bold text-xs md:text-sm shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 ${
-                isAdded
+                isInWishlist
                   ? 'bg-gradient-to-r from-green-500 to-green-600 text-white'
                   : 'bg-gradient-to-r from-[#CAA131] to-[#B8942A] text-black hover:from-[#B8942A] hover:to-[#A68525]'
               }`}
             >
-              {isAdded ? 'נוסף למסלול!' : 'הוסף מסלול'}
+              {isInWishlist ? 'נוסף למסלול!' : 'הוסף מסלול'}
             </button>
           </div>
         </div>

@@ -11,9 +11,11 @@ import {
   Ticket,
   Star,
   ChevronDown,
+  Route,
 } from "lucide-react";
 import { getParkBySlug, getRelatedParks, getParkBySlug as findPark, Park } from "../data/parks";
 import { categories } from "../data/categories";
+import { useWishlist } from "../contexts/WishlistContext";
 
 type TravelerType = "משפחות" | "זוגות" | "בודדים" | "קבוצה";
 
@@ -21,12 +23,74 @@ const ParkDetail: React.FC = () => {
   // התאמה למסלול: /category/:slug/:parkSlug
   const { slug, parkSlug } = useParams<{ slug: string; parkSlug: string }>();
   const park = getParkBySlug(parkSlug || "");
+  const { items, addItem, removeItem } = useWishlist();
 
   // איתור הקטגוריה להצגת פירורי לחם
   const category = categories.find((cat: any) => {
     const kebab = cat.name.toLowerCase().replace(/\s+/g, "-");
     return (cat.slug ? cat.slug === slug : kebab === slug);
   });
+
+  // בדיקה אם הפארק נמצא ב-wishlist
+  const isInWishlist = items.some(item => item.attractionId === park?.slug);
+
+  // פונקציה לטיפול בלחיצה על כפתור הוספה למסלול
+  const handleAddToWishlist = () => {
+    if (!park) return;
+
+    if (isInWishlist) {
+      const existingItem = items.find(item => item.attractionId === park.slug);
+      if (existingItem) {
+        removeItem(existingItem.id);
+      }
+    } else {
+      // יצירת פריט wishlist עם resolutions ברירת מחדל
+      const defaultResolutions = [
+        {
+          id: 'accommodation-luxury',
+          type: 'accommodation',
+          name: 'Sanctuary Gorilla Forest Camp',
+          description: 'יוקרתי בלב היער',
+          price: '+$400',
+          selected: false
+        },
+        {
+          id: 'accommodation-standard',
+          type: 'accommodation',
+          name: 'Buhoma Lodge',
+          description: 'נוף ישיר ליער',
+          price: '+$200',
+          selected: false
+        },
+        {
+          id: 'transport-flight',
+          type: 'transport',
+          name: 'טיסה פנימית',
+          description: 'מאנטבה לקיסורו (שעה)',
+          price: '+$300',
+          selected: false
+        },
+        {
+          id: 'transport-drive',
+          type: 'transport',
+          name: 'נסיעה ברכב',
+          description: '8-9 שעות מקמפלה',
+          price: 'כלול',
+          selected: true
+        }
+      ];
+
+      addItem({
+        id: `park-${park.slug}`,
+        attractionId: park.slug,
+        name: park.name,
+        subtitle: park.area,
+        image: park.image,
+        basePrice: park.cost_est || '₪500',
+        resolutions: defaultResolutions
+      });
+    }
+  };
 
   if (!park || !category) {
     return (
@@ -472,12 +536,16 @@ const ParkDetail: React.FC = () => {
             <p className="text-black text-xs md:hidden">הוסף חוויות למסלול שלך</p>
           </div>
           <div className="flex-shrink-0">
-            <Link
-              to="/contact"
-              className="px-4 py-2 md:px-6 md:py-2 rounded-full font-bold text-xs md:text-sm shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 bg-gradient-to-r from-[#CAA131] to-[#B8942A] text-black hover:from-[#B8942A] hover:to-[#A68525]"
+            <button
+              onClick={handleAddToWishlist}
+              className={`px-4 py-2 md:px-6 md:py-2 rounded-full font-bold text-xs md:text-sm shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 ${
+                isInWishlist
+                  ? 'bg-gradient-to-r from-green-500 to-green-600 text-white'
+                  : 'bg-gradient-to-r from-[#CAA131] to-[#B8942A] text-black hover:from-[#B8942A] hover:to-[#A68525]'
+              }`}
             >
-              הוסף מסלול
-            </Link>
+              {isInWishlist ? 'נוסף למסלול!' : 'הוסף מסלול'}
+            </button>
           </div>
         </div>
 
