@@ -65,7 +65,7 @@ const WhatsAppFloat: React.FC<WhatsAppFloatProps> = ({
   };
 
   return (
-    <div ref={menuRef} className="fixed bottom-5 right-5 z-50">
+    <div ref={menuRef} className="fixed bottom-5 right-5 z-50 md:hidden">
       {/* תפריט הכפתורים הקטנים */}
       <div className={`absolute bottom-16 right-0 flex flex-col gap-3 transition-all duration-300 ${
         isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'
