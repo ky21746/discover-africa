@@ -39,7 +39,7 @@ export const WishlistButton: React.FC<WishlistButtonProps> = ({
           type: 'accommodation',
           name: 'Sanctuary Gorilla Forest Camp',
           description: 'יוקרתי בלב היער',
-          price: '+$400',
+          price: '',
           selected: false
         },
         {
@@ -47,7 +47,7 @@ export const WishlistButton: React.FC<WishlistButtonProps> = ({
           type: 'accommodation',
           name: 'Buhoma Lodge',
           description: 'נוף ישיר ליער',
-          price: '+$200',
+          price: '',
           selected: false
         },
         {
@@ -55,7 +55,7 @@ export const WishlistButton: React.FC<WishlistButtonProps> = ({
           type: 'transport',
           name: 'טיסה פנימית',
           description: 'מאנטבה לקיסורו (שעה)',
-          price: '+$300',
+          price: '',
           selected: false
         },
         {
@@ -63,7 +63,7 @@ export const WishlistButton: React.FC<WishlistButtonProps> = ({
           type: 'transport',
           name: 'נסיעה ברכב',
           description: '8-9 שעות מקמפלה',
-          price: 'כלול',
+          price: '',
           selected: true
         }
       ];

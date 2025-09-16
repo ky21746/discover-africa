@@ -51,7 +51,7 @@ const ParkDetail: React.FC = () => {
           type: 'accommodation',
           name: 'Sanctuary Gorilla Forest Camp',
           description: 'יוקרתי בלב היער',
-          price: '+$400',
+          price: '',
           selected: false
         },
         {
@@ -59,7 +59,7 @@ const ParkDetail: React.FC = () => {
           type: 'accommodation',
           name: 'Buhoma Lodge',
           description: 'נוף ישיר ליער',
-          price: '+$200',
+          price: '',
           selected: false
         },
         {
@@ -67,7 +67,7 @@ const ParkDetail: React.FC = () => {
           type: 'transport',
           name: 'טיסה פנימית',
           description: 'מאנטבה לקיסורו (שעה)',
-          price: '+$300',
+          price: '',
           selected: false
         },
         {
@@ -75,7 +75,7 @@ const ParkDetail: React.FC = () => {
           type: 'transport',
           name: 'נסיעה ברכב',
           description: '8-9 שעות מקמפלה',
-          price: 'כלול',
+          price: '',
           selected: true
         }
       ];
@@ -86,7 +86,7 @@ const ParkDetail: React.FC = () => {
         name: park.name,
         subtitle: park.area,
         image: park.image,
-        basePrice: park.cost_est || '₪500',
+        basePrice: '',
         resolutions: defaultResolutions
       });
     }
@@ -138,7 +138,6 @@ const ParkDetail: React.FC = () => {
       { icon: <MapPin className="w-5 h-5" />, label: "אזור", value: park.area },
       { icon: <Calendar className="w-5 h-5" />, label: "עונה מומלצת", value: park.season },
       { icon: <Gauge className="w-5 h-5" />, label: "רמת קושי", value: difficulty },
-      { icon: <DollarSign className="w-5 h-5" />, label: "עלות/רישיון", value: licenseCost ?? park.cost_est },
       { icon: <Users className="w-5 h-5" />, label: "למשפחות", value: park.family ? "כן" : "לא" },
       { icon: <Baby className="w-5 h-5" />, label: "גיל מינימום", value: typeof minAge === "number" ? minAge : undefined },
       { icon: <Ticket className="w-5 h-5" />, label: "משך פעילות", value: durationHrs ? `${durationHrs} שעות` : undefined },
@@ -532,7 +531,7 @@ const ParkDetail: React.FC = () => {
           </div>
           <div className="flex-1 min-w-0">
             <h3 className="font-bold text-black text-sm md:text-base">בונה מסלול חכם</h3>
-            <p className="text-black text-xs md:text-sm hidden md:block">הוסף חוויות למסלול שלך ואנחנו נבנה לך תכנית טיול מושלמת עם מחירים ומפת נסיעה</p>
+            <p className="text-black text-xs md:text-sm hidden md:block">הוסף חוויות למסלול שלך ואנחנו נבנה לך תכנית טיול מושלמת עם מפת נסיעה</p>
             <p className="text-black text-xs md:hidden">הוסף חוויות למסלול שלך</p>
           </div>
           <div className="flex-shrink-0">

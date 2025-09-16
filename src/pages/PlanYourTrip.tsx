@@ -27,7 +27,6 @@ interface GeneratedTrip {
   name: string;
   activities: string[];
   icon: React.ReactNode;
-  estimatedCost: string;
   description: string;
   image: string;
 }
@@ -96,7 +95,7 @@ const PlanYourTrip: React.FC = () => {
 
   const loadingMessages = [
     'מחפש את החוויות המושלמות בשבילך...',
-    'בודק זמינות ומחירים...',
+    'בודק זמינות...',
     'מתאים את המסלול לצרכים שלך...',
     'כמעט מוכן! בונה את התוכנית המושלמת...'
   ];
@@ -170,22 +169,12 @@ const PlanYourTrip: React.FC = () => {
       return interestObj?.name || interest;
     });
 
-    const baseCost = data.duration === '3 ימים' ? 1200 : 
-                    data.duration === '5 ימים' ? 2000 :
-                    data.duration === 'שבוע' ? 3500 : 5000;
-
-    const multiplier = data.profile === 'luxury' ? 2.5 : 
-                      data.profile === 'extreme' ? 1.8 : 
-                      data.profile === 'family' ? 1.2 : 1.5;
-
-    const totalCost = Math.round(baseCost * multiplier * (data.travelers.adults + data.travelers.children + data.travelers.infants));
 
     return {
   name: `מסלול ${profileNames[data.profile as keyof typeof profileNames]} ${data.duration} באוגנדה`,
   activities,
   icon: <Users className="w-6 h-6" />,
   image: 'https://images.pexels.com/photos/631317/pexels-photo-631317.jpeg',
-  estimatedCost: `₪${totalCost.toLocaleString()}`,
   description: `מסלול מותאם אישית ל-${data.travelers.adults + data.travelers.children + data.travelers.infants} מטיילים עם ${activities.length} חוויות מרכזיות באוגנדה`
 };
   };
@@ -538,13 +527,6 @@ const PlanYourTrip: React.FC = () => {
               </div>
 
               <div className="bg-gray-50 rounded-lg p-4 mb-6">
-                <div className="flex justify-between items-center">
-                  <span className="text-lg font-semibold font-sans">מחיר משוער:</span>
-                  <span className="text-2xl font-bold text-orange-600 font-sans">{generatedTrip.estimatedCost}</span>
-                </div>
-                <p className="text-sm text-gray-600 mt-2 font-sans">
-                  המחיר כולל לינה, ארוחות, תחבורה ומדריך מקצועי
-                </p>
               </div>
 
               <div className="space-y-4">

@@ -72,14 +72,7 @@ export const WishlistProvider: React.FC<{ children: ReactNode }> = ({ children }
   const getTotalItems = () => items.length;
 
   const getTotalPrice = () => {
-    return items.reduce((total, item) => {
-      const basePrice = parseInt(item.basePrice.replace(/[^0-9]/g, '')) || 0;
-      const resolutionsPriceAdd = item.resolutions
-        .filter(res => res.selected && res.price)
-        .reduce((sum, res) => sum + (parseInt(res.price!.replace(/[^0-9]/g, '')) || 0), 0);
-      
-      return total + basePrice + resolutionsPriceAdd;
-    }, 0);
+    return 0;
   };
 
   return (
