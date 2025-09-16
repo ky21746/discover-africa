@@ -337,7 +337,7 @@ const ParkDetail: React.FC = () => {
 
     if (!lat || !lng) {
       return (
-        <section className="rounded-2xl overflow-hidden border border-[#534B20]/60 bg-white shadow-lg hover:shadow-xl transition-all duration-300 h-full">
+        <section className="rounded-2xl border border-[#534B20]/60 bg-white shadow-lg hover:shadow-xl transition-all duration-300 h-full">
           <div className="h-full bg-gray-100 rounded-xl flex items-center justify-center">
             <div className="text-center">
               <MapPin className="w-12 h-12 text-gray-400 mx-auto mb-2" />
@@ -349,7 +349,7 @@ const ParkDetail: React.FC = () => {
     }
 
     return (
-      <section className="rounded-2xl overflow-hidden border border-[#534B20]/60 bg-white shadow-lg hover:shadow-xl transition-all duration-300 h-full">
+      <section className="rounded-2xl border border-[#534B20]/60 bg-white shadow-lg hover:shadow-xl transition-all duration-300 h-full">
         <div className="relative cursor-pointer h-full">
           <iframe
             title={`מפה – ${park.name}`}

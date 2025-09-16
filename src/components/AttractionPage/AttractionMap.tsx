@@ -16,7 +16,7 @@ const AttractionMap: React.FC<AttractionMapProps> = ({ attraction }) => {
   console.log("Current URL:", window.location.href);
 
   return (
-    <div className="h-full">
+    <div className="w-full h-[400px] md:h-full">
       <GoogleMapComponent lat={coordinates.lat} lng={coordinates.lng} zoom={8} />
     </div>
   );

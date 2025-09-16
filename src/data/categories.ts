@@ -60,6 +60,16 @@ export const categories: Category[] = [
       "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FExtreme%2FRZR%20safari%20%E2%80%93%20wild%20action.webp?alt=media&token=e38a49bb-d2fd-4d58-9f4c-198fc228a06c",
     tags: ["אדרנלין", "אתגר"],
   },
+  {
+    id: "7",
+    name: "מסלולים מוכנים",
+    slug: "ready-routes",
+    shortDescription:
+      "מסלולי טיול מוכנים ומתוכננים לאוגנדה – מהתכנון ועד הביצוע.",
+    coverImage:
+      "https://images.pexels.com/photos/618833/pexels-photo-618833.jpeg",
+    tags: ["מסלולים", "תכנון", "טיולים מוכנים"],
+  },
 
 
 

@@ -8,7 +8,7 @@ const MapTest: React.FC = () => {
   return (
     <div className="p-4">
       <h2 className="text-2xl font-bold mb-4">בדיקת מפה</h2>
-      <div className="border rounded-lg overflow-hidden">
+      <div className="border rounded-lg w-full h-[400px] md:h-[500px]">
         <GoogleMapComponent lat={center.lat} lng={center.lng} zoom={8} />
       </div>
     </div>
