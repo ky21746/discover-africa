@@ -9,12 +9,14 @@ const WhatsAppButton: React.FC = () => {
     const url = `https://wa.me/${phoneNumber}?text=${message}`;
     
     // פתיחה שמתאימה לכל הדפדפנים
-    try {
-      // ניסיון לפתוח באפליקציה
-      window.location.href = url;
-    } catch (error) {
-      // אם זה לא עובד, פתיחה בטאב חדש
+    const isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+    
+    if (isChrome) {
+      // Chrome - פתיחה בטאב חדש
       window.open(url, '_blank');
+    } else {
+      // דפדפנים אחרים - ניסיון לפתוח באפליקציה
+      window.location.href = url;
     }
   };
 

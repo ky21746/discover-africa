@@ -48,12 +48,14 @@ const WhatsAppFloat: React.FC<WhatsAppFloatProps> = ({
     const finalUrl = refParam ? `${baseUrl}&ref=${encodeURIComponent(refParam)}` : baseUrl;
     
     // פתיחה שמתאימה לכל הדפדפנים
-    try {
-      // ניסיון לפתוח באפליקציה
-      window.location.href = finalUrl;
-    } catch (error) {
-      // אם זה לא עובד, פתיחה בטאב חדש
+    const isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+    
+    if (isChrome) {
+      // Chrome - פתיחה בטאב חדש
       window.open(finalUrl, '_blank');
+    } else {
+      // דפדפנים אחרים - ניסיון לפתוח באפליקציה
+      window.location.href = finalUrl;
     }
     
     setIsOpen(false);
