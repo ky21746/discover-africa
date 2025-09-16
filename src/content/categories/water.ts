@@ -446,7 +446,7 @@ export const water: Attraction[] = [
     
     // Hero section customization - שליטה ספציפית בגובה התמונה
     heroHeight: {
-      mobile: "30vh",    // גובה קטן יותר במובייל
+      mobile: "35vh",    // גובה קטן יותר במובייל
       desktop: "45vh"    // גובה 45vh בדסקטופ
     },
     

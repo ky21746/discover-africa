@@ -59,14 +59,9 @@ const Home: React.FC = () => {
             <br />
             מתחילה כאן
           </h1>
-          <p className="text-base md:text-lg font-light">
+          <p className="text-base md:text-lg font-light whitespace-nowrap">
             טיולי אקסטרים, טבע פראי, ושירות אישי – חוויה שלא תשכח
           </p>
-          
-          {/* CTA Button */}
-          <button className="bg-orange-500 text-white px-6 md:px-8 py-2 md:py-3 rounded-lg font-semibold text-base md:text-lg transition-colors duration-200 hover:bg-orange-600">
-            תכננו טיול כאן
-          </button>
         </div>
       </section>
 
@@ -75,7 +70,7 @@ const Home: React.FC = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-10 md:mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-3 md:mb-4 font-sans">
-              הקטגוריות הפופולריות שלנו
+              קטגוריות פופולריות
             </h2>
             <p className="text-lg md:text-xl text-muted font-sans">
               גלו את המגוון הרחב של חוויות שאנו מציעים

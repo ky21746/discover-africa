@@ -65,7 +65,7 @@ export const gorillasChimps: Attraction[] = [
     ],
     // Hero section customization - שליטה ספציפית בגובה התמונה
     heroHeight: {
-      mobile: "30vh",    // גובה קטן יותר במובייל לתמונה של אריות על עצים
+      mobile: "35vh",    // גובה קטן יותר במובייל לתמונה של אריות על עצים
       desktop: "45vh"    // גובה קטן יותר בדסקטופ לחוויית צפייה מרשימה
     },
     
@@ -221,7 +221,7 @@ export const gorillasChimps: Attraction[] = [
     ],
     // Hero section customization - שליטה ספציפית בגובה התמונה
     heroHeight: {
-      mobile: "30vh",    // גובה קטן יותר במובייל לגורילות מגהינגה
+      mobile: "35vh",    // גובה קטן יותר במובייל לגורילות מגהינגה
       desktop: "45vh"    // גובה קטן יותר בדסקטופ לגורילות מגהינגה
     },
     
@@ -382,7 +382,7 @@ export const gorillasChimps: Attraction[] = [
     ],
     // Hero section customization - שליטה ספציפית בגובה התמונה
     heroHeight: {
-      mobile: "30vh",    // גובה קטן יותר במובייל לשימפנזים
+      mobile: "35vh",    // גובה קטן יותר במובייל לשימפנזים
       desktop: "45vh"    // גובה קטן יותר בדסקטופ לשימפנזים
     },
     

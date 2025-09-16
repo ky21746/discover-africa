@@ -13,13 +13,18 @@ const AttractionHero: React.FC<AttractionHeroProps> = ({
 }) => {
   // ===== Responsive Hero Height =====
   useEffect(() => {
-    if (attraction?.heroHeight?.desktop) {
+    if (attraction?.heroHeight) {
       const style = document.createElement('style');
       style.id = 'hero-height-style';
       style.textContent = `
+        @media (max-width: 767px) {
+          .hero-section-${attraction.id} {
+            height: ${attraction.heroHeight.mobile || '35vh'} !important;
+          }
+        }
         @media (min-width: 768px) {
           .hero-section-${attraction.id} {
-            height: ${attraction.heroHeight.desktop} !important;
+            height: ${attraction.heroHeight.desktop || '45vh'} !important;
           }
         }
       `;
@@ -41,8 +46,8 @@ const AttractionHero: React.FC<AttractionHeroProps> = ({
         className={`relative w-full hero-section-${attraction?.id || 'default'}`}
         style={{
           height: attraction?.heroHeight 
-            ? `${attraction.heroHeight.mobile || '25vh'}`
-            : '25vh',
+            ? `${attraction.heroHeight.mobile || '35vh'}`
+            : '35vh',
           minHeight: '200px'
         }}
       >
@@ -54,21 +59,6 @@ const AttractionHero: React.FC<AttractionHeroProps> = ({
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/30" />
         
-        {/* כפתור הוסף למסלול למובייל - צד עליון ימין */}
-        <div className="absolute top-4 right-4 md:hidden z-10">
-          <WishlistButton 
-            item={{
-              id: attraction.id || attraction.slug || 'default-id',
-              attractionId: attraction.id || attraction.slug || 'default-id',
-              name: attraction.name,
-              subtitle: attraction.subtitle,
-              image: heroImage,
-              basePrice: attraction.price || 'מ-$2,400'
-            }}
-            variant="text"
-            className="bg-amber-500 hover:bg-amber-600 active:bg-amber-700 rounded-full shadow-xl flex items-center gap-2 px-3 py-2 transition-all cursor-pointer border-2 border-white/20"
-          />
-        </div>
         
         <div className="absolute bottom-0 left-0 right-0 p-4 md:p-8">
           <div className="container mx-auto max-w-screen-xl">
