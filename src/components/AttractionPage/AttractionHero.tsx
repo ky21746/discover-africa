@@ -107,19 +107,19 @@ const AttractionHero: React.FC<AttractionHeroProps> = ({
       <div className="bg-white border-t md:hidden">
         <div className="container mx-auto px-4 py-4">
           <div className="grid grid-cols-2 gap-3">
-            <div className="bg-gray-50 rounded-xl p-3 text-center h-16 flex flex-col justify-center">
+            <div className="bg-gray-50 border border-gray-200 rounded-xl p-3 text-center h-16 flex flex-col justify-center">
               <div className="text-sm text-gray-600 mb-1">מיקום במדינה</div>
               <div className="text-lg font-bold text-gray-700">{attraction.region || "דרום מערב אוגנדה"}</div>
             </div>
-            <div className="bg-gray-50 rounded-xl p-3 text-center h-16 flex flex-col justify-center">
+            <div className="bg-gray-50 border border-gray-200 rounded-xl p-3 text-center h-16 flex flex-col justify-center">
               <div className="text-sm text-gray-600 mb-1">זמן מומלץ לטיול</div>
               <div className="text-lg font-bold text-gray-700">{attraction.duration || "2-4 ימים"}</div>
             </div>
-            <div className="bg-gray-50 rounded-xl p-3 text-center h-16 flex flex-col justify-center">
+            <div className="bg-gray-50 border border-gray-200 rounded-xl p-3 text-center h-16 flex flex-col justify-center">
               <div className="text-sm text-gray-600 mb-1">רמת קושי</div>
               <div className="text-lg font-bold text-gray-700">{attraction.difficulty || "קל-בינוני"}</div>
             </div>
-            <div className="bg-gray-50 rounded-xl p-3 text-center h-16 flex flex-col justify-center">
+            <div className="bg-gray-50 border border-gray-200 rounded-xl p-3 text-center h-16 flex flex-col justify-center">
               <div className="text-sm text-gray-600 mb-1">במסלול שלי</div>
               <WishlistButton 
                 item={{
