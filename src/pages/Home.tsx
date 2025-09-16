@@ -59,7 +59,7 @@ const Home: React.FC = () => {
             <br />
             מתחילה כאן
           </h1>
-          <p className="text-base md:text-lg font-light whitespace-nowrap">
+          <p className="hidden xl:block text-base md:text-lg font-light whitespace-nowrap">
             טיולי אקסטרים, טבע פראי, ושירות אישי – חוויה שלא תשכח
           </p>
         </div>

@@ -166,12 +166,6 @@ const CategoryPage: React.FC = () => {
             </p>
           )}
           
-          {/* CTA Button */}
-          <button className="bg-orange-500 text-white px-8 py-3 rounded-lg font-semibold text-lg transition-colors duration-200 hover:bg-orange-600">
-            {isSafari ? "בנה ספארי מותאם אישית" : 
-             isPrimates ? "צפה בכל המסלולים" : 
-             "צפה בכל האפשרויות"}
-          </button>
         </div>
       </section>
 
@@ -193,10 +187,7 @@ const CategoryPage: React.FC = () => {
                 item.image ??
                 (item.gallery && item.gallery.length > 0 ? getImageSrc(item.gallery[0]) : null) ??
                 "https://images.pexels.com/photos/6194629/pexels-photo-6194629.jpeg";
-              const summary =
-                item.description?.length > 140
-                  ? item.description.slice(0, 140) + "…"
-                  : item.description;
+              const summary = item.subtitle || item.description;
 
               return (
                 <Link
@@ -215,9 +206,7 @@ const CategoryPage: React.FC = () => {
                       
                       {summary && (
                         <p className="font-sans">
-                          {summary.length > 50 
-                            ? summary.slice(0, 50) + "." 
-                            : summary}
+                          {summary}
                         </p>
                       )}
                     </div>
