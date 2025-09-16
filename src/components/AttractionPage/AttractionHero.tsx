@@ -131,7 +131,7 @@ const AttractionHero: React.FC<AttractionHeroProps> = ({
                   basePrice: attraction.price || 'מ-$2,400'
                 }}
                 variant="text"
-                className="text-lg font-bold text-gray-700 flex items-center justify-center h-full"
+                className="text-lg font-bold text-white flex items-center justify-center h-full"
               />
             </div>
           </div>
