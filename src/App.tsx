@@ -47,7 +47,6 @@ import ExtremePark from "./pages/services/ExtremePark";
 // Wishlist imports
 import { WishlistProvider } from "./contexts/WishlistContext";
 import { WishlistSidebar } from "./components/Wishlist/WishlistSidebar";
-import { WishlistFloatingButton } from "./components/Wishlist/WishlistFloatingButton";
 
 // Scroll fix component
 import { useEffect } from "react";
@@ -127,7 +126,6 @@ export default function App() {
         
         {/* Wishlist Components - מחוץ ל-Layout */}
         <WishlistSidebar />
-        <WishlistFloatingButton />
       </Router>
     </WishlistProvider>
   );
