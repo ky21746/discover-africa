@@ -193,8 +193,8 @@ const WhatsAppFloat: React.FC<WhatsAppFloatProps> = ({
     <>
       {/* בר נגישות - Control Center Style */}
       {showAccessibilityBar && (
-        <div className="fixed inset-0 z-50 bg-black/20 backdrop-blur-sm md:hidden" onClick={handleBackgroundClick}>
-          <div className="absolute bottom-20 left-4 right-4 bg-white/95 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/20 p-6">
+            <div className="fixed inset-0 z-50 bg-black/20 backdrop-blur-sm" onClick={handleBackgroundClick}>
+          <div className="absolute bottom-20 left-4 right-4 md:left-1/2 md:right-auto md:-translate-x-1/2 md:w-96 bg-white/95 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/20 p-6">
             {/* Header */}
             <div className="flex items-center justify-between mb-6">
               <h3 className="text-lg font-semibold text-gray-800">נגישות</h3>
@@ -262,74 +262,74 @@ const WhatsAppFloat: React.FC<WhatsAppFloatProps> = ({
         </div>
       )}
 
-      <div ref={menuRef} className="fixed bottom-5 right-5 z-50 md:hidden">
+        <div ref={menuRef} className="fixed bottom-5 right-5 md:bottom-6 md:right-6 z-50">
       {/* תפריט הכפתורים הקטנים */}
-      <div className={`absolute bottom-16 right-0 flex flex-col gap-3 transition-all duration-300 ${
+      <div className={`absolute bottom-16 right-0 md:bottom-20 md:right-4 flex flex-col gap-3 transition-all duration-300 ${
         isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'
       }`}>
         {/* כפתור נגישות */}
         <button
           onClick={handleAccessibility}
-          className="group flex items-center gap-3 bg-blue-500/30 backdrop-blur-md border border-blue-400/30 rounded-full px-4 py-3 shadow-lg hover:bg-blue-500/40 transition-all duration-200"
+          className="group flex items-center gap-3 bg-blue-500/30 backdrop-blur-md border border-blue-400/30 rounded-full px-4 py-3 md:px-5 md:py-4 shadow-lg hover:bg-blue-500/40 transition-all duration-200"
           aria-label="נגישות"
         >
-          <div className="w-8 h-8 bg-blue-500/85 backdrop-blur-md border border-blue-400/50 rounded-full flex items-center justify-center">
-            <Accessibility className="w-4 h-4 text-white" />
+          <div className="w-8 h-8 md:w-9 md:h-9 bg-blue-500/85 backdrop-blur-md border border-blue-400/50 rounded-full flex items-center justify-center">
+            <Accessibility className="w-4 h-4 md:w-5 md:h-5 text-white" />
           </div>
-          <span className="text-white text-sm font-bold whitespace-nowrap">נגישות</span>
+          <span className="text-white text-sm md:text-base font-bold whitespace-nowrap">נגישות</span>
         </button>
         
         {/* כפתור במסלול שלי */}
         <button
           onClick={handleMyRoute}
-          className={`group flex items-center gap-3 bg-amber-500/30 backdrop-blur-md border border-amber-400/30 rounded-full px-4 py-3 shadow-lg hover:bg-amber-500/40 transition-all duration-200 relative ${
+          className={`group flex items-center gap-3 bg-amber-500/30 backdrop-blur-md border border-amber-400/30 rounded-full px-4 py-3 md:px-5 md:py-4 shadow-lg hover:bg-amber-500/40 transition-all duration-200 relative ${
             isBlinking ? 'animate-bounce bg-amber-500/60 border-amber-400/80 shadow-2xl scale-110' : ''
           }`}
           aria-label="במסלול שלי"
         >
-          <div className="w-8 h-8 bg-amber-500/85 backdrop-blur-md border border-amber-400/50 rounded-full flex items-center justify-center relative">
-            <Route className="w-4 h-4 text-white" />
+          <div className="w-8 h-8 md:w-9 md:h-9 bg-amber-500/85 backdrop-blur-md border border-amber-400/50 rounded-full flex items-center justify-center relative">
+            <Route className="w-4 h-4 md:w-5 md:h-5 text-white" />
             {itemCount > 0 && (
-              <span className={`absolute -top-1 -right-1 bg-red-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold ${
+              <span className={`absolute -top-1 -right-1 md:-top-2 md:-right-2 bg-red-500 text-white text-xs md:text-sm w-5 h-5 md:w-6 md:h-6 rounded-full flex items-center justify-center font-bold ${
                 isBlinking ? 'animate-ping scale-150 bg-red-600' : ''
               }`}>
                 {itemCount > 9 ? '9+' : itemCount}
               </span>
             )}
           </div>
-          <span className="text-white text-sm font-bold whitespace-nowrap">במסלול שלי</span>
+          <span className="text-white text-sm md:text-base font-bold whitespace-nowrap">במסלול שלי</span>
         </button>
         
         {/* כפתור ווטסאפ */}
         <button
           onClick={handleWhatsAppClick}
-          className="group flex items-center gap-3 bg-green-500/30 backdrop-blur-md border border-green-400/30 rounded-full px-4 py-3 shadow-lg hover:bg-green-500/40 transition-all duration-200"
+          className="group flex items-center gap-3 bg-green-500/30 backdrop-blur-md border border-green-400/30 rounded-full px-4 py-3 md:px-5 md:py-4 shadow-lg hover:bg-green-500/40 transition-all duration-200"
           aria-label="צור קשר בווטסאפ"
         >
-          <div className="w-8 h-8 bg-green-500/85 backdrop-blur-md border border-green-400/50 rounded-full flex items-center justify-center">
-            <MessageCircle className="w-4 h-4 text-white" />
+          <div className="w-8 h-8 md:w-9 md:h-9 bg-green-500/85 backdrop-blur-md border border-green-400/50 rounded-full flex items-center justify-center">
+            <MessageCircle className="w-4 h-4 md:w-5 md:h-5 text-white" />
           </div>
-          <span className="text-white text-sm font-bold whitespace-nowrap">WhatsApp</span>
+          <span className="text-white text-sm md:text-base font-bold whitespace-nowrap">WhatsApp</span>
         </button>
       </div>
 
-      {/* כפתור ראשי */}
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className={`w-14 h-14 bg-blue-500/30 backdrop-blur-md border border-blue-400/30 rounded-full flex items-center justify-center text-white shadow-lg hover:bg-blue-500/40 transition-all duration-300 hover:scale-110 relative ${
-          isBlinking ? 'animate-bounce bg-blue-500/60 border-blue-400/80 shadow-2xl scale-125' : ''
-        }`}
-        aria-label="תפריט פעולות"
-      >
-        <Plus className={`w-6 h-6 transition-transform duration-300 ${isOpen ? 'rotate-45' : ''}`} />
-        {itemCount > 0 && (
-          <span className={`absolute -top-1 -right-1 bg-red-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold ${
-            isBlinking ? 'animate-ping scale-150 bg-red-600' : ''
-          }`}>
-            {itemCount > 9 ? '9+' : itemCount}
-          </span>
-        )}
-      </button>
+        {/* כפתור ראשי */}
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className={`w-14 h-14 md:w-16 md:h-16 bg-blue-500/30 backdrop-blur-md border border-blue-400/30 rounded-full flex items-center justify-center text-white shadow-lg hover:bg-blue-500/40 transition-all duration-300 hover:scale-110 relative ${
+            isBlinking ? 'animate-bounce bg-blue-500/60 border-blue-400/80 shadow-2xl scale-125' : ''
+          }`}
+          aria-label="תפריט פעולות"
+        >
+          <Plus className={`w-6 h-6 md:w-7 md:h-7 transition-transform duration-300 ${isOpen ? 'rotate-45' : ''}`} />
+          {itemCount > 0 && (
+            <span className={`absolute -top-1 -right-1 md:-top-2 md:-right-2 bg-red-500 text-white text-xs md:text-sm w-5 h-5 md:w-6 md:h-6 rounded-full flex items-center justify-center font-bold ${
+              isBlinking ? 'animate-ping scale-150 bg-red-600' : ''
+            }`}>
+              {itemCount > 9 ? '9+' : itemCount}
+            </span>
+          )}
+        </button>
     </div>
     </>
   );
