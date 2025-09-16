@@ -10,7 +10,8 @@ export const WishlistSidebar: React.FC = () => {
     items, 
     removeItem, 
     updateResolution, 
-    getTotalPrice 
+    getTotalPrice,
+    clearWishlist
   } = useWishlist();
 
   if (!isOpen) return null;
@@ -143,10 +144,19 @@ export const WishlistSidebar: React.FC = () => {
               </button>
             </div>
             
-            <button className="w-full flex items-center justify-center gap-2 border border-gray-300 text-gray-700 py-2 px-4 rounded-lg hover:bg-gray-100 transition-colors text-sm">
-              <Download className="w-4 h-4" />
-              הורד PDF
-            </button>
+            <div className="grid grid-cols-2 gap-2">
+              <button className="flex items-center justify-center gap-2 border border-gray-300 text-gray-700 py-2 px-4 rounded-lg hover:bg-gray-100 transition-colors text-sm">
+                <Download className="w-4 h-4" />
+                הורד PDF
+              </button>
+              <button 
+                onClick={clearWishlist}
+                className="flex items-center justify-center gap-2 border border-red-300 text-red-700 py-2 px-4 rounded-lg hover:bg-red-50 transition-colors text-sm"
+              >
+                <Trash2 className="w-4 h-4" />
+                נקה הכל
+              </button>
+            </div>
           </div>
         )}
       </div>
