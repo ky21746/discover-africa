@@ -6,7 +6,18 @@ const WhatsAppButton: React.FC = () => {
   const message = encodeURIComponent('שלום, אני מעוניין במידע נוסף על הטיול שלי');
 
   const handleClick = () => {
-    window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
+    const url = `https://wa.me/${phoneNumber}?text=${message}`;
+    
+    // בדיקה אם זה מובייל
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    
+    if (isMobile) {
+      // במובייל - ניסיון לפתוח ישירות באפליקציה
+      window.location.href = url;
+    } else {
+      // בדסקטופ - פתיחה בטאב חדש
+      window.open(url, '_blank');
+    }
   };
 
   return (
