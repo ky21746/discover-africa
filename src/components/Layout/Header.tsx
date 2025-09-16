@@ -21,13 +21,13 @@ const Header: React.FC = () => {
                 className="h-12 w-auto"
               />
             </Link>
-            <div className={`hidden md:flex ml-6 ${isHomePage ? 'home-nav' : ''}`}>
+            <div className={`hidden lg:flex ml-6 ${isHomePage ? 'home-nav' : ''}`}>
               <Navigation />
             </div>
           </div>
 
           {/* שמאל: כפתור CTA */}
-          <div className="hidden md:block">
+          <div className="hidden lg:block">
             <Link 
               to="/plan-your-trip" 
               className="bg-[#CAA131] text-white px-4 py-2 rounded-lg font-semibold text-base hover:bg-[#B8942A] transition-colors duration-200 min-h-[44px] flex items-center"
@@ -39,7 +39,7 @@ const Header: React.FC = () => {
           {/* כפתור תפריט מובייל */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 rounded-lg hover:bg-gray-100"
+            className="lg:hidden p-2 rounded-lg hover:bg-gray-100"
             aria-label="תפריט"
           >
             {isMenuOpen ? (
@@ -52,7 +52,7 @@ const Header: React.FC = () => {
 
         {/* תפריט מובייל */}
         {isMenuOpen && (
-          <div className="md:hidden mt-4 py-4 border-t border-gray-200">
+          <div className="lg:hidden mt-4 py-4 border-t border-gray-200">
             <Navigation mobile onItemClick={() => setIsMenuOpen(false)} />
             <div className="mt-4 px-4">
               <Link 
