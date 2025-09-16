@@ -556,7 +556,7 @@ const ParkDetail: React.FC = () => {
             <div className="md:col-span-2">
               <section className="bg-gradient-to-br from-white via-gray-50 to-white border border-[#534B20]/60 rounded-3xl p-8 md:p-10 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.01] h-full">
                 <div className="space-y-8">
-                  <h2 className="text-2xl font-bold text-[#4B361C] mb-6 leading-tight">{park.summary || park.description.split("\n\n")[0]}</h2>
+                  <h2 className="text-2xl font-bold text-[#4B361C] mb-6 leading-tight">{park.generalTitle || park.summary || park.description.split("\n\n")[0]}</h2>
                   
                   <div className="prose prose-lg max-w-none">
                     <p className="text-body leading-relaxed text-gray-700 font-medium">

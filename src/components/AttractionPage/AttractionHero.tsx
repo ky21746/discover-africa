@@ -63,7 +63,7 @@ const AttractionHero: React.FC<AttractionHeroProps> = ({
         <div className="absolute bottom-0 left-0 right-0 p-4 md:p-8">
           <div className="container mx-auto max-w-screen-xl">
             <h1 className="text-2xl md:text-4xl font-bold text-white mb-2 leading-tight drop-shadow-lg">
-              {attraction.name}
+              {attraction.heroTitle || attraction.name}
             </h1>
             <h2 className="text-base md:text-lg text-amber-300 font-medium mb-3 drop-shadow-lg">
               {attraction.subtitle}

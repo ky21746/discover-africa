@@ -2,6 +2,8 @@
 export interface Park {
   slug: string;
   name: string;
+  heroTitle: string;
+  generalTitle: string;
   category: string;
   area: string;
   family: boolean;
@@ -53,6 +55,8 @@ export const parks: Park[] = [
   {
     slug: "queen-elizabeth",
     name: "פארק המלכה אליזבת",
+    heroTitle: "פארק המלכה אליזבת",
+    generalTitle: "פארק המלכה אליזבת",
     category: "safari",
     area: "מערב",
     family: true,
@@ -115,6 +119,8 @@ export const parks: Park[] = [
   {
     slug: "murchison-falls",
     name: "פארק לאומי מורצ׳יסון פולס (Murchison Falls National Park)",
+    heroTitle: "הפארק הלאומי מפלי מורצ'יסון",
+    generalTitle: "הפארק הגדול והוותיק באוגנדה – ביתם של ארבעה מתוך חמשת ה Big 5",
     category: "safari",
     area: "צפון-מערב",
     family: true,
@@ -181,6 +187,8 @@ export const parks: Park[] = [
   {
     slug: "lake-mburo",
     name: "אגם מבורו",
+    heroTitle: "אגם מבורו",
+    generalTitle: "אגם מבורו",
     category: "safari",
     area: "מרכז-דרום",
     family: true,
@@ -208,6 +216,8 @@ export const parks: Park[] = [
   {
     slug: "kidepo",
     name: "קידפו ואלי",
+    heroTitle: "קידפו ואלי",
+    generalTitle: "קידפו ואלי",
     category: "safari",
     area: "צפון-מזרח מרוחק",
     family: false,
@@ -235,6 +245,8 @@ export const parks: Park[] = [
   {
     slug: "semuliki",
     name: "סמוליקי פארק לאומי",
+    heroTitle: "סמוליקי פארק לאומי",
+    generalTitle: "סמוליקי פארק לאומי",
     category: "safari",
     area: "מערב (עמק אלברטין)",
     family: true,
@@ -300,6 +312,8 @@ export const parks: Park[] = [
   {
     slug: "bwindi-gorillas",
     name: "גורילות ביער בווינדי",
+    heroTitle: "גורילות ביער בווינדי",
+    generalTitle: "גורילות ביער בווינדי",
     category: "wildlife",
     area: "דרום-מערב",
     family: true,
@@ -327,6 +341,8 @@ export const parks: Park[] = [
   {
     slug: "mgahinga-gorillas",
     name: "גורילות מגהינגה",
+    heroTitle: "גורילות מגהינגה",
+    generalTitle: "גורילות מגהינגה",
     category: "wildlife",
     area: "דרום-מערב",
     family: true,
@@ -466,6 +482,8 @@ export const parks: Park[] = [
   {
     slug: "sipi-falls",
     name: "מפלי סיפי",
+    heroTitle: "מפלי סיפי",
+    generalTitle: "מפלי סיפי",
     category: "water",
     area: "מזרח",
     family: true,

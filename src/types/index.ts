@@ -177,6 +177,8 @@ export interface Attraction {
   id: string;                 // למשל "gorillas-bwindi"
   slug?: string;              // אופציונלי, לשימוש ב־URL (אם יש מעדיפים אותו על id)
   name: string;
+  heroTitle?: string;         // כותרת להירו
+  generalTitle?: string;      // כותרת לתיאור הכללי
   subtitle?: string;          // הוספה חדשה - כותרת משנה
   category: string;           // e.g. "safari" | "gorillas-chimps"
   region?: string;

@@ -209,7 +209,7 @@ const AttractionPage: React.FC = () => {
           {/* Left side: General description */}
           <div className="h-full">
             <GeneralDescription 
-              title={a.subtitle || a.name}
+              title={a.generalTitle || a.name}
               description={a.description || ''}
             />
           </div>
