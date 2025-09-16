@@ -229,7 +229,33 @@ const SmartBreadcrumbs: React.FC = () => {
   return (
     <nav aria-label="breadcrumb" className="bg-gray-50 border-b sticky top-0 z-40 shadow-sm">
       <div className="container mx-auto max-w-screen-xl px-4 py-3">
-        <ol className="flex items-center space-x-2 rtl:space-x-reverse text-sm text-gray-600">
+        {/* במובייל - גלילה אופקית */}
+        <div className="md:hidden overflow-x-auto scrollbar-hide" style={{ WebkitOverflowScrolling: 'touch' }}>
+          <ol className="flex items-center space-x-2 rtl:space-x-reverse text-sm text-gray-600 whitespace-nowrap min-w-max">
+            {breadcrumbs.map((item, index) => (
+              <li key={index} className="flex items-center flex-shrink-0">
+                {index > 0 && (
+                  <ChevronLeft className="w-4 h-4 mx-2 text-gray-400 flex-shrink-0" />
+                )}
+                {item.path && index < breadcrumbs.length - 1 ? (
+                  <Link
+                    to={item.path}
+                    className="hover:text-[#CAA131] transition-colors"
+                  >
+                    {item.label}
+                  </Link>
+                ) : (
+                  <span className={index === breadcrumbs.length - 1 ? 'text-gray-900 font-medium' : ''}>
+                    {item.label}
+                  </span>
+                )}
+              </li>
+            ))}
+          </ol>
+        </div>
+        
+        {/* בדסקטופ - תצוגה רגילה */}
+        <ol className="hidden md:flex items-center space-x-2 rtl:space-x-reverse text-sm text-gray-600">
           {breadcrumbs.map((item, index) => (
             <li key={index} className="flex items-center">
               {index > 0 && (
