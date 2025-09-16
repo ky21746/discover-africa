@@ -29,7 +29,7 @@ const Navigation: React.FC<NavigationProps> = ({ mobile = false, onItemClick }) 
       : location.pathname.startsWith(path);
 
   return (
-    <nav className={mobile ? 'space-y-0' : 'flex gap-6'}>
+    <nav className={mobile ? 'space-y-0' : 'flex gap-6 whitespace-nowrap'}>
       {navItems.map((item) => (
         <Link
           key={item.path}

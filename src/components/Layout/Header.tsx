@@ -21,13 +21,13 @@ const Header: React.FC = () => {
                 className="h-12 w-auto"
               />
             </Link>
-            <div className={`hidden lg:flex ml-6 ${isHomePage ? 'home-nav' : ''}`}>
+            <div className={`hidden xl:flex ml-6 ${isHomePage ? 'home-nav' : ''}`}>
               <Navigation />
             </div>
           </div>
 
           {/* שמאל: כפתור CTA */}
-          <div className="hidden lg:block">
+          <div className="hidden xl:block">
             <Link 
               to="/plan-your-trip" 
               className="bg-[#CAA131] text-white px-4 py-2 rounded-lg font-semibold text-base hover:bg-[#B8942A] transition-colors duration-200 min-h-[44px] flex items-center"
@@ -36,10 +36,10 @@ const Header: React.FC = () => {
             </Link>
           </div>
 
-          {/* כפתור תפריט מובייל */}
+          {/* כפתור תפריט מובייל/טאבלט */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lg:hidden p-2 rounded-lg hover:bg-gray-100"
+            className="xl:hidden p-2 rounded-lg hover:bg-gray-100"
             aria-label="תפריט"
           >
             {isMenuOpen ? (
@@ -50,9 +50,9 @@ const Header: React.FC = () => {
           </button>
         </div>
 
-        {/* תפריט מובייל */}
+        {/* תפריט מובייל/טאבלט */}
         {isMenuOpen && (
-          <div className="lg:hidden mt-4 py-4 border-t border-gray-200">
+          <div className="xl:hidden mt-4 py-4 border-t border-gray-200">
             <Navigation mobile onItemClick={() => setIsMenuOpen(false)} />
             <div className="mt-4 px-4">
               <Link 
