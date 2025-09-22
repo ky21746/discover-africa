@@ -62,17 +62,16 @@ const Contact: React.FC = () => {
     try {
       // EmailJS configuration
       const serviceId = 'service_f70116g';
-      const templateId = 'template_contact';
+      const templateId = 'template_ptmbsh7';
       const publicKey = 'fffzoME-DNQ1xssuP';
 
       // Prepare template parameters
       const templateParams = {
-        from_name: formData.fullName,
-        from_email: formData.email,
+        name: formData.fullName,
+        email: formData.email,
         phone: formData.phone,
-        subject: formData.subject,
-        message: formData.message,
-        to_email: 'info@discoverafrica.co.il'
+        title: formData.subject,
+        message: formData.message
       };
 
       // Send email using EmailJS
