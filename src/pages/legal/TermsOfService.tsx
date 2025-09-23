@@ -267,9 +267,8 @@ const TermsOfService: React.FC = () => {
             <h2 className="text-2xl font-bold text-gray-900 mb-4">12. יצירת קשר</h2>
             <p className="text-gray-700 mb-4">לשאלות ובירורים בנושא תנאי השימוש:</p>
             <div className="space-y-3">
-              <p>📧 דוא"ל: info@uganda-adventures.co.il</p>
-              <p>📱 טלפון: +972-50-123-4567</p>
-              <p>📍 כתובת: רחוב הרצל 123, תל אביב</p>
+              <p>📧 דוא"ל: info@discoverafrica.co.il</p>
+              <p>📱 טלפון: +972-54-615-2683</p>
               <p>⏰ שעות פעילות: ראשון-חמישי 9:00-18:00</p>
             </div>
           </section>
