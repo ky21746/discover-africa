@@ -12,7 +12,8 @@ const Navigation: React.FC<NavigationProps> = ({ mobile = false, onItemClick }) 
   const navItems = [
     { path: '/', label: 'בית' },
     { path: '/categories', label: 'קטגוריות' },
-        { path: '/services', label: 'השירותים שלנו' },
+    { path: '/tours', label: 'מסלולים מוכנים' },
+    { path: '/services', label: 'השירותים שלנו' },
     { path: '/blog', label: 'בלוג' },
     { path: '/who-we-are', label: 'מי אנחנו' },
     { path: '/faq', label: 'שאלות נפוצות' },
