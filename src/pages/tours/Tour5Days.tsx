@@ -51,7 +51,7 @@ const Tour5Days: React.FC = () => {
         travel: "כ־6 שעות עם עצירות"
       },
       links: [
-        { text: "קיבאלה נשנל פארק - בירת הפריימטים", url: "/category/kibale" }
+        { text: "קיבאלה נשנל פארק - בירת הפריימטים", url: "/attraction/chimps-kibale" }
       ]
     },
     {
@@ -63,7 +63,7 @@ const Tour5Days: React.FC = () => {
         meals: "ארוחת בוקר בלבד"
       },
       links: [
-        { text: "טרקינג שימפנזים - המדריך המלא", url: "/attraction/chimpanzee-tracking" }
+        { text: "טרקינג שימפנזים - המדריך המלא", url: "/attraction/chimps-kibale" }
       ]
     }
   ];
@@ -161,7 +161,7 @@ const Tour5Days: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
               <div className="bg-white border border-[#534B20]/60 rounded-3xl p-6 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-[1.02] text-center h-48 flex flex-col justify-center">
                 <h3 className="text-xl font-bold text-[#4B361C] mb-3 border-b border-[#C9A34E] pb-2">מסלול אידיאלי ל-5 ימים</h3>
-                <p className="text-gray-700 leading-relaxed" style={{ fontFamily: 'Poppins' }}>מקסימום חוויות במינימום זמן – מתאים גם לשילוב עם טיול ארוך יותר</p>
+                <p className="text-gray-700 leading-relaxed" style={{ fontFamily: 'Poppins' }}>חוויה מרוכזת בזמן קצר ובלתי-נשכח</p>
               </div>
               <div className="bg-white border border-[#534B20]/60 rounded-3xl p-6 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-[1.02] text-center h-48 flex flex-col justify-center">
                 <h3 className="text-xl font-bold text-[#4B361C] mb-3 border-b border-[#C9A34E] pb-2">מפלי מורצ'יסון</h3>
@@ -389,7 +389,7 @@ const Tour5Days: React.FC = () => {
             
             <div className="bg-[#faf9f7] shadow-sm border border-gray-200 rounded-2xl p-6 h-64 flex flex-col">
               <h3 className="text-lg font-bold text-right text-[#C29857] mb-2 border-b-2 border-[#C29857] pb-2">רק רכב + נהג מקצועי</h3>
-              <p className="text-base font-medium text-gray-700 text-right leading-relaxed mb-4">"אתם מעדיפים חופש? אנחנו דואגים לתחבורה בטוחה"</p>
+              <p className="text-base font-medium text-gray-700 text-right leading-relaxed mb-4">"אתם מעדיפים חופש? אנחנו דואגים לתחבורה"</p>
               <ul className="text-sm text-gray-600 text-right space-y-1">
                 <li>• רכב 4X4 עם נהג מקצועי דובר אנגלית</li>
                 <li>• תאמנו לכם לינה והיתרים</li>
