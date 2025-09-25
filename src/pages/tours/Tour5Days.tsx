@@ -190,7 +190,11 @@ const Tour5Days: React.FC = () => {
             <div className="w-24 h-1 bg-[#C9A34E] mx-auto mb-2"></div>
           </div>
           
-          <div className="max-w-6xl mx-auto space-y-12">
+          <div className="max-w-6xl mx-auto relative">
+            {/* Timeline Line */}
+            <div className="absolute right-0 top-8 bottom-8 w-0.5 bg-[#d4af37] opacity-40 hidden lg:block"></div>
+            
+            <div className="space-y-12">
             {itinerary.map((day, index) => {
               // Define images for each day using existing site images
               const dayImages = [
@@ -210,7 +214,13 @@ const Tour5Days: React.FC = () => {
               ];
               
               return (
-                <div key={day.day} className="bg-white border border-[#534B20]/60 rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-500 h-[500px] flex flex-col">
+                <div key={day.day} className="relative">
+                  {/* Timeline Bullet */}
+                  <div className="absolute right-0 top-8 w-12 h-12 bg-[#d4af37] bg-opacity-90 rounded-full flex items-center justify-center hidden lg:flex z-10" style={{ transform: 'translateX(50%)' }}>
+                    <span className="text-sm font-bold text-white">יום {day.day}</span>
+                  </div>
+                  
+                  <div className="bg-white border border-[#534B20]/60 rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-500 h-[500px] flex flex-col">
                   <h3 className="text-2xl font-bold text-[#4B361C] mb-4 border-b border-[#C9A34E] pb-2">
                     {day.title}
                   </h3>
@@ -275,8 +285,10 @@ const Tour5Days: React.FC = () => {
                     </div>
                   </div>
                 </div>
+                </div>
               );
             })}
+            </div>
           </div>
         </div>
       </section>
