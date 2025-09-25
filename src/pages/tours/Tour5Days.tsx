@@ -82,7 +82,7 @@ const Tour5Days: React.FC = () => {
           src="https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FMurchison%20Falls%20National%20Park%2FTourists%20overlook%20the%20massive%20waterfall%20of%20Murchison%20Falls%20on%20the%20Nile%20River%20in%20Uganda.webp?alt=media&token=bc3f5511-234b-4696-85c0-446e67dbea52"
           alt="מסלול 5 ימים ספארי טבע באוגנדה"
           className="absolute inset-0 w-full h-full object-cover object-center"
-          style={{ objectPosition: 'center 30%' }}
+          style={{ objectPosition: 'center 20%' }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/30" />
         
