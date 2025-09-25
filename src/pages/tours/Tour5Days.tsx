@@ -25,8 +25,7 @@ const Tour5Days: React.FC = () => {
         travel: "כ־4 שעות עם עצירות"
       },
       links: [
-        { text: "קרנפי זיווה - המדריך המלא", url: "/attraction/ziwa-rhinos" },
-        { text: "פארק מורצ'יסון - כל מה שצריך לדעת", url: "/category/murchison-falls" }
+        { text: "פארק מורצ'יסון - כל מה שצריך לדעת", url: "/attraction/murchison-falls" }
       ]
     },
     {
@@ -39,8 +38,7 @@ const Tour5Days: React.FC = () => {
         activities: "ספארי בוקר, שייט אחר הצהריים"
       },
       links: [
-        { text: "מפלי מורצ'יסון - המדריך המלא", url: "/attraction/murchison-falls" },
-        { text: "Big Five באוגנדה - איפה לראות", url: "/category/safari" }
+        { text: "מפלי מורצ'יסון - המדריך המלא", url: "/attraction/murchison-falls" }
       ]
     },
     {
@@ -53,8 +51,7 @@ const Tour5Days: React.FC = () => {
         travel: "כ־6 שעות עם עצירות"
       },
       links: [
-        { text: "קיבאלה נשנל פארק - בירת הפריימטים", url: "/category/kibale" },
-        { text: "ביצות ביגודי - גן עדן הציפורים", url: "/attraction/bigodi-wetlands" }
+        { text: "קיבאלה נשנל פארק - בירת הפריימטים", url: "/category/kibale" }
       ]
     },
     {
@@ -95,7 +92,7 @@ const Tour5Days: React.FC = () => {
               מסלול 5 ימים - ספארי טבע קלאסי באוגנדה
             </h1>
             <h2 className="text-base md:text-lg text-amber-300 font-medium mb-3 drop-shadow-lg">
-              שימפנזים, מפלי מורצ'יסון ו-Big Five - המסלול המושלם למתחילים
+              שימפנזים, מפלי מורצ'יסון וחיות בר - המסלול המושלם למתחילים
             </h2>
 
             {/* כרטיסיות מידע בדסקטופ - מתחת לכותרת והתיאור */}
@@ -110,7 +107,7 @@ const Tour5Days: React.FC = () => {
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-3 text-center flex-1 h-16 flex flex-col justify-center">
                 <div className="text-sm text-white/80 mb-1">מתאים ל</div>
-                <div className="text-lg font-bold text-white">זוגות, משפחות, קבוצות קטנות</div>
+                <div className="text-lg font-bold text-white">זוגות, משפחות וקבוצות</div>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-3 text-center flex-1 h-16 flex flex-col justify-center">
                 <div className="text-sm text-white/80 mb-1">זמן מומלץ לטיול</div>
@@ -136,7 +133,7 @@ const Tour5Days: React.FC = () => {
             </div>
             <div className="bg-gray-50 border border-gray-200 rounded-xl p-3 text-center h-16 flex flex-col justify-center">
               <div className="text-sm text-gray-600 mb-1">מתאים ל</div>
-              <div className="text-lg font-bold text-gray-700">זוגות, משפחות, קבוצות קטנות</div>
+              <div className="text-lg font-bold text-gray-700">זוגות, משפחות וקבוצות</div>
             </div>
             <div className="bg-gray-50 border border-gray-200 rounded-xl p-3 text-center h-16 flex flex-col justify-center">
               <div className="text-sm text-gray-600 mb-1">זמן מומלץ לטיול</div>
@@ -163,20 +160,20 @@ const Tour5Days: React.FC = () => {
             {/* Cards Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
               <div className="bg-white border border-[#534B20]/60 rounded-3xl p-6 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-[1.02] text-center h-48 flex flex-col justify-center">
-                <h3 className="text-xl font-bold text-[#4B361C] mb-3 border-b border-[#C9A34E] pb-2">שימפנזים בקיבאלה</h3>
-                <p className="text-gray-700 leading-relaxed" style={{ fontFamily: 'Poppins' }}>חוויה עוצרת נשימה עם קופי האדם הקרובים אלינו ביותר</p>
-              </div>
-              <div className="bg-white border border-[#534B20]/60 rounded-3xl p-6 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-[1.02] text-center h-48 flex flex-col justify-center">
-                <h3 className="text-xl font-bold text-[#4B361C] mb-3 border-b border-[#C9A34E] pb-2">ספארי במורצ'יסון</h3>
-                <p className="text-gray-700 leading-relaxed" style={{ fontFamily: 'Poppins' }}>מפגש עם אריות, פילים, בופאלו ונמרים בלב הפארק</p>
+                <h3 className="text-xl font-bold text-[#4B361C] mb-3 border-b border-[#C9A34E] pb-2">מסלול אידיאלי ל-5 ימים</h3>
+                <p className="text-gray-700 leading-relaxed" style={{ fontFamily: 'Poppins' }}>מקסימום חוויות במינימום זמן – מתאים גם לשילוב עם טיול ארוך יותר</p>
               </div>
               <div className="bg-white border border-[#534B20]/60 rounded-3xl p-6 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-[1.02] text-center h-48 flex flex-col justify-center">
                 <h3 className="text-xl font-bold text-[#4B361C] mb-3 border-b border-[#C9A34E] pb-2">מפלי מורצ'יסון</h3>
                 <p className="text-gray-700 leading-relaxed" style={{ fontFamily: 'Poppins' }}>עוצמת הנילוס ברגעים שיישארו חרוטים בזיכרון</p>
               </div>
               <div className="bg-white border border-[#534B20]/60 rounded-3xl p-6 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-[1.02] text-center h-48 flex flex-col justify-center">
-                <h3 className="text-xl font-bold text-[#4B361C] mb-3 border-b border-[#C9A34E] pb-2">מסלול אידיאלי ל-5 ימים</h3>
-                <p className="text-gray-700 leading-relaxed" style={{ fontFamily: 'Poppins' }}>מקסימום חוויות במינימום זמן – מתאים גם לשילוב עם טיול ארוך יותר</p>
+                <h3 className="text-xl font-bold text-[#4B361C] mb-3 border-b border-[#C9A34E] pb-2">ספארי במורצ'יסון</h3>
+                <p className="text-gray-700 leading-relaxed" style={{ fontFamily: 'Poppins' }}>מפגש עם אריות, פילים, בופאלו ונמרים בלב הפארק</p>
+              </div>
+              <div className="bg-white border border-[#534B20]/60 rounded-3xl p-6 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-[1.02] text-center h-48 flex flex-col justify-center">
+                <h3 className="text-xl font-bold text-[#4B361C] mb-3 border-b border-[#C9A34E] pb-2">שימפנזים בקיבאלה</h3>
+                <p className="text-gray-700 leading-relaxed" style={{ fontFamily: 'Poppins' }}>חוויה עוצרת נשימה עם קופי האדם הקרובים אלינו ביותר</p>
               </div>
             </div>
           </div>
@@ -184,23 +181,23 @@ const Tour5Days: React.FC = () => {
       </section>
 
       {/* Daily Itinerary */}
-      <section className="py-12 md:py-14 bg-white">
+      <section className="pt-6 md:pt-8 pb-12 md:pb-14 bg-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-6">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#4B361C] font-sans">
+          <div className="text-center mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold mb-2 text-[#4B361C] font-sans">
               מסלול 5 ימים – יום אחרי יום
             </h2>
-            <div className="w-24 h-1 bg-[#C9A34E] mx-auto mb-4"></div>
+            <div className="w-24 h-1 bg-[#C9A34E] mx-auto mb-2"></div>
           </div>
           
           <div className="max-w-6xl mx-auto space-y-12">
             {itinerary.map((day, index) => {
               // Define images for each day using existing site images
               const dayImages = [
-                "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2Fqueen-elizabeth%2FAfrican%20Bush%20Elephant%20-%20Loxodonta%20africana%2C%20iconic%20member%20of%20African%20big%20five%2C%20Queen%20Elizabeth%20National%20Park.webp?alt=media&token=3b4c82c9-b383-4bbc-94c1-85438ff412b5",
+                "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/Extreme%20Adventures%2FBUZ04643.jpg?alt=media&token=55ed0d12-ab8a-46fc-8f8b-0c3cb99c1f93",
                 "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2Fqueen-elizabeth%2FAfrican%20Bush%20Elephant%20-%20Loxodonta%20africana%2C%20iconic%20member%20of%20African%20big%20five%2C%20Queen%20Elizabeth%20National%20Park.webp?alt=media&token=3b4c82c9-b383-4bbc-94c1-85438ff412b5", 
+                "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FMurchison%20Falls%20National%20Park%2Fmurchison-falls-hero.webp?alt=media&token=56ccea2c-c574-46a6-ac3a-a0ecc2fbc3a5",
                 "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FMurchison%20Falls%20National%20Park%2FTourists%20overlook%20the%20massive%20waterfall%20of%20Murchison%20Falls%20on%20the%20Nile%20River%20in%20Uganda.webp?alt=media&token=bc3f5511-234b-4696-85c0-446e67dbea52",
-                "https://images.pexels.com/photos/6194629/pexels-photo-6194629.jpeg",
                 "https://images.pexels.com/photos/6194629/pexels-photo-6194629.jpeg"
               ];
               
@@ -259,7 +256,7 @@ const Tour5Days: React.FC = () => {
                                 to={link.url} 
                                 className="text-[#C9A34E] hover:text-[#B8941F] font-medium"
                               >
-                                קראו עוד על → {link.text}
+                                {link.text}
                               </Link>
                             </div>
                           ))}
@@ -287,40 +284,85 @@ const Tour5Days: React.FC = () => {
       {/* Pricing Section */}
       <section className="py-12 md:py-14 bg-surface">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-10 md:mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-3 md:mb-4 font-sans">
+          <div className="text-center mb-6 md:mb-8">
+            <h2 className="text-3xl md:text-4xl font-bold mb-3 md:mb-4 font-sans border-b border-[#C9A34E] pb-2">
               מידע כלכלי
             </h2>
           </div>
           
-          <div className="max-w-4xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4">מה כלול במחיר</h3>
-                <ul className="space-y-2 text-gray-700">
-                  <li>• הסעה קרקעית ברכב ספארי 4x4 עם נהג/מדריך דובר אנגלית</li>
-                  <li>• היתר טרקינג שימפנזים לאדם</li>
-                  <li>• דמי כניסה לפארקים ומיסים</li>
-                  <li>• כל הפעילויות המוזכרות ישירות במסלול</li>
-                  <li>• לינה בחדר זוגי במתקנים המפורטים</li>
-                  <li>• ארוחות כמפורט במסלול</li>
-                  <li>• דלק לספארי</li>
+          <div className="max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* מה כלול במחיר */}
+              <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-200 h-96 flex flex-col" dir="rtl">
+                <h3 className="text-lg font-bold text-[#C29857] mb-2 border-b-2 border-[#C29857] pb-2 text-right">מה כלול במחיר</h3>
+                <ul className="space-y-3 text-gray-700 text-right">
+                  <li className="flex items-center gap-2 flex-row-reverse">
+                    <span className="text-green-600 font-bold">✓</span>
+                    <span className="flex-1">הסעה קרקעית ברכב ספארי 4x4 עם נהג/מדריך דובר אנגלית</span>
+                  </li>
+                  <li className="flex items-center gap-2 flex-row-reverse">
+                    <span className="text-green-600 font-bold">✓</span>
+                    <span className="flex-1">היתר טרקינג שימפנזים לאדם</span>
+                  </li>
+                  <li className="flex items-center gap-2 flex-row-reverse">
+                    <span className="text-green-600 font-bold">✓</span>
+                    <span className="flex-1">דמי כניסה לפארקים ומיסים</span>
+                  </li>
+                  <li className="flex items-center gap-2 flex-row-reverse">
+                    <span className="text-green-600 font-bold">✓</span>
+                    <span className="flex-1">כל הפעילויות המוזכרות ישירות במסלול</span>
+                  </li>
+                  <li className="flex items-center gap-2 flex-row-reverse">
+                    <span className="text-green-600 font-bold">✓</span>
+                    <span className="flex-1">לינה בחדר זוגי במתקנים המפורטים</span>
+                  </li>
+                  <li className="flex items-center gap-2 flex-row-reverse">
+                    <span className="text-green-600 font-bold">✓</span>
+                    <span className="flex-1">ארוחות כמפורט במסלול</span>
+                  </li>
+                  <li className="flex items-center gap-2 flex-row-reverse">
+                    <span className="text-green-600 font-bold">✓</span>
+                    <span className="flex-1">דלק לספארי</span>
+                  </li>
                 </ul>
               </div>
               
-              <div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4">מה לא כלול במחיר</h3>
-                <ul className="space-y-2 text-gray-700">
-                  <li>• כרטיסי טיסה</li>
-                  <li>• ביטוח תיירים</li>
-                  <li>• ויזת כניסה: 100$ ישירות בנמל התעופה</li>
-                  <li>• משקאות וטיפים</li>
-                  <li>• כל מה שלא מוזכר ישירות במסלול</li>
-                  <li>• ארוחות בימים ספציפיים כפי שמצוין במסלול</li>
-                  <li>• פעילויות אופציונליות</li>
+              {/* מה לא כלול במחיר */}
+              <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-200 h-96 flex flex-col" dir="rtl">
+                <h3 className="text-lg font-bold text-[#C29857] mb-2 border-b-2 border-[#C29857] pb-2 text-right">מה לא כלול במחיר</h3>
+                <ul className="space-y-3 text-gray-700 text-right">
+                  <li className="flex items-center gap-2 flex-row-reverse">
+                    <span className="text-red-500 font-bold">✕</span>
+                    <span className="flex-1">כרטיסי טיסה</span>
+                  </li>
+                  <li className="flex items-center gap-2 flex-row-reverse">
+                    <span className="text-red-500 font-bold">✕</span>
+                    <span className="flex-1">ביטוח תיירים</span>
+                  </li>
+                  <li className="flex items-center gap-2 flex-row-reverse">
+                    <span className="text-red-500 font-bold">✕</span>
+                    <span className="flex-1">ויזת כניסה למדינה</span>
+                  </li>
+                  <li className="flex items-center gap-2 flex-row-reverse">
+                    <span className="text-red-500 font-bold">✕</span>
+                    <span className="flex-1">משקאות וטיפים</span>
+                  </li>
+                  <li className="flex items-center gap-2 flex-row-reverse">
+                    <span className="text-red-500 font-bold">✕</span>
+                    <span className="flex-1">כל מה שלא מוזכר במסלול</span>
+                  </li>
+                  <li className="flex items-center gap-2 flex-row-reverse">
+                    <span className="text-red-500 font-bold">✕</span>
+                    <span className="flex-1">ארוחות בימים ספציפיים במסלול</span>
+                  </li>
+                  <li className="flex items-center gap-2 flex-row-reverse">
+                    <span className="text-red-500 font-bold">✕</span>
+                    <span className="flex-1">פעילויות אופציונליות</span>
+                  </li>
                 </ul>
               </div>
             </div>
+            
           </div>
         </div>
       </section>
@@ -334,71 +376,47 @@ const Tour5Days: React.FC = () => {
             </h2>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            <div className="bg-white border border-gray-200 rounded-lg p-6 text-center">
-              <h3 className="text-xl font-bold text-gray-900 mb-3">המסלול המלא (מומלץ)</h3>
-              <p className="text-gray-700 mb-4">"הכל מאורגן ומוכן - רק באים ונהנים"</p>
-              <ul className="text-sm text-gray-600 mb-6 text-right">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto items-stretch">
+            <div className="bg-[#faf9f7] shadow-sm border border-gray-200 rounded-2xl p-6 h-64 flex flex-col">
+              <h3 className="text-lg font-bold text-right text-[#C29857] mb-2 border-b-2 border-[#C29857] pb-2">המסלול המלא (מומלץ)</h3>
+              <p className="text-base font-medium text-gray-700 text-right leading-relaxed mb-4">"הכל מאורגן ומוכן - רק באים ונהנים"</p>
+              <ul className="text-sm text-gray-600 text-right space-y-1">
                 <li>• כל מה שמפורט למעלה</li>
                 <li>• מדריך צמוד דובר עברית</li>
                 <li>• תיאום מלא מרגע הנחיתה</li>
               </ul>
-              <a 
-                href="https://wa.me/972501234567?text=אני מעוניין במסלול המלא של 5 ימים"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-primary"
-              >
-                דברו איתנו עכשיו
-              </a>
             </div>
             
-            <div className="bg-white border border-gray-200 rounded-lg p-6 text-center">
-              <h3 className="text-xl font-bold text-gray-900 mb-3">רק רכב + נהג מקצועי</h3>
-              <p className="text-gray-700 mb-4">"אתם מעדיפים חופש? אנחנו דואגים לתחבורה בטוחה"</p>
-              <ul className="text-sm text-gray-600 mb-6 text-right">
+            <div className="bg-[#faf9f7] shadow-sm border border-gray-200 rounded-2xl p-6 h-64 flex flex-col">
+              <h3 className="text-lg font-bold text-right text-[#C29857] mb-2 border-b-2 border-[#C29857] pb-2">רק רכב + נהג מקצועי</h3>
+              <p className="text-base font-medium text-gray-700 text-right leading-relaxed mb-4">"אתם מעדיפים חופש? אנחנו דואגים לתחבורה בטוחה"</p>
+              <ul className="text-sm text-gray-600 text-right space-y-1">
                 <li>• רכב 4X4 עם נהג מקצועי דובר אנגלית</li>
                 <li>• תאמנו לכם לינה והיתרים</li>
                 <li>• אתם קובעים את הקצב</li>
               </ul>
-              <a 
-                href="https://wa.me/972501234567?text=אני מעוניין רק ברכב ונהג למסלול 5 ימים"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-primary"
-              >
-                דברו איתנו עכשיו
-              </a>
             </div>
             
-            <div className="bg-white border border-gray-200 rounded-lg p-6 text-center">
-              <h3 className="text-xl font-bold text-gray-900 mb-3">רק טיסות פנימיות מהירות</h3>
-              <p className="text-gray-700 mb-4">"מקסימום זמן במקומות, מינימום נסיעות"</p>
-              <ul className="text-sm text-gray-600 mb-6 text-right">
+            <div className="bg-[#faf9f7] shadow-sm border border-gray-200 rounded-2xl p-6 h-64 flex flex-col">
+              <h3 className="text-lg font-bold text-right text-[#C29857] mb-2 border-b-2 border-[#C29857] pb-2">רק טיסות פנימיות מהירות</h3>
+              <p className="text-base font-medium text-gray-700 text-right leading-relaxed mb-4">"מקסימום זמן במקומות, מינימום נסיעות"</p>
+              <ul className="text-sm text-gray-600 text-right space-y-1">
                 <li>• טיסה אנטבה ↔ מורצ'יסון (חוסכת 4 שעות)</li>
                 <li>• טיסה פנימית למסלול קיבאלה</li>
                 <li>• יותר זמן לחוויות, פחות זמן ברכב</li>
               </ul>
-              <a 
-                href="https://wa.me/972501234567?text=אני מעוניין בטיסות פנימיות למסלול 5 ימים"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-primary"
-              >
-                דברו איתנו עכשיו
-              </a>
             </div>
           </div>
         </div>
       </section>
 
       {/* Important Notes */}
-      <section className="py-12 md:py-14 bg-yellow-50">
+      <section className="py-12 md:py-14 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <div className="bg-yellow-100 border border-yellow-300 rounded-lg p-8">
-              <h2 className="text-2xl font-bold text-yellow-800 mb-4">הערות חשובות</h2>
-              <p className="text-yellow-800 leading-relaxed">
+            <div className="bg-white border border-[#C29857] rounded-lg p-8">
+              <h2 className="text-2xl font-bold text-gray-900 mb-4 border-b border-[#C29857] pb-2 text-right">הערות חשובות</h2>
+              <p className="text-gray-800 leading-relaxed text-right">
                 סדר הימים, הלינות והפעילויות עשויים להשתנות בהתאם לזמינות, מזג אוויר ותנאי שטח. 
                 תמיד יינתן פתרון חלופי ברמה דומה או גבוהה.
               </p>
@@ -422,8 +440,11 @@ const Tour5Days: React.FC = () => {
               href="https://wa.me/972501234567?text=שלום! אני מעוניין במסלול 5 ימים ספארי טבע באוגנדה. תוכלו להתקשר אליי?"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg font-bold text-lg transition-colors"
+              className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg font-bold text-lg transition-colors flex items-center gap-2"
             >
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+              </svg>
               שלחו הודעה לתיאום המסלול
             </a>
             <Link 
@@ -436,43 +457,6 @@ const Tour5Days: React.FC = () => {
         </div>
       </section>
 
-      {/* Internal Links */}
-      <section className="py-12 md:py-14 bg-surface">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-10 md:mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-3 md:mb-4 font-sans">
-              המשיכו לקרוא
-            </h2>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <Link to="/attraction/chimpanzee-tracking" className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow">
-              <h3 className="text-xl font-bold text-gray-900 mb-2">טרקינג שימפנזים באוגנדה</h3>
-              <p className="text-gray-600">המדריך המלא לחוויה בלתי נשכחת</p>
-            </Link>
-            <Link to="/category/murchison-falls" className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow">
-              <h3 className="text-xl font-bold text-gray-900 mb-2">ספארי במורצ'יסון</h3>
-              <p className="text-gray-600">כל מה שצריך לדעת על הפארק הלאומי</p>
-            </Link>
-            <Link to="/attraction/murchison-falls" className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow">
-              <h3 className="text-xl font-bold text-gray-900 mb-2">מפלי מורצ'יסון - המדריך המלא</h3>
-              <p className="text-gray-600">המפלים המרהיבים של אוגנדה</p>
-            </Link>
-            <Link to="/plan-your-trip" className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow">
-              <h3 className="text-xl font-bold text-gray-900 mb-2">מתי לטוס לאוגנדה</h3>
-              <p className="text-gray-600">הזמנים הטובים ביותר לביקור</p>
-            </Link>
-            <Link to="/category/safari" className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow">
-              <h3 className="text-xl font-bold text-gray-900 mb-2">רשימת ציוד לספארי</h3>
-              <p className="text-gray-600">מה לקחת לטיול ספארי מושלם</p>
-            </Link>
-            <Link to="/contact" className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow">
-              <h3 className="text-xl font-bold text-gray-900 mb-2">צרו קשר</h3>
-              <p className="text-gray-600">נשמח לעזור לכם לתכנן את החוויה המושלמת</p>
-            </Link>
-          </div>
-        </div>
-      </section>
     </div>
   );
 };
