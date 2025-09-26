@@ -75,11 +75,16 @@ const Footer: React.FC = () => {
           {/* Services */}
           <div>
             <h4 className="text-lg font-semibold mb-4">השירותים שלנו</h4>
-            <ul className="space-y-2 text-gray-300">
-              <li>טיולי ספארי</li>
-              <li>מפגשי פרימטים</li>
-              <li>פעילויות מים</li>
-              <li>טרקים בהרים</li>
+            <ul className="space-y-2">
+              <li>
+                <Link to="/services/bar-aviation" className="text-gray-300 hover:text-primary transition-colors">Bar Aviation</Link>
+              </li>
+              <li>
+                <Link to="/services/bar-sos" className="text-gray-300 hover:text-primary transition-colors">Bar SOS</Link>
+              </li>
+              <li>
+                <Link to="/services/extreme-park" className="text-gray-300 hover:text-primary transition-colors">Extreme Park</Link>
+              </li>
             </ul>
             <div className="mt-4 pt-4 border-t border-gray-700">
               <Link to="/services/bar-sos" className="text-[#CAA131] hover:text-[#B8942A] transition-colors text-sm">
