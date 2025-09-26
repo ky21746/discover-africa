@@ -4,24 +4,16 @@ import { Link } from "react-router-dom";
 const ToursPage: React.FC = () => {
   const tours = [
     {
-      id: "1-day",
-      title: "מסלול יום אחד",
-      description: "חוויה אינטנסיבית של יום אחד באפריקה - ספארי קצר, ביקור בכפר מקומי וטעימה מהתרבות המקומית"
-    },
-    {
       id: "5-days",
       title: "מסלול 5 ימים",
-      description: "מסלול מאוזן של 5 ימים הכולל ספארי, ביקור בגורילות, טיולים בטבע וחוויות תרבותיות"
+      description: "מסלול מאוזן של 5 ימים הכולל ספארי, ביקור בגורילות, טיולים בטבע וחוויות תרבותיות",
+      image: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FMurchison%20Falls%20National%20Park%2Ffemale%20African%20elephants%20protects%20a%20young%20calf%20Queen%20Elizabeth%20National%400.5x.webp?alt=media&token=0bf46f9f-50c2-4481-b604-83dd0c6cf2a7"
     },
     {
       id: "10-days",
       title: "מסלול 10 ימים",
-      description: "מסלול מקיף של 10 ימים הכולל את כל האטרקציות המרכזיות: ספארי, גורילות, הרים, אגמים ונפלאות הטבע"
-    },
-    {
-      id: "11-days",
-      title: "מסלול 11 ימים",
-      description: "המסלול המלא והמקיף ביותר - 11 ימים של חוויות בלתי נשכחות באפריקה עם כל האטרקציות והשירותים"
+      description: "מסלול מקיף של 10 ימים הכולל את כל האטרקציות המרכזיות: ספארי, גורילות, הרים, אגמים ונפלאות הטבע",
+      image: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FMurchison%20Falls%20National%20Park%2FMurchison%20Falls%2C%20Uganda%20%E2%80%93%20the%20Nile%E2%80%99s%20power%20at%20its%20most%20dramatic.webp?alt=media&token=e03c8b40-6aed-4662-9e09-1fd1237d04c1"
     }
   ];
 
@@ -49,7 +41,7 @@ const ToursPage: React.FC = () => {
               <div
                 className="card-image"
                 style={{ 
-                  backgroundImage: `url(https://images.pexels.com/photos/247376/pexels-photo-247376.jpeg)`,
+                  backgroundImage: `url(${tour.image})`,
                   backgroundSize: 'cover',
                   backgroundPosition: 'center'
                 }}

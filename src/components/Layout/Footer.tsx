@@ -64,9 +64,6 @@ const Footer: React.FC = () => {
                 <Link to="/blog" className="text-gray-300 hover:text-primary transition-colors">בלוג</Link>
               </li>
               <li>
-                <Link to="/testimonials" className="text-gray-300 hover:text-primary transition-colors">לקוחות מספרים</Link>
-              </li>
-              <li>
                 <Link to="/faq" className="text-gray-300 hover:text-primary transition-colors">שאלות נפוצות</Link>
               </li>
               <li>
@@ -83,8 +80,6 @@ const Footer: React.FC = () => {
               <li>מפגשי פרימטים</li>
               <li>פעילויות מים</li>
               <li>טרקים בהרים</li>
-              <li>חוויות תרבותיות</li>
-              <li>טיולי יוקרה</li>
             </ul>
             <div className="mt-4 pt-4 border-t border-gray-700">
               <Link to="/services/bar-sos" className="text-[#CAA131] hover:text-[#B8942A] transition-colors text-sm">
