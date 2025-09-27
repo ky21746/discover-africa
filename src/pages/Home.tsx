@@ -54,10 +54,13 @@ const Home: React.FC = () => {
         
         {/* Content positioned at center bottom */}
         <div className="absolute bottom-8 md:bottom-12 left-1/2 transform -translate-x-1/2 text-center space-y-3 md:space-y-4 text-white drop-shadow-md max-w-2xl px-4">
-          <h1 className="text-3xl md:text-4xl font-bold leading-tight">
-            החוויה הבאה שלך באוגנדה
-            <br />
-            מתחילה כאן
+          <h1 className="text-2xl md:text-4xl font-bold leading-tight">
+            <span className="hidden md:inline">החוויה הבאה שלך באוגנדה מתחילה כאן</span>
+            <span className="md:hidden">
+              <span className="whitespace-nowrap">החוויה הבאה שלך</span>
+              <br />
+              <span className="whitespace-nowrap">באוגנדה מתחילה כאן</span>
+            </span>
           </h1>
           <p className="hidden xl:block text-base md:text-lg font-light whitespace-nowrap">
             טיולי אקסטרים, טבע פראי, ושירות אישי – חוויה שלא תשכח
