@@ -265,7 +265,7 @@ const SmartBreadcrumbs: React.FC = () => {
   }
 
   return (
-    <nav aria-label="breadcrumb" className="bg-gray-50 border-b sticky top-0 z-40 shadow-sm">
+    <nav aria-label="breadcrumb" className="bg-gray-50 border-b sticky top-[73px] z-40 shadow-sm">
       <div className="container mx-auto max-w-screen-xl px-4 py-3">
         {/* במובייל - גלילה אופקית */}
         <div className="md:hidden overflow-x-auto scrollbar-hide" style={{ WebkitOverflowScrolling: 'touch' }}>
