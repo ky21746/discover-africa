@@ -206,6 +206,22 @@ const SmartBreadcrumbs: React.FC = () => {
       return items;
     }
 
+    // עמודי מסלולי טיולים
+    if (pathname.startsWith('/tours')) {
+      items.push({ label: "מסלולים", path: "/tours" });
+      
+      if (pathname === '/tours/1-day') {
+        items.push({ label: "מסלול יום אחד" });
+      } else if (pathname === '/tours/5-days') {
+        items.push({ label: "מסלול 5 ימים" });
+      } else if (pathname === '/tours/10-days') {
+        items.push({ label: "מסלול 10 ימים" });
+      } else if (pathname === '/tours/11-days') {
+        items.push({ label: "מסלול 11 ימים" });
+      }
+      return items;
+    }
+
     // עמודי בלוג
     if (pathname.startsWith('/blog')) {
       items.push({ label: "בלוג", path: "/blog" });

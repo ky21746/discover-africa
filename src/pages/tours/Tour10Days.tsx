@@ -13,7 +13,9 @@ const Tour10Days: React.FC = () => {
         travel: "–",
         activities: "מנוחה, טיול קצר בעיר"
       },
-      links: []
+      links: [
+        { text: "Extreme Adventure Park - המדריך המלא", url: "/services/extreme-park" }
+      ]
     },
     {
       day: 2,
@@ -25,7 +27,9 @@ const Tour10Days: React.FC = () => {
         travel: "כ־5 שעות עם עצירות",
         activities: "טיול רגלי עם קרנפים, נסיעה לפארק"
       },
-      links: []
+      links: [
+        { text: "פארק מורצ'יסון - כל מה שצריך לדעת", url: "/attraction/murchison-falls" }
+      ]
     },
     {
       day: 3,
@@ -61,7 +65,9 @@ const Tour10Days: React.FC = () => {
         travel: "–",
         activities: "טרק שימפנזים, סיור כפרי"
       },
-      links: []
+      links: [
+        { text: "שימפנזים בקיבאלה - המדריך המלא", url: "/attraction/chimps-kibale" }
+      ]
     },
     {
       day: 6,
@@ -109,7 +115,9 @@ const Tour10Days: React.FC = () => {
         travel: "–",
         activities: "טרק גורילות"
       },
-      links: []
+      links: [
+        { text: "גורילות בווינדי - המדריך המלא", url: "/attraction/gorillas-bwindi" }
+      ]
     },
     {
       day: 10,
@@ -155,20 +163,20 @@ const Tour10Days: React.FC = () => {
             {/* כרטיסיות מידע בדסקטופ - מתחת לכותרת והתיאור */}
             <div className="hidden md:flex gap-4 mt-6">
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-3 text-center flex-1 h-16 flex flex-col justify-center">
-                <div className="text-white text-sm font-medium">10 ימים</div>
-                <div className="text-amber-200 text-xs">מסלול מקיף</div>
+                <div className="text-sm text-white/80 mb-1">משך הטיול</div>
+                <div className="text-lg font-bold text-white">10 ימים</div>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-3 text-center flex-1 h-16 flex flex-col justify-center">
-                <div className="text-white text-sm font-medium">מפלי מורצ'יסון</div>
-                <div className="text-amber-200 text-xs">פארק לאומי</div>
+                <div className="text-sm text-white/80 mb-1">רמת קושי</div>
+                <div className="text-lg font-bold text-white">בינוני עד קשה</div>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-3 text-center flex-1 h-16 flex flex-col justify-center">
-                <div className="text-white text-sm font-medium">קווין אליזבת'</div>
-                <div className="text-amber-200 text-xs">פארק לאומי</div>
+                <div className="text-sm text-white/80 mb-1">מתאים ל</div>
+                <div className="text-lg font-bold text-white">משפחות, זוגות</div>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-3 text-center flex-1 h-16 flex flex-col justify-center">
-                <div className="text-white text-sm font-medium">אגם מבורו</div>
-                <div className="text-amber-200 text-xs">פארק לאומי</div>
+                <div className="text-sm text-white/80 mb-1">גורילות</div>
+                <div className="text-lg font-bold text-white">כלול במחיר</div>
               </div>
             </div>
           </div>
@@ -251,14 +259,14 @@ const Tour10Days: React.FC = () => {
               // Define images for each day using existing site images
               const dayImages = [
                 "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/Extreme%20Adventures%2FBUZ04643.jpg?alt=media&token=55ed0d12-ab8a-46fc-8f8b-0c3cb99c1f93",
-                "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2Fqueen-elizabeth%2FAfrican%20Bush%20Elephant%20-%20Loxodonta%20africana%2C%20iconic%20member%20of%20African%20big%20five%2C%20Queen%20Elizabeth%20National%20Park.webp?alt=media&token=3b4c82c9-b383-4bbc-94c1-85438ff412b5",
-                "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2Fqueen-elizabeth%2FAfrican%20Bush%20Elephant%20-%20Loxodonta%20africana%2C%20iconic%20member%20of%20African%20big%20five%2C%20Queen%20Elizabeth%20National%20Park.webp?alt=media&token=3b4c82c9-b383-4bbc-94c1-85438ff412b5", 
+                "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/Extreme%20Adventures%2FIMG_1390.jpg?alt=media&token=6164d86d-10d5-44ef-873c-77084134456b", 
                 "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FMurchison%20Falls%20National%20Park%2Fmurchison-falls-hero.webp?alt=media&token=56ccea2c-c574-46a6-ac3a-a0ecc2fbc3a5",
                 "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FMurchison%20Falls%20National%20Park%2FTourists%20overlook%20the%20massive%20waterfall%20of%20Murchison%20Falls%20on%20the%20Nile%20River%20in%20Uganda.webp?alt=media&token=bc3f5511-234b-4696-85c0-446e67dbea52",
                 "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FPrimates%20of%20Uganda%2FKibale%20Chimpanzees%2FMother%20and%20baby%20chimpanzees%2C%20pan%20troglodytes%2C%20swinging%20in%20the%20tropical%20rainforest%20of%20Kibale%20National%20Park%2C%20Uganda%2C%20and%20feeding%20from%20the%20fruits%400.5x.webp?alt=media&token=3728b69f-7861-49b6-90f7-63f363d18dbf",
                 "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2Fqueen-elizabeth%2FElephant%20in%20Queen%20Elizabeth%20Park%2C%20Uganda%2C%20watched%20by%20a%20tourist%20boat%20on%20a%20safari%20cruise.webp?alt=media&token=6b7061b6-b02e-4410-8393-e072ae208a64",
-                "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2Fqueen-elizabeth%2FAfrican%20Bush%20Elephant%20-%20Loxodonta%20africana%2C%20iconic%20member%20of%20African%20big%20five%2C%20Queen%20Elizabeth%20National%20Park.webp?alt=media&token=3b4c82c9-b383-4bbc-94c1-85438ff412b5",
-                "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FBwindi%20Impenetrable%20National%20Park%2FMountain%20Gorilla%20in%20Bwindi%20Impenetrable%20National%20Park%2C%20Uganda.webp?alt=media&token=8f9e2d1a-4b5c-6d7e-8f9a-0b1c2d3e4f5g",
+                "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2Fqueen-elizabeth%2Fqueen-elizabeth-lions-trees-hero.webp?alt=media&token=6aac3487-a6e1-46eb-b0b7-0055c4bb8a95",
+                "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FPrimates%20of%20Uganda%2FGorillas%20in%20Bwindi%20Forest%2FGorilla%20family%20with%20silverback%20in%20Bwindi%20Impenetrable%20Forest%2C%20Uganda%2C%20Africa.webp?alt=media&token=6afb4c11-7cfa-4c28-a29e-d41dea9634ac",
+                "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FPrimates%20of%20Uganda%2FMgahinga%20Gorillas%2FHikers%20on%20a%20gorilla%20trekking%20trail.webp?alt=media&token=6e509194-1bde-4afa-b851-66a367be78f2",
                 "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/uganda%2FThree%20girls%20at%20a%20village%20water%20pump%20two%20pumping%20while%20one%20drinks%20directly%20from%20the%20spout.webp?alt=media&token=1282bd1a-529f-49f5-bf62-f83462860e6f"
               ];
               
@@ -282,79 +290,58 @@ const Tour10Days: React.FC = () => {
                     <span className="text-sm font-bold text-white">יום {day.day}</span>
                   </div>
                   
-                  <div className="bg-white border border-[#534B20]/60 rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-500 h-[500px] flex flex-col">
-                    <div className="grid lg:grid-cols-2 gap-8 h-full">
-                      {/* Content */}
-                      <div className="flex flex-col justify-between order-1 lg:order-1">
-                        <div>
-                          <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 text-right">
-                            {day.title}
-                          </h3>
-                          <p className="text-gray-700 leading-relaxed mb-6 text-right">
-                            {day.description}
-                          </p>
-                        </div>
+                  <div className="bg-white border border-[#534B20]/60 rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-500 h-[510px] flex flex-col">
+                    <h3 className="text-2xl font-bold text-[#4B361C] mb-4 border-b border-[#C9A34E] pb-2">
+                      {day.title}
+                    </h3>
+                    
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch flex-1">
+                      <div className="order-1 lg:order-1 flex flex-col">
+                        <p className="text-gray-700 mb-6 leading-relaxed" style={{ fontFamily: 'Poppins' }}>
+                          {day.description}
+                        </p>
                         
-                        {/* Technical Details */}
-                        <div className="bg-gray-50 rounded-xl p-4 mb-4">
-                          <h4 className="font-bold text-gray-900 mb-3 text-right">מידע טכני:</h4>
-                          <div className="space-y-2 text-right">
+                        <div className="bg-gray-50 rounded-lg p-4 mb-6">
+                          <h4 className="font-bold text-gray-800 mb-2">מידע טכני:</h4>
+                          <ul className="text-gray-700 space-y-1">
                             {day.details.accommodation && (
-                              <div className="flex justify-end">
-                                <span className="text-gray-700 flex-1 text-right">
-                                  <strong>לינה:</strong> {day.details.accommodation}
-                                </span>
-                              </div>
+                              <li><strong>לינה:</strong> {day.details.accommodation}</li>
                             )}
                             {day.details.meals && (
-                              <div className="flex justify-end">
-                                <span className="text-gray-700 flex-1 text-right">
-                                  <strong>כלכלה:</strong> {day.details.meals}
-                                </span>
-                              </div>
+                              <li><strong>כלכלה:</strong> {day.details.meals}</li>
                             )}
                             {day.details.travel && (
-                              <div className="flex justify-end">
-                                <span className="text-gray-700 flex-1 text-right">
-                                  <strong>נסיעה:</strong> {day.details.travel}
-                                </span>
-                              </div>
+                              <li><strong>נסיעה:</strong> {day.details.travel}</li>
                             )}
                             {day.details.activities && (
-                              <div className="flex justify-end">
-                                <span className="text-gray-700 flex-1 text-right">
-                                  <strong>פעילויות:</strong> {day.details.activities}
-                                </span>
-                              </div>
+                              <li><strong>פעילויות:</strong> {day.details.activities}</li>
                             )}
-                          </div>
+                          </ul>
                         </div>
-
-                        {/* Links */}
+                        
                         {day.links && day.links.length > 0 && (
-                          <div className="mt-auto">
-                            <div className="space-y-2">
-                              {day.links.map((link, linkIndex) => (
-                                <Link
-                                  key={linkIndex}
-                                  to={link.url}
-                                  className="block text-[#d4af37] hover:text-[#b8941f] font-medium text-right transition-colors duration-200"
+                          <div className="text-right mt-auto">
+                            {day.links.map((link, linkIndex) => (
+                              <div key={linkIndex} className="mb-2">
+                                <Link 
+                                  to={link.url} 
+                                  className="text-[#C9A34E] hover:text-[#B8941F] font-medium"
                                 >
                                   {link.text}
                                 </Link>
-                              ))}
-                            </div>
+                              </div>
+                            ))}
                           </div>
                         )}
                       </div>
-
-                      {/* Image */}
-                      <div className="flex order-2 lg:order-2">
-                        <img
-                          src={dayImages[index]}
+                      <div className="order-2 lg:order-2 flex flex-col">
+                        <img 
+                          src={dayImages[index]} 
                           alt={dayAlts[index]}
-                          className="w-full h-96 object-cover rounded-xl mb-5"
-                          style={{ aspectRatio: '16/9' }}
+                          className="w-full h-96 object-cover rounded-xl shadow-md mb-5"
+                          onError={(e) => {
+                            e.currentTarget.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI1MCIgdmlld0JveD0iMCAwIDQwMCAyNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjUwIiBmaWxsPSIjRjNGNEY2Ii8+Cjx0ZXh0IHg9IjIwMCIgeT0iMTI1IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiM2QjcyODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiPuaXoOaVsOa1i+W6l+WbveWGheWQjeWtlzwvdGV4dD4KPC9zdmc+';
+                          }}
                         />
                       </div>
                     </div>
