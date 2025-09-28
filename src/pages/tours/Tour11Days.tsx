@@ -180,21 +180,59 @@ const Tour11Days: React.FC = () => {
           </div>
 
           {/* Itinerary */}
-          <div className="max-w-4xl mx-auto mb-12">
+          <div className="max-w-6xl mx-auto mb-12">
             <h2 className="text-3xl font-bold mb-8 text-center">תוכנית המסלול</h2>
-            {itinerary.map((day) => (
-              <div key={day.day} className="bg-white rounded-lg shadow-lg p-6 mb-6">
-                <h3 className="text-2xl font-bold mb-4 text-primary">{day.title}</h3>
-                <div className="space-y-3">
-                  {day.activities.map((activity, index) => (
-                    <div key={index} className="flex items-start space-x-3 space-x-reverse">
-                      <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                      <p className="text-gray-700">{activity}</p>
+            <div className="space-y-8">
+              {itinerary.map((day, index) => {
+                // Define images for each day
+                const dayImages = [
+                  "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2Fqueen-elizabeth%2Fqueen-elizabeth-lions-trees-hero.webp?alt=media&token=6aac3487-a6e1-46eb-b0b7-0055c4bb8a95",
+                  "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FMurchison%20Falls%20National%20Park%2Fmurchison-falls-hero.webp?alt=media&token=56ccea2c-c574-46a6-ac3a-a0ecc2fbc3a5",
+                  "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FPrimates%20of%20Uganda%2FGorillas%20in%20Bwindi%20Forest%2FGorilla%20family%20with%20silverback%20in%20Bwindi%20Impenetrable%20Forest%2C%20Uganda%2C%20Africa.webp?alt=media&token=6afb4c11-7cfa-4c28-a29e-d41dea9634ac",
+                  "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FMountains%2FRwenzori%20Mountains%2Frwenzori-mountains-hero.webp?alt=media&token=example-token",
+                  "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2Fqueen-elizabeth%2FElephant%20in%20Queen%20Elizabeth%20Park%2C%20Uganda%2C%20watched%20by%20a%20tourist%20boat%20on%20a%20safari%20cruise.webp?alt=media&token=6b7061b6-b02e-4410-8393-e072ae208a64",
+                  "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/uganda%2FThree%20girls%20at%20a%20village%20water%20pump%20two%20pumping%20while%20one%20drinks%20directly%20from%20the%20spout.webp?alt=media&token=1282bd1a-529f-49f5-bf62-f83462860e6f",
+                  "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FPrimates%20of%20Uganda%2FKibale%20Chimpanzees%2FMother%20and%20baby%20chimpanzees%2C%20pan%20troglodytes%2C%20swinging%20in%20the%20tropical%20rainforest%20of%20Kibale%20National%20Park%2C%20Uganda%2C%20and%20feeding%20from%20the%20fruits%400.5x.webp?alt=media&token=3728b69f-7861-49b6-90f7-63f363d18dbf",
+                  "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FMurchison%20Falls%20National%20Park%2FTourists%20overlook%20the%20massive%20waterfall%20of%20Murchison%20Falls%20on%20the%20Nile%20River%20in%20Uganda.webp?alt=media&token=bc3f5511-234b-4696-85c0-446e67dbea52",
+                  "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2Fqueen-elizabeth%2Fqueen-elizabeth-lions-trees-hero.webp?alt=media&token=6aac3487-a6e1-46eb-b0b7-0055c4bb8a95",
+                  "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FPrimates%20of%20Uganda%2FGorillas%20in%20Bwindi%20Forest%2FBaby%20Gorilla%20Kisses%20Silverback%20in%20Bwindi%20Impenetrable%20National%20Park%2C%20Uganda.webp?alt=media&token=13d220c2-99d9-477d-b46f-b69253988504",
+                  "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/uganda%2FThree%20girls%20at%20a%20village%20water%20pump%20two%20pumping%20while%20one%20drinks%20directly%20from%20the%20spout.webp?alt=media&token=1282bd1a-529f-49f5-bf62-f83462860e6f"
+                ];
+                
+                return (
+                  <div key={day.day} className="bg-white border border-[#534B20]/60 rounded-3xl p-4 md:p-8 shadow-lg hover:shadow-xl transition-all duration-500 flex flex-col">
+                    <h3 className="text-xl md:text-2xl font-bold text-[#4B361C] mb-4 border-b border-[#C9A34E] pb-2">
+                      {day.title}
+                    </h3>
+                    
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-stretch flex-1">
+                      <div className="order-2 lg:order-1 flex flex-col">
+                        <div className="space-y-3 mb-6">
+                          {day.activities.map((activity, activityIndex) => (
+                            <div key={activityIndex} className="flex items-start space-x-3 space-x-reverse">
+                              <div className="w-2 h-2 bg-[#C9A34E] rounded-full mt-2 flex-shrink-0"></div>
+                              <p className="text-gray-700 text-sm md:text-base">{activity}</p>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                      <div className="order-1 lg:order-2 flex flex-col">
+                        <div className="relative aspect-[4/3] md:aspect-[16/9] w-full">
+                          <img 
+                            src={dayImages[index % dayImages.length]} 
+                            alt={`יום ${day.day} - ${day.title}`}
+                            className="w-full h-full object-cover rounded-xl shadow-md"
+                            onError={(e) => {
+                              e.currentTarget.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI1MCIgdmlld0JveD0iMCAwIDQwMCAyNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjUwIiBmaWxsPSIjRjNGNEY2Ii8+Cjx0ZXh0IHg9IjIwMCIgeT0iMTI1IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiM2QjcyODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiPuaXoOaVsOa1i+W6l+WbveWGheWQjeWtlzwvdGV4dD4KPC9zdmc+';
+                            }}
+                          />
+                        </div>
+                      </div>
                     </div>
-                  ))}
-                </div>
-              </div>
-            ))}
+                  </div>
+                );
+              })}
+            </div>
           </div>
 
           {/* What's Included */}

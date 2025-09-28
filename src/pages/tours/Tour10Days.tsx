@@ -290,20 +290,20 @@ const Tour10Days: React.FC = () => {
                     <span className="text-sm font-bold text-white">יום {day.day}</span>
                   </div>
                   
-                  <div className="bg-white border border-[#534B20]/60 rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-500 h-[510px] flex flex-col">
-                    <h3 className="text-2xl font-bold text-[#4B361C] mb-4 border-b border-[#C9A34E] pb-2">
+                  <div className="bg-white border border-[#534B20]/60 rounded-3xl p-4 md:p-8 shadow-lg hover:shadow-xl transition-all duration-500 flex flex-col">
+                    <h3 className="text-xl md:text-2xl font-bold text-[#4B361C] mb-4 border-b border-[#C9A34E] pb-2">
                       {day.title}
                     </h3>
                     
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch flex-1">
-                      <div className="order-1 lg:order-1 flex flex-col">
-                        <p className="text-gray-700 mb-6 leading-relaxed" style={{ fontFamily: 'Poppins' }}>
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-stretch flex-1">
+                      <div className="order-2 lg:order-1 flex flex-col">
+                        <p className="text-gray-700 mb-6 leading-relaxed text-sm md:text-base" style={{ fontFamily: 'Poppins' }}>
                           {day.description}
                         </p>
                         
-                        <div className="bg-gray-50 rounded-lg p-4 mb-6">
-                          <h4 className="font-bold text-gray-800 mb-2">מידע טכני:</h4>
-                          <ul className="text-gray-700 space-y-1">
+                        <div className="bg-gray-50 rounded-lg p-3 md:p-4 mb-6">
+                          <h4 className="font-bold text-gray-800 mb-2 text-sm md:text-base">מידע טכני:</h4>
+                          <ul className="text-gray-700 space-y-1 text-xs md:text-sm">
                             {day.details.accommodation && (
                               <li><strong>לינה:</strong> {day.details.accommodation}</li>
                             )}
@@ -325,7 +325,7 @@ const Tour10Days: React.FC = () => {
                               <div key={linkIndex} className="mb-2">
                                 <Link 
                                   to={link.url} 
-                                  className="text-[#C9A34E] hover:text-[#B8941F] font-medium"
+                                  className="text-[#C9A34E] hover:text-[#B8941F] font-medium text-sm md:text-base"
                                 >
                                   {link.text}
                                 </Link>
@@ -334,15 +334,17 @@ const Tour10Days: React.FC = () => {
                           </div>
                         )}
                       </div>
-                      <div className="order-2 lg:order-2 flex flex-col">
-                        <img 
-                          src={dayImages[index]} 
-                          alt={dayAlts[index]}
-                          className="w-full h-96 object-cover rounded-xl shadow-md mb-5"
-                          onError={(e) => {
-                            e.currentTarget.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI1MCIgdmlld0JveD0iMCAwIDQwMCAyNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjUwIiBmaWxsPSIjRjNGNEY2Ii8+Cjx0ZXh0IHg9IjIwMCIgeT0iMTI1IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiM2QjcyODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiPuaXoOaVsOa1i+W6l+WbveWGheWQjeWtlzwvdGV4dD4KPC9zdmc+';
-                          }}
-                        />
+                      <div className="order-1 lg:order-2 flex flex-col">
+                        <div className="relative aspect-[4/3] md:aspect-[16/9] w-full">
+                          <img 
+                            src={dayImages[index]} 
+                            alt={dayAlts[index]}
+                            className="w-full h-full object-cover rounded-xl shadow-md"
+                            onError={(e) => {
+                              e.currentTarget.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI1MCIgdmlld0JveD0iMCAwIDQwMCAyNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjUwIiBmaWxsPSIjRjNGNEY2Ii8+Cjx0ZXh0IHg9IjIwMCIgeT0iMTI1IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiM2QjcyODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiPuaXoOaVsOa1i+W6l+WbveWGheWQjeWtlzwvdGV4dD4KPC9zdmc+';
+                            }}
+                          />
+                        </div>
                       </div>
                     </div>
                   </div>

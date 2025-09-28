@@ -67,21 +67,49 @@ const Tour1Day: React.FC = () => {
           </div>
 
           {/* Itinerary */}
-          <div className="max-w-4xl mx-auto mb-12">
+          <div className="max-w-6xl mx-auto mb-12">
             <h2 className="text-3xl font-bold mb-8 text-center">תוכנית המסלול</h2>
-            {itinerary.map((day) => (
-              <div key={day.day} className="bg-white rounded-lg shadow-lg p-6 mb-6">
-                <h3 className="text-2xl font-bold mb-4 text-primary">{day.title}</h3>
-                <div className="space-y-3">
-                  {day.activities.map((activity, index) => (
-                    <div key={index} className="flex items-start space-x-3 space-x-reverse">
-                      <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                      <p className="text-gray-700">{activity}</p>
+            <div className="space-y-8">
+              {itinerary.map((day, index) => {
+                // Define images for each day
+                const dayImages = [
+                  "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2Fqueen-elizabeth%2Fqueen-elizabeth-lions-trees-hero.webp?alt=media&token=6aac3487-a6e1-46eb-b0b7-0055c4bb8a95"
+                ];
+                
+                return (
+                  <div key={day.day} className="bg-white border border-[#534B20]/60 rounded-3xl p-4 md:p-8 shadow-lg hover:shadow-xl transition-all duration-500 flex flex-col">
+                    <h3 className="text-xl md:text-2xl font-bold text-[#4B361C] mb-4 border-b border-[#C9A34E] pb-2">
+                      {day.title}
+                    </h3>
+                    
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-stretch flex-1">
+                      <div className="order-2 lg:order-1 flex flex-col">
+                        <div className="space-y-3 mb-6">
+                          {day.activities.map((activity, activityIndex) => (
+                            <div key={activityIndex} className="flex items-start space-x-3 space-x-reverse">
+                              <div className="w-2 h-2 bg-[#C9A34E] rounded-full mt-2 flex-shrink-0"></div>
+                              <p className="text-gray-700 text-sm md:text-base">{activity}</p>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                      <div className="order-1 lg:order-2 flex flex-col">
+                        <div className="relative aspect-[4/3] md:aspect-[16/9] w-full">
+                          <img 
+                            src={dayImages[index % dayImages.length]} 
+                            alt={`יום ${day.day} - ${day.title}`}
+                            className="w-full h-full object-cover rounded-xl shadow-md"
+                            onError={(e) => {
+                              e.currentTarget.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI1MCIgdmlld0JveD0iMCAwIDQwMCAyNTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMjUwIiBmaWxsPSIjRjNGNEY2Ii8+Cjx0ZXh0IHg9IjIwMCIgeT0iMTI1IiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiM2QjcyODAiIHRleHQtYW5jaG9yPSJtaWRkbGUiPuaXoOaVsOa1i+W6l+WbveWGheWQjeWtlzwvdGV4dD4KPC9zdmc+';
+                            }}
+                          />
+                        </div>
+                      </div>
                     </div>
-                  ))}
-                </div>
-              </div>
-            ))}
+                  </div>
+                );
+              })}
+            </div>
           </div>
 
           {/* What's Included */}
