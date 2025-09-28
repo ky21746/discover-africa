@@ -592,11 +592,14 @@ button {
   height: 320px;
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
   position: relative;
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  overflow: hidden;
+  border-radius: 16px 16px 0 0;
 }
 
 .category-card .image-overlay {
@@ -677,6 +680,14 @@ button {
   color: #000000;
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(202, 161, 49, 0.3);
+}
+
+/* תמונות לא יברחו מהכרטיס - כלל */
+.category-card .card-image img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
 }
 
 /* Special styling for mountains category */
@@ -813,5 +824,84 @@ button {
 
   .mountains-image {
     background-position: center 25% !important;
+  }
+}
+
+/* Mobile fixes for category cards */
+@media (max-width: 768px) {
+  .category-card {
+    height: auto !important;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .category-card .card-image {
+    width: 100% !important;
+    height: 192px !important; /* h-48 */
+    overflow: hidden !important;
+    border-radius: 0 !important;
+    position: relative !important;
+    flex-shrink: 0 !important;
+  }
+
+  .category-card .card-image img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+  }
+
+  .category-card .image-overlay {
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    padding: 16px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4));
+  }
+
+  .category-card .image-overlay h3 {
+    font-size: 1.1rem !important;
+    line-height: 1.2 !important;
+    margin-bottom: 6px !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+    color: white !important;
+  }
+
+  .category-card .image-overlay p {
+    font-size: 0.8rem !important;
+    line-height: 1.3 !important;
+    opacity: 0.95;
+    color: white !important;
+  }
+
+  .category-card .card-content {
+    padding: 16px !important;
+    background: linear-gradient(180deg, #ffffff 0%, #fafafa 100%);
+  }
+
+  .category-card .btn-discover {
+    padding: 10px 16px !important;
+    font-size: 0.9rem !important;
+    border-radius: 8px !important;
+  }
+}
+
+/* Mobile very small screens */
+@media (max-width: 480px) {
+  .category-card .card-image {
+    height: 160px !important;
+  }
+  
+  .category-card .image-overlay h3 {
+    font-size: 1rem !important;
+  }
+  
+  .category-card .image-overlay p {
+    font-size: 0.75rem !important;
   }
 }

@@ -9,6 +9,14 @@ export interface Category {
   filter: string; // e.g. "safari" | "wildlife" | ...
 }
 
+// ===== Nearby attractions =====
+export interface NearbyAttraction {
+  slug: string;       // ה-slug של היעד (לינק פנימי)
+  name: string;        // שם בעברית
+  image: string;       // תמונת תצוגה
+  distance: string;    // זמן/מרחק (למשל "שעתיים נסיעה")
+}
+
 export interface BlogPost {
   id: string;
   title: string;
@@ -196,7 +204,7 @@ export interface Attraction {
   whatToBring?: string[];
   healthSafety?: string[];
   accommodation?: string[];
-  nearby?: string[];
+  nearby?: NearbyAttraction[];
   whyUs?: string[];
   valueAdd?: string[];
 

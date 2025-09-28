@@ -38,10 +38,18 @@ export const safari: Attraction[] = [
     healthSafety: ["אזהרות מסע עקב קרבה לגבול DRC", "חיסונים סטנדרטיים"],
     accommodation: ["Mweya Safari Lodge", "Katara Lodge", "Ihamba Lakeside"],
     nearby: [
-      "Kibale Forest National Park (לצפייה בשימפנזים) - עד 3 שעות",
-      "Rwenzori Mountains National Park (לטיפוס וטרקים) - עד 3 שעות",
-      "כפרי דייגים מסורתיים סביב אגם ג'ורג'",
-      "סיורי תרבות עם קהילות מקומיות"
+      {
+        slug: "kibale-chimps",
+        name: "פארק לאומי קיבאלה",
+        image: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FPrimates%20of%20Uganda%2FKibale%20Chimpanzees%2Fkibale%20chimp%20chimpanzee%20Uganda%20in%20Africa-hero.webp?alt=media&token=ec93ce06-dcca-41a8-bf0a-b886d4112384",
+        distance: "עד 3 שעות"
+      },
+      {
+        slug: "rwenzori-mountains",
+        name: "הרי רוונזורי",
+        image: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FMountains%2FRwenzori%20Mountains%2Frwenzori-mountains-hero.webp?alt=media&token=example-token",
+        distance: "עד 3 שעות"
+      }
     ],
     whyUs: ["מדריכים מקומיים מומחים", "רכבי ספארי עם גג פתוח", "קשרים עם לודג׳ים טובים"],
     valueAdd: [
@@ -187,7 +195,20 @@ export const safari: Attraction[] = [
     whatToBring: ["משקפת איכותית", "מצלמה עם זום", "דוחה יתושים חזק", "כובע"],
     healthSafety: ["חיסון Yellow Fever חובה", "כדורי מניעה למלריה", "מדריכים מקצועיים"],
     accommodation: ["Paraa Safari Lodge", "Chobe Safari Lodge", "Nile Safari Lodge"],
-    nearby: ["Budongo Forest - שימפנזים", "Ziwa Rhino Sanctuary", "כפרי לואו"],
+    nearby: [
+      {
+        slug: "budongo-forest",
+        name: "יער בודונגו",
+        image: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FPrimates%20of%20Uganda%2FKibale%20Chimpanzees%2Fkibale%20chimp%20chimpanzee%20Uganda%20in%20Africa-hero.webp?alt=media&token=ec93ce06-dcca-41a8-bf0a-b886d4112384",
+        distance: "כשעה"
+      },
+      {
+        slug: "ziwa-rhino",
+        name: "מקלט קרנפי זיווה",
+        image: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FWater%2FLake%20Albert%2Flake-albert-hero.webp?alt=media&token=example-token",
+        distance: "כשעה"
+      }
+    ],
     whyUs: ["מדריכים מומחים לחיות נדירות", "רכבי ספארי 4X4", "שייט פרטי בשעות זהב"],
     valueAdd: ["הפארק המבוקר ביותר - 25% מהמבקרים", "שילוב ספארי ושייט נהרות", "אחד מאתרי הדגל של אוגנדה"],
     
@@ -336,7 +357,20 @@ export const safari: Attraction[] = [
     whatToBring: ["נעלי הליכה", "ביגוד לרכיבה", "כובע", "דוחה יתושים"],
     healthSafety: ["ללא אריות - בטוח להליכה", "יתושים ליד האגם", "חיסונים סטנדרטיים"],
     accommodation: ["Mihingo Lodge", "Rwakobo Rock", "Eagle's Nest"],
-    nearby: ["העיר אמבררה", "מקלט סלעי בהרי אנקולה", "חוות תרבותיות"],
+    nearby: [
+      {
+        slug: "embarara",
+        name: "העיר אמבררה",
+        image: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FWater%2FLake%20Albert%2Flake-albert-hero.webp?alt=media&token=example-token",
+        distance: "כשעה"
+      },
+      {
+        slug: "ankole-mountains",
+        name: "הרי אנקולה",
+        image: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FMountains%2FRwenzori%20Mountains%2Frwenzori-mountains-hero.webp?alt=media&token=example-token",
+        distance: "כשעתיים"
+      }
+    ],
     whyUs: ["רכיבה על סוסים בספארי", "גישה אינטימית לחיות", "מדריכים לסיורי הליכה"],
     valueAdd: ["Top 5 פארקים באוגנדה", "אידיאלי למשפחות", "נקודת כניסה מושלמת לספארי"],
     
@@ -475,9 +509,24 @@ export const safari: Attraction[] = [
     healthSafety: ["המלצות בטיחות עקב קרבה לקונגו", "יתושים רבים", "חיסונים סטנדרטיים"],
     accommodation: ["Semuliki Safari Lodge", "UWA Bandas", "מלונות בפורט פורטל"],
     nearby: [
-      "פארק לאומי קיבאלה (Kibale National Park) – כשעתיים נסיעה; חוויית שימפנזים ביער גשם עשיר",
-      "אגם אלברט (Lake Albert) – כשעתיים וחצי; נופים מרהיבים של אחד האגמים הגדולים באפריקה וצפרות ייחודית",
-      "Fort Portal – עיר מקסימה במרחק כשעה וחצי; בסיס מצוין לטיולים, תרבות מקומית ושירותי לינה איכותיים"
+      {
+        slug: "kibale-chimps",
+        name: "פארק לאומי קיבאלה",
+        image: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FPrimates%20of%20Uganda%2FKibale%20Chimpanzees%2Fkibale%20chimp%20chimpanzee%20Uganda%20in%20Africa-hero.webp?alt=media&token=ec93ce06-dcca-41a8-bf0a-b886d4112384",
+        distance: "כשעתיים נסיעה"
+      },
+      {
+        slug: "lake-albert",
+        name: "אגם אלברט",
+        image: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2Fqueen-elizabeth%2FAfrican%20Bush%20Elephant%20-%20Loxodonta%20africana%2C%20iconic%20member%20of%20African%20big%20five%2C%20Queen%20Elizabeth%20National%20Park.webp?alt=media&token=3b4c82c9-b383-4bbc-94c1-85438ff412b5",
+        distance: "כשעתיים וחצי"
+      },
+      {
+        slug: "fort-portal",
+        name: "Fort Portal",
+        image: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2Fqueen-elizabeth%2Fqueen-elizabeth-lions-trees-hero.webp?alt=media&token=6aac3487-a6e1-46eb-b0b7-0055c4bb8a95",
+        distance: "כשעה וחצי"
+      }
     ],
     whyUs: ["מדריכים מומחי צפרות", "גישה ליער גשם", "קשרים עם קהילות מקומיות"],
     valueAdd: ["יעד נישה ייחודי", "מחקר אקולוגי", "חוויה תרבותית-ביולוגית"],
