@@ -2,12 +2,13 @@
 export interface Park {
   slug: string;
   name: string;
+  heroTitle: string;
+  generalTitle: string;
   category: string;
   area: string;
   family: boolean;
   night_drive: boolean;
   boat: boolean;
-  cost_est: string;
   season: string;
   highlights: string[];
   combos: string[];
@@ -19,7 +20,6 @@ export interface Park {
     best_time?: string;
     duration_hours?: number;
   };
-  license_cost?: string;
   difficulty?: string;
   min_age?: number;
   seasonality?: Record<string, number>;
@@ -55,12 +55,13 @@ export const parks: Park[] = [
   {
     slug: "queen-elizabeth",
     name: "פארק המלכה אליזבת",
+    heroTitle: "פארק המלכה אליזבת",
+    generalTitle: "פארק המלכה אליזבת",
     category: "safari",
     area: "מערב",
     family: true,
     night_drive: false,
     boat: true,
-    cost_est: "$$",
     season: "יוני–ספטמבר, דצמבר–פברואר",
     highlights: ["שייט בתעלת קזינגה", "אריות מטפסי עצים", "פילים ובאפלו"],
     combos: ["kazinga-channel", "ishasha"],
@@ -73,7 +74,7 @@ export const parks: Park[] = [
     importantInfo: [
       "עונות השנה: אוגנדה נמצאת על קו המשווה ולכן אפשר לטייל בה כל השנה. ההבדל הוא בין עונה יבשה לעונה רטובה.",
       "יבשה (דצמבר–פברואר, יוני–אוגוסט): חיות מתרכזות סביב מקורות מים, הדרכים לרוב נוחות יותר, וראות בעלי החיים טובה יותר.",
-      "רטובה (מרץ–מאי, ספטמבר–נובמבר): הנוף ירוק ושופע, שפע ציפורים נודדות, פחות עומס תיירים ומחירים נמוכים יותר – אך חלק מהשבילים עשויים להיות בוציים ומאתגרים.",
+      "רטובה (מרץ–מאי, ספטמבר–נובמבר): הנוף ירוק ושופע, שפע ציפורים נודדות, פחות עומס תיירים – אך חלק מהשבילים עשויים להיות בוציים ומאתגרים.",
       "נסיעה והגעה: כ-6-7 שעות נסיעה מקמפלה. כדאי יציאה מוקדמת בבוקר או לינה בדרך.",
       "שערי כניסה: קאטונגו (Katungo), אישאשה (Ishasha), קזונגו (Kazungu).",
       "חוויות ייחודיות: שייט בתעלת קזינגה - חובה להזמין מראש. סקטור אישאשה (אריות מטפסי עצים) - תיאום מראש.",
@@ -118,12 +119,13 @@ export const parks: Park[] = [
   {
     slug: "murchison-falls",
     name: "פארק לאומי מורצ׳יסון פולס (Murchison Falls National Park)",
+    heroTitle: "הפארק הלאומי מפלי מורצ'יסון",
+    generalTitle: "הפארק הגדול והוותיק באוגנדה – ביתם של ארבעה מתוך חמשת ה Big 5",
     category: "safari",
     area: "צפון-מערב",
     family: true,
     night_drive: false,
     boat: true,
-    cost_est: "$$",
     season: "כל השנה",
     highlights: [
       "מפלי מורצ׳יסון – המפלים החזקים ביותר על נהר הנילוס",
@@ -185,12 +187,13 @@ export const parks: Park[] = [
   {
     slug: "lake-mburo",
     name: "אגם מבורו",
+    heroTitle: "אגם מבורו",
+    generalTitle: "אגם מבורו",
     category: "safari",
     area: "מרכז-דרום",
     family: true,
     night_drive: true,
     boat: false,
-    cost_est: "$",
     season: "כל השנה",
     highlights: ["זברות", "ספארי לילה", "שייט באגם"],
     combos: [],
@@ -213,12 +216,13 @@ export const parks: Park[] = [
   {
     slug: "kidepo",
     name: "קידפו ואלי",
+    heroTitle: "קידפו ואלי",
+    generalTitle: "קידפו ואלי",
     category: "safari",
-    area: "צפון-מזרח מרוחק",
+    area: "צפ׳-מז׳ אוגנדה",
     family: false,
     night_drive: false,
     boat: false,
-    cost_est: "$$$",
     season: "עונה יבשה",
     highlights: ["נופים פתוחים", "פילים וג'ירפות", "טורפים", "מפגש שבטים"],
     combos: [],
@@ -240,41 +244,46 @@ export const parks: Park[] = [
   },
   {
     slug: "semuliki",
-    name: "סמוליקי פארק לאומי",
+    name: "פארק לאומי סמוליקי",
+    heroTitle: "פארק לאומי סמוליקי",
+    generalTitle: "פארק לאומי סמוליקי",
     category: "safari",
-    area: "מערב (עמק אלברטין)",
+    area: "מערב",
     family: true,
     night_drive: false,
     boat: false,
-    cost_est: "$$",
-    season: "כל השנה (יבשה עדיפה)",
-    highlights: ["מעיינות חמים", "יער נמוך חם-לח", "צפרות מערב-אפריקאית"],
+    season: "יוני–ספטמבר, דצמבר–פברואר",
+    highlights: ["מעיינות חמים גיאותרמיים", "צפרות נדירה", "יערות גשם טרופיים", "סוואנות לחות"],
     combos: ["kibale-chimps", "queen-elizabeth"],
-    summary: "מעיינות חמים וצפרות נדירה על התפר בין אקולוגיות.",
+    summary: "אחד האזורים הפראיים והבתוליים ביותר באוגנדה, עם שילוב יוצא דופן של יערות גשם טרופיים, סוואנות לחות ומעיינות חמים גיאותרמיים.",
     description:
-      "מפגש בין אקולוגיה קונגולזית למזרח-אפריקאית: יערות נמוכים חמים-לחים ונקודות עניין גיאותרמיות.",
-    logistics: { drive_from_kla: "6–7 שעות", best_time: "עונות יבשות", duration_hours: 2 },
+      "פארק סמוליקי שוכן במערב אוגנדה, על גבול קונגו, ומשתרע לאורך השקע של נהר סמוליקי בעמק הריפט. זהו אחד האזורים הפראיים והבתוליים ביותר במדינה, המציע שילוב יוצא דופן של יערות גשם טרופיים, סוואנות לחות ומעיינות חמים גיאותרמיים. ייחודו של הפארק הוא בכך שהוא מהווה הארכה של יער האיטורי הקונגולזי – בית גידול עתיק לאינספור מיני עופות, יונקים וצמחייה, שחלקם אינם מצויים באף מקום אחר באוגנדה. הוא מושך בעיקר חובבי טבע וצפרות שמבקשים לגלות מינים נדירים באווירה שקטה ומבודדת.",
+    logistics: { 
+      drive_from_kla: "7–8 שעות דרך פורט פורטל", 
+      flight_option: "Bar Aviation מאנטבה או מקאג'אנסי אל שדות קרובים",
+      best_time: "עונות יבשות", 
+      duration_hours: 2 
+    },
     gallery: ["https://images.pexels.com/photos/2356045/pexels-photo-2356045.jpeg"],
     image: "https://images.pexels.com/photos/2356045/pexels-photo-2356045.jpeg",
-    tags: ["מערב", "צפרות", "פארק לאומי"],
+    tags: ["מערב", "צפרות", "פארק לאומי", "מעיינות חמים"],
     importantInfo: [
-      "עונה יבשה (דצמבר–פברואר, יוני–אוגוסט): מזג אוויר יבש, שבילים נוחים יותר וקלות גבוהה לצפייה בחיות.",
-      "עונה רטובה (מרץ–מאי, ספטמבר–נובמבר): נוף ירוק ועשיר, שפע של ציפורים נודדות, אך השבילים עלולים להיות בוציים.",
-      "נסיעה והגעה: כ־305 ק״מ מקמפלה, כ־4–5 שעות עד Fort Portal ועוד כשעה לשער הפארק.",
-      "שערי כניסה: Kirumia Gate (טרקים ארוכים), Sempaya Gate (ליד המעיינות החמים), Ntandi Gate (ליד אגם אלברט).",
-      "חוויות ייחודיות: Sempaya Hot Springs, צפרות (מעל 440 מינים), פרימטים, טרקים רגליים, מפגשים תרבותיים עם בני הבטווה (Batwa pygmies).",
-      "משך שהות מומלץ: 1–2 ימים לביקור במעיינות החמים ובמסלול קצר, 2–3 ימים למי שרוצה לשלב טרקים ארוכים, חוויות תרבותיות וצפרות מעמיקה."
+      "עונות השנה: ניתן לבקר בפארק סמוליקי לאורך כל השנה. העונה היבשה (יוני–ספטמבר, דצמבר–פברואר): נוחה יותר לטיולים, שבילים יציבים ותצפיות טובות על חיות בר. העונה הרטובה (מרץ–מאי, אוקטובר–נובמבר): הנוף ירוק ומרשים, מיני עופות רבים פעילים, אך הגישה בשטח עשויה להיות מאתגרת יותר.",
+      "נסיעה והגעה: נסיעה מקמפלה: כ־7–8 שעות ברכב דרך פורט פורטל. טיסות פנימיות: מופעלות בידי Bar Aviation מאנטבה או מקאג'אנסי אל שדות קרובים (כמו פורט פורטל), ומשם המשך נסיעה קצרה.",
+      "שערי כניסה: הכניסה הראשית ממוקמת ליד נהר סמוליקי, צפונית לעיירה בונדיבוגיו (Bundibugyo). הגישה נעשית בעיקר דרך פורט פורטל או בונדיבוגיו.",
+      "חוויות ייחודיות: מעיינות חמים – מפגש עם תופעה גיאותרמית מרשימה בלב העמק. צפרות נדירה – יותר מ־400 מיני עופות, כולל מינים ייחודיים למרכז אפריקה. טיולי טבע ביער – מפגש עם פרימטים כמו קופי קולובוס וקופים ירוקים.",
+      "משך שהות מומלץ: 2–3 ימים מאפשרים לחוות את המעיינות החמים, טיולי צפרות ויער.",
+      "הידעת? סמוליקי נחשב ל'עמק השקט' של אוגנדה – פחות מבקרים, חוויה אינטימית יותר. הפארק מהווה חלק מהיערות העתיקים ביותר באפריקה, בני מיליוני שנים."
     ]
   },
   {
     slug: "ziwa-rhino-sanctuary",
     name: "Ziwa Rhino Sanctuary",
     category: "safari",
-    area: "מרכז-צפון (בדרך למורצ'יסון)",
+    area: "מרכז-צפ׳ אוגנדה",
     family: true,
     night_drive: false,
     boat: false,
-    cost_est: "$$",
     season: "כל השנה",
     highlights: ["קרנפים לבנים בהליכה מודרכת", "סיור ריינג'רים", "צפרות מעולה"],
     combos: ["murchison-falls-safari"],
@@ -289,11 +298,10 @@ export const parks: Park[] = [
     slug: "ishasha",
     name: "אישאשה",
     category: "safari",
-    area: "דרום פארק המלכה אליזבת",
+    area: "מע׳ אוגנדה",
     family: true,
     night_drive: false,
     boat: false,
-    cost_est: "$$",
     season: "כל השנה",
     highlights: ["אריות מטפסי עצים", "נופי סוואנה", "צילום ייחודי"],
     combos: ["queen-elizabeth"],
@@ -309,12 +317,13 @@ export const parks: Park[] = [
   {
     slug: "bwindi-gorillas",
     name: "גורילות ביער בווינדי",
+    heroTitle: "גורילות ביער בווינדי",
+    generalTitle: "גורילות ביער בווינדי",
     category: "wildlife",
     area: "דרום-מערב",
     family: true,
     night_drive: false,
     boat: false,
-    cost_est: "$$$",
     season: "יוני–ספטמבר, דצמבר–פברואר (יבשות); מרץ–מאי, אוק–נוב (גשומות)",
     highlights: ["גורילות ההרים (20+ משפחות מורגלות)", "יער גשם הררי עתיק", "צפרות אנדמית נדירה", "מסלולים מגוונים לפי סקטור"],
     combos: ["lake-bunyonyi", "queen-elizabeth"],
@@ -327,7 +336,7 @@ export const parks: Park[] = [
     importantInfo: [
       "עונות השנה: אוגנדה על קו המשווה ולכן ניתן לטייל כל השנה.",
       "עונה יבשה (יוני–ספטמבר, דצמבר–פברואר): שבילים נוחים, ראות טובה, מומלץ במיוחד.",
-      "עונה רטובה (מרץ–מאי, אוקטובר–נובמבר): שבילים חלקלקים, פחות תיירים ומחירים נמוכים יותר.",
+      "עונה רטובה (מרץ–מאי, אוקטובר–נובמבר): שבילים חלקלקים, פחות תיירים.",
       "נסיעה והגעה: כ־9–10 שעות מקמפלה. נסיעה מקיגאלי (רואנדה) קצרה יותר – כ־4 שעות.",
       "שערי כניסה (מגזרים): בוהומה (Buhoma), רוהיג'ה (Ruhija), ראשאגה (Rushaga), נקורינגו (Nkuringo).",
       "חוויות ייחודיות: טרקינג גורילות, חוויית הסתגלות גורילות (Habituation), מפגש עם קהילות מקומיות (Batwa).",
@@ -337,12 +346,13 @@ export const parks: Park[] = [
   {
     slug: "mgahinga-gorillas",
     name: "גורילות מגהינגה",
+    heroTitle: "גורילות מגהינגה",
+    generalTitle: "גורילות מגהינגה",
     category: "wildlife",
     area: "דרום-מערב",
     family: true,
     night_drive: false,
     boat: false,
-    cost_est: "$$$",
     season: "יוני–ספטמבר, דצמבר–פברואר",
     highlights: ["חלופה שקטה לבווינדי", "נופים וולקניים", "פחות תיירים"],
     combos: ["lake-bunyonyi"],
@@ -355,7 +365,7 @@ export const parks: Park[] = [
     importantInfo: [
       "עונות השנה: אוגנדה על קו המשווה ולכן ניתן לטייל כל השנה.",
       "עונה יבשה (יוני–ספטמבר, דצמבר–פברואר): שבילים נוחים יותר לטרקים, מומלץ במיוחד.",
-      "עונה רטובה (מרץ–מאי, ספטמבר–נובמבר): שבילים חלקלקים יותר, פחות תיירים ומחירים נוחים יותר.",
+      "עונה רטובה (מרץ–מאי, ספטמבר–נובמבר): שבילים חלקלקים יותר, פחות תיירים.",
       "נסיעה והגעה: כ־9–10 שעות מקמפלה. נסיעה מקיגאלי (רואנדה): כ־3–4 שעות בלבד.",
       "שערי כניסה: הפעילויות יוצאות ממרכז המבקרים הראשי של הפארק (Ntebeko Visitor Centre).",
       "חוויות ייחודיות: טרקינג גורילות, טרקינג קופים זהובים (Golden Monkeys), טיפוס הרי געש כבויים (Mt. Sabyinyo, Mt. Gahinga, Mt. Muhabura).",
@@ -370,7 +380,6 @@ export const parks: Park[] = [
     family: true,
     night_drive: false,
     boat: false,
-    cost_est: "$$",
     season: "כל השנה",
     highlights: ["מעקב אחר שימפנזים", "יער טרופי", "13 מיני פרימטים"],
     combos: ["crater-lakes"],
@@ -398,7 +407,6 @@ export const parks: Park[] = [
     family: true,
     night_drive: false,
     boat: false,
-    cost_est: "$$",
     season: "כל השנה",
     highlights: ["יער גשם תת־קרקעי", "טרק ייחודי", "קופים אדומים"],
     combos: ["queen-elizabeth"],
@@ -428,7 +436,6 @@ export const parks: Park[] = [
     family: true,
     night_drive: false,
     boat: false,
-    cost_est: "$$",
     season: "דצמבר-פברואר, יוני-ספטמבר",
     highlights: ["הר געש כבוי", "קלדרה עצומה", "מפלי סיפי"],
     combos: ["sipi-falls"],
@@ -456,7 +463,6 @@ export const parks: Park[] = [
     family: false,
     night_drive: false,
     boat: false,
-    cost_est: "$$$",
     season: "דצמבר-פברואר, יוני-אוגוסט",
     highlights: ["קרחונים על קו המשווה", "חמישה אזורי צמחייה", "פסגת מרגריטה"],
     combos: [],
@@ -481,12 +487,13 @@ export const parks: Park[] = [
   {
     slug: "sipi-falls",
     name: "מפלי סיפי",
+    heroTitle: "מפלי סיפי",
+    generalTitle: "מפלי סיפי",
     category: "water",
     area: "מזרח",
     family: true,
     night_drive: false,
     boat: false,
-    cost_est: "$",
     season: "כל השנה (עדיף יבש)",
     highlights: ["שלושה מפלים", "טרקים", "גלישת חבלים", "סיורי קפה"],
     combos: ["mount-elgon"],
@@ -508,11 +515,10 @@ export const parks: Park[] = [
     slug: "white-nile-rafting",
     name: "ג'ינג'ה – מקור הנילוס",
     category: "water",
-    area: "מזרח (ג'ינג'ה)",
+    area: "מז׳ אוגנדה",
     family: false,
     night_drive: false,
     boat: true,
-    cost_est: "$$",
     season: "כל השנה",
     highlights: ["רפטינג Class V", "מקור הנילוס", "בנג'י"],
     combos: ["source-of-nile"],
@@ -540,7 +546,6 @@ export const parks: Park[] = [
     family: true,
     night_drive: false,
     boat: true,
-    cost_est: "$",
     season: "כל השנה",
     highlights: ["שייט", "דיג", "חופים", "צפרות"],
     combos: [],
@@ -566,7 +571,6 @@ export const parks: Park[] = [
     family: true,
     night_drive: false,
     boat: true,
-    cost_est: "$",
     season: "כל השנה",
     highlights: ["29 איים", "שייט רגוע", "נופים מרהיבים"],
     combos: ["bwindi-gorillas"],
@@ -594,7 +598,6 @@ export const parks: Park[] = [
     family: true,
     night_drive: false,
     boat: true,
-    cost_est: "$$",
     season: "כל השנה",
     highlights: ["שייט לבסיס המפלים", "היפופוטמים", "תנינים", "ציפורי מים"],
     combos: ["murchison-falls-safari"],

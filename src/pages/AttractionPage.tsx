@@ -21,6 +21,7 @@ import GeneralDescription from "../components/AttractionPage/GeneralDescription"
 import AttractionMap from "../components/AttractionPage/AttractionMap";
 import AttractionExperiences from "../components/AttractionPage/AttractionExperiences";
 import AttractionServices from "../components/AttractionPage/AttractionServices";
+import { useWishlist } from "../contexts/WishlistContext";
 
 // המרת פארקים לפורמט Attraction
 const parksAsAttractions: AttractionWithMock[] = parks.map(park => ({
@@ -63,6 +64,68 @@ const getImageSrc = (item: string | any): string => {
 const AttractionPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const [isAdded, setIsAdded] = useState(false);
+  const { items, addItem, removeItem } = useWishlist();
+
+  // בדיקה אם האטרקציה נמצאת ב-wishlist
+  const isInWishlist = items.some(item => item.attractionId === id);
+
+  // פונקציה לטיפול בלחיצה על כפתור הוספה למסלול
+  const handleAddToWishlist = () => {
+    if (!a) return;
+
+    if (isInWishlist) {
+      const existingItem = items.find(item => item.attractionId === a.id);
+      if (existingItem) {
+        removeItem(existingItem.id);
+      }
+    } else {
+      // יצירת פריט wishlist עם resolutions ברירת מחדל
+      const defaultResolutions = [
+        {
+          id: 'accommodation-luxury',
+          type: 'accommodation',
+          name: 'Sanctuary Gorilla Forest Camp',
+          description: 'יוקרתי בלב היער',
+          price: '',
+          selected: false
+        },
+        {
+          id: 'accommodation-standard',
+          type: 'accommodation',
+          name: 'Buhoma Lodge',
+          description: 'נוף ישיר ליער',
+          price: '',
+          selected: false
+        },
+        {
+          id: 'transport-flight',
+          type: 'transport',
+          name: 'טיסה פנימית',
+          description: 'מאנטבה לקיסורו (שעה)',
+          price: '',
+          selected: false
+        },
+        {
+          id: 'transport-drive',
+          type: 'transport',
+          name: 'נסיעה ברכב',
+          description: '8-9 שעות מקמפלה',
+          price: '',
+          selected: true
+        }
+      ];
+
+      addItem({
+        id: `attraction-${a.id}`,
+        attractionId: a.id,
+        name: a.name,
+        subtitle: a.category,
+        image: a.heroImage || a.gallery?.[0] || '',
+        basePrice: '',
+        resolutions: defaultResolutions
+      });
+    }
+  };
 
   const a = useMemo(() => {
     if (!id) return undefined;
@@ -118,24 +181,25 @@ const AttractionPage: React.FC = () => {
       <div className="container mx-auto max-w-screen-xl px-4 py-8 md:py-10 space-y-6">
 
         {/* הדרכה ל-Wishlist */}
-        <div className="bg-gradient-to-r from-amber-50 to-orange-50 border border-[#CAA131]/50 rounded-2xl p-5 flex items-center gap-4 shadow-lg order-1 md:order-none">
+        <div className="bg-gradient-to-r from-amber-50 to-orange-50 border border-[#CAA131]/50 rounded-2xl p-4 md:p-5 flex items-center gap-3 md:gap-4 shadow-lg order-1 md:order-none">
           <div className="bg-amber-500 text-white rounded-full p-2 flex-shrink-0">
-            <Route className="w-5 h-5" />
+            <Route className="w-4 h-4 md:w-5 md:h-5" />
           </div>
-          <div className="flex-1">
-            <h3 className="font-bold text-black">בונה מסלול חכם</h3>
-            <p className="text-black text-sm">הוסף חוויות למסלול שלך ואנחנו נבנה לך תכנית טיול מושלמת עם מחירים ומפת נסיעה</p>
+          <div className="flex-1 min-w-0">
+            <h3 className="font-bold text-black text-sm md:text-base">בונה מסלול חכם</h3>
+            <p className="text-black text-xs md:text-sm hidden md:block">הוסף חוויות למסלול שלך ואנחנו נבנה לך תכנית טיול מושלמת עם מפת נסיעה</p>
+            <p className="text-black text-xs md:hidden">הוסף חוויות למסלול שלך</p>
           </div>
           <div className="flex-shrink-0">
             <button
-              onClick={() => setIsAdded(!isAdded)}
-              className={`px-6 py-2 rounded-full font-bold text-sm shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 ${
-                isAdded
+              onClick={handleAddToWishlist}
+              className={`px-4 py-2 md:px-6 md:py-2 rounded-full font-bold text-xs md:text-sm shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 ${
+                isInWishlist
                   ? 'bg-gradient-to-r from-green-500 to-green-600 text-white'
                   : 'bg-gradient-to-r from-[#CAA131] to-[#B8942A] text-black hover:from-[#B8942A] hover:to-[#A68525]'
               }`}
             >
-              {isAdded ? 'נוסף למסלול!' : 'הוסף מסלול'}
+              {isInWishlist ? 'נוסף למסלול!' : 'הוסף מסלול'}
             </button>
           </div>
         </div>
@@ -145,7 +209,7 @@ const AttractionPage: React.FC = () => {
           {/* Left side: General description */}
           <div className="h-full">
             <GeneralDescription 
-              title={a.subtitle || a.name}
+              title={a.generalTitle || a.name}
               description={a.description || ''}
             />
           </div>

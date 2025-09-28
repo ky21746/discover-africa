@@ -220,9 +220,8 @@ const AccessibilityStatement: React.FC = () => {
             <div className="bg-blue-50 p-6 rounded-lg mb-4">
               <h3 className="font-semibold text-gray-900 mb-3">רכז נגישות:</h3>
               <div className="space-y-2 text-gray-700">
-                <p><strong>שם:</strong> יוסי כהן</p>
-                <p><strong>טלפון:</strong> +972-50-123-4568</p>
-                <p><strong>דוא"ל:</strong> accessibility@uganda-adventures.co.il</p>
+                <p><strong>דוא"ל:</strong> info@discoverafrica.co.il</p>
+                <p><strong>טלפון:</strong> +972-54-615-2683</p>
                 <p><strong>זמני מענה:</strong> ימים א'-ה', 9:00-17:00</p>
               </div>
             </div>

@@ -1,5 +1,5 @@
 // src/contexts/WishlistContext.tsx
-import React, { createContext, useContext, useState, ReactNode } from 'react';
+import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 
 // Types for Wishlist
 export interface WishlistResolution {
@@ -31,13 +31,40 @@ interface WishlistContextType {
   toggleSidebar: () => void;
   getTotalItems: () => number;
   getTotalPrice: () => number;
+  clearWishlist: () => void;
 }
 
 const WishlistContext = createContext<WishlistContextType | undefined>(undefined);
 
 export const WishlistProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [items, setItems] = useState<WishlistItem[]>([]);
+  // טעינת נתונים מ-localStorage בהתחלה
+  const [items, setItems] = useState<WishlistItem[]>(() => {
+    try {
+      const saved = localStorage.getItem('discover-africa-wishlist');
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        // המרת addedAt מ-string ל-Date
+        return parsed.map((item: any) => ({
+          ...item,
+          addedAt: new Date(item.addedAt)
+        }));
+      }
+    } catch (error) {
+      console.error('שגיאה בטעינת wishlist מ-localStorage:', error);
+    }
+    return [];
+  });
+  
   const [isOpen, setIsOpen] = useState(false);
+
+  // שמירה אוטומטית ב-localStorage בכל פעם שהפריטים משתנים
+  useEffect(() => {
+    try {
+      localStorage.setItem('discover-africa-wishlist', JSON.stringify(items));
+    } catch (error) {
+      console.error('שגיאה בשמירת wishlist ל-localStorage:', error);
+    }
+  }, [items]);
 
   const addItem = (newItem: Omit<WishlistItem, 'addedAt'>) => {
     const existingItem = items.find(item => item.attractionId === newItem.attractionId);
@@ -72,14 +99,16 @@ export const WishlistProvider: React.FC<{ children: ReactNode }> = ({ children }
   const getTotalItems = () => items.length;
 
   const getTotalPrice = () => {
-    return items.reduce((total, item) => {
-      const basePrice = parseInt(item.basePrice.replace(/[^0-9]/g, '')) || 0;
-      const resolutionsPriceAdd = item.resolutions
-        .filter(res => res.selected && res.price)
-        .reduce((sum, res) => sum + (parseInt(res.price!.replace(/[^0-9]/g, '')) || 0), 0);
-      
-      return total + basePrice + resolutionsPriceAdd;
-    }, 0);
+    return 0;
+  };
+
+  const clearWishlist = () => {
+    setItems([]);
+    try {
+      localStorage.removeItem('discover-africa-wishlist');
+    } catch (error) {
+      console.error('שגיאה במחיקת wishlist מ-localStorage:', error);
+    }
   };
 
   return (
@@ -91,7 +120,8 @@ export const WishlistProvider: React.FC<{ children: ReactNode }> = ({ children }
       updateResolution,
       toggleSidebar,
       getTotalItems,
-      getTotalPrice
+      getTotalPrice,
+      clearWishlist
     }}>
       {children}
     </WishlistContext.Provider>

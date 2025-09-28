@@ -1,7 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const AttractionExperiences: React.FC = () => {
+interface AttractionExperiencesProps {
+  nearby?: string[];
+}
+
+const AttractionExperiences: React.FC<AttractionExperiencesProps> = ({ nearby = [] }) => {
   return (
     <div className="md:col-span-1 order-7 md:order-none">
       <section className="bg-white border border-[#534B20]/60 rounded-3xl p-6 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.01] h-full">

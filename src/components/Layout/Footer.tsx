@@ -20,13 +20,31 @@ const Footer: React.FC = () => {
               מתמחים בטיולי הרפתקה מותאמים אישית באוגנדה. חוויות בלתי נשכחות עם שירות אישי ברמה הגבוהה ביותר.
             </p>
             <div className="flex space-x-reverse space-x-4">
-              <a href="#" aria-label="Facebook" className="text-gray-300 hover:text-primary transition-colors">
+              <a 
+                href="https://www.facebook.com/profile.php?id=61580329149179" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                aria-label="Facebook" 
+                className="text-gray-300 hover:text-primary transition-colors"
+              >
                 <Facebook className="w-5 h-5" />
               </a>
-              <a href="#" aria-label="Instagram" className="text-gray-300 hover:text-primary transition-colors">
+              <a 
+                href="https://www.instagram.com/discoverafrica.co.il/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                aria-label="Instagram" 
+                className="text-gray-300 hover:text-primary transition-colors"
+              >
                 <Instagram className="w-5 h-5" />
               </a>
-              <a href="#" aria-label="YouTube" className="text-gray-300 hover:text-primary transition-colors">
+              <a 
+                href="https://www.youtube.com/channel/UCv_7hucJqy0DqS3PjXOvvaw" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                aria-label="YouTube" 
+                className="text-gray-300 hover:text-primary transition-colors"
+              >
                 <Youtube className="w-5 h-5" />
               </a>
             </div>
@@ -46,9 +64,6 @@ const Footer: React.FC = () => {
                 <Link to="/blog" className="text-gray-300 hover:text-primary transition-colors">בלוג</Link>
               </li>
               <li>
-                <Link to="/testimonials" className="text-gray-300 hover:text-primary transition-colors">לקוחות מספרים</Link>
-              </li>
-              <li>
                 <Link to="/faq" className="text-gray-300 hover:text-primary transition-colors">שאלות נפוצות</Link>
               </li>
               <li>
@@ -60,13 +75,16 @@ const Footer: React.FC = () => {
           {/* Services */}
           <div>
             <h4 className="text-lg font-semibold mb-4">השירותים שלנו</h4>
-            <ul className="space-y-2 text-gray-300">
-              <li>טיולי ספארי</li>
-              <li>מפגשי פרימטים</li>
-              <li>פעילויות מים</li>
-              <li>טרקים בהרים</li>
-              <li>חוויות תרבותיות</li>
-              <li>טיולי יוקרה</li>
+            <ul className="space-y-2">
+              <li>
+                <Link to="/services/bar-aviation" className="text-gray-300 hover:text-primary transition-colors">Bar Aviation</Link>
+              </li>
+              <li>
+                <Link to="/services/bar-sos" className="text-gray-300 hover:text-primary transition-colors">Bar SOS</Link>
+              </li>
+              <li>
+                <Link to="/services/extreme-park" className="text-gray-300 hover:text-primary transition-colors">Extreme Park</Link>
+              </li>
             </ul>
             <div className="mt-4 pt-4 border-t border-gray-700">
               <Link to="/services/bar-sos" className="text-[#CAA131] hover:text-[#B8942A] transition-colors text-sm">
@@ -95,15 +113,6 @@ const Footer: React.FC = () => {
               </div>
             </div>
             
-            {/* Company Information */}
-            <div className="mt-6 pt-4 border-t border-gray-700">
-              <div className="text-sm text-gray-400 space-y-1">
-                <p>Discover Africa מופעל על ידי Yuval Katz, עוסק מורשה</p>
-                <p>גבעון 13, גני תקווה, מרכז 5591110, ישראל</p>
-                <p className="text-xs text-gray-500 mt-2">Discover Africa is operated by Yuval Katz, Sole Proprietor</p>
-                <p className="text-xs text-gray-500">Givon 13, Ganei Tikva, Center 5591110, Israel</p>
-              </div>
-            </div>
           </div>
         </div>
         

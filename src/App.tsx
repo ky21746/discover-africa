@@ -14,6 +14,11 @@ import PlanYourTrip from "./pages/PlanYourTrip";
 import FAQ from "./pages/FAQ";
 import Contact from "./pages/Contact";
 import AttractionPage from "./pages/AttractionPage";
+import ToursPage from "./pages/ToursPage";
+import Tour1Day from "./pages/tours/Tour1Day";
+import Tour5Days from "./pages/tours/Tour5Days";
+import Tour10Days from "./pages/tours/Tour10Days";
+import Tour11Days from "./pages/tours/Tour11Days";
 import CookieBanner from "./components/CookieBanner";
 import WhatsAppFloat from "./components/WhatsAppFloat";
 
@@ -47,7 +52,6 @@ import ExtremePark from "./pages/services/ExtremePark";
 // Wishlist imports
 import { WishlistProvider } from "./contexts/WishlistContext";
 import { WishlistSidebar } from "./components/Wishlist/WishlistSidebar";
-import { WishlistFloatingButton } from "./components/Wishlist/WishlistFloatingButton";
 
 // Scroll fix component
 import { useEffect } from "react";
@@ -98,6 +102,12 @@ export default function App() {
             {/* אטרקציה דינמית */}
             <Route path="/attraction/:id" element={<AttractionPage />} />
             
+            {/* מסלולים מוכנים */}
+            <Route path="/tours" element={<ToursPage />} />
+            <Route path="/tours/1-day" element={<Tour1Day />} />
+            <Route path="/tours/5-days" element={<Tour5Days />} />
+            <Route path="/tours/10-days" element={<Tour10Days />} />
+            <Route path="/tours/11-days" element={<Tour11Days />} />
             
             {/* בלוג */}
             <Route path="/blog" element={<Blog />} />
@@ -127,7 +137,6 @@ export default function App() {
         
         {/* Wishlist Components - מחוץ ל-Layout */}
         <WishlistSidebar />
-        <WishlistFloatingButton />
       </Router>
     </WishlistProvider>
   );

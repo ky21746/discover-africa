@@ -51,8 +51,8 @@ const SafariPage: React.FC = () => {
             <h1 className="text-4xl md:text-5xl font-bold drop-shadow-md whitespace-nowrap">
               ספארי באוגנדה
             </h1>
-            <p className="hidden md:block text-lg md:text-xl max-w-3xl mx-auto drop-shadow-md">
-              גלו את חוויית הספארי המרהיבה של אוגנדה - ממורצ'יסון ועד המלכה אליזבת
+            <p className="hidden md:block text-lg md:text-xl max-w-3xl mx-auto drop-shadow-md whitespace-nowrap">
+              חוויית ספארי מרהיבה ממורצ'יסון ועד המלכה אליזבת
             </p>
             
           </div>

@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { MapPin, Phone, Mail, Clock, MessageCircle } from 'lucide-react';
 import { ContactForm } from '../types';
 import emailjs from '@emailjs/browser';
+import ReCAPTCHA from "react-google-recaptcha";
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState<ContactForm>({
@@ -16,6 +17,7 @@ const Contact: React.FC = () => {
   const [errors, setErrors] = useState<Partial<ContactForm>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const recaptchaRef = useRef(null);
 
   const validateForm = (): boolean => {
     const newErrors: Partial<ContactForm> = {};
@@ -62,17 +64,20 @@ const Contact: React.FC = () => {
     try {
       // EmailJS configuration
       const serviceId = 'service_f70116g';
-      const templateId = 'template_contact';
+      const templateId = 'template_p4abc4m';
       const publicKey = 'fffzoME-DNQ1xssuP';
+
+      const token = await recaptchaRef.current.executeAsync();
+      recaptchaRef.current.reset();
 
       // Prepare template parameters
       const templateParams = {
-        from_name: formData.fullName,
-        from_email: formData.email,
+        name: formData.fullName,
+        email: formData.email,
         phone: formData.phone,
-        subject: formData.subject,
+        title: formData.subject,
         message: formData.message,
-        to_email: 'info@discoverafrica.co.il'
+        "g-recaptcha-response": token
       };
 
       // Send email using EmailJS
@@ -254,6 +259,12 @@ const Contact: React.FC = () => {
                 </label>
               </div>
 
+              <ReCAPTCHA
+                sitekey="6Lcwa9ErAAAAAGQyrvEyb9JlkkipAC7aqOm8wwGy"
+                size="invisible"
+                ref={recaptchaRef}
+              />
+
               <button
                 type="submit"
                 disabled={isSubmitting}
@@ -314,18 +325,6 @@ const Contact: React.FC = () => {
               </div>
             </div>
 
-            {/* Company Information */}
-            <div className="bg-surface rounded-2xl p-8">
-              <h2 className="text-2xl font-bold mb-6 font-sans">פרטי החברה</h2>
-              <div className="space-y-4">
-                <div className="text-muted font-sans leading-relaxed">
-                  <p className="mb-2">Discover Africa מופעל על ידי Yuval Katz, עוסק מורשה</p>
-                  <p className="mb-2">גבעון 13, גני תקווה, מרכז 5591110, ישראל</p>
-                  <p className="text-sm text-gray-500 mt-4">Discover Africa is operated by Yuval Katz, Sole Proprietor</p>
-                  <p className="text-sm text-gray-500">Givon 13, Ganei Tikva, Center 5591110, Israel</p>
-                </div>
-              </div>
-            </div>
 
 
           </div>

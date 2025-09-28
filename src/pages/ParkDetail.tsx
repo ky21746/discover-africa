@@ -11,9 +11,11 @@ import {
   Ticket,
   Star,
   ChevronDown,
+  Route,
 } from "lucide-react";
 import { getParkBySlug, getRelatedParks, getParkBySlug as findPark, Park } from "../data/parks";
 import { categories } from "../data/categories";
+import { useWishlist } from "../contexts/WishlistContext";
 
 type TravelerType = "משפחות" | "זוגות" | "בודדים" | "קבוצה";
 
@@ -21,12 +23,74 @@ const ParkDetail: React.FC = () => {
   // התאמה למסלול: /category/:slug/:parkSlug
   const { slug, parkSlug } = useParams<{ slug: string; parkSlug: string }>();
   const park = getParkBySlug(parkSlug || "");
+  const { items, addItem, removeItem } = useWishlist();
 
   // איתור הקטגוריה להצגת פירורי לחם
   const category = categories.find((cat: any) => {
     const kebab = cat.name.toLowerCase().replace(/\s+/g, "-");
     return (cat.slug ? cat.slug === slug : kebab === slug);
   });
+
+  // בדיקה אם הפארק נמצא ב-wishlist
+  const isInWishlist = items.some(item => item.attractionId === park?.slug);
+
+  // פונקציה לטיפול בלחיצה על כפתור הוספה למסלול
+  const handleAddToWishlist = () => {
+    if (!park) return;
+
+    if (isInWishlist) {
+      const existingItem = items.find(item => item.attractionId === park.slug);
+      if (existingItem) {
+        removeItem(existingItem.id);
+      }
+    } else {
+      // יצירת פריט wishlist עם resolutions ברירת מחדל
+      const defaultResolutions = [
+        {
+          id: 'accommodation-luxury',
+          type: 'accommodation',
+          name: 'Sanctuary Gorilla Forest Camp',
+          description: 'יוקרתי בלב היער',
+          price: '',
+          selected: false
+        },
+        {
+          id: 'accommodation-standard',
+          type: 'accommodation',
+          name: 'Buhoma Lodge',
+          description: 'נוף ישיר ליער',
+          price: '',
+          selected: false
+        },
+        {
+          id: 'transport-flight',
+          type: 'transport',
+          name: 'טיסה פנימית',
+          description: 'מאנטבה לקיסורו (שעה)',
+          price: '',
+          selected: false
+        },
+        {
+          id: 'transport-drive',
+          type: 'transport',
+          name: 'נסיעה ברכב',
+          description: '8-9 שעות מקמפלה',
+          price: '',
+          selected: true
+        }
+      ];
+
+      addItem({
+        id: `park-${park.slug}`,
+        attractionId: park.slug,
+        name: park.name,
+        subtitle: park.area,
+        image: park.image,
+        basePrice: '',
+        resolutions: defaultResolutions
+      });
+    }
+  };
 
   if (!park || !category) {
     return (
@@ -74,7 +138,6 @@ const ParkDetail: React.FC = () => {
       { icon: <MapPin className="w-5 h-5" />, label: "אזור", value: park.area },
       { icon: <Calendar className="w-5 h-5" />, label: "עונה מומלצת", value: park.season },
       { icon: <Gauge className="w-5 h-5" />, label: "רמת קושי", value: difficulty },
-      { icon: <DollarSign className="w-5 h-5" />, label: "עלות/רישיון", value: licenseCost ?? park.cost_est },
       { icon: <Users className="w-5 h-5" />, label: "למשפחות", value: park.family ? "כן" : "לא" },
       { icon: <Baby className="w-5 h-5" />, label: "גיל מינימום", value: typeof minAge === "number" ? minAge : undefined },
       { icon: <Ticket className="w-5 h-5" />, label: "משך פעילות", value: durationHrs ? `${durationHrs} שעות` : undefined },
@@ -462,21 +525,26 @@ const ParkDetail: React.FC = () => {
       <div className="container mx-auto max-w-screen-xl px-4 py-8 md:py-10 space-y-6">
         
         {/* הדרכה ל-Wishlist */}
-        <div className="bg-gradient-to-r from-amber-50 to-orange-50 border border-[#CAA131]/50 rounded-2xl p-5 flex items-center gap-4 shadow-lg">
+        <div className="bg-gradient-to-r from-amber-50 to-orange-50 border border-[#CAA131]/50 rounded-2xl p-4 md:p-5 flex items-center gap-3 md:gap-4 shadow-lg">
           <div className="bg-amber-500 text-white rounded-full p-2 flex-shrink-0">
-            <MapPin className="w-5 h-5" />
+            <MapPin className="w-4 h-4 md:w-5 md:h-5" />
           </div>
-          <div className="flex-1">
-            <h3 className="font-bold text-black">בונה מסלול חכם</h3>
-            <p className="text-black text-sm">הוסף חוויות למסלול שלך ואנחנו נבנה לך תכנית טיול מושלמת עם מחירים ומפת נסיעה</p>
+          <div className="flex-1 min-w-0">
+            <h3 className="font-bold text-black text-sm md:text-base">בונה מסלול חכם</h3>
+            <p className="text-black text-xs md:text-sm hidden md:block">הוסף חוויות למסלול שלך ואנחנו נבנה לך תכנית טיול מושלמת עם מפת נסיעה</p>
+            <p className="text-black text-xs md:hidden">הוסף חוויות למסלול שלך</p>
           </div>
           <div className="flex-shrink-0">
-            <Link
-              to="/contact"
-              className="px-6 py-2 rounded-full font-bold text-sm shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 bg-gradient-to-r from-[#CAA131] to-[#B8942A] text-black hover:from-[#B8942A] hover:to-[#A68525]"
+            <button
+              onClick={handleAddToWishlist}
+              className={`px-4 py-2 md:px-6 md:py-2 rounded-full font-bold text-xs md:text-sm shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105 ${
+                isInWishlist
+                  ? 'bg-gradient-to-r from-green-500 to-green-600 text-white'
+                  : 'bg-gradient-to-r from-[#CAA131] to-[#B8942A] text-black hover:from-[#B8942A] hover:to-[#A68525]'
+              }`}
             >
-              הוסף מסלול
-            </Link>
+              {isInWishlist ? 'נוסף למסלול!' : 'הוסף מסלול'}
+            </button>
           </div>
         </div>
 
@@ -488,7 +556,7 @@ const ParkDetail: React.FC = () => {
             <div className="md:col-span-2">
               <section className="bg-gradient-to-br from-white via-gray-50 to-white border border-[#534B20]/60 rounded-3xl p-8 md:p-10 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.01] h-full">
                 <div className="space-y-8">
-                  <h2 className="text-2xl font-bold text-[#4B361C] mb-6 leading-tight">{park.summary || park.description.split("\n\n")[0]}</h2>
+                  <h2 className="text-2xl font-bold text-[#4B361C] mb-6 leading-tight">{park.generalTitle || park.summary || park.description.split("\n\n")[0]}</h2>
                   
                   <div className="prose prose-lg max-w-none">
                     <p className="text-body leading-relaxed text-gray-700 font-medium">

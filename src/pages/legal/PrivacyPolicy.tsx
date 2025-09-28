@@ -195,15 +195,11 @@ const PrivacyPolicy: React.FC = () => {
             <div className="space-y-3">
               <div className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-primary" />
-                <span>info@uganda-adventures.co.il</span>
+                <span>info@discoverafrica.co.il</span>
               </div>
               <div className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-primary" />
-                <span>+972-50-123-4567</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <MapPin className="w-5 h-5 text-primary" />
-                <span>רחוב הרצל 123, תל אביב</span>
+                <span>+972-54-615-2683</span>
               </div>
             </div>
           </section>

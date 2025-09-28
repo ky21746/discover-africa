@@ -6,6 +6,7 @@ import { getParkBySlug } from '../../data/parks';
 import { gorillasChimps } from '../../content/categories/gorillas-chimps';
 import { safari } from '../../content/categories/safari';
 import { water } from '../../content/categories/water';
+import { mountains } from '../../content/categories/mountains';
 
 interface BreadcrumbItem {
   label: string;
@@ -74,10 +75,10 @@ const attractionNames: { [key: string]: string } = {
   'rwenzori-mountains': 'פארק לאומי הרי הרוונזורי'
 };
 
-// פונקציה למציאת אטרקציה לפי ID
+// פונקציה למציאת אטרקציה לפי ID או slug
 const findAttractionById = (id: string) => {
-  const allAttractions = [...gorillasChimps, ...safari, ...water];
-  return allAttractions.find(attraction => attraction.id === id);
+  const allAttractions = [...gorillasChimps, ...safari, ...water, ...mountains];
+  return allAttractions.find(attraction => attraction.id === id || attraction.slug === id);
 };
 
 const SmartBreadcrumbs: React.FC = () => {
@@ -128,8 +129,8 @@ const SmartBreadcrumbs: React.FC = () => {
       return items;
     }
 
-    // קטגוריות דינמיות /category/:slug
-    if (pathname.startsWith('/category/') && !pathname.includes('/category/') + 1) {
+    // קטגוריות דינמיות /category/:slug (רק אם אין parkSlug)
+    if (pathname.startsWith('/category/') && !pathname.match(/^\/category\/[^\/]+\/[^\/]+$/)) {
       const slug = params.slug;
       if (slug) {
         const category = categories.find(cat => cat.slug === slug);
@@ -160,7 +161,28 @@ const SmartBreadcrumbs: React.FC = () => {
         const attraction = findAttractionById(id);
         if (attraction) {
           items.push({ label: "קטגוריות", path: "/categories" });
-          items.push({ label: categoryNames[attraction.category] || attraction.category, path: `/category/${attraction.category}` });
+          // קביעת הקטגוריה לפי סוג האטרקציה
+          let categoryPath = '';
+          let categoryLabel = '';
+          
+          if (attraction.category === 'safari') {
+            categoryPath = '/safari';
+            categoryLabel = 'ספארי';
+          } else if (attraction.category === 'gorillas-chimps') {
+            categoryPath = '/gorillas';
+            categoryLabel = 'גורילות ושימפנזים';
+          } else if (attraction.category === 'water') {
+            categoryPath = '/water';
+            categoryLabel = 'אגמים, מפלים ונהרות';
+          } else if (attraction.category === 'mountains') {
+            categoryPath = '/mountains';
+            categoryLabel = 'הרים';
+          } else {
+            categoryPath = `/category/${attraction.category}`;
+            categoryLabel = categoryNames[attraction.category] || attraction.category;
+          }
+          
+          items.push({ label: categoryLabel, path: categoryPath });
           items.push({ label: attractionNames[id] || attraction.name });
         } else {
           items.push({ label: "קטגוריות", path: "/categories" });
@@ -180,6 +202,22 @@ const SmartBreadcrumbs: React.FC = () => {
         items.push({ label: "Bar SOS" });
       } else if (pathname === '/services/extreme-park') {
         items.push({ label: "Extreme Adventure Park" });
+      }
+      return items;
+    }
+
+    // עמודי מסלולי טיולים
+    if (pathname.startsWith('/tours')) {
+      items.push({ label: "מסלולים", path: "/tours" });
+      
+      if (pathname === '/tours/1-day') {
+        items.push({ label: "מסלול יום אחד" });
+      } else if (pathname === '/tours/5-days') {
+        items.push({ label: "מסלול 5 ימים" });
+      } else if (pathname === '/tours/10-days') {
+        items.push({ label: "מסלול 10 ימים" });
+      } else if (pathname === '/tours/11-days') {
+        items.push({ label: "מסלול 11 ימים" });
       }
       return items;
     }
@@ -227,9 +265,35 @@ const SmartBreadcrumbs: React.FC = () => {
   }
 
   return (
-    <nav aria-label="breadcrumb" className="bg-gray-50 border-b sticky top-0 z-40 shadow-sm">
+    <nav aria-label="breadcrumb" className="bg-gray-50 border-b sticky top-[73px] z-40 shadow-sm">
       <div className="container mx-auto max-w-screen-xl px-4 py-3">
-        <ol className="flex items-center space-x-2 rtl:space-x-reverse text-sm text-gray-600">
+        {/* במובייל - גלילה אופקית */}
+        <div className="md:hidden overflow-x-auto scrollbar-hide" style={{ WebkitOverflowScrolling: 'touch' }}>
+          <ol className="flex items-center space-x-2 rtl:space-x-reverse text-sm text-gray-600 whitespace-nowrap min-w-max">
+            {breadcrumbs.map((item, index) => (
+              <li key={index} className="flex items-center flex-shrink-0">
+                {index > 0 && (
+                  <ChevronLeft className="w-4 h-4 mx-2 text-gray-400 flex-shrink-0" />
+                )}
+                {item.path && index < breadcrumbs.length - 1 ? (
+                  <Link
+                    to={item.path}
+                    className="hover:text-[#CAA131] transition-colors"
+                  >
+                    {item.label}
+                  </Link>
+                ) : (
+                  <span className={index === breadcrumbs.length - 1 ? 'text-gray-900 font-medium' : ''}>
+                    {item.label}
+                  </span>
+                )}
+              </li>
+            ))}
+          </ol>
+        </div>
+        
+        {/* בדסקטופ - תצוגה רגילה */}
+        <ol className="hidden md:flex items-center space-x-2 rtl:space-x-reverse text-sm text-gray-600">
           {breadcrumbs.map((item, index) => (
             <li key={index} className="flex items-center">
               {index > 0 && (

@@ -47,11 +47,11 @@ const GorillasPage: React.FC = () => {
         
         {/* Transparent bar at bottom */}
         <div className="absolute bottom-0 left-0 w-full h-1/4 bg-black/40 border-t-[1.5px] border-[#CAA131]/80">
-          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-center space-y-4 text-white max-w-4xl">
-            <h1 className="text-4xl md:text-5xl font-bold drop-shadow-md">
-              גורילות ושימפנזים באוגנדה
+          <div className="absolute inset-0 flex flex-col justify-center items-center text-center space-y-4 text-white max-w-4xl mx-auto px-4">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold drop-shadow-md whitespace-nowrap">
+              גורילות ושימפנזים
             </h1>
-            <p className="text-lg md:text-xl max-w-3xl mx-auto drop-shadow-md">
+            <p className="hidden lg:block text-lg md:text-xl max-w-3xl mx-auto drop-shadow-md">
               מפגשי פרימטים מרגשים: גורילות בווינדי/מגהינגה ושימפנזים בקיבאלה/קיאמבורה
             </p>
             
