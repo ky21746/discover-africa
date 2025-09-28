@@ -84,7 +84,7 @@ const AttractionHero: React.FC<AttractionHeroProps> = ({
                 <div className="text-lg font-bold text-white">{attraction.difficulty || "קל-בינוני"}</div>
               </div>
               <div className="bg-white/10 backdrop-blur-sm rounded-xl p-3 text-center flex-1 h-16 flex flex-col justify-center">
-                <div className="text-sm text-white/80 mb-1">במסלול שלי</div>
+                <div className="text-sm text-white/90 mb-1">במסלול שלי</div>
                 <WishlistButton 
                   item={{
                     id: attraction.id || attraction.slug || 'default-id',

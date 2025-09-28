@@ -297,7 +297,7 @@ const WhatsAppFloat: React.FC<WhatsAppFloatProps> = ({
               </span>
             )}
           </div>
-          <span className="text-white text-sm md:text-base font-bold whitespace-nowrap">במסלול שלי</span>
+          <span className="text-amber-900 text-sm md:text-base font-bold whitespace-nowrap">במסלול שלי</span>
         </button>
         
         {/* כפתור ווטסאפ */}
