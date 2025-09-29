@@ -256,6 +256,12 @@ export const water: Attraction[] = [
     
     funFact: "בשנת 1862 זיהה החוקר ג'ון ספייק את מפל ריפון כנקודת המוצא של הנילוס - תגלית שנחשבה לאחד הפתרונות הגיאוגרפיים הגדולים של המאה ה-19!",
     
+    // Hero section customization - שליטה ספציפית בגובה התמונה
+    heroHeight: {
+      mobile: "45vh",    // גובה 45vh במובייל
+      desktop: "45vh"    // גובה 45vh בדסקטופ
+    },
+    
     importantInfo: [
       "🛣️ **שערי כניסה**",
       "• Source of the Nile - שער ראשי עם אנדרטה היסטורית",
@@ -282,11 +288,38 @@ export const water: Attraction[] = [
     ],
     
     gallery: [
-      "https://images.pexels.com/photos/631317/pexels-photo-631317.jpeg",
-      "https://images.pexels.com/photos/1661535/pexels-photo-1661535.jpeg",
-      "https://images.pexels.com/photos/534188/pexels-photo-534188.jpeg"
+      {
+        src: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FJinja%2FJinja%E2%80%99s%20new%20suspension%20bridge%20view.webp?alt=media&token=d3f2eb7a-2ac8-4f87-a3e7-7fd97a1cb601",
+        title: "גשר התלייה החדש של ג'ינג'ה",
+        description: "נוף מרהיב של גשר התלייה החדש מעל הנילוס בג'ינג'ה"
+      },
+      {
+        src: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FJinja%2FLocal%20fishermen%20on%20the%20Nile%2C%20Jinja.webp?alt=media&token=ae30341b-f173-4dc2-9042-0edb2bc5f6cf",
+        title: "דייגים מקומיים על הנילוס",
+        description: "דייגים מקומיים עובדים על הנילוס בג'ינג'ה"
+      },
+      {
+        src: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FJinja%2FRushing%20waters%20at%20the%20Nile%20source%2C%20Jinja.webp?alt=media&token=1faf18ba-104c-4ed2-b447-b5e849c40b04",
+        title: "מים שוצפים במקור הנילוס",
+        description: "מים שוצפים במקור הנילוס בג'ינג'ה"
+      },
+      {
+        src: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FJinja%2FScenic%20view%20of%20the%20Nile%2C%20Jinja.webp?alt=media&token=b4d780c0-e229-4e1c-bec3-dfb586041546",
+        title: "נוף מרהיב של הנילוס",
+        description: "נוף פנורמי מרהיב של הנילוס בג'ינג'ה"
+      },
+      {
+        src: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FJinja%2FTraditional%20dance%20performance%20in%20Jinja.webp?alt=media&token=1b5e13c9-6c4e-400e-b74f-77054cddee7d",
+        title: "מופע ריקוד מסורתי בג'ינג'ה",
+        description: "מופע ריקוד מסורתי של תרבות הבסוגה בג'ינג'ה"
+      },
+      {
+        src: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FJinja%2FWhite-water%20rafting%20adventure%2C%20Jinja%20Nile.webp?alt=media&token=aa1b6c75-e224-41f9-9daf-1833c4bb1262",
+        title: "רפטינג אתגרי על הנילוס",
+        description: "רפטינג מים לבנים אתגרי על הנילוס בג'ינג'ה"
+      }
     ],
-    image: "https://images.pexels.com/photos/631317/pexels-photo-631317.jpeg",
+    image: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FJinja%2FJinja%E2%80%99s%20new%20suspension%20bridge%20view%20Hero.webp?alt=media&token=0db4ee52-681b-46f4-9056-a7205296e186",
     
     // Info Grid data for AttractionInfoGrid component
     infoGrid: {
