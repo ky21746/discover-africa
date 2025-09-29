@@ -120,7 +120,7 @@ export const WishlistButton: React.FC<WishlistButtonProps> = ({
           ✓ במסלול שלי
         </span>
       ) : (
-        <span className="flex items-center gap-2 text-amber-900 font-medium">
+        <span className="flex items-center gap-2 font-medium">
           <Plus className="w-4 h-4" />
           הוסף למסלול
         </span>
