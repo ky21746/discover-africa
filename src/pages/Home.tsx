@@ -54,7 +54,7 @@ const Home: React.FC = () => {
         
         {/* Content positioned at center bottom */}
         <div className="absolute bottom-8 md:bottom-12 left-1/2 transform -translate-x-1/2 text-center space-y-3 md:space-y-4 text-white drop-shadow-md max-w-2xl px-4">
-          <h1 className="text-2xl md:text-4xl font-bold leading-tight">
+          <h1 className="text-xl md:text-2xl font-bold leading-tight">
             <span className="hidden md:inline">החוויה הבאה שלך באוגנדה מתחילה כאן</span>
             <span className="md:hidden">
               <span className="whitespace-nowrap">החוויה הבאה שלך</span>
@@ -72,7 +72,7 @@ const Home: React.FC = () => {
       <section className="py-12 md:py-14 bg-surface">
         <div className="container mx-auto px-4">
           <div className="text-center mb-10 md:mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-3 md:mb-4 font-sans">
+            <h2 className="text-xl md:text-3xl font-bold mb-3 md:mb-4 font-sans">
               קטגוריות פופולריות
             </h2>
             <p className="text-lg md:text-xl text-muted font-sans">
@@ -135,7 +135,7 @@ const Home: React.FC = () => {
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-10 md:mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-3 md:mb-4 font-sans">
+            <h2 className="text-xl md:text-3xl font-bold mb-3 md:mb-4 font-sans">
               השירותים שלנו
             </h2>
             <p className="text-lg md:text-xl text-muted font-sans">
@@ -232,7 +232,7 @@ const Home: React.FC = () => {
       <section className="pt-12 md:pt-16 pb-6 md:pb-8">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 font-sans">
+            <h2 className="text-xl md:text-3xl font-bold mb-4 md:mb-6 font-sans">
               למה לבחור בנו?
             </h2>
             <p className="text-xl text-muted leading-relaxed mb-8 font-sans">
@@ -286,7 +286,7 @@ const Home: React.FC = () => {
       {/* CTA Section */}
       <section className="pt-14 pb-8 bg-[#CAA131] text-black">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-3 font-sans">
+          <h2 className="text-xl md:text-3xl font-bold mb-3 font-sans">
             מוכנים להתחיל?
           </h2>
           <p className="text-lg md:text-xl mb-6 font-sans">

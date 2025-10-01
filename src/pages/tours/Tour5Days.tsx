@@ -88,7 +88,7 @@ const Tour5Days: React.FC = () => {
         
         <div className="absolute bottom-0 left-0 right-0 p-4 md:p-8">
           <div className="container mx-auto max-w-screen-xl">
-            <h1 className="text-2xl md:text-4xl font-bold text-white mb-2 leading-tight drop-shadow-lg">
+            <h1 className="text-xl md:text-2xl font-bold text-white mb-2 leading-tight drop-shadow-lg">
               מסלול 5 ימים - ספארי טבע קלאסי באוגנדה
             </h1>
             <h2 className="text-base md:text-lg text-amber-300 font-medium mb-3 drop-shadow-lg">
@@ -147,7 +147,7 @@ const Tour5Days: React.FC = () => {
       <section className="py-8 md:py-10 bg-surface">
         <div className="container mx-auto px-4">
           <div className="text-center mb-4">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-[#4B361C] font-sans">
+            <h2 className="text-xl md:text-3xl font-bold mb-3 md:mb-4 text-[#4B361C] font-sans">
               סקירה כללית
             </h2>
             <div className="w-24 h-1 bg-[#C9A34E] mx-auto mb-8"></div>
@@ -184,7 +184,7 @@ const Tour5Days: React.FC = () => {
       <section className="pt-6 md:pt-8 pb-12 md:pb-14 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-4">
-            <h2 className="text-3xl md:text-4xl font-bold mb-2 text-[#4B361C] font-sans">
+            <h2 className="text-xl md:text-3xl font-bold mb-2 text-[#4B361C] font-sans">
               מסלול 5 ימים – יום אחרי יום
             </h2>
             <div className="w-24 h-1 bg-[#C9A34E] mx-auto mb-2"></div>
@@ -221,7 +221,7 @@ const Tour5Days: React.FC = () => {
                   </div>
                   
                   <div className="bg-white border border-[#534B20]/60 rounded-3xl p-4 md:p-8 shadow-lg hover:shadow-xl transition-all duration-500 flex flex-col">
-                  <h3 className="text-xl md:text-2xl font-bold text-[#4B361C] mb-4 border-b border-[#C9A34E] pb-2">
+                  <h3 className="text-lg md:text-xl font-bold text-[#4B361C] mb-3 md:mb-4 border-b border-[#C9A34E] pb-2">
                     {day.title}
                   </h3>
                   
@@ -299,7 +299,7 @@ const Tour5Days: React.FC = () => {
       <section className="py-12 md:py-14 bg-surface">
         <div className="container mx-auto px-4">
           <div className="text-center mb-6 md:mb-8">
-            <h2 className="text-3xl md:text-4xl font-bold mb-3 md:mb-4 font-sans border-b border-[#C9A34E] pb-2">
+            <h2 className="text-xl md:text-3xl font-bold mb-3 md:mb-4 font-sans border-b border-[#C9A34E] pb-2">
               מידע כלכלי
             </h2>
           </div>
@@ -385,7 +385,7 @@ const Tour5Days: React.FC = () => {
       <section className="py-12 md:py-14 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-10 md:mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-3 md:mb-4 font-sans">
+            <h2 className="text-xl md:text-3xl font-bold mb-3 md:mb-4 font-sans">
               איך תרצו לחוות את המסלול?
             </h2>
           </div>
@@ -429,7 +429,7 @@ const Tour5Days: React.FC = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="bg-white border border-[#C29857] rounded-lg p-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4 border-b border-[#C29857] pb-2 text-right">הערות חשובות</h2>
+              <h2 className="text-lg md:text-2xl font-bold text-gray-900 mb-3 md:mb-4 border-b border-[#C29857] pb-2 text-right">הערות חשובות</h2>
               <p className="text-gray-800 leading-relaxed text-right">
                 סדר הימים, הלינות והפעילויות עשויים להשתנות בהתאם לזמינות, מזג אוויר ותנאי שטח. 
                 תמיד יינתן פתרון חלופי ברמה דומה או גבוהה.
@@ -442,7 +442,7 @@ const Tour5Days: React.FC = () => {
       {/* Call to Action */}
       <section className="py-12 md:py-14 bg-green-800">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+          <h2 className="text-xl md:text-3xl font-bold text-white mb-4 md:mb-6">
             מוכנים לצאת למסע של חיים?
           </h2>
           <p className="text-xl text-white mb-8 max-w-2xl mx-auto">

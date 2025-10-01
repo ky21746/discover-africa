@@ -16,7 +16,7 @@ const BarSOS: React.FC = () => {
               className="h-20 w-auto"
             />
           </div>
-          <h1 className="mb-4 text-4xl md:text-5xl font-bold font-sans text-[#4B361C]">
+          <h1 className="mb-3 md:mb-4 text-2xl md:text-4xl font-bold font-sans text-[#4B361C]">
             BAR SOS – שירותי איתור וחילוץ רפואי
           </h1>
           <p className="mx-auto max-w-3xl text-lg md:text-xl text-muted font-sans">
@@ -27,7 +27,7 @@ const BarSOS: React.FC = () => {
         {/* תיאור כללי */}
         <div className="mb-12">
           <div className="bg-white rounded-2xl shadow-lg p-8">
-            <h2 className="text-2xl font-bold text-[#4B361C] mb-6 border-b-2 border-[#CAA131] w-fit">
+            <h2 className="text-lg md:text-2xl font-bold text-[#4B361C] mb-4 md:mb-6 border-b-2 border-[#CAA131] w-fit">
               תיאור כללי
             </h2>
             <div className="prose prose-lg max-w-none text-[#4B361C] leading-relaxed">
@@ -50,7 +50,7 @@ const BarSOS: React.FC = () => {
         {/* שירותים מרכזיים */}
         <div className="mb-12">
           <div className="bg-white rounded-2xl shadow-lg p-8">
-            <h2 className="text-2xl font-bold text-[#4B361C] mb-6 border-b-2 border-[#CAA131] w-fit">
+            <h2 className="text-lg md:text-2xl font-bold text-[#4B361C] mb-4 md:mb-6 border-b-2 border-[#CAA131] w-fit">
               שירותים מרכזיים
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -126,7 +126,7 @@ const BarSOS: React.FC = () => {
         {/* גלריה */}
         <div className="mb-12">
           <div className="bg-white rounded-2xl shadow-lg p-8">
-            <h2 className="text-2xl font-bold text-[#4B361C] mb-6 border-b-2 border-[#CAA131] w-fit">
+            <h2 className="text-lg md:text-2xl font-bold text-[#4B361C] mb-4 md:mb-6 border-b-2 border-[#CAA131] w-fit">
               גלריה
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -184,7 +184,7 @@ const BarSOS: React.FC = () => {
         {/* קריאה לפעולה */}
         <div className="mb-12">
           <div className="bg-gradient-to-r from-[#CAA131] to-[#B8942A] rounded-2xl p-8 text-center text-white">
-            <h2 className="text-2xl font-bold mb-4">הצטרף ל־BAR SOS</h2>
+            <h2 className="text-lg md:text-2xl font-bold mb-3 md:mb-4">הצטרף ל־BAR SOS</h2>
             <p className="text-lg mb-6 opacity-90">
               לשקט נפשי ואיתור וחילוץ רפואי 24/7 – בכל מקום באוגנדה
             </p>

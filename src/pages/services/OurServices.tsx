@@ -9,7 +9,7 @@ const OurServices: React.FC = () => {
       <div className="container mx-auto px-4">
         {/* כותרת ראשית */}
         <div className="mb-12 text-center">
-          <h1 className="mb-4 text-4xl md:text-5xl font-bold font-sans text-[#4B361C]">
+          <h1 className="mb-3 md:mb-4 text-2xl md:text-4xl font-bold font-sans text-[#4B361C]">
             השירותים שלנו
           </h1>
           <p className="mx-auto max-w-3xl text-lg md:text-xl text-muted font-sans">
@@ -113,7 +113,7 @@ const OurServices: React.FC = () => {
         {/* מידע על הקבוצה */}
         <div className="mb-12">
           <div className="bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-2xl p-8 text-center border border-[#CAA131]/30">
-            <h2 className="text-2xl font-bold text-[#4B361C] mb-4">קבוצת BAR</h2>
+            <h2 className="text-lg md:text-2xl font-bold text-[#4B361C] mb-3 md:mb-4">קבוצת BAR</h2>
             <p className="text-[#4B361C] leading-relaxed max-w-3xl mx-auto">
               BAR Aviation ו-BAR SOS הם חלק מקבוצת BAR, המספקת שירותים מקצועיים ומותאמים אישית 
               לכל צרכי הטיול שלכם באוגנדה. מהטיסה המהירה והנוחה ועד הביטחון הרפואי המלא - 

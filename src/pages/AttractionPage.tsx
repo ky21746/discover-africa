@@ -152,7 +152,7 @@ const AttractionPage: React.FC = () => {
   if (!a) {
     return (
       <div className="container mx-auto max-w-screen-xl px-4 py-16 text-center">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">אטרקציה לא נמצאה</h1>
+        <h1 className="text-xl md:text-3xl font-bold text-gray-800 mb-3 md:mb-4">אטרקציה לא נמצאה</h1>
         <p className="text-gray-600 mb-8">
           האטרקציה שחיפשת לא קיימת במערכת.
           <br />

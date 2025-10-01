@@ -54,7 +54,7 @@ const Blog: React.FC = () => {
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-8">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 font-sans">בלוג</h1>
+          <h1 className="text-2xl md:text-4xl font-bold mb-3 md:mb-4 font-sans">בלוג</h1>
           <p className="text-xl text-muted max-w-2xl mx-auto font-sans">
             מאמרים, טיפים והשראה לטיול המושלם באוגנדה
           </p>
@@ -150,7 +150,7 @@ const Blog: React.FC = () => {
 
         {/* Newsletter Signup */}
         <div className="mt-16 bg-primary text-white rounded-2xl p-8 text-center">
-          <h2 className="text-3xl font-bold mb-4 font-sans">הישארו מעודכנים</h2>
+          <h2 className="text-xl md:text-3xl font-bold mb-3 md:mb-4 font-sans">הישארו מעודכנים</h2>
           <p className="text-xl mb-6 font-sans">
             הירשמו לניוזלטר וקבלו טיפים ומאמרים חדשים ישירות למייל
           </p>

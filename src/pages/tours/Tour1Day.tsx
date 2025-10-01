@@ -32,10 +32,10 @@ const Tour1Day: React.FC = () => {
         <div className="absolute inset-0 bg-black/40">
           <div className="container mx-auto px-4 h-full flex items-center">
             <div className="max-w-4xl">
-              <h1 className="text-4xl md:text-6xl font-bold mb-4">
+              <h1 className="text-2xl md:text-4xl font-bold mb-3 md:mb-4">
                 מסלול יום אחד
               </h1>
-              <p className="text-xl md:text-2xl mb-6 opacity-90">
+              <p className="text-base md:text-xl mb-4 md:mb-6 opacity-90">
                 חוויה אינטנסיבית של יום אחד באפריקה - ספארי קצר, ביקור בכפר מקומי וטעימה מהתרבות המקומית
               </p>
               <div className="flex flex-wrap gap-4 text-lg">
@@ -59,7 +59,7 @@ const Tour1Day: React.FC = () => {
         <div className="container mx-auto px-4">
           {/* Description */}
           <div className="max-w-4xl mx-auto mb-12">
-            <h2 className="text-3xl font-bold mb-6 text-center">תיאור המסלול</h2>
+            <h2 className="text-xl md:text-3xl font-bold mb-4 md:mb-6 text-center">תיאור המסלול</h2>
             <p className="text-lg text-gray-700 leading-relaxed text-center">
               מסלול יום אחד מושלם למי שרוצה לטעום מהחוויה האפריקאית בזמן קצר. 
               המסלול כולל ספארי בוקר, ביקור בכפר מקומי וחוויה תרבותית אותנטית.
@@ -68,7 +68,7 @@ const Tour1Day: React.FC = () => {
 
           {/* Itinerary */}
           <div className="max-w-6xl mx-auto mb-12">
-            <h2 className="text-3xl font-bold mb-8 text-center">תוכנית המסלול</h2>
+            <h2 className="text-xl md:text-3xl font-bold mb-6 md:mb-8 text-center">תוכנית המסלול</h2>
             <div className="space-y-8">
               {itinerary.map((day, index) => {
                 // Define images for each day
@@ -78,7 +78,7 @@ const Tour1Day: React.FC = () => {
                 
                 return (
                   <div key={day.day} className="bg-white border border-[#534B20]/60 rounded-3xl p-4 md:p-8 shadow-lg hover:shadow-xl transition-all duration-500 flex flex-col">
-                    <h3 className="text-xl md:text-2xl font-bold text-[#4B361C] mb-4 border-b border-[#C9A34E] pb-2">
+                    <h3 className="text-lg md:text-xl font-bold text-[#4B361C] mb-3 md:mb-4 border-b border-[#C9A34E] pb-2">
                       {day.title}
                     </h3>
                     
@@ -114,7 +114,7 @@ const Tour1Day: React.FC = () => {
 
           {/* What's Included */}
           <div className="max-w-4xl mx-auto mb-12">
-            <h2 className="text-3xl font-bold mb-8 text-center">מה כלול במחיר</h2>
+            <h2 className="text-xl md:text-3xl font-bold mb-6 md:mb-8 text-center">מה כלול במחיר</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="bg-green-50 rounded-lg p-6">
                 <h3 className="text-xl font-bold mb-4 text-green-800">כלול</h3>

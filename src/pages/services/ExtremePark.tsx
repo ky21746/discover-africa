@@ -33,7 +33,7 @@ const ExtremePark: React.FC = () => {
                 className="h-16 w-auto drop-shadow-lg"
               />
             </div>
-            <h1 className="mb-8 text-4xl md:text-6xl font-bold font-sans drop-shadow-lg">
+            <h1 className="mb-6 md:mb-8 text-2xl md:text-4xl font-bold font-sans drop-shadow-lg">
               Extreme Adventure Park
             </h1>
             <p className="text-lg md:text-xl max-w-3xl mx-auto drop-shadow-lg">
@@ -48,7 +48,7 @@ const ExtremePark: React.FC = () => {
         {/* תיאור כללי */}
         <div className="mb-12">
           <div className="bg-white rounded-2xl shadow-lg p-8">
-            <h2 className="text-2xl font-bold text-[#4B361C] mb-6 border-b-2 border-[#CAA131] w-fit">
+            <h2 className="text-lg md:text-2xl font-bold text-[#4B361C] mb-4 md:mb-6 border-b-2 border-[#CAA131] w-fit">
               תיאור כללי
             </h2>
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -100,7 +100,7 @@ const ExtremePark: React.FC = () => {
         {/* לינה */}
         <div className="mb-12">
           <div className="bg-white rounded-2xl shadow-lg p-8">
-            <h2 className="text-2xl font-bold text-[#4B361C] mb-6 border-b-2 border-[#CAA131] w-fit">
+            <h2 className="text-lg md:text-2xl font-bold text-[#4B361C] mb-4 md:mb-6 border-b-2 border-[#CAA131] w-fit">
               לינה ב-Busika Extreme Adventure Park
             </h2>
             <div className="prose prose-lg max-w-none text-[#4B361C] leading-relaxed mb-8">
@@ -182,7 +182,7 @@ const ExtremePark: React.FC = () => {
         <div className="mb-16">
           <div className="bg-white/90 backdrop-blur-sm rounded-3xl shadow-2xl p-8 border border-white/20">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-[#4B361C] mb-4">
+              <h2 className="text-2xl md:text-4xl font-bold text-[#4B361C] mb-3 md:mb-4">
                 פעילויות מרכזיות
               </h2>
               <p className="text-xl text-[#4B361C]/80 max-w-3xl mx-auto">
@@ -332,7 +332,7 @@ const ExtremePark: React.FC = () => {
         <div className="mb-8">
           <div className="bg-gradient-to-r from-green-500 to-green-600 rounded-2xl p-8 text-center text-white shadow-2xl">
             <div className="max-w-4xl mx-auto">
-              <h3 className="text-2xl font-bold mb-4">מוכנים להזמין?</h3>
+              <h3 className="text-lg md:text-2xl font-bold mb-3 md:mb-4">מוכנים להזמין?</h3>
               <p className="text-lg mb-6 opacity-90">
                 צרו קשר עכשיו ותתחילו לתכנן את החוויה האקסטרים שלכם ב-Busika Extreme Adventure Park
               </p>
