@@ -187,8 +187,8 @@ const AttractionPage: React.FC = () => {
           </div>
           <div className="flex-1 min-w-0">
             <h3 className="font-bold text-black text-sm md:text-base">בונה מסלול חכם</h3>
-            <p className="text-black text-xs md:text-sm hidden md:block">הוסף חוויות למסלול שלך ואנחנו נבנה לך תכנית טיול מושלמת עם מפת נסיעה</p>
-            <p className="text-black text-xs md:hidden">הוסף חוויות למסלול שלך</p>
+            <p className="text-black text-xs md:text-sm hidden md:block">הוסף חוויות למסלול ואנחנו נבנה לך תכנית טיול מושלמת עם מפת נסיעה</p>
+            <p className="text-black text-xs md:hidden">הוסף חוויות למסלול</p>
           </div>
           <div className="flex-shrink-0">
             <button
