@@ -35,12 +35,6 @@ const BlogPost: React.FC = () => {
     .filter(p => p.id !== post.id && p.tags.some(tag => post.tags.includes(tag)))
     .slice(0, 3);
 
-  const quickTips = [
-    'תמיד שאו מים ומזון חירום',
-    'בדקו מזג האוויר לפני היציאה',
-    'הודיעו למישהו על תוכניות הטיול',
-    'שמרו על הטבע והסביבה'
-  ];
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
@@ -250,25 +244,6 @@ const BlogPost: React.FC = () => {
             </div>
           </article>
 
-          {/* Quick Tips Section - Enhanced */}
-          <div className="bg-gradient-to-br from-primary/5 via-primary/10 to-primary/5 rounded-3xl p-8 md:p-10 mb-16 shadow-lg border border-primary/20">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center">
-                <span className="text-white text-2xl">💡</span>
-              </div>
-              <h3 className="text-3xl font-bold text-gray-900">טיפים מהירים לדרך</h3>
-            </div>
-            <ul className="space-y-4">
-              {quickTips.map((tip, index) => (
-                <li key={index} className="flex items-start gap-4 bg-white/80 backdrop-blur-sm p-4 rounded-xl hover:shadow-md transition-shadow">
-                  <div className="flex-shrink-0 w-8 h-8 bg-primary/20 text-primary rounded-full flex items-center justify-center font-bold text-sm">
-                    {index + 1}
-                  </div>
-                  <span className="text-lg text-gray-800 pt-1">{tip}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
 
           {/* Related Posts Section - Enhanced */}
           {relatedPosts.length > 0 && (
