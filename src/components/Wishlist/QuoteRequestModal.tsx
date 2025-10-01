@@ -1,7 +1,9 @@
 // src/components/Wishlist/QuoteRequestModal.tsx
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { X, Send, Calendar, Users, Mail, Phone, User } from 'lucide-react';
 import { useWishlist } from '../../contexts/WishlistContext';
+import emailjs from '@emailjs/browser';
+import ReCAPTCHA from "react-google-recaptcha";
 
 interface QuoteRequestModalProps {
   isOpen: boolean;
@@ -20,49 +22,74 @@ export const QuoteRequestModal: React.FC<QuoteRequestModalProps> = ({
     dates: '',
     travelers: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const recaptchaRef = useRef(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // בניית הודעה לווטסאפ
-    const itemsText = items.map(item => {
-      const accommodation = item.userChoices?.accommodation === 'budget' ? 'תקציבית' :
-                          item.userChoices?.accommodation === 'midrange' ? 'בינונית' : 'יוקרתית';
-      const transport = item.userChoices?.transport === 'self_drive' ? 'רכב שכור' :
-                      item.userChoices?.transport === '4x4_guide' ? 'רכב 4x4 עם מדריך' : 'מסוקים';
-      
-      return `🏞️ *${item.name}*
-📅 לינה: ${accommodation}
-🚗 תחבורה: ${transport}
-${item.userChoices?.notes ? `📝 הערות: ${item.userChoices.notes}` : ''}`;
-    }).join('\n\n');
+    setIsSubmitting(true);
 
-    const message = `🎯 *בקשת הצעת מחיר חדשה*
+    try {
+      // EmailJS configuration
+      const serviceId = 'service_f70116g';
+      const templateId = 'template_p4abc4m';
+      const publicKey = 'fffzoME-DNQ1xssuP';
 
-👤 *פרטי הלקוח:*
+      const token = await recaptchaRef.current.executeAsync();
+      recaptchaRef.current.reset();
+
+      // בניית הודעה למייל
+      const itemsText = items.map(item => {
+        const accommodation = item.userChoices?.accommodation === 'budget' ? 'תקציבית' :
+                            item.userChoices?.accommodation === 'midrange' ? 'בינונית' : 'יוקרתית';
+        const transport = item.userChoices?.transport === 'self_drive' ? 'רכב שכור' :
+                        item.userChoices?.transport === '4x4_guide' ? 'רכב 4x4 עם מדריך' : 'מסוקים';
+        
+        return `${item.name}
+- לינה: ${accommodation}
+- תחבורה: ${transport}
+${item.userChoices?.notes ? `- הערות: ${item.userChoices.notes}` : ''}`;
+      }).join('\n\n');
+
+      const message = `בקשת הצעת מחיר חדשה מ-Discover Africa
+
+פרטי הלקוח:
 שם: ${formData.name}
 אימייל: ${formData.email}
 טלפון: ${formData.phone}
 
-📅 *פרטי הטיול:*
+פרטי הטיול:
 תאריכים: ${formData.dates}
 מספר מטיילים: ${formData.travelers}
 
-🗺️ *האטרקציות שנבחרו:*
+האטרקציות שנבחרו:
 ${itemsText}
 
 ---
-*נשלח מ-Discover Africa Website*`;
+נשלח מ-Discover Africa Website`;
 
-    // שליחה לווטסאפ
-    const whatsappNumber = '972546152683'; // מספר הווטסאפ שלך
-    const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
-    
-    window.open(whatsappUrl, '_blank');
-    
-    alert('הבקשה נשלחה לווטסאפ! נחזור אליך בקרוב.');
-    onClose();
+      // Prepare template parameters
+      const templateParams = {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        title: `בקשת הצעת מחיר - ${formData.name}`,
+        message: message,
+        "g-recaptcha-response": token
+      };
+
+      // Send email using EmailJS
+      await emailjs.send(serviceId, templateId, templateParams, publicKey);
+      
+      setIsSubmitting(false);
+      setIsSubmitted(true);
+    } catch (error) {
+      console.error('Error sending email:', error);
+      setIsSubmitting(false);
+      alert('שגיאה בשליחת ההודעה. אנא נסו שוב או התקשרו אלינו ישירות.');
+    }
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -72,11 +99,36 @@ ${itemsText}
 
   if (!isOpen) return null;
 
+  if (isSubmitted) {
+    return (
+      <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
+        <div className="bg-white rounded-2xl max-w-md w-full max-h-[90vh] overflow-y-auto shadow-2xl mx-4">
+          <div className="p-6 text-center">
+            <div className="text-green-600 text-6xl mb-4">✓</div>
+            <h2 className="text-2xl font-bold text-green-800 mb-4">תודה רבה!</h2>
+            <p className="text-green-700 text-lg mb-6">
+              בקשת הצעת המחיר נשלחה בהצלחה. נחזור אליך תוך 24 שעות עם הצעה מותאמת אישית.
+            </p>
+            <button
+              onClick={() => {
+                setIsSubmitted(false);
+                onClose();
+              }}
+              className="w-full bg-green-600 text-white py-3 px-6 rounded-lg hover:bg-green-700 transition-colors font-medium"
+            >
+              סגור
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
-      <div className="bg-white rounded-2xl max-w-md w-full max-h-[90vh] overflow-y-auto shadow-2xl">
+      <div className="bg-white rounded-2xl max-w-md w-full max-h-[90vh] overflow-y-auto shadow-2xl mx-4">
         {/* Header */}
-        <div className="text-white p-6 rounded-t-2xl flex justify-between items-center border-b" style={{background: '#CAA131', borderColor: '#CAA131'}}>
+        <div className="text-white p-4 md:p-6 rounded-t-2xl flex justify-between items-center border-b" style={{background: '#CAA131', borderColor: '#CAA131'}}>
           <h2 className="text-xl font-bold text-black">בקש הצעת מחיר</h2>
           <button
             onClick={onClose}
@@ -88,7 +140,7 @@ ${itemsText}
         </div>
 
         {/* Content */}
-        <div className="p-6">
+        <div className="p-4 md:p-6">
           {/* Summary of selected items */}
           <div className="mb-6">
             <h3 className="text-xl font-semibold mb-4">הפריטים שבחרת:</h3>
@@ -211,14 +263,23 @@ ${itemsText}
               </div>
             </div>
 
-            <button
-              type="submit"
-              className="w-full py-4 px-6 rounded-xl transition-all text-lg font-bold flex items-center justify-center gap-3 border-2"
-              style={{background: 'transparent', borderColor: '#CAA131', color: '#CAA131'}}
-            >
-              <Send className="w-6 h-6" />
-              שלח בקשה
-            </button>
+                   <ReCAPTCHA
+                     sitekey="6Lcwa9ErAAAAAGQyrvEyb9JlkkipAC7aqOm8wwGy"
+                     size="invisible"
+                     ref={recaptchaRef}
+                   />
+
+                   <button
+                     type="submit"
+                     disabled={isSubmitting}
+                     className={`w-full py-4 px-6 rounded-xl transition-all text-lg font-bold flex items-center justify-center gap-3 border-2 ${
+                       isSubmitting ? 'opacity-50 cursor-not-allowed' : ''
+                     }`}
+                     style={{background: 'transparent', borderColor: '#CAA131', color: '#CAA131'}}
+                   >
+                     <Send className="w-6 h-6" />
+                     {isSubmitting ? 'שולח...' : 'שלח בקשה'}
+                   </button>
           </form>
         </div>
       </div>
