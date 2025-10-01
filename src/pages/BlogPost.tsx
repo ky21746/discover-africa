@@ -168,19 +168,34 @@ const BlogPost: React.FC = () => {
                   
                   if (isHeader) {
                     return (
-                      <tr key={index} className="bg-gradient-to-l from-primary to-primary/90 text-white">
-                        {cells.map((cell, cellIndex) => (
-                          <th key={cellIndex} className="px-6 py-4 text-right font-bold text-lg">
-                            {cell.replace(/\*\*/g, '')}
-                          </th>
-                        ))}
-                      </tr>
+                      <div key={index} className="overflow-x-auto mb-12">
+                        <table className="min-w-full border border-gray-200 rounded-lg overflow-hidden">
+                          <thead className="bg-primary text-white">
+                            <tr>
+                              {cells.map((cell, cellIndex) => (
+                                <th key={cellIndex} className="px-4 py-3 text-right font-bold">
+                                  {cell.replace(/\*\*/g, '')}
+                                </th>
+                              ))}
+                            </tr>
+                          </thead>
+                          <tbody className="divide-y divide-gray-200">
+                            <tr>
+                              {cells.map((cell, cellIndex) => (
+                                <td key={cellIndex} className="px-4 py-3 text-right">
+                                  {cell}
+                                </td>
+                              ))}
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
                     );
                   } else {
                     return (
                       <tr key={index} className="border-b border-gray-200 hover:bg-gray-50 transition-colors">
                         {cells.map((cell, cellIndex) => (
-                          <td key={cellIndex} className="px-6 py-4 text-right">
+                          <td key={cellIndex} className="px-4 py-3 text-right">
                             {cell}
                           </td>
                         ))}
