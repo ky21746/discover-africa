@@ -32,14 +32,14 @@ export const WishlistSidebar: React.FC = () => {
       {/* Full Page Modal */}
       <div className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4">
             <div className="bg-white rounded-3xl w-full max-w-6xl h-[90vh] overflow-hidden shadow-2xl flex flex-col md:max-w-6xl max-w-full">
-        {/* Header */}
-        <div className="bg-white text-gray-800 p-6 md:p-12 flex justify-between items-center border-b-2 border-gray-200">
-          <div>
-            <h2 className="text-2xl md:text-4xl font-bold mb-3">המסלול שלך לאוגנדה</h2>
-            <p className="text-lg md:text-xl text-gray-600">
-              {items.length} חוויות נבחרו • מוכן להצעת מחיר
-            </p>
-          </div>
+               {/* Header */}
+               <div className="bg-white text-gray-800 p-4 md:p-12 flex justify-between items-center border-b-2 border-gray-200">
+                 <div>
+                   <h2 className="text-lg md:text-4xl font-bold mb-2 md:mb-3">המסלול שלך לאוגנדה</h2>
+                   <p className="text-sm md:text-xl text-gray-600 hidden md:block">
+                     {items.length} חוויות נבחרו • מוכן להצעת מחיר
+                   </p>
+                 </div>
           <button 
             onClick={toggleSidebar}
             className="w-8 h-8 flex items-center justify-center rounded-full transition-colors bg-gray-200 hover:bg-gray-300 text-gray-600"
@@ -49,7 +49,7 @@ export const WishlistSidebar: React.FC = () => {
         </div>
 
         {/* Content */}
-        <div className="flex-1 overflow-y-auto bg-gradient-to-br from-gray-50 to-gray-100 max-h-[calc(100vh-200px)]">
+        <div className="flex-1 overflow-y-auto bg-gradient-to-br from-gray-50 to-gray-100 max-h-[calc(100vh-200px)] p-3 md:p-12">
           {items.length === 0 ? (
             <div className="p-16 text-center">
               <div className="max-w-md mx-auto">
@@ -59,7 +59,7 @@ export const WishlistSidebar: React.FC = () => {
               </div>
             </div>
           ) : (
-            <div className="p-6 md:p-12 space-y-8 md:space-y-12">
+                   <div className="p-3 md:p-12 space-y-4 md:space-y-12">
               {/* מפרט רמות הלינה והתחבורה - מעל כל האטרקציות */}
                     <div className="bg-white rounded-xl p-4 border shadow-sm" style={{borderColor: '#CAA131'}}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -146,28 +146,28 @@ export const WishlistSidebar: React.FC = () => {
                     </div>
                   </div>
                   
-                  <div className="p-4 md:p-8">
+                         <div className="p-3 md:p-8">
 
                     {/* User Choices - Dropdown Design */}
-                    <div className="bg-gradient-to-r from-gray-50 to-gray-100 rounded-xl p-4 md:p-6 border border-gray-200">
-                      <h4 className="text-xl font-bold text-gray-800 mb-6">
+                    <div className="bg-gradient-to-r from-gray-50 to-gray-100 rounded-xl p-3 md:p-6 border border-gray-200">
+                      <h4 className="text-lg md:text-xl font-bold text-gray-800 mb-4 md:mb-6">
                         העדפות המסלול
                       </h4>
                       
                       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
                         {/* לינה */}
-                        <div className="space-y-3">
-                          <label className="text-base font-semibold text-gray-700">לינה</label>
+                        <div className="space-y-2 md:space-y-3">
+                          <label className="text-sm md:text-base font-semibold text-gray-700">לינה</label>
                           <select 
                             value={item.userChoices?.accommodation || 'budget'}
                             onChange={(e) => updateUserChoices(item.id, { accommodation: e.target.value as 'budget' | 'midrange' | 'luxury' })}
-                            className="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500 bg-white text-base"
+                            className="w-full p-3 md:p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500 bg-white text-sm md:text-base"
                           >
                             <option value="budget">לינה תקציבית - גסטהאוסים בסיסיים</option>
                             <option value="midrange">לינה בינונית - לודג'ים ברמה טובה</option>
                             <option value="luxury">לינה יוקרתית - לודג'ים מפוארים</option>
                           </select>
-                          <div className="text-sm text-gray-600">
+                          <div className="text-xs md:text-sm text-gray-600">
                             {item.userChoices?.accommodation === 'budget' 
                               ? 'חדרים פשוטים, מים חמים מוגבלים, מיקום מרכזי' 
                               : item.userChoices?.accommodation === 'midrange'
@@ -178,18 +178,18 @@ export const WishlistSidebar: React.FC = () => {
                         </div>
 
                         {/* תחבורה */}
-                        <div className="space-y-3">
-                          <label className="text-base font-semibold text-gray-700">תחבורה</label>
+                        <div className="space-y-2 md:space-y-3">
+                          <label className="text-sm md:text-base font-semibold text-gray-700">תחבורה</label>
                           <select 
                             value={item.userChoices?.transport || 'self_drive'}
                             onChange={(e) => updateUserChoices(item.id, { transport: e.target.value as 'self_drive' | '4x4_guide' | 'helicopter' })}
-                            className="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500 bg-white text-base"
+                            className="w-full p-3 md:p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500 bg-white text-sm md:text-base"
                           >
                             <option value="self_drive">רכב שכור - נהיגה עצמאית</option>
                             <option value="4x4_guide">רכב 4x4 עם מדריך מקצועי</option>
                             <option value="helicopter">שירותי מסוקים - חוויה יוקרתית</option>
                           </select>
-                          <div className="text-sm text-gray-600">
+                          <div className="text-xs md:text-sm text-gray-600">
                             {item.userChoices?.transport === 'self_drive' 
                               ? 'גמישות מלאה, חיסכון בעלויות'
                               : item.userChoices?.transport === '4x4_guide'
@@ -200,16 +200,16 @@ export const WishlistSidebar: React.FC = () => {
                         </div>
 
                                {/* הערות ושאלות */}
-                               <div className="space-y-3">
-                                 <label className="text-base font-semibold text-gray-700">הערות ושאלות</label>
+                               <div className="space-y-2 md:space-y-3">
+                                 <label className="text-sm md:text-base font-semibold text-gray-700">הערות ושאלות</label>
                                  <textarea 
                                    value={item.userChoices?.notes || ''}
                                    onChange={(e) => updateUserChoices(item.id, { notes: e.target.value })}
                                    placeholder="האם יש לך שאלות ספציפיות? העדפות מיוחדות? הערות חשובות?"
-                                   className="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500 bg-white text-base resize-none"
-                                   rows={4}
+                                   className="w-full p-3 md:p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500 bg-white text-sm md:text-base resize-none"
+                                   rows={3}
                                  />
-                                 <div className="text-sm text-gray-600">
+                                 <div className="text-xs md:text-sm text-gray-600">
                                    ההערות שלך יישמרו ויועברו עם בקשת הצעת המחיר
                                  </div>
                                </div>
@@ -224,25 +224,25 @@ export const WishlistSidebar: React.FC = () => {
           )}
         </div>
 
-        {/* Footer Actions */}
-        {items.length > 0 && (
-          <div className="bg-gradient-to-r from-gray-50 to-gray-100 p-6 md:p-12">
-            <div className="max-w-2xl mx-auto">
-              <div className="text-center mb-8">
-                <h3 className="text-xl md:text-2xl font-bold text-gray-800 mb-2">מוכן להצעת מחיר?</h3>
-                <p className="text-sm md:text-base text-gray-600">נחזור אליך תוך 24 שעות עם הצעה מותאמת אישית</p>
-              </div>
-              <button 
-                onClick={() => setIsQuoteModalOpen(true)}
-                className="w-full bg-white text-gray-800 py-6 md:py-8 px-6 md:px-12 rounded-3xl transition-all duration-500 text-lg md:text-2xl font-bold flex items-center justify-center gap-4 md:gap-6 shadow-2xl hover:shadow-3xl transform hover:scale-105 border-2"
-                style={{borderColor: '#CAA131'}}
-              >
-                <Send className="w-8 h-8" />
-                סיים ובקש הצעת מחיר
-              </button>
-            </div>
-          </div>
-        )}
+               {/* Footer Actions */}
+               {items.length > 0 && (
+                 <div className="bg-gradient-to-r from-gray-50 to-gray-100 p-4 md:p-12">
+                   <div className="max-w-2xl mx-auto">
+                     <div className="text-center mb-4 md:mb-8">
+                       <h3 className="text-lg md:text-2xl font-bold text-gray-800 mb-2 hidden md:block">מוכן להצעת מחיר?</h3>
+                       <p className="text-xs md:text-base text-gray-600 hidden md:block">נחזור אליך תוך 24 שעות עם הצעה מותאמת אישית</p>
+                     </div>
+                     <button 
+                       onClick={() => setIsQuoteModalOpen(true)}
+                       className="w-full bg-white text-gray-800 py-4 md:py-8 px-4 md:px-12 rounded-2xl md:rounded-3xl transition-all duration-500 text-base md:text-2xl font-bold flex items-center justify-center gap-3 md:gap-6 shadow-xl md:shadow-2xl hover:shadow-2xl md:hover:shadow-3xl transform hover:scale-105 border-2"
+                       style={{borderColor: '#CAA131'}}
+                     >
+                       <Send className="w-5 h-5 md:w-8 md:h-8" />
+                       סיים ובקש הצעת מחיר
+                     </button>
+                   </div>
+                 </div>
+               )}
         </div>
       </div>
 
