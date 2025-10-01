@@ -13,7 +13,7 @@ export const blogPosts: BlogPost[] = [
 
 הפארק הלאומי בווינדי הבלתי חדיר (Bwindi Impenetrable National Park) באוגנדה הוא אחד המקומות היחידים בעולם שבהם ניתן לחוות מפגש כזה. זוהי ללא ספק גולת הכותרת של אוגנדה, "פנינת אפריקה", וחוויה שתלווה אתכם לכל החיים.
 
-![גורילת הרים בבווינדי](https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FPrimates%20of%20Uganda%2FGorillas%20in%20Bwindi%20Forest%2FMountain%20gorilla%20Bwindi%20Impenetrable%20Forest%20Uganda.webp?alt=media&token=1a4e88e7-4cfd-45d3-8e92-cc3dbc3a3e56)
+![גורילת הרים בבווינדי](https://images.unsplash.com/photo-1540573133985-87b6da6d54a9?w=800&h=600&fit=crop)
 
 ---
 
@@ -112,7 +112,7 @@ export const blogPosts: BlogPost[] = [
 
 #### המפגש – שעה שתזכרו לנצח
 
-![גורילה כסופת גב בבווינדי](https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FPrimates%20of%20Uganda%2FGorillas%20in%20Bwindi%20Forest%2FGorilla%20silverback%20in%20Bwindi%20Uganda%2C%20Africa%20%400.5x.webp?alt=media&token=07c4def0-0cb7-4d7c-b6f6-72c196ef547a)
+![גורילה כסופת גב בבווינדי](https://images.unsplash.com/photo-1551969014-7d2c4cddf0b6?w=800&h=600&fit=crop)
 
 לאחר איתור הגורילות (רגע מרגש בפני עצמו!), משך השהייה המקסימלי במחיצתן הוא שעה אחת בלבד. זו מגבלה קריטית שנועדה להגן על חיות הבר ולמזער את הלחץ עליהן.
 
