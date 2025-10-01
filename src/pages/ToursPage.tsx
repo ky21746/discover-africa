@@ -36,34 +36,39 @@ const ToursPage: React.FC = () => {
         </div>
 
         {/* Tours Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {tours.map((tour) => (
             <Link
               key={tour.id}
               to={`/tours/${tour.id}`}
-              className="flex flex-col bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg cursor-pointer"
+              className="group bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:scale-105 cursor-pointer"
             >
-              {/* ✅ תמונה עם יחס גובה־רוחב קבוע למובייל */}
-              <div className="relative aspect-[4/3] sm:aspect-[16/9] w-full">
+              {/* תמונה עם יחס גובה־רוחב קבוע */}
+              <div className="relative aspect-[16/10] w-full overflow-hidden">
                 <img
                   src={tour.image}
                   alt={tour.title}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-4">
-                  <h3 className="font-sans text-white font-bold text-lg mb-2">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                <div className="absolute bottom-4 right-4 text-white">
+                  <h3 className="font-bold text-xl mb-2">
                     {tour.title}
                   </h3>
-                  <p className="font-sans text-white text-sm opacity-90">
-                    {tour.description.length > 50
-                      ? tour.description.slice(0, 50) + "..."
+                  <p className="text-sm opacity-90">
+                    {tour.description.length > 60
+                      ? tour.description.slice(0, 60) + "..."
                       : tour.description}
                   </p>
                 </div>
               </div>
 
               <div className="p-4">
-                <div className="btn-discover">לפרטים</div>
+                <div className="text-center">
+                  <div className="inline-flex items-center gap-2 border-2 border-[#CAA131] text-[#CAA131] px-6 py-3 rounded-2xl font-bold hover:bg-[#CAA131] hover:text-white transition-all duration-300 transform hover:scale-105">
+                    לפרטים נוספים
+                  </div>
+                </div>
               </div>
             </Link>
           ))}
