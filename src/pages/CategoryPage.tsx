@@ -158,11 +158,11 @@ const CategoryPage: React.FC = () => {
         
         {/* Content positioned at center bottom */}
         <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 text-center space-y-4 text-white drop-shadow-md max-w-3xl">
-          <h1 className="text-4xl md:text-5xl font-bold">
+          <h1 className="text-2xl md:text-4xl font-bold">
             {displayName} באוגנדה
           </h1>
           {displayDesc && (
-            <p className="text-lg md:text-xl font-light max-w-2xl mx-auto">
+            <p className="text-base md:text-lg font-light max-w-2xl mx-auto">
               {displayDesc}
             </p>
           )}

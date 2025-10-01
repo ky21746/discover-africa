@@ -40,10 +40,10 @@ const Categories: React.FC = () => {
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-8">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 font-sans">
+          <h1 className="text-2xl md:text-4xl font-bold mb-3 md:mb-4 font-sans">
             גלו את כל הקטגוריות שלנו
           </h1>
-          <p className="text-xl text-muted max-w-2xl mx-auto font-sans">
+          <p className="text-base md:text-xl text-muted max-w-2xl mx-auto font-sans">
             בחרו קטגוריה והתעמקו בעולם החוויות – לפי עניין, רמת אתגר ומיקום.
           </p>
         </div>
