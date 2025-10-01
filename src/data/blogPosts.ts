@@ -311,7 +311,7 @@ export const blogPosts: BlogPost[] = [
 ---
 
 *הערת סיום: המחירים, הנתונים והמידע במאמר זה מבוססים על המקורות שסופקו ונכונים למועד כתיבתם. מומלץ לבדוק מידע עדכני לפני התכנון הסופי של הטיול.*`,
-    image: 'https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FPrimates%20of%20Uganda%2FGorillas%20in%20Bwindi%20Forest%2FGorilla%20family%20with%20silverback%20in%20Bwindi%20Impenetrable%20Forest%2C%20Uganda%2C%20Africa%20Blog%20card.webp?alt=media&token=57ff2224-4dc5-4d2d-a501-0623a622218f',
+    image: 'https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FPrimates%20of%20Uganda%2FBwindi%20Gorillas%2FBwindi%20Impenetrable%20National%20Park%2C%20Uganda.webp?alt=media&token=1a2b3c4d-5e6f-7890-abcd-ef1234567890',
     tags: ['גורילות', 'בווינדי', 'אוגנדה', 'טרק', 'טבע', 'שימור'],
     date: '2024-09-29',
     author: 'מיכל לוי',
