@@ -131,8 +131,7 @@ const BlogPost: React.FC = () => {
                 
                 if (line.startsWith('## ')) {
                   return (
-                    <h2 key={index} className="text-2xl md:text-3xl font-bold mb-6 mt-12 text-gray-900 flex items-center gap-3">
-                      <span className="w-2 h-8 bg-primary rounded-full"></span>
+                    <h2 key={index} className="text-2xl md:text-3xl font-bold mt-12 mb-6 text-gray-900">
                       {line.replace('## ', '')}
                     </h2>
                   );
@@ -140,7 +139,7 @@ const BlogPost: React.FC = () => {
                 
                 if (line.startsWith('### ')) {
                   return (
-                    <h3 key={index} className="text-xl md:text-2xl font-semibold mb-5 mt-10 text-gray-800">
+                    <h3 key={index} className="text-xl font-semibold mt-8 mb-4 text-gray-800">
                       {line.replace('### ', '')}
                     </h3>
                   );
@@ -236,7 +235,7 @@ const BlogPost: React.FC = () => {
                   return (
                     <p 
                       key={index} 
-                      className="mb-6 text-lg md:text-xl leading-relaxed text-gray-700"
+                      className="text-lg leading-relaxed mb-6 text-gray-700"
                       dangerouslySetInnerHTML={{ __html: processHTML(line) }}
                     />
                   );
