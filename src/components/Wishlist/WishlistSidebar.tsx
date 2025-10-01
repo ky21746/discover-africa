@@ -1,6 +1,6 @@
 // src/components/Wishlist/WishlistSidebar.tsx
 import React, { useState } from 'react';
-import { X, Trash2, Settings, MapPin, Send, Download, ShoppingBag, ChevronDown, ChevronUp } from 'lucide-react';
+import { X, Trash2, Settings, MapPin, Send, Download, ShoppingBag, ChevronDown, ChevronUp, Scroll } from 'lucide-react';
 import { useWishlist } from '../../contexts/WishlistContext';
 import { QuoteRequestModal } from './QuoteRequestModal';
 
@@ -20,6 +20,7 @@ export const WishlistSidebar: React.FC = () => {
   const [deleteConfirm, setDeleteConfirm] = useState<string | null>(null);
   const [isAccommodationOpen, setIsAccommodationOpen] = useState(false);
   const [isTransportOpen, setIsTransportOpen] = useState(false);
+  const [showScrollButton, setShowScrollButton] = useState(false);
 
   if (!isOpen) return null;
 
@@ -51,7 +52,14 @@ export const WishlistSidebar: React.FC = () => {
         </div>
 
         {/* Content */}
-        <div className="flex-1 overflow-y-auto bg-gradient-to-br from-gray-50 to-gray-100 max-h-[calc(100vh-200px)] p-3 md:p-12" style={{touchAction: 'pan-y', overscrollBehavior: 'contain'}}>
+        <div 
+          className="wishlist-content flex-1 overflow-y-auto bg-gradient-to-br from-gray-50 to-gray-100 max-h-[calc(100vh-200px)] p-3 md:p-12 relative" 
+          style={{touchAction: 'pan-y', overscrollBehavior: 'contain'}}
+          onScroll={(e) => {
+            const target = e.target as HTMLElement;
+            setShowScrollButton(target.scrollTop > 100);
+          }}
+        >
           {items.length === 0 ? (
             <div className="p-16 text-center">
               <div className="max-w-md mx-auto">
@@ -244,6 +252,24 @@ export const WishlistSidebar: React.FC = () => {
                   </div>
                 </div>
               ))}
+            </div>
+          )}
+          
+          {/* כפתור גלילה במובייל */}
+          {showScrollButton && (
+            <div className="fixed bottom-20 left-4 z-50 md:hidden">
+              <button
+                onClick={() => {
+                  const contentDiv = document.querySelector('.wishlist-content') as HTMLElement;
+                  if (contentDiv) {
+                    contentDiv.scrollTo({ top: 0, behavior: 'smooth' });
+                  }
+                }}
+                className="bg-white shadow-lg rounded-full p-3 border-2 border-gray-200 hover:border-amber-300 transition-all duration-300"
+                style={{borderColor: '#CAA131'}}
+              >
+                <Scroll className="w-6 h-6 text-gray-600" />
+              </button>
             </div>
           )}
         </div>
