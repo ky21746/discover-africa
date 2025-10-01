@@ -265,8 +265,8 @@ const BlogPost: React.FC = () => {
                 }
                 
                 // Handle images
-                if (line.match(/^!\[.*\]\(.*\)$/)) {
-                  const match = line.match(/^!\[(.*?)\]\((.*?)\)$/);
+                if (line.includes('![') && line.includes('](') && line.includes(')')) {
+                  const match = line.match(/!\[(.*?)\]\((.*?)\)/);
                   if (match) {
                     const [, alt, src] = match;
                     return (
