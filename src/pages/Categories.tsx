@@ -66,6 +66,8 @@ const Categories: React.FC = () => {
                     ? "/mountains"
                     : category.slug === "extreme"
                     ? "/extreme"
+                    : category.slug === "ready-routes"
+                    ? "/tours"
                     : `/category/${category.slug}`
                 }
                 className={`category-card transition-all duration-300 hover:shadow-lg cursor-pointer ${
