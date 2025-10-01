@@ -80,7 +80,7 @@ export const WishlistSidebar: React.FC = () => {
                          >
                            <div className="flex items-center gap-3">
                              {isAccommodationOpen ? <ChevronUp className="w-5 h-5 text-gray-600" /> : <ChevronDown className="w-5 h-5 text-gray-600" />}
-                             <h4 className="text-base font-bold text-gray-800">רמות לינה באוגנדה</h4>
+                             <h4 className="text-base font-bold text-gray-800">רמות לינה</h4>
                            </div>
                          </button>
                          
@@ -111,7 +111,7 @@ export const WishlistSidebar: React.FC = () => {
                          >
                            <div className="flex items-center gap-3">
                              {isTransportOpen ? <ChevronUp className="w-5 h-5 text-gray-600" /> : <ChevronDown className="w-5 h-5 text-gray-600" />}
-                             <h4 className="text-base font-bold text-gray-800">אפשרויות תחבורה באוגנדה</h4>
+                             <h4 className="text-base font-bold text-gray-800">אפשרויות תחבורה</h4>
                            </div>
                          </button>
                          
