@@ -49,11 +49,8 @@ const WaterPage: React.FC = () => {
         <div className="absolute bottom-0 left-0 w-full h-1/4 bg-black/40 border-t-[1.5px] border-[#CAA131]/80">
           <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-center space-y-4 text-white max-w-4xl">
             <h1 className="text-2xl md:text-5xl font-bold drop-shadow-md">
-              אטרקציות מים באוגנדה
+              מסלולי מים
             </h1>
-            
-            {/* קו צהוב */}
-            <div className="w-16 h-1 bg-[#CAA131] mx-auto rounded-full"></div>
             
           </div>
         </div>
