@@ -69,7 +69,7 @@ export const parks: Park[] = [
     description: "פארק מגוון: סוואנה, יערות וגופי מים. תעלת קזינגה היא מוקד חיות מרכזי.",
     logistics: { drive_from_kla: "6–7 שעות", best_time: "בוקר/אחה״צ", duration_hours: 3 },
     gallery: ["https://example.com/qe1.jpg"],
-    image: "https://example.com/qe-hero.jpg",
+    image: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/My%20Trip%2Fqueen-elizabeth-lions-trees-My-Trip.webp?alt=media&token=64dac967-9137-410f-be66-060672be0397",
     tags: ["מערב", "פארק לאומי"],
     importantInfo: [
       "עונות השנה: אוגנדה נמצאת על קו המשווה ולכן אפשר לטייל בה כל השנה. ההבדל הוא בין עונה יבשה לעונה רטובה.",
@@ -139,7 +139,7 @@ export const parks: Park[] = [
     description: "פארק מורצ'יסון פולס (Murchison Falls National Park) הוא הפארק הלאומי הגדול ביותר באוגנדה, המשתרע על פני יותר מ־3,800 קמ\"ר. הפארק מפורסם במפל מורצ'יסון הדרמטי, שבו נהר הנילוס נדחק דרך מעבר צר ברוחב שבעה מטרים בלבד, ויוצר מפל בעוצמה אדירה. סביב המפל מתפרשים מישורי סוואנה פתוחים, יערות וגדות נהר שמאכלסות שפע של בעלי חיים.\n\nבפארק חיים פילים, אריות, נמרים, ג'ירפות, בופאלו, היפופוטמים, תנינים ומאות מיני ציפורים. הוא מהווה יעד מרכזי לספארי באוגנדה ומשלב נסיעות שטח, שייט בנהר וצפייה מרהיבה בטורפים ואוכלי עשב.",
     logistics: { drive_from_kla: "5–6 שעות", best_time: "בוקר לספארי, אחה״צ לשייט", duration_hours: 3 },
     gallery: ["https://example.com/mf1.jpg"],
-    image: "https://example.com/mf-hero.jpg",
+    image: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/My%20Trip%2FMurchison%20Falls%20Boat-My-Trip.webp?alt=media&token=638c023a-8865-461c-a372-d37bc91db071",
     tags: ["צפון-מערב", "פארק לאומי"],
     importantInfo: [
       "הערה כללית: ניתן לטייל כל השנה. ההבדל הוא בין עונה יבשה לעונה רטובה.",
@@ -201,7 +201,7 @@ export const parks: Park[] = [
     description: "זברות, אנטילופות וצפרות מעולה; קרוב יחסית לקמפלה.",
     logistics: { drive_from_kla: "3–4 שעות", best_time: "בוקר או ערב", duration_hours: 2.5 },
     gallery: ["https://example.com/lm1.jpg"],
-    image: "https://example.com/lm-hero.jpg",
+    image: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/My%20Trip%2FMpalas%20in%20lake%20Mburo%20national%20park-My-trip.webp?alt=media&token=a00abb9c-1e17-438b-b26d-8bdffcace155",
     tags: ["מרכז-דרום", "פארק לאומי"],
     importantInfo: [
       "עונות השנה: אוגנדה על קו המשווה ולכן ניתן לטייל כל השנה.",
@@ -331,7 +331,7 @@ export const parks: Park[] = [
     description: "יער Bwindi (Bwindi Impenetrable Forest) שוכן בדרום־מערב אוגנדה, בגבול רואנדה וקונגו—יער גשם טרופי הררי מהעשירים באפריקה.",
     logistics: { drive_from_kla: "8–9 שעות", flight_option: "טיסה לקיסורו/קיהיה + העברה יבשתית", best_time: "בוקר מוקדם לטרק", duration_hours: 4 },
     gallery: ["https://images.pexels.com/photos/6194629/pexels-photo-6194629.jpeg"],
-    image: "https://images.pexels.com/photos/6194629/pexels-photo-6194629.jpeg",
+    image: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/My%20Trip%2FBaby%20Gorilla%20Kisses%20Silverback%20in%20Bwindi%20Impenetrable%20National%20Park-My-Trip.webp?alt=media&token=0b1727d5-99c7-4d16-b731-dc64da609c83",
     tags: ["דרום-מערב", "טרק", "פארק לאומי", "גורילות"],
     importantInfo: [
       "עונות השנה: אוגנדה על קו המשווה ולכן ניתן לטייל כל השנה.",
@@ -414,7 +414,7 @@ export const parks: Park[] = [
     description: "הנקיק נמצא בתוך פארק המלכה אליזבת׳, סמוך ל־Fig Tree Camp. לרוב משלבים את הביקור כאן כחלק מטיול ספארי רחב יותר בפארק.",
     logistics: { drive_from_kla: "7–8 שעות", best_time: "בוקר", duration_hours: 3 },
     gallery: ["https://example.com/kyambura1.jpg"],
-    image: "https://example.com/kyambura-hero.jpg",
+    image: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/My%20Trip%2Fkibale%20chimp%20chimpanzee-My-Trip.webp?alt=media&token=ec4144fc-11ff-45c1-b491-36c7acc7590a",
     tags: ["מערב", "טרק", "שימפנזים"],
     importantInfo: [
       "עונות השנה: אוגנדה על קו המשווה ולכן ניתן לטייל כל השנה.",
@@ -501,7 +501,7 @@ export const parks: Park[] = [
     description: "מפלי סיפי הם סדרה של מפלים בקצה של הר אלגון, המציעים נופים עוצרי נשימה ופעילויות מגוונות.",
     logistics: { drive_from_kla: "5–6 שעות", best_time: "עונה יבשה", duration_hours: 4 },
     gallery: ["https://example.com/sipi1.jpg"],
-    image: "https://example.com/sipi-hero.jpg",
+    image: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/My%20Trip%2FWoman%20sitting%20My-Trip.webp?alt=media&token=c4a40cd1-92cd-4c06-89f6-e79367eabbb0",
     tags: ["מזרח", "מפלים", "טרקים"],
     importantInfo: [
       "עונות השנה: עונה יבשה (יוני–אוקטובר, דצמבר–פברואר) - שבילים נוחים ומתאימים לטרקים. עונה רטובה (מרץ–מאי, ספטמבר–נובמבר) - המפלים בשיא עוצמתם, אך השבילים חלקים ומאתגרים.",
@@ -553,7 +553,7 @@ export const parks: Park[] = [
     description: "אגם ויקטוריה הוא אחד האגמים הגדולים בעולם ומציע מגוון רחב של פעילויות נופש ופנאי.",
     logistics: { drive_from_kla: "1–2 שעות", best_time: "כל היום", duration_hours: 2 },
     gallery: ["https://example.com/victoria1.jpg"],
-    image: "https://example.com/victoria-hero.jpg",
+    image: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/My%20Trip%2FVictoria%20Lake-My-Trip.webp?alt=media&token=0c7dc682-2d9f-43cb-89ba-a38d25f3a34e",
     tags: ["מרכז", "מים", "נופש"],
     importantInfo: [
       "עונות השנה: בעונה היבשה (דצמבר–פברואר, יוני–אוגוסט) - מזג אוויר נעים לשייט, דיג וביקור באיים. בעונה הרטובה (מרץ–מאי, ספטמבר–נובמבר) - האגם מתמלא, הנופים ירוקים, אך ייתכנו גשמים וסופות מקומיות.",
