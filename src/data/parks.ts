@@ -68,7 +68,7 @@ export const parks: Park[] = [
     summary: "ספארי קלאסי עם שייט ותצפיות מגוונות.",
     description: "פארק מגוון: סוואנה, יערות וגופי מים. תעלת קזינגה היא מוקד חיות מרכזי.",
     logistics: { drive_from_kla: "6–7 שעות", best_time: "בוקר/אחה״צ", duration_hours: 3 },
-    gallery: ["https://example.com/qe1.jpg"],
+    gallery: ["https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/My%20Trip%2Fqueen-elizabeth-lions-trees-My-Trip.webp?alt=media&token=64dac967-9137-410f-be66-060672be0397"],
     image: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/My%20Trip%2Fqueen-elizabeth-lions-trees-My-Trip.webp?alt=media&token=64dac967-9137-410f-be66-060672be0397",
     tags: ["מערב", "פארק לאומי"],
     importantInfo: [
@@ -138,7 +138,7 @@ export const parks: Park[] = [
     summary: "הפארק הגדול ביותר באוגנדה עם מפל עוצמתי שאין שני לו",
     description: "פארק מורצ'יסון פולס (Murchison Falls National Park) הוא הפארק הלאומי הגדול ביותר באוגנדה, המשתרע על פני יותר מ־3,800 קמ\"ר. הפארק מפורסם במפל מורצ'יסון הדרמטי, שבו נהר הנילוס נדחק דרך מעבר צר ברוחב שבעה מטרים בלבד, ויוצר מפל בעוצמה אדירה. סביב המפל מתפרשים מישורי סוואנה פתוחים, יערות וגדות נהר שמאכלסות שפע של בעלי חיים.\n\nבפארק חיים פילים, אריות, נמרים, ג'ירפות, בופאלו, היפופוטמים, תנינים ומאות מיני ציפורים. הוא מהווה יעד מרכזי לספארי באוגנדה ומשלב נסיעות שטח, שייט בנהר וצפייה מרהיבה בטורפים ואוכלי עשב.",
     logistics: { drive_from_kla: "5–6 שעות", best_time: "בוקר לספארי, אחה״צ לשייט", duration_hours: 3 },
-    gallery: ["https://example.com/mf1.jpg"],
+    gallery: ["https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/My%20Trip%2FMurchison%20Falls%20Boat-My-Trip.webp?alt=media&token=638c023a-8865-461c-a372-d37bc91db071"],
     image: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/My%20Trip%2FMurchison%20Falls%20Boat-My-Trip.webp?alt=media&token=638c023a-8865-461c-a372-d37bc91db071",
     tags: ["צפון-מערב", "פארק לאומי"],
     importantInfo: [
@@ -200,7 +200,7 @@ export const parks: Park[] = [
     summary: "פארק קטן אך מגוון; מתאים מאוד למשפחות.",
     description: "זברות, אנטילופות וצפרות מעולה; קרוב יחסית לקמפלה.",
     logistics: { drive_from_kla: "3–4 שעות", best_time: "בוקר או ערב", duration_hours: 2.5 },
-    gallery: ["https://example.com/lm1.jpg"],
+    gallery: ["https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/My%20Trip%2FMpalas%20in%20lake%20Mburo%20national%20park-My-trip.webp?alt=media&token=a00abb9c-1e17-438b-b26d-8bdffcace155"],
     image: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/My%20Trip%2FMpalas%20in%20lake%20Mburo%20national%20park-My-trip.webp?alt=media&token=a00abb9c-1e17-438b-b26d-8bdffcace155",
     tags: ["מרכז-דרום", "פארק לאומי"],
     importantInfo: [
@@ -413,7 +413,7 @@ export const parks: Park[] = [
     summary: "טרק שימפנזים ייחודי בלב קניון, כחלק מטיול בפארק המלכה אליזבת.",
     description: "הנקיק נמצא בתוך פארק המלכה אליזבת׳, סמוך ל־Fig Tree Camp. לרוב משלבים את הביקור כאן כחלק מטיול ספארי רחב יותר בפארק.",
     logistics: { drive_from_kla: "7–8 שעות", best_time: "בוקר", duration_hours: 3 },
-    gallery: ["https://example.com/kyambura1.jpg"],
+    gallery: ["https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/My%20Trip%2Fkibale%20chimp%20chimpanzee-My-Trip.webp?alt=media&token=ec4144fc-11ff-45c1-b491-36c7acc7590a"],
     image: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/My%20Trip%2Fkibale%20chimp%20chimpanzee-My-Trip.webp?alt=media&token=ec4144fc-11ff-45c1-b491-36c7acc7590a",
     tags: ["מערב", "טרק", "שימפנזים"],
     importantInfo: [
@@ -500,7 +500,7 @@ export const parks: Park[] = [
     summary: "טרקים לשלושה מפלים מרהיבים באזור הר אלגון.",
     description: "מפלי סיפי הם סדרה של מפלים בקצה של הר אלגון, המציעים נופים עוצרי נשימה ופעילויות מגוונות.",
     logistics: { drive_from_kla: "5–6 שעות", best_time: "עונה יבשה", duration_hours: 4 },
-    gallery: ["https://example.com/sipi1.jpg"],
+    gallery: ["https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/My%20Trip%2FWoman%20sitting%20My-Trip.webp?alt=media&token=c4a40cd1-92cd-4c06-89f6-e79367eabbb0"],
     image: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/My%20Trip%2FWoman%20sitting%20My-Trip.webp?alt=media&token=c4a40cd1-92cd-4c06-89f6-e79367eabbb0",
     tags: ["מזרח", "מפלים", "טרקים"],
     importantInfo: [
@@ -552,7 +552,7 @@ export const parks: Park[] = [
     summary: "האגם הגדול באפריקה. פעילויות מים ונופש.",
     description: "אגם ויקטוריה הוא אחד האגמים הגדולים בעולם ומציע מגוון רחב של פעילויות נופש ופנאי.",
     logistics: { drive_from_kla: "1–2 שעות", best_time: "כל היום", duration_hours: 2 },
-    gallery: ["https://example.com/victoria1.jpg"],
+    gallery: ["https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/My%20Trip%2FVictoria%20Lake-My-Trip.webp?alt=media&token=0c7dc682-2d9f-43cb-89ba-a38d25f3a34e"],
     image: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/My%20Trip%2FVictoria%20Lake-My-Trip.webp?alt=media&token=0c7dc682-2d9f-43cb-89ba-a38d25f3a34e",
     tags: ["מרכז", "מים", "נופש"],
     importantInfo: [
