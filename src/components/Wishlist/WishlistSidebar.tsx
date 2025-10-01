@@ -30,7 +30,7 @@ export const WishlistSidebar: React.FC = () => {
       
       {/* Full Page Modal */}
       <div className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4">
-        <div className="bg-white rounded-3xl w-full max-w-6xl h-[90vh] overflow-hidden shadow-2xl">
+            <div className="bg-white rounded-3xl w-full max-w-6xl h-[90vh] overflow-hidden shadow-2xl flex flex-col">
         {/* Header */}
         <div className="text-white p-12 flex justify-between items-center" style={{background: 'linear-gradient(to right, #CAA131, #534B20)'}}>
           <div>
@@ -49,7 +49,7 @@ export const WishlistSidebar: React.FC = () => {
         </div>
 
         {/* Content */}
-        <div className="flex-1 overflow-y-auto bg-gradient-to-br from-gray-50 to-gray-100">
+        <div className="flex-1 overflow-y-auto bg-gradient-to-br from-gray-50 to-gray-100 max-h-[calc(100vh-200px)]">
           {items.length === 0 ? (
             <div className="p-16 text-center">
               <div className="max-w-md mx-auto">
@@ -109,7 +109,29 @@ export const WishlistSidebar: React.FC = () => {
                     <div 
                       className="w-full h-64 bg-cover bg-center"
                       style={{
-                        backgroundImage: "url('https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2Fqueen-elizabeth%2Fqueen-elizabeth-lions-trees-hero.webp?alt=media&token=6aac3487-a6e1-46eb-b0b7-0055c4bb8a95')"
+                        backgroundImage: (() => {
+                          try {
+                            // בדיקה בטוחה - וודא ש-item.image הוא string
+                            const imageUrl = typeof item.image === 'string' ? item.image : '';
+                            
+                            // אם יש תמונה תקינה, השתמש בה
+                            if (imageUrl && imageUrl !== '' && !imageUrl.includes('example.com')) {
+                              return `url('${imageUrl}')`;
+                            }
+                            
+                            // אחרת, השתמש בתמונות ספציפיות לפי שם
+                            const imageMap: { [key: string]: string } = {
+                              'פארק המלכה אליזבת': 'https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2Fqueen-elizabeth%2Fqueen-elizabeth-lions-trees-hero.webp?alt=media&token=6aac3487-a6e1-46eb-b0b7-0055c4bb8a95',
+                              'גורילות בווינדי': 'https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FPrimates%20of%20Uganda%2FGorillas%20in%20Bwindi%20Forest%2FMountain%20gorilla%20Bwindi%20Impenetrable%20Forest%20Uganda.webp?alt=media&token=1a4e88e7-4cfd-45d3-8e92-cc3dbc3a3e56',
+                              'מפלי מורצ\'יסון': 'https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FMurchison%20Falls%20National%20Park%2Fmurchison-falls-hero.webp?alt=media&token=56ccea2c-c574-46a6-ac3a-a0ecc2fbc3a5'
+                            };
+                            
+                            return `url('${imageMap[item.name] || 'https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2Fqueen-elizabeth%2Fqueen-elizabeth-lions-trees-hero.webp?alt=media&token=6aac3487-a6e1-46eb-b0b7-0055c4bb8a95'}')`;
+                          } catch (error) {
+                            console.error('Error setting background image:', error);
+                            return "url('https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2Fqueen-elizabeth%2Fqueen-elizabeth-lions-trees-hero.webp?alt=media&token=6aac3487-a6e1-46eb-b0b7-0055c4bb8a95')";
+                          }
+                        })()
                       }}
                     ></div>
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
@@ -140,7 +162,7 @@ export const WishlistSidebar: React.FC = () => {
                         <div className="space-y-3">
                           <label className="text-base font-semibold text-gray-700">לינה</label>
                           <select 
-                            value={item.userChoices.accommodation}
+                            value={item.userChoices?.accommodation || 'budget'}
                             onChange={(e) => updateUserChoices(item.id, { accommodation: e.target.value as 'budget' | 'midrange' | 'luxury' })}
                             className="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500 bg-white text-base"
                           >
@@ -149,9 +171,9 @@ export const WishlistSidebar: React.FC = () => {
                             <option value="luxury">לינה יוקרתית - לודג'ים מפוארים</option>
                           </select>
                           <div className="text-sm text-gray-600">
-                            {item.userChoices.accommodation === 'budget' 
+                            {item.userChoices?.accommodation === 'budget' 
                               ? 'חדרים פשוטים, מים חמים מוגבלים, מיקום מרכזי' 
-                              : item.userChoices.accommodation === 'midrange'
+                              : item.userChoices?.accommodation === 'midrange'
                               ? 'חדרים פרטיים, מים חמים, לעיתים בריכה'
                               : 'שירות אישי, בריכה, אוכל גורמה, מיקום אקסקלוסיבי'
                             }
@@ -162,7 +184,7 @@ export const WishlistSidebar: React.FC = () => {
                         <div className="space-y-3">
                           <label className="text-base font-semibold text-gray-700">תחבורה</label>
                           <select 
-                            value={item.userChoices.transport}
+                            value={item.userChoices?.transport || 'self_drive'}
                             onChange={(e) => updateUserChoices(item.id, { transport: e.target.value as 'self_drive' | '4x4_guide' | 'helicopter' })}
                             className="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500 bg-white text-base"
                           >
@@ -171,31 +193,29 @@ export const WishlistSidebar: React.FC = () => {
                             <option value="helicopter">שירותי מסוקים - חוויה יוקרתית</option>
                           </select>
                           <div className="text-sm text-gray-600">
-                            {item.userChoices.transport === 'self_drive' 
+                            {item.userChoices?.transport === 'self_drive' 
                               ? 'גמישות מלאה, חיסכון בעלויות'
-                              : item.userChoices.transport === '4x4_guide'
+                              : item.userChoices?.transport === '4x4_guide'
                               ? 'מדריך מקומי, גישה לאזורים מיוחדים'
                               : 'חוויה ייחודית, חיסכון בזמן, נוף מרהיב'
                             }
                           </div>
                         </div>
 
-                        {/* סיכום הבחירות */}
-                        <div className="space-y-3">
-                          <label className="text-base font-semibold text-gray-700">סיכום הבחירות</label>
-                          <div className="p-4 rounded-lg" style={{backgroundColor: '#FFF8DC', border: '1px solid #D4AF37'}}>
-                            <div className="text-base space-y-2" style={{color: '#8B4513'}}>
-                              <div>לינה: {
-                                item.userChoices.accommodation === 'budget' ? 'תקציבית' :
-                                item.userChoices.accommodation === 'midrange' ? 'בינונית' : 'יוקרתית'
-                              }</div>
-                              <div>תחבורה: {
-                                item.userChoices.transport === 'self_drive' ? 'רכב שכור' :
-                                item.userChoices.transport === '4x4_guide' ? 'רכב 4x4 עם מדריך' : 'מסוקים'
-                              }</div>
-                            </div>
-                          </div>
-                        </div>
+                               {/* הערות ושאלות */}
+                               <div className="space-y-3">
+                                 <label className="text-base font-semibold text-gray-700">הערות ושאלות</label>
+                                 <textarea 
+                                   value={item.userChoices?.notes || ''}
+                                   onChange={(e) => updateUserChoices(item.id, { notes: e.target.value })}
+                                   placeholder="האם יש לך שאלות ספציפיות? העדפות מיוחדות? הערות חשובות?"
+                                   className="w-full p-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500 bg-white text-base resize-none"
+                                   rows={4}
+                                 />
+                                 <div className="text-sm text-gray-600">
+                                   ההערות שלך יישמרו ויועברו עם בקשת הצעת המחיר
+                                 </div>
+                               </div>
 
                       </div>
                     </div>

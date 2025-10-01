@@ -138,10 +138,10 @@ export default function App() {
           </Route>
         </Routes>
         
-        {/* Wishlist Components - מחוץ ל-Layout */}
+        {/* Wishlist Components - בתוך Router */}
         <WishlistSidebar />
         <WhatsAppFloat />
-      </Router>
+        </Router>
       </WishlistProvider>
     </ToastProvider>
   );

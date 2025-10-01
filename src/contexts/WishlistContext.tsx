@@ -15,6 +15,7 @@ export interface WishlistResolution {
 export interface UserChoices {
   accommodation: 'budget' | 'midrange' | 'luxury';
   transport: 'self_drive' | '4x4_guide' | 'helicopter';
+  notes?: string; // הוספת שדה להערות
 }
 
 export interface WishlistItem {
@@ -57,7 +58,8 @@ export const WishlistProvider: React.FC<{ children: ReactNode }> = ({ children }
           addedAt: new Date(item.addedAt),
           userChoices: item.userChoices || {
             accommodation: 'budget',
-            transport: 'self_drive'
+            transport: 'self_drive',
+            notes: ''
           }
         }));
       }

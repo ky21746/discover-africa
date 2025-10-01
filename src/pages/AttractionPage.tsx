@@ -120,7 +120,7 @@ const AttractionPage: React.FC = () => {
         attractionId: a.id,
         name: a.name,
         subtitle: a.category,
-        image: a.heroImage || a.gallery?.[0] || '',
+        image: a.image || a.gallery?.[0] || '',
         basePrice: '',
         resolutions: defaultResolutions
       });

@@ -75,17 +75,23 @@ export const QuoteRequestModal: React.FC<QuoteRequestModalProps> = ({
                   {item.subtitle && (
                     <div className="text-base text-gray-600 mt-1">{item.subtitle}</div>
                   )}
-                  <div className="text-base text-gray-500 mt-2">
-                    לינה: {
-                      item.userChoices.accommodation === 'budget' ? 'תקציבית' :
-                      item.userChoices.accommodation === 'midrange' ? 'בינונית' : 'יוקרתית'
-                    } • 
-                    תחבורה: {
-                      item.userChoices.transport === 'self_drive' ? 'מתנייד לבד' :
-                      item.userChoices.transport === '4x4_guide' ? 'רכב 4x4 עם מדריך' :
-                      'שירותי מסוקים'
-                    }
-                  </div>
+                         <div className="text-base text-gray-500 mt-2">
+                           לינה: {
+                             item.userChoices.accommodation === 'budget' ? 'תקציבית' :
+                             item.userChoices.accommodation === 'midrange' ? 'בינונית' : 'יוקרתית'
+                           } • 
+                           תחבורה: {
+                             item.userChoices.transport === 'self_drive' ? 'מתנייד לבד' :
+                             item.userChoices.transport === '4x4_guide' ? 'רכב 4x4 עם מדריך' :
+                             'שירותי מסוקים'
+                           }
+                         </div>
+                         {item.userChoices.notes && (
+                           <div className="mt-3 p-3 bg-amber-50 rounded-lg border border-amber-200">
+                             <div className="text-sm font-semibold text-amber-800 mb-1">הערות שלך:</div>
+                             <div className="text-sm text-amber-700">{item.userChoices.notes}</div>
+                           </div>
+                         )}
                 </div>
               ))}
             </div>
