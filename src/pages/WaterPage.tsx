@@ -47,7 +47,7 @@ const WaterPage: React.FC = () => {
         
         {/* Transparent bar at bottom */}
         <div className="absolute bottom-0 left-0 w-full h-1/4 bg-black/40 border-t-[1.5px] border-[#CAA131]/80">
-          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-center space-y-4 text-white max-w-4xl">
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center space-y-4 text-white max-w-4xl">
             <h1 className="text-2xl md:text-5xl font-bold drop-shadow-md text-center">
               מסלולי מים
             </h1>
