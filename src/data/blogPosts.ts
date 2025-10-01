@@ -2,7 +2,7 @@ import { BlogPost } from '../types';
 
 export const blogPosts: BlogPost[] = [
   {
-    id: '2',
+    id: 'bwindi-gorilla-guide',
     title: 'מסע אל הלב הבלתי חדיר',
     excerpt: 'מדריך מקיף ומפורט לטרק גורילות בבווינדי - כל מה שצריך לדעת על החוויה המרגשת ביותר באוגנדה.',
     content: `# מסע אל הלב הבלתי חדיר
