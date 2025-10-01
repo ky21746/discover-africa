@@ -32,17 +32,16 @@ export const WishlistSidebar: React.FC = () => {
       <div className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4">
             <div className="bg-white rounded-3xl w-full max-w-6xl h-[90vh] overflow-hidden shadow-2xl flex flex-col">
         {/* Header */}
-        <div className="text-white p-12 flex justify-between items-center" style={{background: 'linear-gradient(to right, #CAA131, #534B20)'}}>
+        <div className="bg-white text-gray-800 p-12 flex justify-between items-center border-b-2 border-gray-200">
           <div>
             <h2 className="text-4xl font-bold mb-3">המסלול שלך לאוגנדה</h2>
-            <p className="text-xl" style={{color: '#CAA131'}}>
+            <p className="text-xl text-gray-600">
               {items.length} חוויות נבחרו • מוכן להצעת מחיר
             </p>
           </div>
           <button 
             onClick={toggleSidebar}
-            className="w-8 h-8 flex items-center justify-center rounded-full transition-colors"
-            style={{backgroundColor: '#4B361C'}}
+            className="w-8 h-8 flex items-center justify-center rounded-full transition-colors bg-gray-200 hover:bg-gray-300 text-gray-600"
           >
             <X className="w-5 h-5" />
           </button>
@@ -237,8 +236,7 @@ export const WishlistSidebar: React.FC = () => {
               </div>
               <button 
                 onClick={() => setIsQuoteModalOpen(true)}
-                className="w-full text-white py-8 px-12 rounded-3xl transition-all duration-500 text-2xl font-bold flex items-center justify-center gap-6 shadow-2xl hover:shadow-3xl transform hover:scale-105"
-                style={{background: 'linear-gradient(to right, #CAA131, #534B20)'}}
+                className="w-full bg-white text-gray-800 py-8 px-12 rounded-3xl transition-all duration-500 text-2xl font-bold flex items-center justify-center gap-6 shadow-2xl hover:shadow-3xl transform hover:scale-105 border-2 border-gray-200 hover:border-gray-300"
               >
                 <Send className="w-8 h-8" />
                 סיים ובקש הצעת מחיר
