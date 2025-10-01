@@ -264,6 +264,23 @@ const BlogPost: React.FC = () => {
                   );
                 }
                 
+                // Handle images
+                if (line.match(/^!\[.*\]\(.*\)$/)) {
+                  const match = line.match(/^!\[(.*?)\]\((.*?)\)$/);
+                  if (match) {
+                    const [, alt, src] = match;
+                    return (
+                      <div key={index} className="my-8">
+                        <img 
+                          src={src} 
+                          alt={alt} 
+                          className="w-full h-auto rounded-lg shadow-lg"
+                        />
+                      </div>
+                    );
+                  }
+                }
+                
                 // Enhanced paragraphs
                 if (line.trim()) {
                   return (
