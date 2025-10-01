@@ -48,16 +48,25 @@ const WaterPage: React.FC = () => {
         {/* Transparent bar at bottom */}
         <div className="absolute bottom-0 left-0 w-full h-1/4 bg-black/40 border-t-[1.5px] border-[#CAA131]/80">
           <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-center space-y-4 text-white max-w-4xl">
-            <h1 className="text-4xl md:text-5xl font-bold drop-shadow-md">
+            <h1 className="text-2xl md:text-5xl font-bold drop-shadow-md">
               אטרקציות מים באוגנדה
             </h1>
-            <p className="text-lg md:text-xl max-w-3xl mx-auto drop-shadow-md">
-              גלו את המגוון המרהיב של אטרקציות המים - ממפלים עוצמתיים ועד אגמים שקטים
-            </p>
+            
+            {/* קו צהוב */}
+            <div className="w-16 h-1 bg-[#CAA131] mx-auto rounded-full"></div>
             
           </div>
         </div>
       </section>
+
+      {/* תת-כותרת מתחת להירו */}
+      <div className="bg-white py-4">
+        <div className="container mx-auto px-4 text-center">
+          <p className="text-base md:text-xl text-gray-700 max-w-3xl mx-auto">
+            גלו את המגוון המרהיב של אטרקציות המים - ממפלים עוצמתיים ועד אגמים שקטים
+          </p>
+        </div>
+      </div>
 
       <div className="py-8">
         <div className="container mx-auto px-4">
