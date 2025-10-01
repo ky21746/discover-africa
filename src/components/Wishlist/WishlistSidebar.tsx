@@ -1,6 +1,6 @@
 // src/components/Wishlist/WishlistSidebar.tsx
 import React, { useState } from 'react';
-import { X, Trash2, Settings, MapPin, Send, Download, ShoppingBag } from 'lucide-react';
+import { X, Trash2, Settings, MapPin, Send, Download, ShoppingBag, ChevronDown, ChevronUp } from 'lucide-react';
 import { useWishlist } from '../../contexts/WishlistContext';
 import { QuoteRequestModal } from './QuoteRequestModal';
 
@@ -18,6 +18,8 @@ export const WishlistSidebar: React.FC = () => {
   
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
   const [deleteConfirm, setDeleteConfirm] = useState<string | null>(null);
+  const [isAccommodationOpen, setIsAccommodationOpen] = useState(false);
+  const [isTransportOpen, setIsTransportOpen] = useState(false);
 
   if (!isOpen) return null;
 
@@ -60,48 +62,70 @@ export const WishlistSidebar: React.FC = () => {
             </div>
           ) : (
                    <div className="p-3 md:p-12 space-y-4 md:space-y-12">
-              {/* מפרט רמות הלינה והתחבורה - מעל כל האטרקציות */}
-                    <div className="bg-white rounded-xl p-4 border shadow-sm" style={{borderColor: '#CAA131'}}>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {/* לינה */}
-                  <div>
-                    <h4 className="text-base font-bold text-gray-800 mb-3">רמות לינה באוגנדה</h4>
-                    <div className="space-y-3 text-xs">
-                      <div>
-                        <div className="font-bold text-black text-sm">לינה תקציבית (Budget)</div>
-                        <div className="text-gray-700">גסטהאוסים בסיסיים, חדרים פשוטים, מים חמים מוגבלים</div>
-                      </div>
-                      <div>
-                        <div className="font-bold text-black text-sm">לינה בינונית (Mid-range)</div>
-                        <div className="text-gray-700">לודג'ים ברמה טובה, מים חמים, חדרים פרטיים, לעיתים בריכה</div>
-                      </div>
-                      <div>
-                        <div className="font-bold text-black text-sm">לינה יוקרתית (Luxury)</div>
-                        <div className="text-gray-700">לודג'ים מפוארים בלב הפארק, שירות אישי, בריכה, אוכל גורמה</div>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  {/* תחבורה */}
-                  <div>
-                    <h4 className="text-base font-bold text-gray-800 mb-3">אפשרויות תחבורה באוגנדה</h4>
-                    <div className="space-y-3 text-xs">
-                      <div>
-                        <div className="font-bold text-black text-sm">נהיגה עצמאית – רכב שכור</div>
-                        <div className="text-gray-700">חופש מלא, גמישות מלאה, אחריות עליך</div>
-                      </div>
-                      <div>
-                        <div className="font-bold text-black text-sm">רכב ספארי 4x4 עם מדריך מקומי</div>
-                        <div className="text-gray-700">נהג מקצועי שמכיר את השטח, חווית ספארי מודרכת</div>
-                      </div>
-                      <div>
-                        <div className="font-bold text-black text-sm">טיסות פנימיות במסוק</div>
-                        <div className="text-gray-700">מעבר מהיר ונוף מרהיב מלמעלה – הגעה ליעד בשעה במקום נסיעה של 6–8 שעות</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                     {/* מפרט רמות הלינה והתחבורה - אקורדיונים במובייל */}
+                     <div className="bg-white rounded-xl border shadow-sm" style={{borderColor: '#CAA131'}}>
+                       {/* לינה - אקורדיון */}
+                       <div className="border-b border-gray-200">
+                         <button
+                           onClick={() => setIsAccommodationOpen(!isAccommodationOpen)}
+                           className="w-full p-4 text-right flex items-center justify-between hover:bg-gray-50 transition-colors"
+                         >
+                           <div className="flex items-center gap-3">
+                             {isAccommodationOpen ? <ChevronUp className="w-5 h-5 text-gray-600" /> : <ChevronDown className="w-5 h-5 text-gray-600" />}
+                             <h4 className="text-base font-bold text-gray-800">רמות לינה באוגנדה</h4>
+                           </div>
+                         </button>
+                         
+                         {/* תוכן האקורדיון - נסתר במובייל, גלוי בדסקטופ */}
+                         <div className={`${isAccommodationOpen ? 'block' : 'hidden md:block'} px-4 pb-4`}>
+                           <div className="space-y-3 text-xs">
+                             <div className="text-right">
+                               <div className="font-bold text-black text-sm">לינה תקציבית (Budget)</div>
+                               <div className="text-gray-700">גסטהאוסים בסיסיים, חדרים פשוטים, מים חמים מוגבלים</div>
+                             </div>
+                             <div className="text-right">
+                               <div className="font-bold text-black text-sm">לינה בינונית (Mid-range)</div>
+                               <div className="text-gray-700">לודג'ים ברמה טובה, מים חמים, חדרים פרטיים, לעיתים בריכה</div>
+                             </div>
+                             <div className="text-right">
+                               <div className="font-bold text-black text-sm">לינה יוקרתית (Luxury)</div>
+                               <div className="text-gray-700">לודג'ים מפוארים בלב הפארק, שירות אישי, בריכה, אוכל גורמה</div>
+                             </div>
+                           </div>
+                         </div>
+                       </div>
+                       
+                       {/* תחבורה - אקורדיון */}
+                       <div>
+                         <button
+                           onClick={() => setIsTransportOpen(!isTransportOpen)}
+                           className="w-full p-4 text-right flex items-center justify-between hover:bg-gray-50 transition-colors"
+                         >
+                           <div className="flex items-center gap-3">
+                             {isTransportOpen ? <ChevronUp className="w-5 h-5 text-gray-600" /> : <ChevronDown className="w-5 h-5 text-gray-600" />}
+                             <h4 className="text-base font-bold text-gray-800">אפשרויות תחבורה באוגנדה</h4>
+                           </div>
+                         </button>
+                         
+                         {/* תוכן האקורדיון - נסתר במובייל, גלוי בדסקטופ */}
+                         <div className={`${isTransportOpen ? 'block' : 'hidden md:block'} px-4 pb-4`}>
+                           <div className="space-y-3 text-xs">
+                             <div className="text-right">
+                               <div className="font-bold text-black text-sm">נהיגה עצמאית – רכב שכור</div>
+                               <div className="text-gray-700">חופש מלא, גמישות מלאה, אחריות עליך</div>
+                             </div>
+                             <div className="text-right">
+                               <div className="font-bold text-black text-sm">רכב ספארי 4x4 עם מדריך מקומי</div>
+                               <div className="text-gray-700">נהג מקצועי שמכיר את השטח, חווית ספארי מודרכת</div>
+                             </div>
+                             <div className="text-right">
+                               <div className="font-bold text-black text-sm">טיסות פנימיות במסוק</div>
+                               <div className="text-gray-700">מעבר מהיר ונוף מרהיב מלמעלה – הגעה ליעד בשעה במקום נסיעה של 6–8 שעות</div>
+                             </div>
+                           </div>
+                         </div>
+                       </div>
+                     </div>
               {items.map((item) => (
                     <div key={item.id} className="bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 border-2" style={{borderColor: '#CAA131'}}>
                   {/* Item Header */}
