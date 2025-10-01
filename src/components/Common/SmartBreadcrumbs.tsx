@@ -229,7 +229,14 @@ const SmartBreadcrumbs: React.FC = () => {
       if (pathname !== '/blog') {
         const blogId = params.id;
         if (blogId) {
-          items.push({ label: `פוסט ${blogId}` });
+          // מיפוי ID של בלוגים לשמות בעברית
+          const blogNames: { [key: string]: string } = {
+            'bwindi-gorilla-guide': 'מדריך גורילות בווינדי',
+            '2': 'מדריך גורילות בווינדי'
+          };
+          
+          const blogName = blogNames[blogId] || 'מאמר';
+          items.push({ label: blogName });
         }
       }
       return items;
