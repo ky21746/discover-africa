@@ -48,7 +48,7 @@ const SafariPage: React.FC = () => {
         {/* Transparent bar at bottom */}
         <div className="absolute bottom-0 left-0 w-full h-1/4 bg-black/40 border-t-[1.5px] border-[#CAA131]/80">
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center space-y-4 text-white max-w-4xl">
-            <h1 className="text-4xl md:text-5xl font-bold drop-shadow-md whitespace-nowrap">
+            <h1 className="text-2xl md:text-5xl font-bold drop-shadow-md whitespace-nowrap">
               ספארי באוגנדה
             </h1>
             <p className="hidden md:block text-lg md:text-xl max-w-3xl mx-auto drop-shadow-md whitespace-nowrap">
