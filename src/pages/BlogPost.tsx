@@ -39,7 +39,7 @@ const BlogPost: React.FC = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
       {/* Hero Section */}
-      <section className="relative w-full h-80 md:h-[28rem] mb-10 rounded-xl overflow-hidden">
+      <section className="relative w-full h-80 md:h-[45rem] mb-10 rounded-xl overflow-hidden">
         {/* רקע תמונה – החלף לכתובת רלוונטית */}
         <img
           src="https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FPrimates%20of%20Uganda%2FGorillas%20in%20Bwindi%20Forest%2FGorilla%20family%20with%20silverback%20in%20Bwindi%20Impenetrable%20Forest%2C%20Uganda%2C%20Africa.webp?alt=media&token=6afb4c11-7cfa-4c28-a29e-d41dea9634ac"
