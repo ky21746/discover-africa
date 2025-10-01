@@ -442,8 +442,8 @@ export const parks: Park[] = [
     summary: "הר געש כבוי עם קלדרה עצומה ומפלי סיפי.",
     description: "אלגון הוא הר געש כבוי ענק, היושב בגבול אוגנדה–קניה.",
     logistics: { drive_from_kla: "4–5 שעות", best_time: "עונה יבשה", duration_hours: 6 },
-    gallery: ["https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FSafari%20Uganda%2FMount%20Elgon%20National%20Park%2FThe%20amazing%20Sipi%20falls%20in%20the%20Mount%20Elgon%20national%20park%20in%20Uganda.webp?alt=media&token=13642ed8-bd50-42a1-ac7e-d7ef3e39ed62"],
-    image: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FSafari%20Uganda%2FMount%20Elgon%20National%20Park%2FMount%20Elgon%20national%20park%20in%20Uganda-hero.webp?alt=media&token=f311d9a8-eedc-497a-961d-01145b159634",
+    gallery: ["https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/My%20Trip%2FScreenshot%202025-10-01%20at%2013.4Mount%20Elgon%20National%20Park-My-Trip.webp?alt=media&token=05af57db-0fb1-4b56-97cd-63c240c34874"],
+    image: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/My%20Trip%2FScreenshot%202025-10-01%20at%2013.4Mount%20Elgon%20National%20Park-My-Trip.webp?alt=media&token=05af57db-0fb1-4b56-97cd-63c240c34874",
     tags: ["מזרח", "הרים", "פארק לאומי"],
     importantInfo: [
       "עונות השנה: אוגנדה על קו המשווה ולכן ניתן לטייל בה בכל ימות השנה.",
@@ -469,8 +469,8 @@ export const parks: Park[] = [
     summary: "הרי הירח - קרחונים על קו המשווה.",
     description: "הרי הרוונזורי הם יעד טרקים עולמי ברמה הגבוהה ביותר.",
     logistics: { drive_from_kla: "6–7 שעות", best_time: "דצמ–פבר / יונ–אוג", duration_hours: 8 },
-    gallery: ["https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FSafari%20Uganda%2FRwenzori%20Mountains%20National%20Park%2FSwamp%20in%20Rwenzori%20National%20Park.webp?alt=media&token=9456666b-7548-4045-a6f2-e199583c4ec8"],
-    image: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FSafari%20Uganda%2FRwenzori%20Mountains%20National%20Park%2FHighland%20landscape%20near%20Weismann%60s%20peak%20in%20Rwenzori%20mountains%2C%20Uganda.%20Little%20lakes%20among%20the%20mossy%20rocks%20at%20high%20altitudes-hero.webp?alt=media&token=7333ef02-d1b2-4014-9596-df917bad950c",
+    gallery: ["https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/My%20Trip%2FRwenzori%20mountains-My-Trip.webp?alt=media&token=4e15fba8-9de3-4367-98d7-15115271aab5"],
+    image: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/My%20Trip%2FRwenzori%20mountains-My-Trip.webp?alt=media&token=4e15fba8-9de3-4367-98d7-15115271aab5",
     tags: ["מערב", "הרים", "פארק לאומי"],
     importantInfo: [
       "עונות השנה: ניתן לטייל כל השנה, אך תנאי מזג האוויר עלולים להשתנות בפתאומיות.",
