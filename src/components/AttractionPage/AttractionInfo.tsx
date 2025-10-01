@@ -16,7 +16,7 @@ const AttractionInfo: React.FC<AttractionInfoProps> = ({ attraction }) => {
         <section className="bg-white border border-[#534B20]/60 rounded-3xl p-8 md:p-12 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.01] h-full">
           <div className="space-y-8">
             {attraction.subtitle && (
-              <h2 className="text-2xl font-bold text-[#4B361C] mb-6 leading-tight">{attraction.subtitle}</h2>
+              <h2 className="text-lg md:text-2xl font-bold text-[#4B361C] mb-4 md:mb-6 leading-tight">{attraction.subtitle}</h2>
             )}
             
             {introFull && (

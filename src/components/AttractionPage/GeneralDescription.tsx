@@ -15,7 +15,7 @@ const GeneralDescription: React.FC<GeneralDescriptionProps> = ({ title, descript
       if (line.startsWith('## ')) {
         // Subtitle
         return (
-          <h3 key={index} className="text-xl font-semibold text-[#4B361C] border-b-2 border-[#CAA131] pb-2 mb-4 mt-6">
+          <h3 key={index} className="text-lg md:text-xl font-semibold text-[#4B361C] border-b-2 border-[#CAA131] pb-2 mb-3 md:mb-4 mt-4 md:mt-6">
             {line.substring(3).trim()}
           </h3>
         );
@@ -35,7 +35,7 @@ const GeneralDescription: React.FC<GeneralDescriptionProps> = ({ title, descript
       } else {
         // Regular paragraph
         return (
-          <p key={index} className="text-gray-800 leading-relaxed mb-4">
+          <p key={index} className="text-sm md:text-base text-gray-800 leading-relaxed mb-3 md:mb-4">
             {line.trim()}
           </p>
         );
@@ -46,7 +46,7 @@ const GeneralDescription: React.FC<GeneralDescriptionProps> = ({ title, descript
   return (
     <div className="bg-gradient-to-br from-gray-50 via-gray-100 to-gray-50 border border-[#534B20]/60 rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.01] h-full flex flex-col">
       {/* כותרת ראשית */}
-      <h2 className="text-3xl font-bold text-[#CAA131] mb-8 leading-tight">{title}</h2>
+      <h2 className="text-xl md:text-3xl font-bold text-[#CAA131] mb-6 md:mb-8 leading-tight">{title}</h2>
 
       {/* Content wrapper with flex layout */}
       <div className="h-full flex flex-col">
