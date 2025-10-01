@@ -157,6 +157,34 @@ const BlogPost: React.FC = () => {
                   return <hr key={index} className="my-12 border-t-2 border-gray-200" />;
                 }
                 
+                // HTML div handling for tables
+                if (line.includes('<div className="overflow-x-auto my-12">')) {
+                  // Find the closing </div> tag
+                  let tableContent = '';
+                  let i = index;
+                  while (i < post.content.split('\n').length) {
+                    const currentLine = post.content.split('\n')[i];
+                    tableContent += currentLine + '\n';
+                    if (currentLine.includes('</div>')) {
+                      break;
+                    }
+                    i++;
+                  }
+                  
+                  return (
+                    <div key={index} dangerouslySetInnerHTML={{ __html: tableContent }} />
+                  );
+                }
+                
+                // Skip lines that are part of the HTML table
+                if (line.includes('<table') || line.includes('<thead') || line.includes('<tbody') || 
+                    line.includes('<tr') || line.includes('<th') || line.includes('<td') || 
+                    line.includes('</table>') || line.includes('</thead>') || line.includes('</tbody>') || 
+                    line.includes('</tr>') || line.includes('</th>') || line.includes('</td>') ||
+                    line.includes('</div>') && line.includes('overflow-x-auto')) {
+                  return null;
+                }
+                
                 // Table handling
                 if (line.includes('|') && line.includes('---')) {
                   return null;
@@ -209,15 +237,13 @@ const BlogPost: React.FC = () => {
                 // List items with enhanced styling and HTML processing
                 if (line.startsWith('- ') || line.startsWith('* ')) {
                   const processHTML = (text: string) => {
-                    return text
-                      .replace(/<b>(.*?)<\/b>/g, '<strong class="font-bold text-primary">$1</strong>')
-                      .replace(/<strong>(.*?)<\/strong>/g, '<strong class="font-bold text-primary">$1</strong>');
+                    return text;
                   };
                   
                   return (
                     <li key={index} className="mb-3 text-lg leading-relaxed flex items-start gap-3">
                       <span className="text-primary text-2xl leading-none mt-1">•</span>
-                      <span dangerouslySetInnerHTML={{ __html: processHTML(line.replace(/^[-*] /, '')) }} />
+                      <span>{line.replace(/^[-*] /, '')}</span>
                     </li>
                   );
                 }
@@ -225,9 +251,7 @@ const BlogPost: React.FC = () => {
                 if (/^\d+\. /.test(line)) {
                   const number = line.match(/^(\d+)\./)?.[1];
                   const processHTML = (text: string) => {
-                    return text
-                      .replace(/<b>(.*?)<\/b>/g, '<strong class="font-bold text-primary">$1</strong>')
-                      .replace(/<strong>(.*?)<\/strong>/g, '<strong class="font-bold text-primary">$1</strong>');
+                    return text;
                   };
                   
                   return (
@@ -235,26 +259,20 @@ const BlogPost: React.FC = () => {
                       <span className="flex-shrink-0 w-7 h-7 bg-primary text-white rounded-full flex items-center justify-center text-sm font-bold">
                         {number}
                       </span>
-                      <span className="pt-0.5" dangerouslySetInnerHTML={{ __html: processHTML(line.replace(/^\d+\. /, '')) }} />
+                      <span className="pt-0.5">{line.replace(/^\d+\. /, '')}</span>
                     </li>
                   );
                 }
                 
-                // Enhanced paragraphs with HTML processing
+                // Enhanced paragraphs
                 if (line.trim()) {
-                  // Process HTML tags in the line
-                  const processHTML = (text: string) => {
-                    return text
-                      .replace(/<b>(.*?)<\/b>/g, '<strong class="font-bold text-primary">$1</strong>')
-                      .replace(/<strong>(.*?)<\/strong>/g, '<strong class="font-bold text-primary">$1</strong>');
-                  };
-                  
                   return (
                     <p 
                       key={index} 
                       className="text-lg leading-relaxed mb-6 text-gray-700"
-                      dangerouslySetInnerHTML={{ __html: processHTML(line) }}
-                    />
+                    >
+                      {line}
+                    </p>
                   );
                 }
                 
