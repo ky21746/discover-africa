@@ -42,15 +42,17 @@ export const QuoteRequestModal: React.FC<QuoteRequestModalProps> = ({
 
       // בניית הודעה למייל
       const itemsText = items.map(item => {
-        const accommodation = item.userChoices?.accommodation === 'budget' ? 'תקציבית' :
-                            item.userChoices?.accommodation === 'midrange' ? 'בינונית' : 'יוקרתית';
-        const transport = item.userChoices?.transport === 'self_drive' ? 'רכב שכור' :
-                        item.userChoices?.transport === '4x4_guide' ? 'רכב 4x4 עם מדריך' : 'מסוקים';
+        // בטיחות מלאה - וודא שיש userChoices
+        const userChoices = item.userChoices || { accommodation: 'budget', transport: 'self_drive', notes: '' };
+        const accommodation = userChoices.accommodation === 'budget' ? 'תקציבית' :
+                            userChoices.accommodation === 'midrange' ? 'בינונית' : 'יוקרתית';
+        const transport = userChoices.transport === 'self_drive' ? 'רכב שכור' :
+                        userChoices.transport === '4x4_guide' ? 'רכב 4x4 עם מדריך' : 'מסוקים';
         
         return `${item.name}
 - לינה: ${accommodation}
 - תחבורה: ${transport}
-${item.userChoices?.notes ? `- הערות: ${item.userChoices.notes}` : ''}`;
+${userChoices.notes ? `- הערות: ${userChoices.notes}` : ''}`;
       }).join('\n\n');
 
       const message = `בקשת הצעת מחיר חדשה מ-Discover Africa

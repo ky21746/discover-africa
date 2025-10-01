@@ -30,8 +30,8 @@ export const WishlistSidebar: React.FC = () => {
       />
       
       {/* Full Page Modal */}
-      <div className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4">
-            <div className="bg-white rounded-3xl w-full max-w-6xl h-[90vh] overflow-hidden shadow-2xl flex flex-col md:max-w-6xl max-w-full">
+      <div className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4" style={{overflow: 'hidden'}}>
+            <div className="bg-white rounded-3xl w-full max-w-6xl h-[90vh] overflow-hidden shadow-2xl flex flex-col md:max-w-6xl max-w-full" style={{touchAction: 'pan-y'}}>
                {/* Header */}
                <div className="bg-white text-gray-800 p-4 md:p-12 flex justify-between items-center border-b-2 border-gray-200">
                  <div>
@@ -49,7 +49,7 @@ export const WishlistSidebar: React.FC = () => {
         </div>
 
         {/* Content */}
-        <div className="flex-1 overflow-y-auto bg-gradient-to-br from-gray-50 to-gray-100 max-h-[calc(100vh-200px)] p-3 md:p-12">
+        <div className="flex-1 overflow-y-auto bg-gradient-to-br from-gray-50 to-gray-100 max-h-[calc(100vh-200px)] p-3 md:p-12" style={{touchAction: 'pan-y', overscrollBehavior: 'contain'}}>
           {items.length === 0 ? (
             <div className="p-16 text-center">
               <div className="max-w-md mx-auto">
