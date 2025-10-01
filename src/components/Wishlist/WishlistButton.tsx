@@ -2,6 +2,7 @@
 import React from 'react';
 import { Heart, ShoppingBag, Route, Plus } from 'lucide-react';
 import { useWishlist, WishlistResolution } from '../../contexts/WishlistContext';
+import { useToast } from '../../contexts/ToastContext';
 
 interface WishlistButtonProps {
   item: {
@@ -22,6 +23,7 @@ export const WishlistButton: React.FC<WishlistButtonProps> = ({
   variant = "heart" 
 }) => {
   const { items, addItem, removeItem } = useWishlist();
+  const { showToast } = useToast();
   
   const isInWishlist = items.some(wishlistItem => wishlistItem.attractionId === item.attractionId);
 
@@ -30,6 +32,7 @@ export const WishlistButton: React.FC<WishlistButtonProps> = ({
       const existingItem = items.find(wishlistItem => wishlistItem.attractionId === item.attractionId);
       if (existingItem) {
         removeItem(existingItem.id);
+        showToast('הוסר מהמסלול', 'info');
       }
     } else {
       // Create default resolutions for the item
@@ -70,8 +73,13 @@ export const WishlistButton: React.FC<WishlistButtonProps> = ({
 
       addItem({
         ...item,
-        resolutions: defaultResolutions
+        resolutions: defaultResolutions,
+        userChoices: {
+          accommodation: 'budget',
+          transport: 'self_drive'
+        }
       });
+      showToast('נוסף למסלול', 'success');
     }
   };
 

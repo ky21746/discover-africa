@@ -77,11 +77,6 @@ const CategoryPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const categorySlug = slug ?? "";
 
-  // אם זו קטגוריית מים - קפוץ ל-WaterSubcategories
-  if (categorySlug === "water") {
-    window.location.href = "/water";
-    return null;
-  }
 
   const isPrimates =
     categorySlug === "gorillas-chimps" || categorySlug === "primates";
@@ -138,6 +133,12 @@ const CategoryPage: React.FC = () => {
       prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag]
     );
   };
+
+  // אם זו קטגוריית מים - קפוץ ל-WaterSubcategories
+  if (categorySlug === "water") {
+    window.location.href = "/water";
+    return null;
+  }
 
   return (
     <div className="fade-in" dir="rtl">

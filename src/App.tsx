@@ -53,6 +53,9 @@ import ExtremePark from "./pages/services/ExtremePark";
 import { WishlistProvider } from "./contexts/WishlistContext";
 import { WishlistSidebar } from "./components/Wishlist/WishlistSidebar";
 
+// Toast imports
+import { ToastProvider } from "./contexts/ToastContext";
+
 // Scroll fix component
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
@@ -69,15 +72,15 @@ const ScrollToTop: React.FC = () => {
 
 export default function App() {
   return (
-    <WishlistProvider>
-      {/* שינוי יחיד: basename="/" במקום "/discover-africa" */}
-      <Router basename="/">
+    <ToastProvider>
+      <WishlistProvider>
+        {/* שינוי יחיד: basename="/" במקום "/discover-africa" */}
+        <Router basename="/">
         {/* קומפוננטה שמחזירה לראש הדף בכל מעבר עמוד */}
         <ScrollToTop />
         
         {/* באנר קוקיז - הוספתי כאן! */}
         <CookieBanner />
-        <WhatsAppFloat />
         <Routes>
           {/* כל הדפים נכנסים תחת ה־Layout */}
           <Route element={<Layout />}>
@@ -137,7 +140,9 @@ export default function App() {
         
         {/* Wishlist Components - מחוץ ל-Layout */}
         <WishlistSidebar />
+        <WhatsAppFloat />
       </Router>
-    </WishlistProvider>
+      </WishlistProvider>
+    </ToastProvider>
   );
 }

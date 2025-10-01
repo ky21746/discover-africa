@@ -4,11 +4,17 @@ import React, { createContext, useContext, useState, useEffect, ReactNode } from
 // Types for Wishlist
 export interface WishlistResolution {
   id: string;
-  type: 'accommodation' | 'transport' | 'duration' | 'group_size';
+  type: 'accommodation' | 'transport' | 'duration' | 'group_size' | 'internal_flights';
   name: string;
   description: string;
   price?: string;
   selected: boolean;
+}
+
+// New types for user choices
+export interface UserChoices {
+  accommodation: 'budget' | 'midrange' | 'luxury';
+  transport: 'self_drive' | '4x4_guide' | 'helicopter';
 }
 
 export interface WishlistItem {
@@ -19,6 +25,7 @@ export interface WishlistItem {
   image: string;
   basePrice: string;
   resolutions: WishlistResolution[];
+  userChoices: UserChoices;
   addedAt: Date;
 }
 
@@ -28,6 +35,7 @@ interface WishlistContextType {
   addItem: (item: Omit<WishlistItem, 'addedAt'>) => void;
   removeItem: (id: string) => void;
   updateResolution: (itemId: string, resolutionId: string, selected: boolean) => void;
+  updateUserChoices: (itemId: string, choices: Partial<UserChoices>) => void;
   toggleSidebar: () => void;
   getTotalItems: () => number;
   getTotalPrice: () => number;
@@ -43,10 +51,14 @@ export const WishlistProvider: React.FC<{ children: ReactNode }> = ({ children }
       const saved = localStorage.getItem('discover-africa-wishlist');
       if (saved) {
         const parsed = JSON.parse(saved);
-        // המרת addedAt מ-string ל-Date
+        // המרת addedAt מ-string ל-Date והוספת userChoices ברירת מחדל
         return parsed.map((item: any) => ({
           ...item,
-          addedAt: new Date(item.addedAt)
+          addedAt: new Date(item.addedAt),
+          userChoices: item.userChoices || {
+            accommodation: 'budget',
+            transport: 'self_drive'
+          }
         }));
       }
     } catch (error) {
@@ -92,6 +104,18 @@ export const WishlistProvider: React.FC<{ children: ReactNode }> = ({ children }
     }));
   };
 
+  const updateUserChoices = (itemId: string, choices: Partial<UserChoices>) => {
+    setItems(prev => prev.map(item => {
+      if (item.id === itemId) {
+        return {
+          ...item,
+          userChoices: { ...item.userChoices, ...choices }
+        };
+      }
+      return item;
+    }));
+  };
+
   const toggleSidebar = () => {
     setIsOpen(prev => !prev);
   };
@@ -118,6 +142,7 @@ export const WishlistProvider: React.FC<{ children: ReactNode }> = ({ children }
       addItem,
       removeItem,
       updateResolution,
+      updateUserChoices,
       toggleSidebar,
       getTotalItems,
       getTotalPrice,
