@@ -147,7 +147,7 @@ const ParkDetail: React.FC = () => {
 
     return (
       <section className="bg-white border rounded-2xl p-5 md:p-6 shadow-sm">
-        <h2 className="text-xl font-bold mb-4 font-sans">במבט מהיר</h2>
+        <h2 className="text-lg md:text-xl font-bold mb-3 md:mb-4 font-sans">במבט מהיר</h2>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {visible.map((it, idx) => (
             <div key={idx} className="flex items-center gap-3 bg-gray-50 rounded-lg p-3">
@@ -193,7 +193,7 @@ const ParkDetail: React.FC = () => {
     return (
       <section className="bg-white border rounded-2xl p-5 md:p-6 shadow-sm">
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-xl font-bold font-sans">חוות דעת</h2>
+          <h2 className="text-lg md:text-xl font-bold font-sans">חוות דעת</h2>
           <div className="flex items-center gap-2">
             <Stars value={avg} />
             <span className="text-sm text-gray-600">{avg.toFixed(1)} · {count} ביקורות</span>
@@ -448,7 +448,7 @@ const ParkDetail: React.FC = () => {
 
     return (
       <section className="bg-white border rounded-2xl p-5 md:p-6 shadow-sm">
-        <h2 className="text-xl font-bold mb-4 font-sans">קרוב אליך</h2>
+        <h2 className="text-lg md:text-xl font-bold mb-3 md:mb-4 font-sans">קרוב אליך</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {nearbyParks.map((np) => (
             <Link
@@ -625,7 +625,7 @@ const ParkDetail: React.FC = () => {
             {/* מה תגלו בדרך - ריבוע רחב */}
             <div className="md:col-span-2">
               <section className="bg-gradient-to-br from-white via-gray-50 to-white border border-[#534B20]/60 rounded-3xl p-8 md:p-10 shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-[1.01] h-full">
-                <h3 className="text-xl font-bold text-[#4B361C] mb-4 border-b-2 border-[#CAA131] w-fit">מה תגלו בדרך</h3>
+                <h3 className="text-lg md:text-xl font-bold text-[#4B361C] mb-3 md:mb-4 border-b-2 border-[#CAA131] w-fit">מה תגלו בדרך</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {(park as any).wildlife?.map((w: string, i: number) => (
                     <div key={i} className="flex items-center gap-4 p-4 bg-gradient-to-r from-[#CAA131]/15 to-[#B8942A]/15 rounded-2xl border border-[#CAA131]/50/30 hover:shadow-xl hover:scale-105 transition-all duration-500">
@@ -643,7 +643,7 @@ const ParkDetail: React.FC = () => {
             {/* הידעת - ריבוע קטן */}
             <div className="md:col-span-1">
               <section className="bg-gradient-to-r from-[#CAA131]/15 to-[#B8942A]/15 border border-[#CAA131]/30 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 h-full">
-                <h3 className="text-xl font-extrabold text-[#4B361C] mb-3 border-b-3 border-[#CAA131] w-fit flex items-center gap-2">
+                <h3 className="text-lg md:text-xl font-extrabold text-[#4B361C] mb-2 md:mb-3 border-b-3 border-[#CAA131] w-fit flex items-center gap-2">
                   <span className="text-2xl">💡</span>
                   הידעת?
                 </h3>
@@ -657,13 +657,13 @@ const ParkDetail: React.FC = () => {
             <div className="md:col-span-2">
               {park.importantInfo && park.importantInfo.length > 0 && (
                 <section className="bg-gradient-to-br from-amber-50 to-orange-50 border border-[#CAA131]/30 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 h-full info-box" style={{fontFamily: 'Poppins', color: '#3B2F2F', lineHeight: '1.6'}}>
-                  <h3 className="text-xl font-bold text-[#2C2C2C] mb-2 border-b border-[#CAA131] pb-2 w-fit text-right">חשוב לדעת</h3>
+                  <h3 className="text-lg md:text-xl font-bold text-[#2C2C2C] mb-2 border-b border-[#CAA131] pb-2 w-fit text-right">חשוב לדעת</h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6" style={{direction: 'rtl', textAlign: 'right'}}>
                     {/* עמודה ימנית */}
                     <div className="space-y-4">
                       {park.importantInfo.map((item, index) => (
                         <div key={index}>
-                          <p className="text-[#3B2F2F] text-base mb-1.5" style={{fontSize: '1rem', marginBottom: '6px'}}>{item}</p>
+                          <p className="text-[#3B2F2F] text-sm md:text-base mb-1.5" style={{fontSize: '0.875rem', marginBottom: '6px'}}>{item}</p>
                         </div>
                       ))}
                     </div>

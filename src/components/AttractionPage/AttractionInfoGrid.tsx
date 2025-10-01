@@ -21,8 +21,8 @@ const AttractionInfoGrid: React.FC<AttractionInfoGridProps> = ({ data }) => {
     
     return (
       <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
-        <h3 className="text-xl font-bold text-black mb-3 border-b border-[#C9A34E] pb-2 text-right">{title}</h3>
-        <div className="text-gray-800 text-right" style={{ lineHeight: '1.5' }}>
+        <h3 className="text-lg md:text-xl font-bold text-black mb-2 md:mb-3 border-b border-[#C9A34E] pb-2 text-right">{title}</h3>
+        <div className="text-sm md:text-base text-gray-800 text-right" style={{ lineHeight: '1.5' }}>
           <ul className="list-disc list-inside text-right">
             {items.map((item, index) => (
               <li key={index} className={index < items.length - 1 ? "mb-1" : ""}>{item}</li>
@@ -47,7 +47,7 @@ const AttractionInfoGrid: React.FC<AttractionInfoGridProps> = ({ data }) => {
 
   return (
     <div className="bg-white border border-[#534B20]/60 rounded-3xl p-6 shadow-lg hover:shadow-xl transition-all duration-500">
-      <h2 className="text-3xl font-bold mb-6 text-[#4B361C] text-center">חשוב לדעת</h2>
+      <h2 className="text-xl md:text-3xl font-bold mb-4 md:mb-6 text-[#4B361C] text-center">חשוב לדעת</h2>
       
       {/* גריד ראשי - מקטעים דינמיים */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
