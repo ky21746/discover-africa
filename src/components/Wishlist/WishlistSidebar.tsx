@@ -17,6 +17,7 @@ export const WishlistSidebar: React.FC = () => {
   } = useWishlist();
   
   const [isQuoteModalOpen, setIsQuoteModalOpen] = useState(false);
+  const [deleteConfirm, setDeleteConfirm] = useState<string | null>(null);
 
   if (!isOpen) return null;
 
@@ -60,7 +61,7 @@ export const WishlistSidebar: React.FC = () => {
           ) : (
             <div className="p-12 space-y-12">
               {/* מפרט רמות הלינה והתחבורה - מעל כל האטרקציות */}
-              <div className="bg-white rounded-xl p-4 border border-gray-200 shadow-sm">
+                    <div className="bg-white rounded-xl p-4 border shadow-sm" style={{borderColor: '#CAA131'}}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {/* לינה */}
                   <div>
@@ -102,7 +103,7 @@ export const WishlistSidebar: React.FC = () => {
                 </div>
               </div>
               {items.map((item) => (
-                <div key={item.id} className="bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 border-2 border-gray-100 hover:border-amber-200">
+                    <div key={item.id} className="bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 border-2" style={{borderColor: '#CAA131'}}>
                   {/* Item Header */}
                   <div className="relative">
                     <div 
@@ -135,16 +136,13 @@ export const WishlistSidebar: React.FC = () => {
                     ></div>
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                     <button
-                      onClick={() => removeItem(item.id)}
+                      onClick={() => setDeleteConfirm(item.id)}
                       className="absolute top-6 left-6 w-12 h-12 bg-red-500 text-white rounded-full flex items-center justify-center hover:bg-red-600 transition-all duration-300 shadow-xl hover:scale-110"
                     >
                       <Trash2 className="w-6 h-6" />
                     </button>
                     <div className="absolute bottom-6 left-6 right-6">
-                      <h3 className="font-bold text-2xl mb-2 text-white drop-shadow-lg">{item.name}</h3>
-                      {item.subtitle && (
-                        <p className="text-lg text-white/90 mb-3 drop-shadow-md">{item.subtitle}</p>
-                      )}
+                      <h3 className="font-bold text-5xl mb-4 text-white drop-shadow-lg">{item.name}</h3>
                     </div>
                   </div>
                   
@@ -236,7 +234,8 @@ export const WishlistSidebar: React.FC = () => {
               </div>
               <button 
                 onClick={() => setIsQuoteModalOpen(true)}
-                className="w-full bg-white text-gray-800 py-8 px-12 rounded-3xl transition-all duration-500 text-2xl font-bold flex items-center justify-center gap-6 shadow-2xl hover:shadow-3xl transform hover:scale-105 border-2 border-gray-200 hover:border-gray-300"
+                className="w-full bg-white text-gray-800 py-8 px-12 rounded-3xl transition-all duration-500 text-2xl font-bold flex items-center justify-center gap-6 shadow-2xl hover:shadow-3xl transform hover:scale-105 border-2"
+                style={{borderColor: '#CAA131'}}
               >
                 <Send className="w-8 h-8" />
                 סיים ובקש הצעת מחיר
@@ -252,6 +251,37 @@ export const WishlistSidebar: React.FC = () => {
         isOpen={isQuoteModalOpen}
         onClose={() => setIsQuoteModalOpen(false)}
       />
+
+      {/* Delete Confirmation Modal */}
+      {deleteConfirm && (
+        <div className="fixed inset-0 bg-black/50 z-[100] flex items-center justify-center p-4">
+          <div className="bg-white rounded-2xl max-w-md w-full shadow-2xl">
+            <div className="p-6">
+              <h3 className="text-xl font-bold text-gray-800 mb-4">האם את/ה בטוח/ה?</h3>
+              <p className="text-gray-600 mb-6">
+                האם את/ה בטוח/ה שאת/ה רוצה להסיר את האטרקציה מהמסלול שלך? פעולה זו לא ניתנת לביטול.
+              </p>
+              <div className="flex gap-3">
+                <button
+                  onClick={() => {
+                    removeItem(deleteConfirm);
+                    setDeleteConfirm(null);
+                  }}
+                  className="flex-1 bg-red-500 text-white py-3 px-4 rounded-lg hover:bg-red-600 transition-colors font-medium"
+                >
+                  כן, הסר
+                </button>
+                <button
+                  onClick={() => setDeleteConfirm(null)}
+                  className="flex-1 bg-gray-200 text-gray-800 py-3 px-4 rounded-lg hover:bg-gray-300 transition-colors font-medium"
+                >
+                  ביטול
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 };

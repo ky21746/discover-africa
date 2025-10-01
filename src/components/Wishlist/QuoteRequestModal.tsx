@@ -24,21 +24,44 @@ export const QuoteRequestModal: React.FC<QuoteRequestModalProps> = ({
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    // כאן נשלח את הנתונים ל-Firebase/CRM
-    const quoteData = {
-      ...formData,
-      items: items.map(item => ({
-        id: item.id,
-        name: item.name,
-        subtitle: item.subtitle,
-        userChoices: item.userChoices
-      }))
-    };
+    // בניית הודעה לווטסאפ
+    const itemsText = items.map(item => {
+      const accommodation = item.userChoices?.accommodation === 'budget' ? 'תקציבית' :
+                          item.userChoices?.accommodation === 'midrange' ? 'בינונית' : 'יוקרתית';
+      const transport = item.userChoices?.transport === 'self_drive' ? 'רכב שכור' :
+                      item.userChoices?.transport === '4x4_guide' ? 'רכב 4x4 עם מדריך' : 'מסוקים';
+      
+      return `🏞️ *${item.name}*
+📅 לינה: ${accommodation}
+🚗 תחבורה: ${transport}
+${item.userChoices?.notes ? `📝 הערות: ${item.userChoices.notes}` : ''}`;
+    }).join('\n\n');
+
+    const message = `🎯 *בקשת הצעת מחיר חדשה*
+
+👤 *פרטי הלקוח:*
+שם: ${formData.name}
+אימייל: ${formData.email}
+טלפון: ${formData.phone}
+
+📅 *פרטי הטיול:*
+תאריכים: ${formData.dates}
+מספר מטיילים: ${formData.travelers}
+
+🗺️ *האטרקציות שנבחרו:*
+${itemsText}
+
+---
+*נשלח מ-Discover Africa Website*`;
+
+    // שליחה לווטסאפ
+    const whatsappNumber = '972546152683'; // מספר הווטסאפ שלך
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
     
-    console.log('Quote request data:', quoteData);
+    window.open(whatsappUrl, '_blank');
     
-    // TODO: שליחה ל-Firebase/CRM
-    alert('הבקשה נשלחה בהצלחה! נחזור אליך בקרוב.');
+    alert('הבקשה נשלחה לווטסאפ! נחזור אליך בקרוב.');
     onClose();
   };
 
@@ -53,11 +76,12 @@ export const QuoteRequestModal: React.FC<QuoteRequestModalProps> = ({
     <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
       <div className="bg-white rounded-2xl max-w-md w-full max-h-[90vh] overflow-y-auto shadow-2xl">
         {/* Header */}
-        <div className="bg-gradient-to-r from-amber-500 to-orange-500 text-white p-6 rounded-t-2xl flex justify-between items-center">
-          <h2 className="text-xl font-bold">בקש הצעת מחיר</h2>
+        <div className="text-white p-6 rounded-t-2xl flex justify-between items-center border-b" style={{background: '#CAA131', borderColor: '#CAA131'}}>
+          <h2 className="text-xl font-bold text-black">בקש הצעת מחיר</h2>
           <button
             onClick={onClose}
-            className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-amber-600 transition-colors"
+            className="w-8 h-8 flex items-center justify-center rounded-full transition-colors"
+            style={{backgroundColor: '#4B361C'}}
           >
             <X className="w-5 h-5" />
           </button>
@@ -137,7 +161,7 @@ export const QuoteRequestModal: React.FC<QuoteRequestModalProps> = ({
 
             <div>
               <label className="block text-base font-medium text-gray-700 mb-2">
-                טלפון
+                טלפון *
               </label>
               <div className="relative">
                 <Phone className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
@@ -146,6 +170,7 @@ export const QuoteRequestModal: React.FC<QuoteRequestModalProps> = ({
                   name="phone"
                   value={formData.phone}
                   onChange={handleInputChange}
+                  required
                   className="w-full pr-10 pl-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent text-base"
                   placeholder="050-1234567"
                 />
@@ -188,7 +213,8 @@ export const QuoteRequestModal: React.FC<QuoteRequestModalProps> = ({
 
             <button
               type="submit"
-              className="w-full bg-gradient-to-r from-amber-600 to-orange-600 text-white py-4 px-6 rounded-xl hover:from-amber-700 hover:to-orange-700 transition-all text-lg font-bold flex items-center justify-center gap-3 shadow-lg hover:shadow-xl transform hover:scale-105"
+              className="w-full py-4 px-6 rounded-xl transition-all text-lg font-bold flex items-center justify-center gap-3 border-2"
+              style={{background: 'transparent', borderColor: '#CAA131', color: '#CAA131'}}
             >
               <Send className="w-6 h-6" />
               שלח בקשה
