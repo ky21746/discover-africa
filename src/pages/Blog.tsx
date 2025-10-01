@@ -82,50 +82,50 @@ const Blog: React.FC = () => {
 
         {/* Blog Posts Grid */}
         {filteredPosts.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredPosts.map((post) => (
-              <Card key={post.id} className="hover:shadow-lg transition-all duration-300">
+              <Card key={post.id} className="hover:shadow-xl transition-all duration-300 transform hover:scale-105">
                 <div
-                  className="card-image"
+                  className="card-image h-48"
                   style={{ backgroundImage: `url(${post.image})` }}
                 ></div>
-                <div className="card-content">
-                  <div className="flex flex-wrap gap-1 mb-3">
-                    {post.tags.slice(0, 2).map((tag) => (
+                <div className="card-content p-6">
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {post.tags.slice(0, 3).map((tag) => (
                       <span
                         key={tag}
-                        className="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded-full"
+                        className="px-3 py-1 bg-primary/10 text-primary text-sm rounded-full font-medium"
                       >
                         {tag}
                       </span>
                     ))}
                   </div>
                   
-                  <h3 className="text-xl font-semibold mb-3 font-sans leading-tight">
+                  <h3 className="text-xl font-bold mb-4 font-sans leading-tight text-gray-900">
                     {highlightText(post.title, searchQuery)}
                   </h3>
                   
-                  <p className="text-muted mb-4 font-sans line-clamp-3">
+                  <p className="text-gray-600 mb-6 font-sans line-clamp-3 leading-relaxed">
                     {highlightText(post.excerpt, searchQuery)}
                   </p>
                   
-                  <div className="flex items-center gap-4 text-sm text-muted mb-4">
-                    <div className="flex items-center gap-1">
+                  <div className="flex items-center gap-4 text-sm text-gray-500 mb-6">
+                    <div className="flex items-center gap-2">
                       <Calendar className="w-4 h-4" />
                       <span>{formatDate(post.date)}</span>
                     </div>
-                    <div className="flex items-center gap-1">
+                    <div className="flex items-center gap-2">
                       <User className="w-4 h-4" />
                       <span>{post.author}</span>
                     </div>
-                    <div className="flex items-center gap-1">
+                    <div className="flex items-center gap-2">
                       <Clock className="w-4 h-4" />
                       <span>{post.readTime}</span>
                     </div>
                   </div>
                   
                   <div className="card-footer">
-                    <Link to={`/blog/${post.id}`} className="btn-primary w-full">
+                    <Link to={`/blog/${post.id}`} className="btn-primary w-full text-center">
                       קראו עוד
                     </Link>
                   </div>
