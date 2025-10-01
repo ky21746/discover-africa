@@ -164,9 +164,11 @@ const BlogPost: React.FC = () => {
                 
                 if (line.includes('|') && !line.includes('---')) {
                   const cells = line.split('|').map(cell => cell.trim()).filter(cell => cell);
-                  const isHeader = index === 0 || (index > 0 && cells.some(cell => cell.includes('**')));
                   
-                  if (isHeader) {
+                  // Check if this is the first row (header)
+                  const isFirstRow = index === 0;
+                  
+                  if (isFirstRow) {
                     return (
                       <div key={index} className="overflow-x-auto mb-12">
                         <table className="min-w-full border border-gray-200 rounded-lg overflow-hidden">
@@ -174,7 +176,7 @@ const BlogPost: React.FC = () => {
                             <tr>
                               {cells.map((cell, cellIndex) => (
                                 <th key={cellIndex} className="px-4 py-3 text-right font-bold">
-                                  {cell.replace(/\*\*/g, '')}
+                                  {cell}
                                 </th>
                               ))}
                             </tr>
