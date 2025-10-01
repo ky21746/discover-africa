@@ -123,13 +123,11 @@ export const WishlistButton: React.FC<WishlistButtonProps> = ({
       className={`transition-colors ${className}`}
     >
       {isInWishlist ? (
-        <span className="flex items-center gap-2 text-green-600 font-medium">
-          <Route className="w-4 h-4" />
+        <span className="text-green-600 font-medium">
           ✓ במסלול שלי
         </span>
       ) : (
-        <span className="flex items-center gap-2 font-medium">
-          <Plus className="w-4 h-4" />
+        <span className="font-medium">
           הוסף למסלול
         </span>
       )}
