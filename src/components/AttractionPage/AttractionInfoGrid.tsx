@@ -21,8 +21,8 @@ const AttractionInfoGrid: React.FC<AttractionInfoGridProps> = ({ data }) => {
     
     return (
       <div className="bg-white border border-gray-200 rounded-lg p-5 shadow-sm">
-        <h3 className="text-lg md:text-xl font-bold text-black mb-2 md:mb-3 border-b border-[#C9A34E] pb-2 text-right">{title}</h3>
-        <div className="text-sm md:text-base text-gray-800 text-right" style={{ lineHeight: '1.5' }}>
+        <h3 className="text-base md:text-lg font-bold text-black mb-2 md:mb-3 border-b border-[#C9A34E] pb-2 text-right">{title}</h3>
+        <div className="text-xs md:text-sm text-gray-800 text-right" style={{ lineHeight: '1.5' }}>
           <ul className="list-disc list-inside text-right">
             {items.map((item, index) => (
               <li key={index} className={index < items.length - 1 ? "mb-1" : ""}>{item}</li>
