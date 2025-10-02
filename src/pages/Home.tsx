@@ -43,91 +43,324 @@ const Home: React.FC = () => {
   return (
     <div className="fade-in" dir="rtl">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-gray-900 to-gray-800 text-white h-[50vh] md:h-[45vh] min-h-[300px] md:min-h-[200px] overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center opacity-70"
-          style={{
-            backgroundImage:
-              "url(https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/hero-gorilla.webp?alt=media&token=c67bec83-4363-4104-a102-757f69b351a4)",
-          }}
-        />
-        
-        {/* Dark Overlay */}
+      <section className="relative bg-gradient-to-r from-gray-900 to-gray-800 text-white h-[50vh] md:h-[45vh] min-h-[300px] md:min-h-[200px] overflow-hidden md:block">
+        {/* Mobile Hero - Full Screen */}
         <div 
-          className="absolute inset-0"
+          className="md:hidden flex flex-col justify-start items-center px-5 relative"
           style={{
-            background: "linear-gradient(to bottom, rgba(75, 54, 28, 0.4) 0%, rgba(75, 54, 28, 0.65) 100%)"
+            height: '100vh',
+            minHeight: '100vh',
+            backgroundImage: "url(https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/hero-gorilla.webp?alt=media&token=c67bec83-4363-4104-a102-757f69b351a4)",
+            backgroundSize: 'cover',
+            backgroundPosition: 'center center',
+            backgroundRepeat: 'no-repeat'
           }}
-        />
-        
-        {/* Content positioned at center bottom */}
-        <div className="absolute bottom-8 md:bottom-12 left-4 right-4 text-center text-white">
-          <h1 
-            className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6"
+        >
+          {/* Overlay */}
+          <div 
+            className="absolute inset-0"
             style={{
-              fontSize: '56px',
-              fontWeight: '700',
-              color: '#FFFFFF',
-              textShadow: '2px 2px 4px rgba(75, 54, 28, 0.8)'
+              background: "linear-gradient(180deg, rgba(75, 54, 28, 0.2) 0%, rgba(75, 54, 28, 0.3) 100%)"
             }}
-          >
-            <span className="hidden md:inline">טיולי הרפתקה מותאמים אישית באוגנדה</span>
-            <span className="md:hidden">
-              <span className="whitespace-nowrap">טיולי הרפתקה מותאמים</span>
-              <br />
-              <span className="whitespace-nowrap">אישית באוגנדה</span>
-            </span>
-          </h1>
-          <p 
-            className="text-lg md:text-xl font-light mb-8 max-w-[700px] mx-auto"
-            style={{
-              fontSize: '20px',
-              color: 'rgba(255, 255, 255, 0.95)',
-              textShadow: '1px 1px 2px rgba(75, 54, 28, 0.6)'
-            }}
-          >
-            ניסיון שטח מקומי, מסלולים ייחודיים וליווי אישי 24/7
-          </p>
-          <Link
-            to="/plan-your-trip"
-            className="inline-block mb-12 rounded-lg font-semibold transition-colors duration-200"
-            style={{
-              backgroundColor: '#CAA131',
-              color: '#4B361C',
-              fontSize: '18px',
-              fontWeight: '600',
-              padding: '18px 40px',
-              borderRadius: '8px',
-              boxShadow: '0 4px 12px rgba(202, 161, 49, 0.3)'
-            }}
-          >
-            תכנן לי טיול עכשיו
-          </Link>
+          />
           
-          {/* Feature Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 max-w-5xl mx-auto">
-            <div className="bg-black/30 backdrop-blur-sm rounded-xl p-4 text-right">
-              <div className="text-[#CAA131] text-sm mb-1 font-semibold">ניהול ישראלי מקומי</div>
-              <div className="text-white font-semibold text-base">שירות בעברית</div>
-            </div>
+          {/* Content */}
+          <div className="relative z-10 flex flex-col items-center text-center" style={{ paddingTop: '80px' }}>
             
-            <div className="bg-black/30 backdrop-blur-sm rounded-xl p-4 text-right">
-              <div className="text-[#CAA131] text-sm mb-1 font-semibold">ניסיון של 30 שנה באוגנדה</div>
-              <div className="text-white font-semibold text-base">עם שותפים מקומיים</div>
-            </div>
+            {/* Title */}
+            <h1 
+              className="mb-4"
+              style={{
+                fontSize: '36px',
+                fontWeight: '700',
+                lineHeight: '1.2',
+                color: '#FFFFFF',
+                textShadow: '2px 4px 12px rgba(75, 54, 28, 0.9)',
+                maxWidth: '90%',
+                margin: '0 0 16px 0'
+              }}
+            >
+              טיולים מותאמים אישית באוגנדה
+            </h1>
             
-            <div className="bg-black/30 backdrop-blur-sm rounded-xl p-4 text-right">
-              <div className="text-[#CAA131] text-sm mb-1 font-semibold">מסלולים ייחודיים</div>
-              <div className="text-white font-semibold text-base">מקומות שאחרים לא מגיעים</div>
-            </div>
+            {/* Subtitle */}
+            <p 
+              className="mb-6"
+              style={{
+                fontSize: '18px',
+                fontWeight: '400',
+                lineHeight: '1.4',
+                color: 'rgba(255, 255, 255, 0.95)',
+                textShadow: '2px 3px 8px rgba(75, 54, 28, 0.8)',
+                maxWidth: '85%',
+                margin: '0 0 24px 0'
+              }}
+            >
+              ניסיון שטח מקומי, מסלולים ייחודיים וליווי אישי 24/7
+            </p>
             
-            <div className="bg-black/30 backdrop-blur-sm rounded-xl p-4 text-right">
-              <div className="text-[#CAA131] text-sm mb-1 font-semibold">ליווי אישי ובטיחות</div>
-              <div className="text-white font-semibold text-base">מערך חירום 24/7</div>
+            {/* CTA Button */}
+            <Link
+              to="/plan-your-trip"
+              className="rounded-lg font-semibold transition-all duration-200 active:scale-97 mb-8"
+              style={{
+                backgroundColor: '#CAA131',
+                color: '#4B361C',
+                fontSize: '18px',
+                fontWeight: '600',
+                padding: '18px 0',
+                width: '85%',
+                maxWidth: '300px',
+                borderRadius: '10px',
+                boxShadow: '0 8px 24px rgba(202, 161, 49, 0.5)',
+                margin: '0 0 32px 0'
+              }}
+            >
+              תכנן לי טיול עכשיו
+            </Link>
+            
+            {/* Bullets on Hero */}
+            <div style={{ maxWidth: '400px', margin: '0 0 0 auto', marginTop: '20px' }}>
+              <div className="mb-3 text-right">
+                <div 
+                  style={{
+                    backgroundColor: 'rgba(0, 0, 0, 0.4)',
+                    backdropFilter: 'blur(10px)',
+                    borderRadius: '12px',
+                    padding: '12px 16px',
+                    border: '1px solid rgba(255, 255, 255, 0.1)'
+                  }}
+                >
+                  <span style={{ fontSize: '18px', fontWeight: '600', color: '#CAA131', display: 'block', marginBottom: '-2px' }}>
+                    ניהול ישראלי מקומי
+                  </span>
+                  <span style={{ fontSize: '18px', fontWeight: '400', color: 'rgba(255, 255, 255, 0.9)', lineHeight: '1.5' }}>
+                    שירות בעברית
+                  </span>
+                </div>
+              </div>
+              
+              <div className="mb-3 text-right">
+                <div 
+                  style={{
+                    backgroundColor: 'rgba(0, 0, 0, 0.4)',
+                    backdropFilter: 'blur(10px)',
+                    borderRadius: '12px',
+                    padding: '12px 16px',
+                    border: '1px solid rgba(255, 255, 255, 0.1)'
+                  }}
+                >
+                  <span style={{ fontSize: '18px', fontWeight: '600', color: '#CAA131', display: 'block', marginBottom: '-2px' }}>
+                    ניסיון של 30 שנה באוגנדה
+                  </span>
+                  <span style={{ fontSize: '18px', fontWeight: '400', color: 'rgba(255, 255, 255, 0.9)', lineHeight: '1.5' }}>
+                    עם שותפים מקומיים
+                  </span>
+                </div>
+              </div>
+              
+              <div className="mb-3 text-right">
+                <div 
+                  style={{
+                    backgroundColor: 'rgba(0, 0, 0, 0.4)',
+                    backdropFilter: 'blur(10px)',
+                    borderRadius: '12px',
+                    padding: '12px 16px',
+                    border: '1px solid rgba(255, 255, 255, 0.1)'
+                  }}
+                >
+                  <span style={{ fontSize: '18px', fontWeight: '600', color: '#CAA131', display: 'block', marginBottom: '-2px' }}>
+                    מסלולים ייחודיים
+                  </span>
+                  <span style={{ fontSize: '18px', fontWeight: '400', color: 'rgba(255, 255, 255, 0.9)', lineHeight: '1.5' }}>
+                    מקומות שאחרים לא מגיעים
+                  </span>
+                </div>
+              </div>
+              
+              <div className="mb-3 text-right">
+                <div 
+                  style={{
+                    backgroundColor: 'rgba(0, 0, 0, 0.4)',
+                    backdropFilter: 'blur(10px)',
+                    borderRadius: '12px',
+                    padding: '12px 16px',
+                    border: '1px solid rgba(255, 255, 255, 0.1)'
+                  }}
+                >
+                  <span style={{ fontSize: '18px', fontWeight: '600', color: '#CAA131', display: 'block', marginBottom: '-2px' }}>
+                    ליווי אישי ובטיחות
+                  </span>
+                  <span style={{ fontSize: '18px', fontWeight: '400', color: 'rgba(255, 255, 255, 0.9)', lineHeight: '1.5' }}>
+                    מערך חירום 24/7
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        {/* Desktop Hero */}
+        <div className="hidden md:block">
+          <div
+            className="absolute inset-0 bg-cover bg-center opacity-70"
+            style={{
+              backgroundImage:
+                "url(https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/hero-gorilla.webp?alt=media&token=c67bec83-4363-4104-a102-757f69b351a4)",
+            }}
+          />
+          
+          {/* Dark Overlay */}
+          <div 
+            className="absolute inset-0"
+            style={{
+              background: "linear-gradient(to bottom, rgba(75, 54, 28, 0.4) 0%, rgba(75, 54, 28, 0.65) 100%)"
+            }}
+          />
+          
+          {/* Content positioned at center bottom */}
+          <div className="absolute bottom-8 md:bottom-12 left-4 right-4 text-center text-white">
+            <h1 
+              className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6"
+              style={{
+                fontSize: '56px',
+                fontWeight: '700',
+                color: '#FFFFFF',
+                textShadow: '2px 2px 4px rgba(75, 54, 28, 0.8)'
+              }}
+            >
+              טיולים מותאמים אישית באוגנדה
+            </h1>
+            
+            <p 
+              className="text-lg md:text-xl font-light mb-8 max-w-[700px] mx-auto"
+              style={{
+                fontSize: '20px',
+                color: 'rgba(255, 255, 255, 0.95)',
+                textShadow: '1px 1px 2px rgba(75, 54, 28, 0.6)'
+              }}
+            >
+              ניסיון שטח מקומי, מסלולים ייחודיים וליווי אישי 24/7
+            </p>
+            
+            <Link
+              to="/plan-your-trip"
+              className="inline-block mb-12 rounded-lg font-semibold transition-colors duration-200"
+              style={{
+                backgroundColor: '#CAA131',
+                color: '#4B361C',
+                fontSize: '18px',
+                fontWeight: '600',
+                padding: '18px 40px',
+                borderRadius: '8px',
+                boxShadow: '0 4px 12px rgba(202, 161, 49, 0.3)'
+              }}
+            >
+              תכנן לי טיול עכשיו
+            </Link>
+            
+            {/* Feature Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-7xl mx-auto">
+              <div 
+                className="text-right rounded-xl transition-all duration-300 hover:transform hover:-translate-y-1"
+                style={{
+                  backgroundColor: 'rgba(83, 75, 32, 0.3)',
+                  backdropFilter: 'blur(10px)',
+                  border: '1px solid rgba(202, 161, 49, 0.3)',
+                  borderRadius: '12px',
+                  padding: '28px'
+                }}
+              >
+                <div 
+                  className="text-[#CAA131] mb-2 font-bold"
+                  style={{ fontSize: '21px', fontWeight: '700' }}
+                >
+                  ניהול ישראלי מקומי
+                </div>
+                <div 
+                  className="text-white"
+                  style={{ fontSize: '15px', fontWeight: '400' }}
+                >
+                  שירות בעברית
+                </div>
+              </div>
+              
+              <div 
+                className="text-right rounded-xl transition-all duration-300 hover:transform hover:-translate-y-1"
+                style={{
+                  backgroundColor: 'rgba(83, 75, 32, 0.3)',
+                  backdropFilter: 'blur(10px)',
+                  border: '1px solid rgba(202, 161, 49, 0.3)',
+                  borderRadius: '12px',
+                  padding: '28px'
+                }}
+              >
+                <div 
+                  className="text-[#CAA131] mb-2 font-bold"
+                  style={{ fontSize: '21px', fontWeight: '700' }}
+                >
+                  ניסיון של 30 שנה באוגנדה
+                </div>
+                <div 
+                  className="text-white"
+                  style={{ fontSize: '15px', fontWeight: '400' }}
+                >
+                  עם שותפים מקומיים
+                </div>
+              </div>
+              
+              <div 
+                className="text-right rounded-xl transition-all duration-300 hover:transform hover:-translate-y-1"
+                style={{
+                  backgroundColor: 'rgba(83, 75, 32, 0.3)',
+                  backdropFilter: 'blur(10px)',
+                  border: '1px solid rgba(202, 161, 49, 0.3)',
+                  borderRadius: '12px',
+                  padding: '28px'
+                }}
+              >
+                <div 
+                  className="text-[#CAA131] mb-2 font-bold"
+                  style={{ fontSize: '21px', fontWeight: '700' }}
+                >
+                  מסלולים ייחודיים
+                </div>
+                <div 
+                  className="text-white"
+                  style={{ fontSize: '15px', fontWeight: '400' }}
+                >
+                  מקומות שאחרים לא מגיעים
+                </div>
+              </div>
+              
+              <div 
+                className="text-right rounded-xl transition-all duration-300 hover:transform hover:-translate-y-1"
+                style={{
+                  backgroundColor: 'rgba(83, 75, 32, 0.3)',
+                  backdropFilter: 'blur(10px)',
+                  border: '1px solid rgba(202, 161, 49, 0.3)',
+                  borderRadius: '12px',
+                  padding: '28px'
+                }}
+              >
+                <div 
+                  className="text-[#CAA131] mb-2 font-bold"
+                  style={{ fontSize: '21px', fontWeight: '700' }}
+                >
+                  ליווי אישי ובטיחות
+                </div>
+                <div 
+                  className="text-white"
+                  style={{ fontSize: '15px', fontWeight: '400' }}
+                >
+                  מערך חירום 24/7
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
+      
 
       {/* Featured Categories */}
       <section className="py-12 md:py-14 bg-surface">
