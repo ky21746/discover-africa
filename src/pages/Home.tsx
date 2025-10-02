@@ -8,6 +8,14 @@ const Home: React.FC = () => {
   const featuredCategories = [
     {
       id: "1",
+      name: "מסלולים מוכנים",
+      slug: "ready-tours",
+      description: "מסלולי טיול מוכנים ומתוכננים מראש",
+      icon: <Route className="w-8 h-8" />,
+      image: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/Services%2FBar%20Aviation%2Fbar%20aviation%20transport%20v3.webp?alt=media&token=5997047a-e32d-4663-a8c3-b6da016addf1",
+    },
+    {
+      id: "2",
       name: "ספארי",
       slug: "safari",
       description: "חוויות ספארי מרהיבות עם חיות בר באפריקה",
@@ -15,7 +23,7 @@ const Home: React.FC = () => {
       image: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2Fqueen-elizabeth%2FAfrican%20Bush%20Elephant%20-%20Loxodonta%20africana%2C%20iconic%20member%20of%20African%20big%20five%2C%20Queen%20Elizabeth%20National%20Park.webp?alt=media&token=3b4c82c9-b383-4bbc-94c1-85438ff412b5",
     },
     {
-      id: "2",
+      id: "3",
       name: "פרימטים",
       slug: "gorillas-chimps",
       description: "מפגשים קרובים עם גורילות ושימפנזים",
@@ -23,20 +31,12 @@ const Home: React.FC = () => {
       image: "https://images.pexels.com/photos/6194629/pexels-photo-6194629.jpeg",
     },
     {
-      id: "3",
+      id: "4",
       name: "מים",
       slug: "water",
       description: "פעילויות מים מרגשות ומפלים עוצרי נשימה",
       icon: <Waves className="w-8 h-8" />,
       image: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FMurchison%20Falls%20National%20Park%2FTourists%20overlook%20the%20massive%20waterfall%20of%20Murchison%20Falls%20on%20the%20Nile%20River%20in%20Uganda.webp?alt=media&token=bc3f5511-234b-4696-85c0-446e67dbea52",
-    },
-    {
-      id: "4",
-      name: "הרים",
-      slug: "mountains",
-      description: "טרקים מאתגרים בהרים הוולקניים",
-      icon: <Mountain className="w-8 h-8" />,
-      image: "https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FSafari%20Uganda%2FRwenzori%20Mountains%20National%20Park%2FHighland%20landscape%20near%20Weismann%60s%20peak%20in%20Rwenzori%20mountains%2C%20Uganda.%20Little%20lakes%20among%20the%20mossy%20rocks%20at%20high%20altitudes.webp?alt=media&token=f2a1df50-adf9-41e1-99cb-8eb7dfae947e",
     },
   ];
 
@@ -384,7 +384,7 @@ const Home: React.FC = () => {
       </section>
       
       {/* Story Block */}
-      <section className="py-16 bg-[#fdf8f3]">
+      <section className="py-12 bg-[#fdf8f3]">
         <div className="max-w-4xl mx-auto text-center px-6">
           <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight mb-6">
             כך בנינו תשתית מלאה בלב אפריקה
@@ -397,7 +397,7 @@ const Home: React.FC = () => {
       </section>
 
       {/* Featured Categories */}
-      <section className="py-16 bg-white">
+      <section className="py-12 bg-white">
         <div className="max-w-6xl mx-auto px-6 text-center">
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
             קטגוריות פופולריות
@@ -419,8 +419,8 @@ const Home: React.FC = () => {
                     ? "/water" 
                     : category.slug === "safari"
                     ? "/safari"
-                    : category.slug === "mountains"
-                    ? "/mountains"
+                    :                   category.slug === "ready-tours"
+                    ? "/tours"
                     : category.slug === "gorillas-chimps"
                     ? "/gorillas"
                     : `/category/${category.slug}`
@@ -436,7 +436,7 @@ const Home: React.FC = () => {
                       objectPosition: category.slug === 'safari' ? 'center 30%' : 
                                      category.slug === 'gorillas-chimps' ? 'center 40%' :
                                      category.slug === 'water' ? 'center 20%' :
-                                     category.slug === 'mountains' ? 'center 25%' : 'center 50%'
+                                     category.slug === 'ready-tours' ? 'center 25%' : 'center 50%'
                     }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent"></div>
@@ -452,7 +452,7 @@ const Home: React.FC = () => {
                   </div>
                 </div>
                 <div className="p-4 text-center">
-                  <button className="w-full border border-[#C6A45C] text-[#A0742A] py-2 rounded-md hover:bg-[#C6A45C] hover:text-white transition-colors duration-200">
+                  <button className="w-full border border-[#C6A45C] text-[#A0742A] font-semibold py-2 rounded-md hover:bg-[#C6A45C] hover:text-white transition-colors duration-200">
                     קרא עוד
                   </button>
                 </div>
@@ -463,154 +463,173 @@ const Home: React.FC = () => {
       </section>
 
       {/* Services Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-12 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-10 md:mb-12">
-            <h2 className="text-xl md:text-3xl font-bold mb-3 md:mb-4 font-sans">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
               השירותים שלנו
             </h2>
-            <p className="text-lg md:text-xl text-muted font-sans">
+            <div className="w-16 h-1 bg-[#C6A45C] mx-auto mt-2 mb-6"></div>
+            <p className="text-gray-600 text-base md:text-lg text-center mb-12">
               שירותים מקצועיים ומותאמים אישית לחוויה מושלמת
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <Link to="/services/bar-aviation" className="category-card transition-all duration-300 hover:shadow-lg cursor-pointer">
-              <div
-                className="card-image"
-                style={{ 
-                  backgroundImage: `url(https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/Services%2FBaraviationcard.webp?alt=media&token=760c531e-2cf9-4d40-ab23-bd816b77d9c5)`,
-                  backgroundPosition: 'center',
-                  backgroundSize: 'cover'
-                }}
-              >
-                <div className="image-overlay">
-                  <h3 className="font-sans">
-                    שירותי תעופה
-                  </h3>
-                  
-                  <p className="font-sans">
-                    טיסות ספארי, טיסות פרטיות וטיסות נוף מעל הנופים הקסומים.
-                  </p>
-                </div>
+            <Link to="/services/bar-aviation" className="rounded-lg border border-[#c9a959] overflow-hidden shadow-md hover:shadow-xl transition bg-white h-full flex flex-col cursor-pointer">
+              {/* תמונה */}
+              <img 
+                src="https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/Services%2FBaraviationcard.webp?alt=media&token=760c531e-2cf9-4d40-ab23-bd816b77d9c5" 
+                alt="שירותי תעופה"
+                className="w-full h-56 object-cover"
+              />
+
+              {/* טקסט על רקע לבן נקי */}
+              <div className="p-4 text-center flex-1">
+                <h3 className="text-xl font-bold text-gray-900">שירותי תעופה</h3>
+                <p className="text-sm text-gray-600 mt-2">
+                  טיסות ספארי, טיסות פרטיות וטיסות נוף מעל הנופים הקסומים
+                </p>
               </div>
-              
-              <div className="card-content">
-                <div className="btn-discover">
+
+              {/* כפתור יוקרתי */}
+              <div className="px-4 pb-4">
+                <button className="w-full border border-[#c9a959] text-[#c9a959] font-semibold py-2 rounded-md hover:bg-[#c9a959] hover:text-white transition-colors duration-300">
                   לפרטים נוספים
-                </div>
+                </button>
               </div>
             </Link>
 
-            <Link to="/services/bar-sos" className="category-card transition-all duration-300 hover:shadow-lg cursor-pointer">
-              <div
-                className="card-image"
-                style={{ 
-                  backgroundImage: `url(https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/Services%2FBar%20SOS%2Fbarsos-medevac-img.jpg.webp?alt=media&token=168394a8-66ac-4311-a88d-d3420b4c0e9c)`,
-                  backgroundPosition: 'center',
-                  backgroundSize: 'cover'
-                }}
-              >
-                <div className="image-overlay">
-                  <h3 className="font-sans">
-                    איתור וחילוץ רפואי
-                  </h3>
-                  
-                  <p className="font-sans">
-                    שירותי חילוץ רפואי 24/7 - חילוץ אווירי וקרקעי בכל רחבי אוגנדה.
-                  </p>
-                </div>
+            <Link to="/services/bar-sos" className="rounded-lg border border-[#c9a959] overflow-hidden shadow-md hover:shadow-xl transition bg-white h-full flex flex-col cursor-pointer">
+              {/* תמונה */}
+              <img 
+                src="https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/Services%2FBar%20SOS%2Fbarsos-medevac-img.jpg.webp?alt=media&token=168394a8-66ac-4311-a88d-d3420b4c0e9c" 
+                alt="איתור וחילוץ רפואי"
+                className="w-full h-56 object-cover"
+              />
+
+              {/* טקסט על רקע לבן נקי */}
+              <div className="p-4 text-center flex-1">
+                <h3 className="text-xl font-bold text-gray-900">איתור וחילוץ רפואי</h3>
+                <p className="text-sm text-gray-600 mt-2">
+                  שירותי חילוץ רפואי 24/7 - חילוץ אווירי וקרקעי בכל רחבי אוגנדה
+                </p>
               </div>
-              
-              <div className="card-content">
-                <div className="btn-discover">
+
+              {/* כפתור יוקרתי */}
+              <div className="px-4 pb-4">
+                <button className="w-full border border-[#c9a959] text-[#c9a959] font-semibold py-2 rounded-md hover:bg-[#c9a959] hover:text-white transition-colors duration-300">
                   לפרטים נוספים
-                </div>
+                </button>
               </div>
             </Link>
 
-            <Link to="/services/extreme-park" className="category-card transition-all duration-300 hover:shadow-lg cursor-pointer">
-              <div
-                className="card-image"
-                style={{ 
-                  backgroundImage: `url(https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/Services%2FExtreme%20adventures%2Fextremeadventures-card.webp?alt=media&token=cc084dbb-9efc-4e72-8453-d96c51d4a5d0)`,
-                  backgroundPosition: 'center',
-                  backgroundSize: 'cover'
-                }}
-              >
-                <div className="image-overlay">
-                  <h3 className="font-sans">
-                    פארק אקסטרים
-                  </h3>
-                  
-                  <p className="font-sans">
-                    Go-Karting, Zipline, Paintball ועוד חוויות מלאות אדרנלין בבוסיקה.
-                  </p>
-                </div>
+            <Link to="/services/extreme-park" className="rounded-lg border border-[#c9a959] overflow-hidden shadow-md hover:shadow-xl transition bg-white h-full flex flex-col cursor-pointer">
+              {/* תמונה */}
+              <img 
+                src="https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/Services%2FExtreme%20adventures%2Fextremeadventures-card.webp?alt=media&token=cc084dbb-9efc-4e72-8453-d96c51d4a5d0" 
+                alt="פארק אקסטרים"
+                className="w-full h-56 object-cover"
+              />
+
+              {/* טקסט על רקע לבן נקי */}
+              <div className="p-4 text-center flex-1">
+                <h3 className="text-xl font-bold text-gray-900">פארק אקסטרים</h3>
+                <p className="text-sm text-gray-600 mt-2">
+                  Go-Karting, Zipline, Paintball ועוד חוויות מלאות אדרנלין
+                </p>
               </div>
-              
-              <div className="card-content">
-                <div className="btn-discover">
+
+              {/* כפתור יוקרתי */}
+              <div className="px-4 pb-4">
+                <button className="w-full border border-[#c9a959] text-[#c9a959] font-semibold py-2 rounded-md hover:bg-[#c9a959] hover:text-white transition-colors duration-300">
                   לפרטים נוספים
-                </div>
+                </button>
               </div>
             </Link>
           </div>
         </div>
       </section>
 
-      {/* About Us */}
-      <section className="pt-12 md:pt-16 pb-6 md:pb-8">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-xl md:text-3xl font-bold mb-4 md:mb-6 font-sans">
-              למה לבחור בנו?
-            </h2>
-            <p className="text-xl text-muted leading-relaxed mb-8 font-sans">
-              אנחנו מתמחים בבניית טיולים מותאמים אישית באוגנדה – משלב התכנון
-              ועד השיבה הביתה. עם ניסיון של למעלה מ-30 שנים במדינה, אנו מכירים
-              כל פינה ויכולים להציע לכם חוויות אותנטיות ובטוחות שיישארו איתכם
-              לכל החיים.
+      {/* Testimonials */}
+      <section className="py-12 bg-gradient-to-br from-gray-50 to-gray-100">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">מה אומרים עלינו?</h2>
+            <div className="w-20 h-1 bg-gradient-to-r from-[#C6A45C] to-[#D4AF37] mx-auto mb-6"></div>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              אלפי מטיילים כבר בחרו בנו לחוויה בלתי נשכחת באוגנדה
             </p>
+          </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
-              <div className="text-center">
-                <div className="bg-[#CAA131] text-black rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                  <Users className="w-8 h-8" />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* עדות 1 */}
+            <div className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 border border-gray-100 hover:border-[#C6A45C]/30">
+              <div className="flex items-center space-x-4 rtl:space-x-reverse mb-6">
+                <div className="relative">
+                  <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=120&h=120&fit=crop&crop=face" alt="עדי לוי" className="w-16 h-16 rounded-full object-cover ring-4 ring-[#C6A45C]/20 group-hover:ring-[#C6A45C]/40 transition-all duration-300"/>
+                  <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-green-500 rounded-full border-2 border-white"></div>
                 </div>
-                <h3 className="text-xl font-semibold mb-2 font-sans">
-                  מדריכים מקצועיים
-                </h3>
-                <p className="text-muted font-sans">
-                  מדריכים מקומיים ובינלאומיים עם ניסיון עשיר
-                </p>
+                <div>
+                  <h4 className="font-bold text-gray-900 text-lg">עדי לוי</h4>
+                  <div className="flex text-yellow-400 mt-1">
+                    ⭐⭐⭐⭐⭐
+                  </div>
+                </div>
               </div>
-
-              <div className="text-center">
-                <div className="bg-[#534B20] text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                  <Star className="w-8 h-8" />
-                </div>
-                <h3 className="text-xl font-semibold mb-2 font-sans">
-                  שירות אישי
-                </h3>
-                <p className="text-muted font-sans">
-                  כל טיול מותאם בצורה אישית לצרכים שלכם
-                </p>
+              <blockquote className="text-gray-700 leading-relaxed text-lg italic">
+                "מהרגע שנחתנו הרגשנו שיש מי שדואג לנו בכל שלב. הכל היה מסודר ומדויק, והמדריכים שלנו היו פשוט מדהימים!"
+              </blockquote>
+              <div className="mt-4 text-sm text-gray-500">
+                טיול ספארי • יוני 2024
               </div>
+            </div>
 
-              <div className="text-center">
-                <div className="bg-[#4B361C] text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                  <Mountain className="w-8 h-8" />
+            {/* עדות 2 */}
+            <div className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 border border-gray-100 hover:border-[#C6A45C]/30">
+              <div className="flex items-center space-x-4 rtl:space-x-reverse mb-6">
+                <div className="relative">
+                  <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&h=120&fit=crop&crop=face" alt="משפחת כהן" className="w-16 h-16 rounded-full object-cover ring-4 ring-[#C6A45C]/20 group-hover:ring-[#C6A45C]/40 transition-all duration-300"/>
+                  <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-green-500 rounded-full border-2 border-white"></div>
                 </div>
-                <h3 className="text-xl font-semibold mb-2 font-sans">
-                  חוויות ייחודיות
-                </h3>
-                <p className="text-muted font-sans">
-                  גישה למקומות נסתרים וחוויות בלעדיות
-                </p>
+                <div>
+                  <h4 className="font-bold text-gray-900 text-lg">משפחת כהן</h4>
+                  <div className="flex text-yellow-400 mt-1">
+                    ⭐⭐⭐⭐⭐
+                  </div>
+                </div>
+              </div>
+              <blockquote className="text-gray-700 leading-relaxed text-lg italic">
+                "המסלול שבנו לנו היה מיוחד, לקחו אותנו למקומות שלא חשבנו שנראה. הילדים עפו על זה והם עדיין מדברים על זה!"
+              </blockquote>
+              <div className="mt-4 text-sm text-gray-500">
+                טיול משפחתי • אפריל 2024
+              </div>
+            </div>
+
+            {/* עדות 3 */}
+            <div className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 border border-gray-100 hover:border-[#C6A45C]/30">
+              <div className="flex items-center space-x-4 rtl:space-x-reverse mb-6">
+                <div className="relative">
+                  <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=120&h=120&fit=crop&crop=face" alt="נועה ודני" className="w-16 h-16 rounded-full object-cover ring-4 ring-[#C6A45C]/20 group-hover:ring-[#C6A45C]/40 transition-all duration-300"/>
+                  <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-green-500 rounded-full border-2 border-white"></div>
+                </div>
+                <div>
+                  <h4 className="font-bold text-gray-900 text-lg">נועה ודני</h4>
+                  <div className="flex text-yellow-400 mt-1">
+                    ⭐⭐⭐⭐⭐
+                  </div>
+                </div>
+              </div>
+              <blockquote className="text-gray-700 leading-relaxed text-lg italic">
+                "השירות בעברית נתן לנו תחושת ביטחון לאורך כל הדרך. תמיד היה מישהו לענות לנו, גם באמצע הלילה!"
+              </blockquote>
+              <div className="mt-4 text-sm text-gray-500">
+                טיול זוגי • ספטמבר 2024
               </div>
             </div>
           </div>
+
         </div>
       </section>
 
