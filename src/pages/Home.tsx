@@ -1,7 +1,7 @@
 // src/pages/Home.tsx
 import React from "react";
 import { Link } from "react-router-dom";
-import { ArrowLeft, Star, Users, Camera, Mountain, Waves } from "lucide-react";
+import { ArrowLeft, Star, Users, Camera, Mountain, Waves, MapPin, Route, Shield, Globe, Heart, Cross } from "lucide-react";
 import Card from "../components/Common/Card";
 
 const Home: React.FC = () => {
@@ -43,13 +43,14 @@ const Home: React.FC = () => {
   return (
     <div className="fade-in" dir="rtl">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-gray-900 to-gray-800 text-white h-[50vh] md:h-[45vh] min-h-[300px] md:min-h-[200px] overflow-hidden md:block">
+      <section className="relative bg-gradient-to-r from-gray-900 to-gray-800 text-white h-screen md:h-[45vh] min-h-screen md:min-h-[200px] overflow-hidden md:block">
         {/* Mobile Hero - Full Screen */}
         <div 
           className="md:hidden flex flex-col justify-start items-center px-5 relative"
           style={{
             height: '100vh',
             minHeight: '100vh',
+            maxHeight: '100vh',
             backgroundImage: "url(https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/hero-gorilla.webp?alt=media&token=c67bec83-4363-4104-a102-757f69b351a4)",
             backgroundSize: 'cover',
             backgroundPosition: 'center center',
@@ -65,11 +66,11 @@ const Home: React.FC = () => {
           />
           
           {/* Content */}
-          <div className="relative z-10 flex flex-col items-center text-center" style={{ paddingTop: '80px' }}>
+          <div className="relative z-10 flex flex-col items-center text-center" style={{ paddingTop: '60px' }}>
             
             {/* Title */}
             <h1 
-              className="mb-4"
+              className="mb-3"
               style={{
                 fontSize: '36px',
                 fontWeight: '700',
@@ -77,7 +78,7 @@ const Home: React.FC = () => {
                 color: '#FFFFFF',
                 textShadow: '2px 4px 12px rgba(75, 54, 28, 0.9)',
                 maxWidth: '90%',
-                margin: '0 0 16px 0'
+                margin: '0 0 12px 0'
               }}
             >
               טיולים מותאמים אישית באוגנדה
@@ -85,7 +86,7 @@ const Home: React.FC = () => {
             
             {/* Subtitle */}
             <p 
-              className="mb-6"
+              className="mb-4"
               style={{
                 fontSize: '18px',
                 fontWeight: '400',
@@ -93,107 +94,131 @@ const Home: React.FC = () => {
                 color: 'rgba(255, 255, 255, 0.95)',
                 textShadow: '2px 3px 8px rgba(75, 54, 28, 0.8)',
                 maxWidth: '85%',
-                margin: '0 0 24px 0'
+                margin: '0 0 16px 0'
               }}
             >
-              ניסיון שטח מקומי, מסלולים ייחודיים וליווי אישי 24/7
+              ניסיון מקומי, מסלולים ייחודיים וליווי 24/7
             </p>
             
             {/* CTA Button */}
             <Link
               to="/plan-your-trip"
-              className="rounded-lg font-semibold transition-all duration-200 active:scale-97 mb-8"
+              className="rounded-lg font-semibold transition-all duration-200 active:scale-97 mb-6"
               style={{
                 backgroundColor: '#CAA131',
                 color: '#4B361C',
                 fontSize: '18px',
                 fontWeight: '600',
-                padding: '18px 0',
+                padding: '14px 0',
                 width: '85%',
                 maxWidth: '300px',
                 borderRadius: '10px',
                 boxShadow: '0 8px 24px rgba(202, 161, 49, 0.5)',
-                margin: '0 0 32px 0'
+                margin: '0 0 20px 0'
               }}
             >
               תכנן לי טיול עכשיו
             </Link>
             
             {/* Bullets on Hero */}
-            <div style={{ maxWidth: '400px', margin: '0 0 0 auto', marginTop: '20px' }}>
-              <div className="mb-3 text-right">
+            <div style={{ maxWidth: '500px', margin: '0 0 0 auto', marginTop: '10px' }}>
+              <div className="mb-2 text-right">
                 <div 
                   style={{
                     backgroundColor: 'rgba(0, 0, 0, 0.4)',
                     backdropFilter: 'blur(10px)',
-                    borderRadius: '12px',
-                    padding: '12px 16px',
-                    border: '1px solid rgba(255, 255, 255, 0.1)'
+                    borderRadius: '10px',
+                    padding: '10px 22px',
+                    border: '1px solid rgba(255, 255, 255, 0.1)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '12px'
                   }}
                 >
-                  <span style={{ fontSize: '18px', fontWeight: '600', color: '#CAA131', display: 'block', marginBottom: '-2px' }}>
-                    ניהול ישראלי מקומי
-                  </span>
-                  <span style={{ fontSize: '18px', fontWeight: '400', color: 'rgba(255, 255, 255, 0.9)', lineHeight: '1.5' }}>
-                    שירות בעברית
-                  </span>
+                  <Globe size={20} color="#CAA131" />
+                  <div>
+                    <span style={{ fontSize: '16px', fontWeight: '600', color: '#CAA131', display: 'block', marginBottom: '-2px' }}>
+                      ניהול ישראלי מקומי
+                    </span>
+                    <span style={{ fontSize: '16px', fontWeight: '400', color: 'rgba(255, 255, 255, 0.9)', lineHeight: '1.4' }}>
+                      שירות בעברית
+                    </span>
+                  </div>
                 </div>
               </div>
               
-              <div className="mb-3 text-right">
+              <div className="mb-2 text-right">
                 <div 
                   style={{
                     backgroundColor: 'rgba(0, 0, 0, 0.4)',
                     backdropFilter: 'blur(10px)',
-                    borderRadius: '12px',
-                    padding: '12px 16px',
-                    border: '1px solid rgba(255, 255, 255, 0.1)'
+                    borderRadius: '10px',
+                    padding: '10px 22px',
+                    border: '1px solid rgba(255, 255, 255, 0.1)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '12px'
                   }}
                 >
-                  <span style={{ fontSize: '18px', fontWeight: '600', color: '#CAA131', display: 'block', marginBottom: '-2px' }}>
-                    ניסיון של 30 שנה באוגנדה
-                  </span>
-                  <span style={{ fontSize: '18px', fontWeight: '400', color: 'rgba(255, 255, 255, 0.9)', lineHeight: '1.5' }}>
-                    עם שותפים מקומיים
-                  </span>
+                  <Users size={20} color="#CAA131" />
+                  <div>
+                    <span style={{ fontSize: '16px', fontWeight: '600', color: '#CAA131', display: 'block', marginBottom: '-2px' }}>
+                      ניסיון של 30 שנה באוגנדה
+                    </span>
+                    <span style={{ fontSize: '16px', fontWeight: '400', color: 'rgba(255, 255, 255, 0.9)', lineHeight: '1.4' }}>
+                      עם שותפים מקומיים
+                    </span>
+                  </div>
                 </div>
               </div>
               
-              <div className="mb-3 text-right">
+              <div className="mb-2 text-right">
                 <div 
                   style={{
                     backgroundColor: 'rgba(0, 0, 0, 0.4)',
                     backdropFilter: 'blur(10px)',
-                    borderRadius: '12px',
-                    padding: '12px 16px',
-                    border: '1px solid rgba(255, 255, 255, 0.1)'
+                    borderRadius: '10px',
+                    padding: '10px 22px',
+                    border: '1px solid rgba(255, 255, 255, 0.1)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '12px'
                   }}
                 >
-                  <span style={{ fontSize: '18px', fontWeight: '600', color: '#CAA131', display: 'block', marginBottom: '-2px' }}>
-                    מסלולים ייחודיים
-                  </span>
-                  <span style={{ fontSize: '18px', fontWeight: '400', color: 'rgba(255, 255, 255, 0.9)', lineHeight: '1.5' }}>
-                    מקומות שאחרים לא מגיעים
-                  </span>
+                  <Route size={20} color="#CAA131" />
+                  <div>
+                    <span style={{ fontSize: '16px', fontWeight: '600', color: '#CAA131', display: 'block', marginBottom: '-2px' }}>
+                      מסלולים ייחודיים
+                    </span>
+                    <span style={{ fontSize: '16px', fontWeight: '400', color: 'rgba(255, 255, 255, 0.9)', lineHeight: '1.4' }}>
+                      מקומות שאחרים לא מגיעים
+                    </span>
+                  </div>
                 </div>
               </div>
               
-              <div className="mb-3 text-right">
+              <div className="mb-2 text-right">
                 <div 
                   style={{
                     backgroundColor: 'rgba(0, 0, 0, 0.4)',
                     backdropFilter: 'blur(10px)',
-                    borderRadius: '12px',
-                    padding: '12px 16px',
-                    border: '1px solid rgba(255, 255, 255, 0.1)'
+                    borderRadius: '10px',
+                    padding: '10px 22px',
+                    border: '1px solid rgba(255, 255, 255, 0.1)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '12px'
                   }}
                 >
-                  <span style={{ fontSize: '18px', fontWeight: '600', color: '#CAA131', display: 'block', marginBottom: '-2px' }}>
-                    ליווי אישי ובטיחות
-                  </span>
-                  <span style={{ fontSize: '18px', fontWeight: '400', color: 'rgba(255, 255, 255, 0.9)', lineHeight: '1.5' }}>
-                    מערך חירום 24/7
-                  </span>
+                  <Cross size={20} color="#CAA131" />
+                  <div>
+                    <span style={{ fontSize: '16px', fontWeight: '600', color: '#CAA131', display: 'block', marginBottom: '-2px' }}>
+                      ליווי אישי ובטיחות
+                    </span>
+                    <span style={{ fontSize: '16px', fontWeight: '400', color: 'rgba(255, 255, 255, 0.9)', lineHeight: '1.4' }}>
+                      מערך חירום 24/7
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -214,7 +239,7 @@ const Home: React.FC = () => {
           <div 
             className="absolute inset-0"
             style={{
-              background: "linear-gradient(to bottom, rgba(75, 54, 28, 0.4) 0%, rgba(75, 54, 28, 0.65) 100%)"
+              background: "linear-gradient(to bottom, rgba(75, 54, 28, 0.2) 0%, rgba(75, 54, 28, 0.45) 100%)"
             }}
           />
           
