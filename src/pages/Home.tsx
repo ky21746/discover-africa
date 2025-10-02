@@ -397,16 +397,18 @@ const Home: React.FC = () => {
       </section>
 
       {/* Featured Categories */}
-      <section className="py-12 md:py-14 bg-surface">
+      <section className="py-16 bg-white">
+        <div className="max-w-6xl mx-auto px-6 text-center">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
+            קטגוריות פופולריות
+          </h2>
+          <div className="w-16 h-1 bg-[#C6A45C] mx-auto mt-2 mb-6"></div>
+          <p className="text-gray-600 text-base md:text-lg text-center mb-12">
+            ממסלולי ספארי ועד אקסטרים – תבחרו את ההרפתקה שלכם
+          </p>
+        </div>
+        
         <div className="container mx-auto px-4">
-          <div className="text-center mb-10 md:mb-12">
-            <h2 className="text-xl md:text-3xl font-bold mb-3 md:mb-4 font-sans">
-              קטגוריות פופולריות
-            </h2>
-            <p className="text-lg md:text-xl text-muted font-sans">
-              גלו את המגוון הרחב של חוויות שאנו מציעים
-            </p>
-          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {featuredCategories.map((category) => (
@@ -423,35 +425,36 @@ const Home: React.FC = () => {
                     ? "/gorillas"
                     : `/category/${category.slug}`
                 }
-                className="category-card transition-all duration-300 hover:shadow-lg cursor-pointer"
+                className="rounded-xl overflow-hidden border-2 border-[#C6A45C]/60 shadow-sm hover:shadow-lg transition-all duration-300 cursor-pointer"
               >
-                <div
-                  className="card-image"
-                  style={{ 
-                    backgroundImage: `url(${category.image})`,
-                    backgroundPosition: category.slug === 'safari' ? 'center 30%' : 
-                                       category.slug === 'gorillas-chimps' ? 'center 40%' :
-                                       category.slug === 'water' ? 'center 20%' :
-                                       category.slug === 'mountains' ? 'center 25%' : 'center 50%'
-                  }}
-                >
-                  <div className="image-overlay">
-                    <h3 className="font-sans">
+                <div className="relative">
+                  <img 
+                    src={category.image} 
+                    alt={category.name}
+                    className="w-full h-64 object-cover"
+                    style={{ 
+                      objectPosition: category.slug === 'safari' ? 'center 30%' : 
+                                     category.slug === 'gorillas-chimps' ? 'center 40%' :
+                                     category.slug === 'water' ? 'center 20%' :
+                                     category.slug === 'mountains' ? 'center 25%' : 'center 50%'
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent"></div>
+                  <div className="absolute bottom-4 right-4 text-right">
+                    <h3 className="text-xl font-bold text-white drop-shadow-md">
                       {category.name}
                     </h3>
-                    
-                    <p className="font-sans">
+                    <p className="text-sm text-white/90 mt-1">
                       {category.description.length > 50 
                         ? category.description.slice(0, 50) + "." 
                         : category.description}
                     </p>
                   </div>
                 </div>
-                
-                <div className="card-content">
-                  <div className="btn-discover">
+                <div className="p-4 text-center">
+                  <button className="w-full border border-[#C6A45C] text-[#A0742A] py-2 rounded-md hover:bg-[#C6A45C] hover:text-white transition-colors duration-200">
                     קרא עוד
-                  </div>
+                  </button>
                 </div>
               </Link>
             ))}
