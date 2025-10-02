@@ -45,26 +45,87 @@ const Home: React.FC = () => {
       {/* Hero Section */}
       <section className="relative bg-gradient-to-r from-gray-900 to-gray-800 text-white h-[50vh] md:h-[45vh] min-h-[300px] md:min-h-[200px] overflow-hidden">
         <div
-          className="absolute inset-0 bg-cover bg-center opacity-65"
+          className="absolute inset-0 bg-cover bg-center opacity-70"
           style={{
             backgroundImage:
               "url(https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/hero-gorilla.webp?alt=media&token=c67bec83-4363-4104-a102-757f69b351a4)",
           }}
         />
         
+        {/* Dark Overlay */}
+        <div 
+          className="absolute inset-0"
+          style={{
+            background: "linear-gradient(to bottom, rgba(75, 54, 28, 0.4) 0%, rgba(75, 54, 28, 0.65) 100%)"
+          }}
+        />
+        
         {/* Content positioned at center bottom */}
-        <div className="absolute bottom-8 md:bottom-12 left-1/2 transform -translate-x-1/2 text-center space-y-3 md:space-y-4 text-white drop-shadow-md max-w-2xl px-4">
-          <h1 className="text-xl md:text-2xl font-bold leading-tight">
-            <span className="hidden md:inline">החוויה הבאה שלך באוגנדה מתחילה כאן</span>
+        <div className="absolute bottom-8 md:bottom-12 left-4 right-4 text-center text-white">
+          <h1 
+            className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6"
+            style={{
+              fontSize: '56px',
+              fontWeight: '700',
+              color: '#FFFFFF',
+              textShadow: '2px 2px 4px rgba(75, 54, 28, 0.8)'
+            }}
+          >
+            <span className="hidden md:inline">טיולי הרפתקה מותאמים אישית באוגנדה</span>
             <span className="md:hidden">
-              <span className="whitespace-nowrap">החוויה הבאה שלך</span>
+              <span className="whitespace-nowrap">טיולי הרפתקה מותאמים</span>
               <br />
-              <span className="whitespace-nowrap">באוגנדה מתחילה כאן</span>
+              <span className="whitespace-nowrap">אישית באוגנדה</span>
             </span>
           </h1>
-          <p className="hidden xl:block text-base md:text-lg font-light whitespace-nowrap">
-            טיולי אקסטרים, טבע פראי, ושירות אישי – חוויה שלא תשכח
+          <p 
+            className="text-lg md:text-xl font-light mb-8 max-w-[700px] mx-auto"
+            style={{
+              fontSize: '20px',
+              color: 'rgba(255, 255, 255, 0.95)',
+              textShadow: '1px 1px 2px rgba(75, 54, 28, 0.6)'
+            }}
+          >
+            ניסיון שטח מקומי, מסלולים ייחודיים וליווי אישי 24/7
           </p>
+          <Link
+            to="/plan-your-trip"
+            className="inline-block mb-12 rounded-lg font-semibold transition-colors duration-200"
+            style={{
+              backgroundColor: '#CAA131',
+              color: '#4B361C',
+              fontSize: '18px',
+              fontWeight: '600',
+              padding: '18px 40px',
+              borderRadius: '8px',
+              boxShadow: '0 4px 12px rgba(202, 161, 49, 0.3)'
+            }}
+          >
+            תכנן לי טיול עכשיו
+          </Link>
+          
+          {/* Feature Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 max-w-5xl mx-auto">
+            <div className="bg-black/30 backdrop-blur-sm rounded-xl p-4 text-right">
+              <div className="text-[#CAA131] text-sm mb-1 font-semibold">ניהול ישראלי מקומי</div>
+              <div className="text-white font-semibold text-base">שירות בעברית</div>
+            </div>
+            
+            <div className="bg-black/30 backdrop-blur-sm rounded-xl p-4 text-right">
+              <div className="text-[#CAA131] text-sm mb-1 font-semibold">ניסיון של 30 שנה באוגנדה</div>
+              <div className="text-white font-semibold text-base">עם שותפים מקומיים</div>
+            </div>
+            
+            <div className="bg-black/30 backdrop-blur-sm rounded-xl p-4 text-right">
+              <div className="text-[#CAA131] text-sm mb-1 font-semibold">מסלולים ייחודיים</div>
+              <div className="text-white font-semibold text-base">מקומות שאחרים לא מגיעים</div>
+            </div>
+            
+            <div className="bg-black/30 backdrop-blur-sm rounded-xl p-4 text-right">
+              <div className="text-[#CAA131] text-sm mb-1 font-semibold">ליווי אישי ובטיחות</div>
+              <div className="text-white font-semibold text-base">מערך חירום 24/7</div>
+            </div>
+          </div>
         </div>
       </section>
 
