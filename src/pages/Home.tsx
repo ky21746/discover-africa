@@ -1,7 +1,7 @@
 // src/pages/Home.tsx
 import React from "react";
 import { Link } from "react-router-dom";
-import { ArrowLeft, Star, Users, Camera, Mountain, Waves, MapPin, Route, Shield, Globe, Heart, Cross } from "lucide-react";
+import { ArrowLeft, Star, Users, Camera, Mountain, Waves, MapPin, Route, Shield, Globe, Heart, Cross, Map, User, Navigation, Phone } from "lucide-react";
 import Card from "../components/Common/Card";
 
 const Home: React.FC = () => {
@@ -46,15 +46,12 @@ const Home: React.FC = () => {
       <section className="relative bg-gradient-to-r from-gray-900 to-gray-800 text-white h-screen md:h-[45vh] min-h-screen md:min-h-[200px] overflow-hidden md:block">
         {/* Mobile Hero - Full Screen */}
         <div 
-          className="md:hidden flex flex-col justify-start items-center px-5 relative"
+          className="md:hidden flex flex-col justify-start items-center px-5 relative bg-cover bg-center bg-no-repeat"
           style={{
             height: '100vh',
             minHeight: '100vh',
             maxHeight: '100vh',
-            backgroundImage: "url(https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/hero-gorilla.webp?alt=media&token=c67bec83-4363-4104-a102-757f69b351a4)",
-            backgroundSize: 'cover',
-            backgroundPosition: 'center center',
-            backgroundRepeat: 'no-repeat'
+            backgroundImage: "url(https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/hero-gorilla.webp?alt=media&token=c67bec83-4363-4104-a102-757f69b351a4)"
           }}
         >
           {/* Overlay */}
@@ -293,18 +290,18 @@ const Home: React.FC = () => {
                   backdropFilter: 'blur(10px)',
                   border: '1px solid rgba(202, 161, 49, 0.3)',
                   borderRadius: '12px',
-                  padding: '28px'
+                  padding: '12px'
                 }}
               >
                 <div 
-                  className="text-[#CAA131] mb-2 font-bold"
+                  className="text-[#CAA131] mb-0 font-bold"
                   style={{ fontSize: '21px', fontWeight: '700' }}
                 >
                   ניהול ישראלי מקומי
                 </div>
                 <div 
                   className="text-white"
-                  style={{ fontSize: '15px', fontWeight: '400' }}
+                  style={{ fontSize: '17px', fontWeight: '400' }}
                 >
                   שירות בעברית
                 </div>
@@ -317,18 +314,18 @@ const Home: React.FC = () => {
                   backdropFilter: 'blur(10px)',
                   border: '1px solid rgba(202, 161, 49, 0.3)',
                   borderRadius: '12px',
-                  padding: '28px'
+                  padding: '12px'
                 }}
               >
                 <div 
-                  className="text-[#CAA131] mb-2 font-bold"
+                  className="text-[#CAA131] mb-0 font-bold"
                   style={{ fontSize: '21px', fontWeight: '700' }}
                 >
                   ניסיון של 30 שנה באוגנדה
                 </div>
                 <div 
                   className="text-white"
-                  style={{ fontSize: '15px', fontWeight: '400' }}
+                  style={{ fontSize: '17px', fontWeight: '400' }}
                 >
                   עם שותפים מקומיים
                 </div>
@@ -341,18 +338,18 @@ const Home: React.FC = () => {
                   backdropFilter: 'blur(10px)',
                   border: '1px solid rgba(202, 161, 49, 0.3)',
                   borderRadius: '12px',
-                  padding: '28px'
+                  padding: '12px'
                 }}
               >
                 <div 
-                  className="text-[#CAA131] mb-2 font-bold"
+                  className="text-[#CAA131] mb-0 font-bold"
                   style={{ fontSize: '21px', fontWeight: '700' }}
                 >
                   מסלולים ייחודיים
                 </div>
                 <div 
                   className="text-white"
-                  style={{ fontSize: '15px', fontWeight: '400' }}
+                  style={{ fontSize: '17px', fontWeight: '400' }}
                 >
                   מקומות שאחרים לא מגיעים
                 </div>
@@ -365,18 +362,18 @@ const Home: React.FC = () => {
                   backdropFilter: 'blur(10px)',
                   border: '1px solid rgba(202, 161, 49, 0.3)',
                   borderRadius: '12px',
-                  padding: '28px'
+                  padding: '12px'
                 }}
               >
                 <div 
-                  className="text-[#CAA131] mb-2 font-bold"
+                  className="text-[#CAA131] mb-0 font-bold"
                   style={{ fontSize: '21px', fontWeight: '700' }}
                 >
                   ליווי אישי ובטיחות
                 </div>
                 <div 
                   className="text-white"
-                  style={{ fontSize: '15px', fontWeight: '400' }}
+                  style={{ fontSize: '17px', fontWeight: '400' }}
                 >
                   מערך חירום 24/7
                 </div>
