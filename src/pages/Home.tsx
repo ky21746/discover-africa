@@ -383,6 +383,18 @@ const Home: React.FC = () => {
         </div>
       </section>
       
+      {/* Story Block */}
+      <section className="py-16 bg-[#fdf8f3]">
+        <div className="max-w-4xl mx-auto text-center px-6">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight mb-6">
+            כך בנינו תשתית מלאה בלב אפריקה
+          </h2>
+          <div className="w-20 h-1 bg-[#C6A45C] mx-auto mb-6"></div>
+          <p className="text-lg md:text-xl text-gray-700 leading-relaxed max-w-2xl mx-auto">
+            אנחנו ישראלים שחיים באוגנדה מעל 30 שנה. התחלנו מתעופה פרטית – מטוסים ומסוקים שמאפשרים ספארי מהאוויר והגעה מהירה לכל יעד. עם השנים בנינו תשתית מלאה: צוות ישראלי מקומי, רשת קשרים אמינה ויכולת להגיע למקומות שאף סוכנות אחרת לא מגיעה.
+          </p>
+        </div>
+      </section>
 
       {/* Featured Categories */}
       <section className="py-12 md:py-14 bg-surface">
