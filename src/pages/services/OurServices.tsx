@@ -9,9 +9,14 @@ const OurServices: React.FC = () => {
       <div className="container mx-auto px-4">
         {/* כותרת ראשית */}
         <div className="mb-12 text-center">
-          <h1 className="mb-3 md:mb-4 text-2xl md:text-4xl font-bold font-sans text-[#4B361C]">
-            השירותים שלנו
-          </h1>
+          <div className="mt-8 mb-4">
+            <h1 className="mb-3 md:mb-4 text-2xl md:text-4xl font-bold font-sans text-[#4B361C]">
+              השירותים שלנו
+            </h1>
+          </div>
+          <div className="flex justify-center mb-6">
+            <div className="w-16 h-1 bg-[#CAA131] rounded-full"></div>
+          </div>
           <p className="mx-auto max-w-3xl text-lg md:text-xl text-muted font-sans">
             שירותים מקצועיים ומותאמים אישית לכל צרכי הטיול שלכם באוגנדה
           </p>
@@ -21,7 +26,7 @@ const OurServices: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {/* BAR Aviation */}
           <Link to="/services/bar-aviation" className="group">
-            <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden h-full">
+            <div className="bg-white border border-[#CAA131] rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden h-full">
               <div
                 className="h-64 bg-cover bg-center"
                 style={{ 
@@ -38,12 +43,12 @@ const OurServices: React.FC = () => {
                     className="h-16 w-auto"
                   />
                 </div>
-                <p className="text-gray-700 mb-4 leading-relaxed">
-                  שירותי תעופה מקצועיים - טיסות ספארי, טיסות פרטיות וטיסות נוף מעל הנופים הקסומים של אוגנדה
+                <h3 className="text-2xl font-bold text-gray-900 mb-3">טיסות פרטיות ונוחות</h3>
+                <p className="text-gray-600 mb-4 leading-relaxed">
+                  טיסות מסוקים ומטוסים פנימיים לכל יעד באוגנדה. חיסכון של שעות נסיעה והנאה מנופים מרהיבים.
                 </p>
-                <div className="flex items-center text-[#CAA131] font-semibold group-hover:gap-2 transition-all duration-300">
-                  לפרטים נוספים
-                  <ArrowLeft className="w-4 h-4 mr-2" />
+                <div className="flex items-center justify-center bg-transparent border-2 border-[#CAA131] text-[#CAA131] px-6 py-2 rounded-full font-semibold text-sm group-hover:bg-[#CAA131] group-hover:text-white group-hover:shadow-lg transition-all duration-300">
+                  גלו את אפשרויות הטיסה
                 </div>
               </div>
             </div>
@@ -51,7 +56,7 @@ const OurServices: React.FC = () => {
 
           {/* BAR SOS */}
           <Link to="/services/bar-sos" className="group">
-            <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden h-full">
+            <div className="bg-white border border-[#CAA131] rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden h-full">
               <div
                 className="h-64 bg-cover bg-center"
                 style={{ 
@@ -68,12 +73,12 @@ const OurServices: React.FC = () => {
                     className="h-16 w-auto"
                   />
                 </div>
-                <p className="text-gray-700 mb-4 leading-relaxed">
-                  שירותי איתור וחילוץ רפואי 24/7 - חילוץ אווירי וקרקעי, אפליקציית SOS ותקשורת לוויינית
+                <h3 className="text-2xl font-bold text-gray-900 mb-3">ביטחון רפואי מלא 24/7</h3>
+                <p className="text-gray-600 mb-4 leading-relaxed">
+                  שירותי חילוץ רפואי מתקדמים עם צוות מקומי וצוות ישראלי – שקט נפשי וביטחון מלא בכל נקודה באוגנדה.
                 </p>
-                <div className="flex items-center text-[#CAA131] font-semibold group-hover:gap-2 transition-all duration-300">
-                  לפרטים נוספים
-                  <ArrowLeft className="w-4 h-4 mr-2" />
+                <div className="flex items-center justify-center bg-transparent border-2 border-[#CAA131] text-[#CAA131] px-6 py-2 rounded-full font-semibold text-sm group-hover:bg-[#CAA131] group-hover:text-white group-hover:shadow-lg transition-all duration-300">
+                  קבלו מידע על הביטחון שלנו
                 </div>
               </div>
             </div>
@@ -81,7 +86,7 @@ const OurServices: React.FC = () => {
 
           {/* Extreme Adventure Park */}
           <Link to="/services/extreme-park" className="group">
-            <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden h-full">
+            <div className="bg-white border border-[#CAA131] rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden h-full">
               <div
                 className="h-64 bg-cover bg-center"
                 style={{ 
@@ -98,12 +103,12 @@ const OurServices: React.FC = () => {
                     className="h-16 w-auto"
                   />
                 </div>
-                <p className="text-gray-700 mb-4 leading-relaxed">
-                  פארק האקסטרים הגדול ביותר באוגנדה - Go-Karting, Zipline, Paintball ועוד חוויות מלאות אדרנלין
+                <h3 className="text-2xl font-bold text-gray-900 mb-3">פארק אקסטרים לכל המשפחה</h3>
+                <p className="text-gray-600 mb-4 leading-relaxed">
+                  גלישת חבלים, טיפוס קירות, מסלולי אתגר ייחודיים ועוד שלל חוויות מרגשות – מתאים לקבוצות, משפחות וחובבי אקשן.
                 </p>
-                <div className="flex items-center text-[#CAA131] font-semibold group-hover:gap-2 transition-all duration-300">
-                  לפרטים נוספים
-                  <ArrowLeft className="w-4 h-4 mr-2" />
+                <div className="flex items-center justify-center bg-transparent border-2 border-[#CAA131] text-[#CAA131] px-6 py-2 rounded-full font-semibold text-sm group-hover:bg-[#CAA131] group-hover:text-white group-hover:shadow-lg transition-all duration-300">
+                  הזמינו חווית אקסטרים
                 </div>
               </div>
             </div>
