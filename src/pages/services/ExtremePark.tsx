@@ -129,11 +129,6 @@ const ExtremePark: React.FC = () => {
                   alt="בקתות משפחתיות"
                   className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
-                <div className="absolute bottom-4 right-4 text-white">
-                  <h3 className="text-lg font-bold">בקתות משפחתיות</h3>
-                  <p className="text-sm opacity-90">מרווחות ומאובזרות</p>
-                </div>
               </div>
 
               <div className="group relative overflow-hidden rounded-xl shadow-lg transform hover:scale-105 transition-all duration-300">
@@ -142,11 +137,6 @@ const ExtremePark: React.FC = () => {
                   alt="חדרים זוגיים"
                   className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
-                <div className="absolute bottom-4 right-4 text-white">
-                  <h3 className="text-lg font-bold">חדרים זוגיים</h3>
-                  <p className="text-sm opacity-90">פתרון נוח לזוגות</p>
-                </div>
               </div>
 
               <div className="group relative overflow-hidden rounded-xl shadow-lg transform hover:scale-105 transition-all duration-300">
@@ -155,11 +145,6 @@ const ExtremePark: React.FC = () => {
                   alt="קרוואנים"
                   className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
-                <div className="absolute bottom-4 right-4 text-white">
-                  <h3 className="text-lg font-bold">קרוואנים</h3>
-                  <p className="text-sm opacity-90">פרטיות מלאה</p>
-                </div>
               </div>
 
               <div className="group relative overflow-hidden rounded-xl shadow-lg transform hover:scale-105 transition-all duration-300">
@@ -168,11 +153,6 @@ const ExtremePark: React.FC = () => {
                   alt="קמפינג בטבע"
                   className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
-                <div className="absolute bottom-4 right-4 text-white">
-                  <h3 className="text-lg font-bold">קמפינג בטבע</h3>
-                  <p className="text-sm opacity-90">חוויה קרובה לאדמה</p>
-                </div>
               </div>
             </div>
           </div>
