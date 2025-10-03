@@ -234,7 +234,7 @@ const AttractionPage: React.FC = () => {
           
           {/* Additional Experiences - 1/3 */}
           <div className="md:col-span-1">
-            <AttractionExperiences />
+            <AttractionExperiences attractionId={a.id} />
           </div>
         </div>
 
