@@ -86,7 +86,7 @@ const Blog: React.FC = () => {
             {filteredPosts.map((post) => (
               <Card key={post.id} className="hover:shadow-xl transition-all duration-300 transform hover:scale-105">
                 <div
-                  className="card-image h-48"
+                  className="card-image"
                   style={{ backgroundImage: `url(${post.image})` }}
                 ></div>
                 <div className="card-content p-6">

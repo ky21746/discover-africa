@@ -114,7 +114,7 @@ export default function App() {
             
             {/* בלוג */}
             <Route path="/blog" element={<Blog />} />
-            <Route path="/blog/:id" element={<BlogPost />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
             
             {/* עמודים נוספים */}
             <Route path="/testimonials" element={<Testimonials />} />
