@@ -17,7 +17,7 @@ export const blogPosts: BlogPost[] = [
     title: 'פארק מורצ\'יסון פולס: המפלים החזקים ביותר באפריקה וטבע פראי בלב אוגנדה',
     excerpt: 'המדריך המקיף לפארק מורצ\'יסון פולס - הפארק הגדול ביותר באוגנדה עם המפלים החזקים בעולם, ספארי עשיר ושייט על נהר הנילוס. כל מה שצריך לדעת!',
     content: 'מאמר מקיף על פארק מורצ\'יסון פולס...',
-    image: 'https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FWater%2FMurchison%20Falls%2FMurchison%20Falls%20Uganda%20Blog%20card.webp?alt=media&token=9e5b3c2d-4f6a-5b7c-8d9e-0f1a2b3c4d5e',
+    image: 'https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FWater%2FMurchison%20Falls%2Fmurchison-falls-hero.webp?alt=media&token=56ccea2c-c574-46a6-ac3a-a0ecc2fbc3a5',
     tags: ['מורצ\'יסון פולס', 'פארק לאומי', 'אוגנדה', 'נהר הנילוס', 'ספארי אפריקה', 'מפלים'],
     date: '2024-10-05',
     author: 'Discover Africa Team',
