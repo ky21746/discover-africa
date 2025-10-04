@@ -9,10 +9,6 @@ interface GoogleMapProps {
 
 const GoogleMapComponent: React.FC<GoogleMapProps> = ({ lat, lng, zoom = 8 }) => {
   const apiKey = "AIzaSyD9GUDvMXOiX-Je_VoVKhE79JyJKzEi47A";
-  
-  // בדיקת המפתח של Google Maps
-  console.log("Google Maps API Key:", apiKey);
-  console.log("Firebase Config:", (window as any)?.__FIREBASE_CONFIG__);
 
   if (!apiKey) {
     return (

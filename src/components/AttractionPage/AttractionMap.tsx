@@ -8,12 +8,6 @@ interface AttractionMapProps {
 
 const AttractionMap: React.FC<AttractionMapProps> = ({ attraction }) => {
   const coordinates = attraction.coordinates ?? { lat: -1.05, lng: 29.75 };
-  
-  // בדיקת מפתח Google Maps בפרודקשן
-  console.log("Maps Key in Production:", import.meta.env.VITE_GOOGLE_MAPS_API_KEY);
-  console.log("Window Origin:", window.location.origin);
-  console.log("Document Referrer:", document.referrer);
-  console.log("Current URL:", window.location.href);
 
   return (
     <div className="w-full h-[400px] md:h-full">
