@@ -24,7 +24,7 @@ export const QuoteRequestModal: React.FC<QuoteRequestModalProps> = ({
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const recaptchaRef = useRef(null);
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -36,9 +36,6 @@ export const QuoteRequestModal: React.FC<QuoteRequestModalProps> = ({
       const serviceId = 'service_f70116g';
       const templateId = 'template_p4abc4m';
       const publicKey = 'fffzoME-DNQ1xssuP';
-
-      const token = await recaptchaRef.current.executeAsync();
-      recaptchaRef.current.reset();
 
       // בניית הודעה למייל
       const itemsText = items.map(item => {
@@ -72,6 +69,17 @@ ${itemsText}
 ---
 נשלח מ-Discover Africa Website`;
 
+      // Get ReCAPTCHA token
+      let token = '';
+      if (recaptchaRef.current) {
+        try {
+          token = await recaptchaRef.current.executeAsync();
+          recaptchaRef.current.reset();
+        } catch (error) {
+          console.warn('ReCAPTCHA failed, continuing without it:', error);
+        }
+      }
+
       // Prepare template parameters
       const templateParams = {
         name: formData.name,
@@ -83,14 +91,17 @@ ${itemsText}
       };
 
       // Send email using EmailJS
-      await emailjs.send(serviceId, templateId, templateParams, publicKey);
+      console.log('Sending quote request with params:', templateParams);
+      const result = await emailjs.send(serviceId, templateId, templateParams, publicKey);
+      console.log('Quote request sent successfully:', result);
       
       setIsSubmitting(false);
       setIsSubmitted(true);
+
     } catch (error) {
       console.error('Error sending email:', error);
       setIsSubmitting(false);
-      alert('שגיאה בשליחת ההודעה. אנא נסו שוב או התקשרו אלינו ישירות.');
+      alert('שגיאה בשליחת הבקשה. אנא נסו שוב או התקשרו אלינו ישירות.');
     }
   };
 
@@ -155,16 +166,16 @@ ${itemsText}
                   )}
                          <div className="text-base text-gray-500 mt-2">
                            לינה: {
-                             item.userChoices.accommodation === 'budget' ? 'תקציבית' :
-                             item.userChoices.accommodation === 'midrange' ? 'בינונית' : 'יוקרתית'
+                             item.userChoices?.accommodation === 'budget' ? 'תקציבית' :
+                             item.userChoices?.accommodation === 'midrange' ? 'בינונית' : 'יוקרתית'
                            } • 
                            תחבורה: {
-                             item.userChoices.transport === 'self_drive' ? 'מתנייד לבד' :
-                             item.userChoices.transport === '4x4_guide' ? 'רכב 4x4 עם מדריך' :
+                             item.userChoices?.transport === 'self_drive' ? 'מתנייד לבד' :
+                             item.userChoices?.transport === '4x4_guide' ? 'רכב 4x4 עם מדריך' :
                              'שירותי מסוקים'
                            }
                          </div>
-                         {item.userChoices.notes && (
+                         {item.userChoices?.notes && (
                            <div className="mt-3 p-3 bg-amber-50 rounded-lg border border-amber-200">
                              <div className="text-sm font-semibold text-amber-800 mb-1">הערות שלך:</div>
                              <div className="text-sm text-amber-700">{item.userChoices.notes}</div>
@@ -265,6 +276,7 @@ ${itemsText}
               </div>
             </div>
 
+                   {/* ReCAPTCHA */}
                    <ReCAPTCHA
                      sitekey="6Lcwa9ErAAAAAGQyrvEyb9JlkkipAC7aqOm8wwGy"
                      size="invisible"

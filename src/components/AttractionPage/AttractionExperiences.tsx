@@ -23,6 +23,7 @@ const AttractionExperiences: React.FC<AttractionExperiencesProps> = ({ nearby = 
           { name: 'פארק סמוליקי', description: 'יער טרופי עם חיות בר נדירות', link: '/attraction/semuliki', image: 'https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FSafari%20Uganda%2FSemuliki%20National%20Park%2FHot%20Springs%20in%20Semuliki%20National%20Park%20Uganda-hero.webp?alt=media&token=228dff7f-a458-4f59-bbcc-d29fdb5c9075' }
         ];
       case 'lake-mburo-safari':
+      case 'lake-mburo':
         return [
           { name: 'אגם ויקטוריה', description: 'האגם הגדול באפריקה', link: '/attraction/lake-victoria', image: 'https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FWater%2FLake%20Victoria%2FLake%20victoria%20fishermen%20go%20to%20work-Hero.webp?alt=media&token=cfab0621-1bb5-4fc4-8595-23673bd1d3e1' },
           { name: 'ג\'ינג\'ה', description: 'מקור הנילוס הלבן', link: '/attraction/jinja-white-nile', image: 'https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FJinja%2FJinja%E2%80%99s%20new%20suspension%20bridge%20view%20Hero.webp?alt=media&token=0db4ee52-681b-46f4-9056-a7205296e186' },

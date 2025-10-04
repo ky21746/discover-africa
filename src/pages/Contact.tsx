@@ -17,7 +17,7 @@ const Contact: React.FC = () => {
   const [errors, setErrors] = useState<Partial<ContactForm>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const recaptchaRef = useRef(null);
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
 
   const validateForm = (): boolean => {
     const newErrors: Partial<ContactForm> = {};
@@ -81,7 +81,9 @@ const Contact: React.FC = () => {
       };
 
       // Send email using EmailJS
-      await emailjs.send(serviceId, templateId, templateParams, publicKey);
+      console.log('Sending email with params:', templateParams);
+      const result = await emailjs.send(serviceId, templateId, templateParams, publicKey);
+      console.log('Email sent successfully:', result);
       
       setIsSubmitting(false);
       setIsSubmitted(true);
@@ -96,7 +98,6 @@ const Contact: React.FC = () => {
     } catch (error) {
       console.error('Error sending email:', error);
       setIsSubmitting(false);
-      // You can add error handling here if needed
       alert('שגיאה בשליחת ההודעה. אנא נסו שוב או התקשרו אלינו ישירות.');
     }
   };
