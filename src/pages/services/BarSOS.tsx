@@ -1,28 +1,39 @@
 // src/pages/services/BarSOS.tsx
 import React from "react";
 import { Link } from "react-router-dom";
-import { Shield, Phone, MapPin, Users, Clock, Heart } from "lucide-react";
+import { Shield, Phone, MapPin, Users, Clock, Heart, Star, Zap, AlertTriangle } from "lucide-react";
 
 const BarSOS: React.FC = () => {
   return (
-    <div className="py-8 fade-in" dir="rtl">
-      <div className="container mx-auto px-4">
-        {/* כותרת ראשית */}
-        <div className="mb-12 text-center">
-          <div className="flex justify-center mb-6">
-            <img 
-              src="/images/BAR-SOS-MAGNUS-logo.webp" 
-              alt="BAR SOS Logo" 
-              className="h-20 w-auto"
-            />
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50" dir="rtl">
+      {/* Hero Section */}
+      <div className="relative h-[65vh] overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-transparent z-10"></div>
+        <img 
+          src="https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/Services%2FBar%20SOS%2FBar%20sos%20Hero.webp?alt=media&token=2a86bbc7-7d04-4a49-97ea-e6b0537377ae"
+          alt="BAR SOS Hero" 
+          className="w-full h-full object-cover object-top"
+        />
+        <div className="absolute inset-0 z-20 flex items-end justify-center pb-32">
+          <div className="text-center text-white px-4">
+            <div className="flex justify-center mb-8">
+              <img 
+                src="/images/BAR-SOS-MAGNUS-logo.webp" 
+                alt="BAR SOS Logo" 
+                className="h-16 w-auto drop-shadow-lg"
+              />
+            </div>
+            <h1 className="mb-6 md:mb-8 text-2xl md:text-4xl font-bold font-sans drop-shadow-lg">
+              BAR SOS – ביטחון רפואי מלא 24/7
+            </h1>
+            <p className="text-lg md:text-xl max-w-3xl mx-auto drop-shadow-lg">
+              זרוע החירום והביטחון של קבוצת BAR - כיסוי מלא 24/7 בכל רחבי אוגנדה
+            </p>
           </div>
-          <h1 className="mb-3 md:mb-4 text-2xl md:text-4xl font-bold font-sans text-[#4B361C]">
-            BAR SOS – שירותי איתור וחילוץ רפואי
-          </h1>
-          <p className="mx-auto max-w-3xl text-lg md:text-xl text-muted font-sans">
-            זרוע החירום והביטחון של קבוצת BAR - כיסוי מלא 24/7 בכל רחבי אוגנדה
-          </p>
         </div>
+      </div>
+
+      <div className="container mx-auto px-4 relative z-30">
 
         {/* תיאור כללי */}
         <div className="mb-12">
@@ -48,151 +59,155 @@ const BarSOS: React.FC = () => {
         </div>
 
         {/* שירותים מרכזיים */}
-        <div className="mb-12">
-          <div className="bg-white rounded-2xl shadow-lg p-8">
-            <h2 className="text-lg md:text-2xl font-bold text-[#4B361C] mb-4 md:mb-6 border-b-2 border-[#CAA131] w-fit">
-              שירותים מרכזיים
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="flex items-start gap-4 p-6 bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-xl border border-[#CAA131]/30">
-                <Shield className="w-6 h-6 text-[#CAA131] mt-1 flex-shrink-0" />
-                <div>
-                  <h3 className="font-bold text-[#4B361C] mb-2">חילוץ רפואי אווירי וקרקעי</h3>
-                  <p className="text-[#4B361C] text-sm">
-                    מסוקים ומטוסים זמינים 24/7
-                  </p>
+        <div className="mb-16">
+          <div className="bg-white/90 backdrop-blur-sm rounded-3xl shadow-2xl p-8 border border-white/20">
+            <div className="text-center mb-12">
+              <h2 className="text-2xl md:text-4xl font-bold text-[#4B361C] mb-3 md:mb-4">
+                שירותים מרכזיים
+              </h2>
+              <p className="text-xl text-[#4B361C]/80 max-w-3xl mx-auto">
+                מערך ביטחון רפואי מתקדם עם כיסוי מלא בכל רחבי אוגנדה
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {/* חילוץ רפואי אווירי */}
+              <div className="group relative overflow-hidden rounded-2xl shadow-lg transform hover:scale-105 transition-all duration-300 hover:shadow-2xl">
+                <img
+                  src="https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/Services%2FBar%20SOS%2F472838872_1013923843877662_1204084337707649205_n.webp?alt=media&token=a7bfaaf2-05e9-4f4e-9038-e8eb4be73525"
+                  alt="מסוקים ומטוסים זמינים 24/7"
+                  className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                <div className="absolute top-4 right-4">
+                  <div className="bg-white/90 backdrop-blur-sm rounded-full px-3 py-1">
+                    <span className="text-sm font-bold text-[#4B361C]">חילוץ אווירי</span>
+                  </div>
+                </div>
+                <div className="absolute bottom-4 right-4 text-white">
+                  <p className="text-sm opacity-90 mb-2">מסוקים ומטוסים זמינים 24/7</p>
+                  <div className="flex items-center gap-2 text-xs">
+                    <Shield className="w-3 h-3" />
+                    <span>כיסוי מלא • תגובה מהירה</span>
+                  </div>
                 </div>
               </div>
 
-              <div className="flex items-start gap-4 p-6 bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-xl border border-[#CAA131]/30">
-                <Phone className="w-6 h-6 text-[#CAA131] mt-1 flex-shrink-0" />
-                <div>
-                  <h3 className="font-bold text-[#4B361C] mb-2">אפליקציית SOS</h3>
-                  <p className="text-[#4B361C] text-sm">
-                    איתור GPS ולחצן חירום אישי למטיילים
-                  </p>
+              {/* אפליקציית SOS */}
+              <div className="group relative overflow-hidden rounded-2xl shadow-lg transform hover:scale-105 transition-all duration-300 hover:shadow-2xl">
+                <img
+                  src="https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/Services%2FBar%20SOS%2F470164252_455427107619077_4758411317914210848_n.webp?alt=media&token=6369d45c-70a0-4814-b344-a42a931ea2f2"
+                  alt="אפליקציית SOS"
+                  className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                <div className="absolute top-4 right-4">
+                  <div className="bg-white/90 backdrop-blur-sm rounded-full px-3 py-1">
+                    <span className="text-sm font-bold text-[#4B361C]">אפליקציית SOS</span>
+                  </div>
+                </div>
+                <div className="absolute bottom-4 right-4 text-white">
+                  <p className="text-sm opacity-90 mb-2">איתור GPS ולחצן חירום</p>
+                  <div className="flex items-center gap-2 text-xs">
+                    <Phone className="w-3 h-3" />
+                    <span>לחיצה אחת • מעקב בזמן אמת</span>
+                  </div>
                 </div>
               </div>
 
-              <div className="flex items-start gap-4 p-6 bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-xl border border-[#CAA131]/30">
-                <MapPin className="w-6 h-6 text-[#CAA131] mt-1 flex-shrink-0" />
-                <div>
-                  <h3 className="font-bold text-[#4B361C] mb-2">תקשורת לוויינית</h3>
-                  <p className="text-[#4B361C] text-sm">
-                    חיבור רציף גם באזורים ללא קליטה
-                  </p>
+              {/* תקשורת לוויינית */}
+              <div className="group relative overflow-hidden rounded-2xl shadow-lg transform hover:scale-105 transition-all duration-300 hover:shadow-2xl">
+                <img
+                  src="https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/Services%2FBar%20SOS%2F481460072_499004936599423_3404882629094217973_n.webp?alt=media&token=e1bae3f5-b7ee-4779-9af0-3ba194b35304"
+                  alt="תקשורת לוויינית"
+                  className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                <div className="absolute top-4 right-4">
+                  <div className="bg-white/90 backdrop-blur-sm rounded-full px-3 py-1">
+                    <span className="text-sm font-bold text-[#4B361C]">תקשורת לוויינית</span>
+                  </div>
+                </div>
+                <div className="absolute bottom-4 right-4 text-white">
+                  <p className="text-sm opacity-90 mb-2">חיבור רציף גם באזורים מרוחקים</p>
+                  <div className="flex items-center gap-2 text-xs">
+                    <MapPin className="w-3 h-3" />
+                    <span>כיסוי מלא • ללא הפרעות</span>
+                  </div>
                 </div>
               </div>
 
-              <div className="flex items-start gap-4 p-6 bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-xl border border-[#CAA131]/30">
-                <Users className="w-6 h-6 text-[#CAA131] mt-1 flex-shrink-0" />
-                <div>
-                  <h3 className="font-bold text-[#4B361C] mb-2">ניהול סיכונים וביטחון אישי</h3>
-                  <p className="text-[#4B361C] text-sm">
-                    מערך שליטה ובקרה בזמן אמת
-                  </p>
+              {/* ניהול סיכונים */}
+              <div className="group relative overflow-hidden rounded-2xl shadow-lg transform hover:scale-105 transition-all duration-300 hover:shadow-2xl">
+                <img
+                  src="https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/Services%2FBar%20SOS%2F481906492_498996863266897_8738853515420289780_n.webp?alt=media&token=741fa032-5c4c-4608-bef2-1192da0e294d"
+                  alt="מערך שליטה ובקרה בזמן אמת"
+                  className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                <div className="absolute top-4 right-4">
+                  <div className="bg-white/90 backdrop-blur-sm rounded-full px-3 py-1">
+                    <span className="text-sm font-bold text-[#4B361C]">ניהול סיכונים</span>
+                  </div>
+                </div>
+                <div className="absolute bottom-4 right-4 text-white">
+                  <p className="text-sm opacity-90 mb-2">מערך שליטה ובקרה בזמן אמת</p>
+                  <div className="flex items-center gap-2 text-xs">
+                    <Users className="w-3 h-3" />
+                    <span>מעקב מתמיד • תגובה מיידית</span>
+                  </div>
                 </div>
               </div>
 
-              <div className="flex items-start gap-4 p-6 bg-gradient-to-r from-[#CAA131]/10 to-[#B8942A]/10 rounded-xl border border-[#CAA131]/30">
-                <Heart className="w-6 h-6 text-[#CAA131] mt-1 flex-shrink-0" />
-                <div>
-                  <h3 className="font-bold text-[#4B361C] mb-2">תמיכה רפואית</h3>
-                  <p className="text-[#4B361C] text-sm">
-                    צוות רופאים ואמבולנסים בשטח
-                  </p>
+              {/* תמיכה רפואית */}
+              <div className="group relative overflow-hidden rounded-2xl shadow-lg transform hover:scale-105 transition-all duration-300 hover:shadow-2xl">
+                <img
+                  src="https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/Services%2FBar%20SOS%2FScreenshot%202025-09-08%20at%2014.42.12.webp?alt=media&token=fc5df14f-0356-4e42-a269-1bebc09eec07"
+                  alt="תמיכה רפואית"
+                  className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                <div className="absolute top-4 right-4">
+                  <div className="bg-white/90 backdrop-blur-sm rounded-full px-3 py-1">
+                    <span className="text-sm font-bold text-[#4B361C]">תמיכה רפואית</span>
+                  </div>
+                </div>
+                <div className="absolute bottom-4 right-4 text-white">
+                  <p className="text-sm opacity-90 mb-2">צוות רופאים ואמבולנסים בשטח</p>
+                  <div className="flex items-center gap-2 text-xs">
+                    <Heart className="w-3 h-3 fill-red-400" />
+                    <span>טיפול מקצועי • זמינות מלאה</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* מרכז שליטה */}
+              <div className="group relative overflow-hidden rounded-2xl shadow-lg transform hover:scale-105 transition-all duration-300 hover:shadow-2xl">
+                <img
+                  src="https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/Services%2FBar%20SOS%2F481666433_499004996599417_2125122887142954581_n.webp?alt=media&token=fbc62c84-e092-413b-a4b9-6dca266b48e4"
+                  alt="מרכז שליטה ובקרה"
+                  className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                <div className="absolute top-4 right-4">
+                  <div className="bg-white/90 backdrop-blur-sm rounded-full px-3 py-1">
+                    <span className="text-sm font-bold text-[#4B361C]">מרכז שליטה</span>
+                  </div>
+                </div>
+                <div className="absolute bottom-4 right-4 text-white">
+                  <p className="text-sm opacity-90 mb-2">מערך שליטה ובקרה בזמן אמת</p>
+                  <div className="flex items-center gap-2 text-xs">
+                    <AlertTriangle className="w-3 h-3" />
+                    <span>24/7 • מעקב מתמיד</span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* חשוב לדעת */}
-        <div className="mb-12">
-          <div className="bg-gradient-to-br from-amber-50 to-orange-50 border border-[#CAA131]/30 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
-            <h2 className="text-xl font-bold text-[#4B361C] mb-4 border-b border-[#CAA131] pb-2 w-fit text-right">
-              חשוב לדעת
-            </h2>
-            <div className="space-y-3 text-right">
-              <ul className="text-sm text-[#4B361C] space-y-2 text-right list-none">
-                <li className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full">השירות פעיל בכל רחבי אוגנדה</li>
-                <li className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full">הצטרפות באמצעות מנוי חודשי או שנתי</li>
-                <li className="relative pr-4 before:content-[''] before:absolute before:right-0 before:top-2 before:w-2 before:h-2 before:bg-[#CAA131] before:rounded-full">לקוחות עסקיים ופרטיים כאחד יכולים להצטרף</li>
-              </ul>
-            </div>
-          </div>
-        </div>
 
-        {/* גלריה */}
-        <div className="mb-12">
-          <div className="bg-white rounded-2xl shadow-lg p-8">
-            <h2 className="text-lg md:text-2xl font-bold text-[#4B361C] mb-4 md:mb-6 border-b-2 border-[#CAA131] w-fit">
-              גלריה
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <div className="relative group overflow-hidden rounded-xl">
-                <img
-                  src="https://images.pexels.com/photos/631317/pexels-photo-631317.jpeg"
-                  alt="מסוק חילוץ מוכן להמראה"
-                  className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="absolute bottom-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <p className="text-sm font-medium">מסוק חילוץ מוכן להמראה</p>
-                </div>
-              </div>
 
-              <div className="relative group overflow-hidden rounded-xl">
-                <img
-                  src="https://images.pexels.com/photos/1661535/pexels-photo-1661535.jpeg"
-                  alt="צוות רפואי בפעולה בשטח"
-                  className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="absolute bottom-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <p className="text-sm font-medium">צוות רפואי בפעולה בשטח</p>
-                </div>
-              </div>
-
-              <div className="relative group overflow-hidden rounded-xl">
-                <img
-                  src="https://images.pexels.com/photos/534188/pexels-photo-534188.jpeg"
-                  alt="אפליקציית SOS על מסך טלפון"
-                  className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="absolute bottom-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <p className="text-sm font-medium">אפליקציית SOS על מסך טלפון</p>
-                </div>
-              </div>
-
-              <div className="relative group overflow-hidden rounded-xl">
-                <img
-                  src="https://images.pexels.com/photos/6194629/pexels-photo-6194629.jpeg"
-                  alt="חדר שליטה ובקרה עם מסכי GPS"
-                  className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="absolute bottom-4 right-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <p className="text-sm font-medium">חדר שליטה ובקרה עם מסכי GPS</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* קריאה לפעולה */}
-        <div className="mb-12">
-          <div className="bg-gradient-to-r from-[#CAA131] to-[#B8942A] rounded-2xl p-8 text-center text-white">
-            <h2 className="text-lg md:text-2xl font-bold mb-3 md:mb-4">הצטרף ל־BAR SOS</h2>
-            <p className="text-lg mb-6 opacity-90">
-              לשקט נפשי ואיתור וחילוץ רפואי 24/7 – בכל מקום באוגנדה
-            </p>
-            <button className="bg-white text-[#4B361C] px-8 py-3 rounded-xl font-bold text-lg hover:bg-gray-100 transition-colors duration-300">
-              הרשם לשירות חילוץ רפואי
-            </button>
-          </div>
-        </div>
 
         {/* קישור לחברה אחות */}
         <div className="mb-8">
@@ -208,7 +223,7 @@ const BarSOS: React.FC = () => {
         </div>
 
         {/* כפתור חזרה */}
-        <div className="text-center">
+        <div className="text-center mt-8 mb-8">
           <Link to="/" className="btn-secondary">
             ← חזרה לעמוד הבית
           </Link>
