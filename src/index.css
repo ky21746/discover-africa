@@ -268,6 +268,19 @@ button {
   }
 }
 
+/* Hero חלקי, מדויק למסכים שונים */
+@media (max-width: 1024px) {
+  .hero-section {
+    height: 85vh; /* לאייפד */
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    height: 90vh; /* למובייל */
+  }
+}
+
 /* Individual card image positioning */
 .card-image.safari-image {
   background-position: center 30% !important;

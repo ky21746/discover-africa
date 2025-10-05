@@ -43,7 +43,12 @@ const Home: React.FC = () => {
   return (
     <div className="fade-in" dir="rtl">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-gray-900 to-gray-800 text-white h-screen md:h-[45vh] min-h-screen md:min-h-[200px] overflow-hidden md:block">
+      <section 
+        className="hero-section relative bg-gradient-to-r from-gray-900 to-gray-800 text-white overflow-hidden"
+        style={{
+          height: '80vh', /* מתאים לדסקטופ */
+        }}
+      >
         {/* Mobile Hero - Full Screen */}
         <div 
           className="md:hidden flex flex-col justify-start items-center px-5 relative bg-cover bg-center bg-no-repeat"
