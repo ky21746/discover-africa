@@ -286,6 +286,22 @@ button {
   background-position: center 30% !important;
 }
 
+/* מניעת גלילה אופקית במובייל */
+html, body {
+  overflow-x: hidden !important;
+}
+
+/* תיקון כללי ל-viewport */
+* {
+  max-width: 100vw;
+  box-sizing: border-box;
+}
+
+/* טיפול בבעיית שכבה לבנה במובייל */
+main, section, div {
+  background-color: transparent !important;
+}
+
 .card-image.gorillas-chimps-image {
   background-position: center 60% !important;
 }

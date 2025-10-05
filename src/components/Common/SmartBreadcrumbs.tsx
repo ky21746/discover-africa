@@ -227,15 +227,15 @@ const SmartBreadcrumbs: React.FC = () => {
       items.push({ label: "בלוג", path: "/blog" });
       
       if (pathname !== '/blog') {
-        const blogId = params.id;
-        if (blogId) {
-          // מיפוי ID של בלוגים לשמות בעברית
+        const blogSlug = params.slug;
+        if (blogSlug) {
+          // מיפוי slug של בלוגים לשמות בעברית
           const blogNames: { [key: string]: string } = {
-            'bwindi-gorilla-guide': 'מדריך גורילות בווינדי',
-            '2': 'מדריך גורילות בווינדי'
+            'bwindi-gorilla-trekking-guide': 'המדריך המקיף לטיול גורילות בפארק הלאומי בווינדי',
+            'murchison-falls-safari-guide': 'פארק מורצ\'יסון פולס'
           };
           
-          const blogName = blogNames[blogId] || 'מאמר';
+          const blogName = blogNames[blogSlug] || 'מאמר';
           items.push({ label: blogName });
         }
       }

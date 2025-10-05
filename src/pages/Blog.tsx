@@ -1,48 +1,10 @@
-import React, { useState, useMemo } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { Calendar, User, Clock } from 'lucide-react';
 import Card from '../components/Common/Card';
-import SearchBar from '../components/Common/SearchBar';
-import TagCloud from '../components/Common/TagCloud';
 import { blogPosts } from '../data/blogPosts';
 
 const Blog: React.FC = () => {
-  const [searchQuery, setSearchQuery] = useState('');
-  const [selectedTags, setSelectedTags] = useState<string[]>([]);
-
-  const allTags = Array.from(new Set(blogPosts.flatMap(post => post.tags)));
-
-  const filteredPosts = useMemo(() => {
-    return blogPosts.filter((post) => {
-      const matchesSearch = searchQuery === '' || 
-                           post.title.includes(searchQuery) || 
-                           post.excerpt.includes(searchQuery) ||
-                           post.tags.some(tag => tag.includes(searchQuery));
-      
-      const matchesTags = selectedTags.length === 0 || 
-                         selectedTags.some(tag => post.tags.includes(tag));
-      
-      return matchesSearch && matchesTags;
-    });
-  }, [searchQuery, selectedTags]);
-
-  const handleTagClick = (tag: string) => {
-    if (selectedTags.includes(tag)) {
-      setSelectedTags(selectedTags.filter(t => t !== tag));
-    } else {
-      setSelectedTags([...selectedTags, tag]);
-    }
-  };
-
-  const highlightText = (text: string, query: string) => {
-    if (!query) return text;
-    
-    const parts = text.split(new RegExp(`(${query})`, 'gi'));
-    return parts.map((part, index) => 
-      part.toLowerCase() === query.toLowerCase() ? 
-        <span key={index} className="search-highlight">{part}</span> : part
-    );
-  };
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
@@ -60,30 +22,10 @@ const Blog: React.FC = () => {
           </p>
         </div>
 
-        {/* Search and Filters */}
-        <div className="mb-8">
-          <div className="max-w-2xl mx-auto mb-6">
-            <SearchBar
-              placeholder="חפשו במאמרים..."
-              onSearch={setSearchQuery}
-            />
-          </div>
-
-          {/* Tag Cloud */}
-          <div className="text-center">
-            <h3 className="text-lg font-semibold mb-4 font-sans">נושאים:</h3>
-            <TagCloud
-              tags={allTags}
-              selectedTags={selectedTags}
-              onTagClick={handleTagClick}
-            />
-          </div>
-        </div>
 
         {/* Blog Posts Grid */}
-        {filteredPosts.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredPosts.map((post) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {blogPosts.map((post) => (
               <Card key={post.id} className="hover:shadow-xl transition-all duration-300 transform hover:scale-105">
                 <div
                   className="card-image"
@@ -102,11 +44,11 @@ const Blog: React.FC = () => {
                   </div>
                   
                   <h3 className="text-xl font-bold mb-4 font-sans leading-tight text-gray-900">
-                    {highlightText(post.title, searchQuery)}
+                    {post.title}
                   </h3>
                   
                   <p className="text-gray-600 mb-6 font-sans line-clamp-3 leading-relaxed">
-                    {highlightText(post.excerpt, searchQuery)}
+                    {post.excerpt}
                   </p>
                   
                   <div className="flex items-center gap-4 text-sm text-gray-500 mb-6">
@@ -132,39 +74,8 @@ const Blog: React.FC = () => {
                 </div>
               </Card>
             ))}
-          </div>
-        ) : (
-          <div className="text-center py-12">
-            <p className="text-xl text-muted mb-4">לא נמצאו מאמרים, נסו מילה אחרת</p>
-            <button
-              onClick={() => {
-                setSearchQuery('');
-                setSelectedTags([]);
-              }}
-              className="btn-secondary"
-            >
-              נקה סינונים
-            </button>
-          </div>
-        )}
-
-        {/* Newsletter Signup */}
-        <div className="mt-16 bg-primary text-white rounded-2xl p-8 text-center">
-          <h2 className="text-xl md:text-3xl font-bold mb-3 md:mb-4 font-sans">הישארו מעודכנים</h2>
-          <p className="text-xl mb-6 font-sans">
-            הירשמו לניוזלטר וקבלו טיפים ומאמרים חדשים ישירות למייל
-          </p>
-          <div className="max-w-md mx-auto flex gap-3">
-            <input
-              type="email"
-              placeholder="הכניסו את המייל שלכם"
-              className="flex-1 px-4 py-3 rounded-lg text-gray-900 text-right"
-            />
-            <button className="bg-white text-primary px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
-              הרשמה
-            </button>
-          </div>
         </div>
+
       </div>
     </div>
   );

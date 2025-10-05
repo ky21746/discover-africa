@@ -18,37 +18,12 @@ const MurchisonFallsBlogPost: React.FC = () => {
       <article className="min-h-screen bg-white" dir="rtl">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
           
-          {/* Breadcrumbs */}
-          <nav className="mb-8" aria-label="פרורי לחם">
-            <ol className="flex items-center gap-2 text-sm text-gray-600" dir="rtl">
-              <li>
-                <a href="/" className="hover:text-[#CAA131] transition-colors">
-                  בית
-                </a>
-              </li>
-              <li className="text-gray-400">/</li>
-              <li>
-                <a href="/blog" className="hover:text-[#CAA131] transition-colors">
-                  בלוג
-                </a>
-              </li>
-              <li className="text-gray-400">/</li>
-              <li className="text-gray-900 font-medium">
-                פארק מורצ'יסון פולס
-              </li>
-            </ol>
-          </nav>
           
           {/* Header Section */}
           <header className="mb-12">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#534B20] leading-tight mb-6 border-b-4 border-[#CAA131] pb-4">
               פארק מורצ'יסון פולס: המפלים החזקים ביותר באפריקה וטבע פראי בלב אוגנדה
             </h1>
-            <div className="flex flex-wrap gap-2 text-sm text-gray-600">
-              <span className="bg-[#CAA131] text-white px-3 py-1 rounded-full">מפלים עוצמתיים</span>
-              <span className="bg-[#B8912A] text-white px-3 py-1 rounded-full">Big 5</span>
-              <span className="bg-[#534B20] text-white px-3 py-1 rounded-full">שייט בנילוס</span>
-            </div>
           </header>
 
           {/* Opening Section */}
