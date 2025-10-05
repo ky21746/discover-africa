@@ -257,9 +257,15 @@ button {
 }
 
 .card-image {
-  height: 300px !important;
+  height: 200px !important;
   background-size: cover;
   background-position: center 50%;
+}
+
+@media (min-width: 768px) {
+  .card-image {
+    height: 300px !important;
+  }
 }
 
 /* Individual card image positioning */

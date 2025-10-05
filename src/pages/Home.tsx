@@ -226,11 +226,11 @@ const Home: React.FC = () => {
         <div className="hidden md:block">
           <div
             className="absolute inset-0 bg-cover bg-center opacity-70"
-            style={{
-              backgroundImage:
-                "url(https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/hero-gorilla.webp?alt=media&token=c67bec83-4363-4104-a102-757f69b351a4)",
-            }}
-          />
+          style={{
+            backgroundImage:
+              "url(https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/hero-gorilla.webp?alt=media&token=c67bec83-4363-4104-a102-757f69b351a4)",
+          }}
+        />
           
           {/* Dark Overlay */}
           <div 
@@ -239,8 +239,8 @@ const Home: React.FC = () => {
               background: "linear-gradient(to bottom, rgba(75, 54, 28, 0.2) 0%, rgba(75, 54, 28, 0.45) 100%)"
             }}
           />
-          
-          {/* Content positioned at center bottom */}
+        
+        {/* Content positioned at center bottom */}
           <div className="absolute bottom-8 md:bottom-12 left-4 right-4 text-center text-white">
             <h1 
               className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6"
@@ -252,7 +252,7 @@ const Home: React.FC = () => {
               }}
             >
               טיולים מותאמים אישית באוגנדה
-            </h1>
+          </h1>
             
             <p 
               className="text-lg md:text-xl font-light mb-8 max-w-[700px] mx-auto"
@@ -400,13 +400,13 @@ const Home: React.FC = () => {
       <section className="py-12 bg-white">
         <div className="max-w-6xl mx-auto px-6 text-center">
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900">
-            קטגוריות פופולריות
-          </h2>
+              קטגוריות פופולריות
+            </h2>
           <div className="w-16 h-1 bg-[#C6A45C] mx-auto mt-2 mb-6"></div>
           <p className="text-gray-600 text-base md:text-lg text-center mb-12">
             ממסלולי ספארי ועד אקסטרים – תבחרו את ההרפתקה שלכם
-          </p>
-        </div>
+            </p>
+          </div>
         
         <div className="container mx-auto px-4">
 
@@ -432,10 +432,10 @@ const Home: React.FC = () => {
                     src={category.image} 
                     alt={category.name}
                     className="w-full h-64 object-cover"
-                    style={{ 
+                  style={{ 
                       objectPosition: category.slug === 'safari' ? 'center 30%' : 
-                                     category.slug === 'gorillas-chimps' ? 'center 40%' :
-                                     category.slug === 'water' ? 'center 20%' :
+                                       category.slug === 'gorillas-chimps' ? 'center 40%' :
+                                       category.slug === 'water' ? 'center 20%' :
                                      category.slug === 'ready-tours' ? 'center 25%' : 'center 50%'
                     }}
                   />
@@ -491,7 +491,7 @@ const Home: React.FC = () => {
                   טיסות ספארי, טיסות פרטיות וטיסות נוף מעל הנופים הקסומים
                 </p>
               </div>
-
+              
               {/* כפתור יוקרתי */}
               <div className="px-4 pb-4">
                 <button className="w-full border border-[#c9a959] text-[#c9a959] font-semibold py-2 rounded-md hover:bg-[#c9a959] hover:text-white transition-colors duration-300">
@@ -515,7 +515,7 @@ const Home: React.FC = () => {
                   שירותי חילוץ רפואי 24/7 - חילוץ אווירי וקרקעי בכל רחבי אוגנדה
                 </p>
               </div>
-
+              
               {/* כפתור יוקרתי */}
               <div className="px-4 pb-4">
                 <button className="w-full border border-[#c9a959] text-[#c9a959] font-semibold py-2 rounded-md hover:bg-[#c9a959] hover:text-white transition-colors duration-300">
@@ -539,7 +539,7 @@ const Home: React.FC = () => {
                   Go-Karting, Zipline, Paintball ועוד חוויות מלאות אדרנלין
                 </p>
               </div>
-
+              
               {/* כפתור יוקרתי */}
               <div className="px-4 pb-4">
                 <button className="w-full border border-[#c9a959] text-[#c9a959] font-semibold py-2 rounded-md hover:bg-[#c9a959] hover:text-white transition-colors duration-300">
@@ -583,7 +583,7 @@ const Home: React.FC = () => {
               <div className="mt-4 text-sm text-gray-500">
                 טיול ספארי • יוני 2024
               </div>
-            </div>
+              </div>
 
             {/* עדות 2 */}
             <div className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 border border-gray-100 hover:border-[#C6A45C]/30">
@@ -605,7 +605,7 @@ const Home: React.FC = () => {
               <div className="mt-4 text-sm text-gray-500">
                 טיול משפחתי • אפריל 2024
               </div>
-            </div>
+              </div>
 
             {/* עדות 3 */}
             <div className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 border border-gray-100 hover:border-[#C6A45C]/30">

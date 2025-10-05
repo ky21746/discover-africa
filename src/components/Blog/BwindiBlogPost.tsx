@@ -15,12 +15,12 @@ const BwindiBlogPost: React.FC = () => {
       </Helmet>
 
       {/* Main Container */}
-      <article className="min-h-screen bg-gradient-to-b from-gray-50 to-white" dir="rtl">
+      <article className="min-h-screen bg-white" dir="rtl">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
           
           {/* Breadcrumbs */}
           <nav className="mb-8" aria-label="פרורי לחם">
-            <ol className="flex items-center space-x-2 text-sm text-gray-600">
+            <ol className="flex items-center gap-2 text-sm text-gray-600" dir="rtl">
               <li>
                 <a href="/" className="hover:text-[#CAA131] transition-colors">
                   בית
@@ -34,7 +34,7 @@ const BwindiBlogPost: React.FC = () => {
               </li>
               <li className="text-gray-400">/</li>
               <li className="text-gray-900 font-medium">
-                מסע אל לב הבלתי חדיר
+                המדריך המקיף לטיול גורילות בפארק הלאומי בווינדי
               </li>
             </ol>
           </nav>
@@ -70,7 +70,11 @@ const BwindiBlogPost: React.FC = () => {
               <img 
                 src="https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FPrimates%20of%20Uganda%2FMgahinga%20Gorillas%2FHikers%20on%20a%20gorilla%20trekking%20trail.webp?alt=media&token=6e509194-1bde-4afa-b851-66a367be78f2"
                 alt="מטיילים בשביל טרק גורילות ביער בווינדי"
-                className="w-full h-96 object-cover rounded-lg shadow-lg"
+                className="w-full h-64 sm:h-96 object-cover rounded-lg shadow-lg"
+                loading="lazy"
+                onError={(e) => {
+                  e.currentTarget.style.display = 'none';
+                }}
               />
               <p className="text-center text-sm text-gray-600 mt-2 italic">
                 מטיילים בשביל טרק גורילות ביער בווינדי הבלתי חדיר
@@ -98,7 +102,11 @@ const BwindiBlogPost: React.FC = () => {
                 <img 
                   src="https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2FPrimates%20of%20Uganda%2FGorillas%20in%20Bwindi%20Forest%2FGorilla%20in%20Bwindi%20Impenetrable%20Forest%20Uganda%400.5x.webp?alt=media&token=65832c3f-bba9-48ba-b8c2-ad7364f9f18c"
                   alt="גורילות הרים בפארק בווינדי"
-                  className="w-full h-96 object-cover rounded-lg shadow-lg"
+                  className="w-full h-64 sm:h-96 object-cover rounded-lg shadow-lg"
+                  loading="lazy"
+                  onError={(e) => {
+                    e.currentTarget.style.display = 'none';
+                  }}
                 />
                 <p className="text-center text-sm text-gray-600 mt-2 italic">
                   גורילות הרים בפארק הלאומי בווינדי הבלתי חדיר, אוגנדה
@@ -144,7 +152,7 @@ const BwindiBlogPost: React.FC = () => {
             <div className="grid md:grid-cols-2 gap-6 mb-8">
               <div className="bg-[#CAA131]/10 border-2 border-[#CAA131] rounded-lg p-6 shadow-sm">
                 <h3 className="text-xl font-bold text-[#CAA131] mb-3">
-                  ☀️ העונה היבשה (התקופה המומלצת ביותר)
+                  העונה היבשה (התקופה המומלצת ביותר)
                 </h3>
                 <p className="font-semibold text-[#534B20] mb-3">
                   יוני–אוגוסט ו-דצמבר–פברואר
@@ -155,7 +163,7 @@ const BwindiBlogPost: React.FC = () => {
                     <p>זוהי תקופת השיא האידיאלית למעקב גורילות. השבילים יבשים יחסית, ההליכה קלה ונוחה יותר, והתנאים המזג האוויר נעימים. הסיכויים לטרק מוצלח ונוח גבוהים מאוד.</p>
                   </div>
                   <div>
-                    <p className="font-semibold text-red-700">⚠️ חסרונות:</p>
+                    <p className="font-semibold text-red-700">חסרונות:</p>
                     <p>הביקוש להיתרי מעקב גבוה ביותר בתקופה זו, והמחירים גם כן. <span className="font-semibold">חיוני להזמין היתרים לפחות 3-6 חודשים מראש</span>, ובעונת הקיץ הישראלית אפילו יותר.</p>
                   </div>
                 </div>
@@ -163,7 +171,7 @@ const BwindiBlogPost: React.FC = () => {
 
               <div className="bg-gray-50 border-2 border-gray-300 rounded-lg p-6 shadow-sm">
                 <h3 className="text-xl font-bold text-gray-800 mb-3">
-                  🌧️ העונה הגשומה (תקופת השפל)
+                  העונה הגשומה (תקופת השפל)
                 </h3>
                 <p className="font-semibold text-gray-900 mb-3">
                   מרץ–מאי ו-ספטמבר–נובמבר
@@ -174,7 +182,7 @@ const BwindiBlogPost: React.FC = () => {
                     <p>קל בהרבה להשיג היתרים, ולעיתים אף במחירים מוזלים. הצמחייה ירוקה ושופעת במיוחד, והנוף עוצר נשימה. הסיכוי לראות פילים עולה משמעותית מכיוון שהם נפוצים יותר סביב גבולות הפארק בתקופה זו.</p>
                   </div>
                   <div>
-                    <p className="font-semibold text-red-700">⚠️ חסרונות:</p>
+                    <p className="font-semibold text-red-700">חסרונות:</p>
                     <p>השבילים בוציים, חלקלקים ומאתגרים מאוד פיזית. המעקב הופך קשה יותר ודורש כושר גופני טוב. הגשם יכול להפריע לצילום ולנוחות הכללית. עם זאת, חשוב לציין שהגורילות נמצאות שם בכל תקופה, והחוויה עצמה תישאר בלתי נשכחת גם בגשם.</p>
                   </div>
                 </div>
@@ -308,7 +316,7 @@ const BwindiBlogPost: React.FC = () => {
                 <h4 className="font-semibold text-[#534B20] text-lg mb-3">הטרק עצמו – הרפתקה אמיתית</h4>
                 <div className="bg-[#CAA131]/10 border-r-4 border-[#CAA131] p-5 rounded-lg shadow-sm mb-4">
                   <p className="text-gray-800">
-                    ⚠️ <span className="font-semibold">חשוב לדעת:</span> ההליכה בבווינדי היא <span className="font-semibold">הרפתקה פיזית אמיתית וקשה</span>. אין לזלזל בכך! משך הטרק משתנה בין <span className="font-semibold">15 דקות ל-6 שעות</span>, ובמקרים נדירים אף עד 10 שעות ליום פעילות מלא.
+                    <span className="font-semibold">חשוב לדעת:</span> ההליכה בבווינדי היא <span className="font-semibold">הרפתקה פיזית אמיתית וקשה</span>. אין לזלזל בכך! משך הטרק משתנה בין <span className="font-semibold">15 דקות ל-6 שעות</span>, ובמקרים נדירים אף עד 10 שעות ליום פעילות מלא.
                   </p>
                 </div>
                 <p className="text-gray-800">
@@ -675,11 +683,19 @@ const BwindiBlogPost: React.FC = () => {
               {/* Final CTA Box */}
               <div className="bg-gradient-to-br from-[#534B20] to-[#3A3517] text-white p-8 my-8 rounded-xl shadow-xl text-center">
                 <p className="text-2xl sm:text-3xl font-bold mb-6">
-                  תכננו את הטרק שלכם עכשיו. הענקים העדינים מחכים.
+                  הענקים העדינים מחכים.
                 </p>
-                <button className="bg-white text-[#534B20] font-bold py-4 px-8 rounded-lg shadow-lg transition-all transform hover:scale-105 hover:shadow-xl">
+                <a 
+                  href="https://wa.me/972501234567?text=שלום, אני מעוניין בתכנון מסלול לגורילות בבווינדי"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block bg-white text-[#534B20] font-bold py-4 px-8 rounded-lg shadow-lg transition-all transform hover:scale-105 hover:shadow-xl"
+                >
                   צור קשר לתכנון המסלול שלך
-                </button>
+                </a>
+                <p className="text-lg mt-4 text-white/90">
+                  תכננו את הטרק שלכם עכשיו
+                </p>
               </div>
             </div>
           </section>
@@ -691,15 +707,28 @@ const BwindiBlogPost: React.FC = () => {
             </p>
             
             <div className="flex flex-wrap justify-center gap-4 mt-6">
-              <button className="bg-[#534B20] hover:bg-[#534B20] text-white px-6 py-2 rounded-lg transition-colors">
+              <a 
+                href="mailto:?subject=המדריך המקיף לטיול גורילות בפארק הלאומי בווינדי&body=קרא את המדריך המקיף לטיול גורילות בבווינדי: https://discover-africa-ky.web.app/blog/bwindi-gorilla-trekking-guide"
+                className="bg-[#534B20] hover:bg-[#3A3517] text-white px-6 py-2 rounded-lg transition-colors inline-block"
+              >
                 שתף במייל
-              </button>
-              <button className="bg-[#CAA131] hover:bg-[#B8912A] text-white px-6 py-2 rounded-lg transition-colors">
+              </a>
+              <a 
+                href="https://www.facebook.com/sharer/sharer.php?u=https://discover-africa-ky.web.app/blog/bwindi-gorilla-trekking-guide"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-[#CAA131] hover:bg-[#B8912A] text-white px-6 py-2 rounded-lg transition-colors inline-block"
+              >
                 שתף בפייסבוק
-              </button>
-              <button className="bg-[#534B20]/100 hover:bg-[#534B20] text-white px-6 py-2 rounded-lg transition-colors">
-                שלח בווצאפ
-              </button>
+              </a>
+              <a 
+                href="https://wa.me/?text=המדריך המקיף לטיול גורילות בפארק הלאומי בווינדי%0A%0Aקרא את המדריך המקיף לטיול גורילות בבווינדי:%0Ahttps://discover-africa-ky.web.app/blog/bwindi-gorilla-trekking-guide"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-[#B8912A] hover:bg-[#A67F1F] text-white px-6 py-2 rounded-lg transition-colors inline-block"
+              >
+                שתף בווצאפ
+              </a>
             </div>
           </footer>
 
