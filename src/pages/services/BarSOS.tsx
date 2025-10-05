@@ -18,7 +18,7 @@ const BarSOS: React.FC = () => {
           <div className="text-center text-white px-4">
             <div className="flex justify-center mb-8">
               <img 
-                src="/images/BAR-SOS-MAGNUS-logo.webp" 
+                src="/images/BAR-SOS-MAGNUS-logo w.webp" 
                 alt="BAR SOS Logo" 
                 className="h-16 w-auto drop-shadow-lg"
               />
@@ -76,12 +76,12 @@ const BarSOS: React.FC = () => {
                 <img
                   src="https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/Services%2FBar%20SOS%2F472838872_1013923843877662_1204084337707649205_n.webp?alt=media&token=a7bfaaf2-05e9-4f4e-9038-e8eb4be73525"
                   alt="מסוקים ומטוסים זמינים 24/7"
-                  className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+                  className="w-full h-48 object-cover object-center group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
                 <div className="absolute top-4 right-4">
                   <div className="bg-white/90 backdrop-blur-sm rounded-full px-3 py-1">
-                    <span className="text-sm font-bold text-[#4B361C]">חילוץ אווירי</span>
+                    <span className="text-sm font-bold text-white">חילוץ אווירי</span>
                   </div>
                 </div>
                 <div className="absolute bottom-4 right-4 text-white">
@@ -98,12 +98,12 @@ const BarSOS: React.FC = () => {
                 <img
                   src="https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/Services%2FBar%20SOS%2F470164252_455427107619077_4758411317914210848_n.webp?alt=media&token=6369d45c-70a0-4814-b344-a42a931ea2f2"
                   alt="אפליקציית SOS"
-                  className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+                  className="w-full h-48 object-cover object-bottom group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
                 <div className="absolute top-4 right-4">
                   <div className="bg-white/90 backdrop-blur-sm rounded-full px-3 py-1">
-                    <span className="text-sm font-bold text-[#4B361C]">אפליקציית SOS</span>
+                    <span className="text-sm font-bold text-white">אפליקציית SOS</span>
                   </div>
                 </div>
                 <div className="absolute bottom-4 right-4 text-white">
@@ -120,12 +120,12 @@ const BarSOS: React.FC = () => {
                 <img
                   src="https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/Services%2FBar%20SOS%2F481460072_499004936599423_3404882629094217973_n.webp?alt=media&token=e1bae3f5-b7ee-4779-9af0-3ba194b35304"
                   alt="תקשורת לוויינית"
-                  className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+                  className="w-full h-48 object-cover object-bottom group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
                 <div className="absolute top-4 right-4">
                   <div className="bg-white/90 backdrop-blur-sm rounded-full px-3 py-1">
-                    <span className="text-sm font-bold text-[#4B361C]">תקשורת לוויינית</span>
+                    <span className="text-sm font-bold text-white">תקשורת לוויינית</span>
                   </div>
                 </div>
                 <div className="absolute bottom-4 right-4 text-white">
@@ -142,12 +142,12 @@ const BarSOS: React.FC = () => {
                 <img
                   src="https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/Services%2FBar%20SOS%2F481906492_498996863266897_8738853515420289780_n.webp?alt=media&token=741fa032-5c4c-4608-bef2-1192da0e294d"
                   alt="מערך שליטה ובקרה בזמן אמת"
-                  className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+                  className="w-full h-48 object-cover object-bottom group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
                 <div className="absolute top-4 right-4">
                   <div className="bg-white/90 backdrop-blur-sm rounded-full px-3 py-1">
-                    <span className="text-sm font-bold text-[#4B361C]">ניהול סיכונים</span>
+                    <span className="text-sm font-bold text-white">ניהול סיכונים</span>
                   </div>
                 </div>
                 <div className="absolute bottom-4 right-4 text-white">
@@ -169,7 +169,7 @@ const BarSOS: React.FC = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
                 <div className="absolute top-4 right-4">
                   <div className="bg-white/90 backdrop-blur-sm rounded-full px-3 py-1">
-                    <span className="text-sm font-bold text-[#4B361C]">תמיכה רפואית</span>
+                    <span className="text-sm font-bold text-white">תמיכה רפואית</span>
                   </div>
                 </div>
                 <div className="absolute bottom-4 right-4 text-white">
@@ -191,7 +191,7 @@ const BarSOS: React.FC = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
                 <div className="absolute top-4 right-4">
                   <div className="bg-white/90 backdrop-blur-sm rounded-full px-3 py-1">
-                    <span className="text-sm font-bold text-[#4B361C]">מרכז שליטה</span>
+                    <span className="text-sm font-bold text-white">מרכז שליטה</span>
                   </div>
                 </div>
                 <div className="absolute bottom-4 right-4 text-white">
