@@ -19,6 +19,7 @@ const Header: React.FC = () => {
                 src="/images/discover africa logo.webp" 
                 alt="Discover Africa Logo" 
                 className="h-12 w-auto"
+                loading="lazy"
               />
             </Link>
             <div className={`hidden xl:flex ml-6 ${isHomePage ? 'home-nav' : ''}`}>

@@ -437,6 +437,7 @@ const Home: React.FC = () => {
                     src={category.image} 
                     alt={category.name}
                     className="w-full h-64 object-cover"
+                    loading="lazy"
                   style={{ 
                       objectPosition: category.slug === 'safari' ? 'center 30%' : 
                                        category.slug === 'gorillas-chimps' ? 'center 40%' :
@@ -487,6 +488,7 @@ const Home: React.FC = () => {
                 src="https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/Services%2FBaraviationcard.webp?alt=media&token=760c531e-2cf9-4d40-ab23-bd816b77d9c5" 
                 alt="שירותי תעופה"
                 className="w-full h-56 object-cover"
+                loading="lazy"
               />
 
               {/* טקסט על רקע לבן נקי */}
@@ -511,6 +513,7 @@ const Home: React.FC = () => {
                 src="https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/Services%2FBar%20SOS%2Fbarsos-medevac-img.jpg.webp?alt=media&token=168394a8-66ac-4311-a88d-d3420b4c0e9c" 
                 alt="איתור וחילוץ רפואי"
                 className="w-full h-56 object-cover"
+                loading="lazy"
               />
 
               {/* טקסט על רקע לבן נקי */}
@@ -535,6 +538,7 @@ const Home: React.FC = () => {
                 src="https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/Services%2FExtreme%20adventures%2Fextremeadventures-card.webp?alt=media&token=cc084dbb-9efc-4e72-8453-d96c51d4a5d0" 
                 alt="פארק אקסטרים"
                 className="w-full h-56 object-cover"
+                loading="lazy"
               />
 
               {/* טקסט על רקע לבן נקי */}
@@ -572,7 +576,7 @@ const Home: React.FC = () => {
             <div className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 border border-gray-100 hover:border-[#C6A45C]/30">
               <div className="flex items-center space-x-4 rtl:space-x-reverse mb-6">
                 <div className="relative">
-                  <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=120&h=120&fit=crop&crop=face" alt="עדי לוי" className="w-16 h-16 rounded-full object-cover ring-4 ring-[#C6A45C]/20 group-hover:ring-[#C6A45C]/40 transition-all duration-300"/>
+                  <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=120&h=120&fit=crop&crop=face" alt="עדי לוי" className="w-16 h-16 rounded-full object-cover ring-4 ring-[#C6A45C]/20 group-hover:ring-[#C6A45C]/40 transition-all duration-300" loading="lazy"/>
                   <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-green-500 rounded-full border-2 border-white"></div>
                 </div>
                 <div>
@@ -594,7 +598,7 @@ const Home: React.FC = () => {
             <div className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 border border-gray-100 hover:border-[#C6A45C]/30">
               <div className="flex items-center space-x-4 rtl:space-x-reverse mb-6">
                 <div className="relative">
-                  <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&h=120&fit=crop&crop=face" alt="משפחת כהן" className="w-16 h-16 rounded-full object-cover ring-4 ring-[#C6A45C]/20 group-hover:ring-[#C6A45C]/40 transition-all duration-300"/>
+                  <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&h=120&fit=crop&crop=face" alt="משפחת כהן" className="w-16 h-16 rounded-full object-cover ring-4 ring-[#C6A45C]/20 group-hover:ring-[#C6A45C]/40 transition-all duration-300" loading="lazy"/>
                   <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-green-500 rounded-full border-2 border-white"></div>
                 </div>
                 <div>
@@ -616,7 +620,7 @@ const Home: React.FC = () => {
             <div className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 border border-gray-100 hover:border-[#C6A45C]/30">
               <div className="flex items-center space-x-4 rtl:space-x-reverse mb-6">
                 <div className="relative">
-                  <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=120&h=120&fit=crop&crop=face" alt="נועה ודני" className="w-16 h-16 rounded-full object-cover ring-4 ring-[#C6A45C]/20 group-hover:ring-[#C6A45C]/40 transition-all duration-300"/>
+                  <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=120&h=120&fit=crop&crop=face" alt="נועה ודני" className="w-16 h-16 rounded-full object-cover ring-4 ring-[#C6A45C]/20 group-hover:ring-[#C6A45C]/40 transition-all duration-300" loading="lazy"/>
                   <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-green-500 rounded-full border-2 border-white"></div>
                 </div>
                 <div>

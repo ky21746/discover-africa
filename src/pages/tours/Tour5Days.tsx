@@ -83,6 +83,7 @@ const Tour5Days: React.FC = () => {
           alt="מסלול 5 ימים ספארי טבע באוגנדה"
           className="absolute inset-0 w-full h-full object-cover object-center"
           style={{ objectPosition: 'center 20%' }}
+          loading="lazy"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/30" />
         

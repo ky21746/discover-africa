@@ -13,6 +13,7 @@ const BarSOS: React.FC = () => {
           src="https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/Services%2FBar%20SOS%2FBar%20sos%20Hero.webp?alt=media&token=2a86bbc7-7d04-4a49-97ea-e6b0537377ae"
           alt="BAR SOS Hero" 
           className="w-full h-full object-cover object-top"
+          loading="lazy"
         />
         <div className="absolute inset-0 z-20 flex items-end justify-center pb-32">
           <div className="text-center text-white px-4">
@@ -21,6 +22,7 @@ const BarSOS: React.FC = () => {
                 src="/images/BAR-SOS-MAGNUS-logo w.webp" 
                 alt="BAR SOS Logo" 
                 className="h-16 w-auto drop-shadow-lg"
+                loading="lazy"
               />
             </div>
             <h1 className="mb-6 md:mb-8 text-2xl md:text-4xl font-bold font-sans drop-shadow-lg">
@@ -77,6 +79,7 @@ const BarSOS: React.FC = () => {
                   src="https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/Services%2FBar%20SOS%2F472838872_1013923843877662_1204084337707649205_n.webp?alt=media&token=a7bfaaf2-05e9-4f4e-9038-e8eb4be73525"
                   alt="מסוקים ומטוסים זמינים 24/7"
                   className="w-full h-48 object-cover object-center group-hover:scale-110 transition-transform duration-500"
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
                 <div className="absolute top-4 right-4">
@@ -99,6 +102,7 @@ const BarSOS: React.FC = () => {
                   src="https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/Services%2FBar%20SOS%2F470164252_455427107619077_4758411317914210848_n.webp?alt=media&token=6369d45c-70a0-4814-b344-a42a931ea2f2"
                   alt="אפליקציית SOS"
                   className="w-full h-48 object-cover object-bottom group-hover:scale-110 transition-transform duration-500"
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
                 <div className="absolute top-4 right-4">
@@ -121,6 +125,7 @@ const BarSOS: React.FC = () => {
                   src="https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/Services%2FBar%20SOS%2F481460072_499004936599423_3404882629094217973_n.webp?alt=media&token=e1bae3f5-b7ee-4779-9af0-3ba194b35304"
                   alt="תקשורת לוויינית"
                   className="w-full h-48 object-cover object-bottom group-hover:scale-110 transition-transform duration-500"
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
                 <div className="absolute top-4 right-4">
@@ -143,6 +148,7 @@ const BarSOS: React.FC = () => {
                   src="https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/Services%2FBar%20SOS%2F481906492_498996863266897_8738853515420289780_n.webp?alt=media&token=741fa032-5c4c-4608-bef2-1192da0e294d"
                   alt="מערך שליטה ובקרה בזמן אמת"
                   className="w-full h-48 object-cover object-bottom group-hover:scale-110 transition-transform duration-500"
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
                 <div className="absolute top-4 right-4">
@@ -165,6 +171,7 @@ const BarSOS: React.FC = () => {
                   src="https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/Services%2FBar%20SOS%2FScreenshot%202025-09-08%20at%2014.42.12.webp?alt=media&token=fc5df14f-0356-4e42-a269-1bebc09eec07"
                   alt="תמיכה רפואית"
                   className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
                 <div className="absolute top-4 right-4">
@@ -187,6 +194,7 @@ const BarSOS: React.FC = () => {
                   src="https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/Services%2FBar%20SOS%2F481666433_499004996599417_2125122887142954581_n.webp?alt=media&token=fbc62c84-e092-413b-a4b9-6dca266b48e4"
                   alt="מרכז שליטה ובקרה"
                   className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
                 <div className="absolute top-4 right-4">

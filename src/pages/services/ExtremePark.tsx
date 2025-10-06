@@ -22,6 +22,7 @@ const ExtremePark: React.FC = () => {
             src="https://images.pexels.com/photos/1309766/pexels-photo-1309766.jpeg" 
             alt="Extreme Adventure Park Hero" 
             className="w-full h-full object-cover"
+            loading="lazy"
           />
         </video>
         <div className="absolute inset-0 z-20 flex items-end justify-center pb-32">
@@ -31,6 +32,7 @@ const ExtremePark: React.FC = () => {
                 src="/images/extreme-adventure-park-logo.webp" 
                 alt="Extreme Adventure Park Logo" 
                 className="h-16 w-auto drop-shadow-lg"
+                loading="lazy"
               />
             </div>
             <h1 className="mb-6 md:mb-8 text-2xl md:text-4xl font-bold font-sans drop-shadow-lg">
@@ -128,6 +130,7 @@ const ExtremePark: React.FC = () => {
                   src="https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/Extreme%20Adventures%2FAccommodations%2Ffamily-cottages-room-img-4.jpg?alt=media&token=182262a8-ba5c-452b-840d-b4decc445487"
                   alt="בקתות משפחתיות"
                   className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+                  loading="lazy"
                 />
               </div>
 
@@ -136,6 +139,7 @@ const ExtremePark: React.FC = () => {
                   src="https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/Extreme%20Adventures%2FAccommodations%2Ffamily-cottages-room-img-10.jpg?alt=media&token=0c25b7a6-434a-4940-a69b-e3da8cea4bac"
                   alt="חדרים זוגיים"
                   className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+                  loading="lazy"
                 />
               </div>
 
@@ -144,6 +148,7 @@ const ExtremePark: React.FC = () => {
                   src="https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/Extreme%20Adventures%2FAccommodations%2Fdouble-occupancy-room-img-0594.jpg?alt=media&token=bd700c35-3ebc-4651-8136-8e20ac12a307"
                   alt="קרוואנים"
                   className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+                  loading="lazy"
                 />
               </div>
 
@@ -152,6 +157,7 @@ const ExtremePark: React.FC = () => {
                   src="https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/Extreme%20Adventures%2FAccommodations%2FIMG_1374.jpg?alt=media&token=1e0c78b5-778b-4607-8b4b-7a9bcaeee1d4"
                   alt="קמפינג בטבע"
                   className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+                  loading="lazy"
                 />
               </div>
             </div>
@@ -177,6 +183,7 @@ const ExtremePark: React.FC = () => {
                   src="https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/Extreme%20Adventures%2Fgo-karting-Extreme%20Adventures%202.webp?alt=media&token=765560a2-4663-47e4-b581-ea7c5818762b"
                   alt="Go-Karting"
                   className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
                 <div className="absolute top-4 right-4">
@@ -199,6 +206,7 @@ const ExtremePark: React.FC = () => {
                   src="https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/Extreme%20Adventures%2Fquad-bikes-Extreme%20Adventures%201.webp?alt=media&token=ded1a502-f8ff-4992-90e5-79fdc6bdf4bb"
                   alt="Quad Bikes"
                   className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
                 <div className="absolute top-4 right-4">
@@ -221,6 +229,7 @@ const ExtremePark: React.FC = () => {
                   src="https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/Extreme%20Adventures%2Findependent-zipline-Extreme%20Adventures%201.webp?alt=media&token=0c06fb0f-bee6-42fa-8505-6cadf50aa3b3"
                   alt="Zipline"
                   className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
                 <div className="absolute top-4 right-4">
@@ -243,6 +252,7 @@ const ExtremePark: React.FC = () => {
                   src="https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/Extreme%20Adventures%2FPaint%20Ball%20Extreme%20Adventures%201.webp?alt=media&token=edd0efb0-2e70-46b9-91e8-18bc6ef7a78b"
                   alt="Paintball"
                   className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
                 <div className="absolute top-4 right-4">
@@ -265,6 +275,7 @@ const ExtremePark: React.FC = () => {
                   src="https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/Extreme%20Adventures%2Farchery-Extreme%20Adventures.webp?alt=media&token=8c7f2530-e31d-409e-ad56-affd5812bb50"
                   alt="Archery"
                   className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
                 <div className="absolute top-4 right-4">
@@ -287,6 +298,7 @@ const ExtremePark: React.FC = () => {
                   src="https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/Extreme%20Adventures%2Fskydiving-Extreme%20Adventures%201.webp?alt=media&token=df8ff4de-3709-40c0-9676-0e2ce3eb9db4"
                   alt="Skydiving"
                   className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
                 <div className="absolute top-4 right-4">

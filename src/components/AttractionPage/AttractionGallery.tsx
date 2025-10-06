@@ -130,6 +130,7 @@ const AttractionGallery: React.FC<AttractionGalleryProps> = ({ attraction }) => 
                     src={src}
                     alt={title || `${attraction.name} ${i + 1}`}
                     className="w-full h-32 md:h-36 object-cover transition-all duration-300 group-hover:brightness-75"
+                    loading="lazy"
                   />
                   
                   {/* Hover overlay with title */}
@@ -195,6 +196,7 @@ const AttractionGallery: React.FC<AttractionGalleryProps> = ({ attraction }) => 
               src={getImageSrc(attraction.gallery[selectedImage])}
               alt={getImageTitle(attraction.gallery[selectedImage]) || `${attraction.name} ${selectedImage + 1}`}
               className="max-w-full max-h-full object-contain"
+              loading="lazy"
             />
 
             {/* Image info overlay */}

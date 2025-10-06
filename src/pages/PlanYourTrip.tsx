@@ -509,6 +509,7 @@ const PlanYourTrip: React.FC = () => {
               src={generatedTrip.image}
               alt={generatedTrip.name}
               className="w-full h-64 object-cover"
+              loading="lazy"
             />
             <div className="p-8">
               <h2 className="text-3xl font-bold mb-4 font-sans">{generatedTrip.name}</h2>

@@ -41,6 +41,7 @@ const OurServices: React.FC = () => {
                     src="/images/baraviationug.webp" 
                     alt="BAR Aviation Logo" 
                     className="h-16 w-auto"
+                    loading="lazy"
                   />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-3">טיסות פרטיות ונוחות</h3>
@@ -71,6 +72,7 @@ const OurServices: React.FC = () => {
                     src="/images/BAR-SOS-MAGNUS-logo.webp" 
                     alt="BAR SOS Logo" 
                     className="h-16 w-auto"
+                    loading="lazy"
                   />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-3">ביטחון רפואי מלא 24/7</h3>
@@ -101,6 +103,7 @@ const OurServices: React.FC = () => {
                     src="/images/extreme-adventure-park-logo.webp" 
                     alt="Extreme Adventure Park Logo" 
                     className="h-16 w-auto"
+                    loading="lazy"
                   />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-3">פארק אקסטרים לכל המשפחה</h3>

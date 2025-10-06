@@ -33,6 +33,7 @@ const BarAviation: React.FC = () => {
             src="https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/Services%2FBar%20Aviation%2FBar%20safari%20Hero.webp?alt=media&token=9a4c4d80-c145-43d5-9e5d-92da80069a19"
             alt="BAR Aviation Hero"
             className="absolute inset-0 w-full h-full object-cover object-center"
+            loading="lazy"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/20 to-transparent" />
         </section>
@@ -45,6 +46,7 @@ const BarAviation: React.FC = () => {
               src="/images/baraviationug.webp" 
               alt="BAR Aviation Logo" 
               className="h-20 w-auto"
+              loading="lazy"
             />
           </div>
           <h1 className="text-2xl md:text-4xl font-bold mb-3 md:mb-4 font-sans text-[#4B361C]">
