@@ -53,7 +53,7 @@ const AttractionHero: React.FC<AttractionHeroProps> = ({
       >
         <img 
           src={heroImage}
-          alt="Hero"
+          alt={`${attraction?.name || 'אטרקציה'} - תמונה ראשית`}
           className="absolute inset-0 w-full h-full object-cover object-center"
           style={{ objectPosition: attraction?.heroImagePosition || 'center 30%' }}
           loading="lazy"

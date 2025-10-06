@@ -176,7 +176,7 @@ const BarAviation: React.FC = () => {
               </button>
               <img
                 src={selectedImage}
-                alt="תמונה בגודל מלא"
+                alt="תמונה מוגדלת של שירותי BAR Aviation"
                 className="max-w-full max-h-full object-contain rounded-lg"
                 onClick={(e) => e.stopPropagation()}
               />
