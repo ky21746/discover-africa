@@ -209,7 +209,7 @@ const Contact: React.FC = () => {
                   value={formData.email}
                   onChange={handleChange}
                   className={`form-input ${errors.email ? 'error' : ''}`}
-                  placeholder="example@email.com"
+                  placeholder="info@discoverafrica.co.il"
                 />
                 {errors.email && (
                   <div className="form-error">{errors.email}</div>

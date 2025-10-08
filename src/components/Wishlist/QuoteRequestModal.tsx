@@ -219,7 +219,7 @@ ${itemsText}
                   onChange={handleInputChange}
                   required
                   className="w-full pr-10 pl-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent text-base"
-                  placeholder="example@email.com"
+                  placeholder="info@discoverafrica.co.il"
                 />
               </div>
             </div>
@@ -237,7 +237,7 @@ ${itemsText}
                   onChange={handleInputChange}
                   required
                   className="w-full pr-10 pl-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent text-base"
-                  placeholder="050-1234567"
+                  placeholder="050-461-5268"
                 />
               </div>
             </div>
