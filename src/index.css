@@ -297,10 +297,7 @@ html, body {
   box-sizing: border-box;
 }
 
-/* טיפול בבעיית שכבה לבנה במובייל */
-main, section, div {
-  background-color: transparent !important;
-}
+/* טיפול בבעיית שכבה לבנה במובייל - הוסר */
 
 .card-image.gorillas-chimps-image {
   background-position: center 60% !important;
