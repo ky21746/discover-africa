@@ -24,6 +24,19 @@ interface TripData {
   activityLevel: string;
 }
 
+interface UserProfile {
+  youngestAge: number;
+  fitness: 'low' | 'medium' | 'high';
+  family: boolean;
+  totalDays: number;
+  maxDrive: number;
+  travelMonth: string;
+  themes: string[];
+  budget: 'low' | 'medium' | 'high';
+  preferredRegion: string;
+  specialNeeds: string[];
+}
+
 interface GeneratedTrip {
   name: string;
   activities: string[];
@@ -183,58 +196,154 @@ const PlanYourTrip: React.FC = () => {
 };
   };
 
-  // Compute up to 3 recommended attractions/parks based on user selections
-  const computeRecommendations = (data: TripData): Park[] => {
-    const interestToCategoryOrTags: Record<string, { categories?: string[]; tags?: string[] }> = {
-      'gorillas': { categories: ['wildlife'], tags: ['גורילות'] },
-      'safari': { categories: ['safari'] },
-      'nile': { categories: ['water'], tags: ['שייט', 'רפטינג'] },
-      'vehicles': { tags: ['אקסטרים'] },
-      'mountains': { categories: ['mountains'], tags: ['טרק', 'הרים'] },
-      'culture': { tags: ['תרבות'] },
-      'luxury-experiences': { tags: ['יוקרה'] }
+  // Convert TripData to UserProfile for recommendation system
+  const convertToUserProfile = (data: TripData): UserProfile => {
+    const youngestAge = Math.min(
+      data.travelers.children > 0 ? 2 : 18,
+      data.travelers.infants > 0 ? 0 : 18
+    );
+    
+    const fitness = data.activityLevel === 'relaxed' ? 'low' : 
+                   data.activityLevel === 'moderate' ? 'medium' : 'high';
+    
+    const family = data.profile === 'family';
+    
+    const totalDays = data.duration === '3 ימים' ? 3 :
+                     data.duration === '5 ימים' ? 5 :
+                     data.duration === 'שבוע' ? 7 : 10;
+    
+    const maxDrive = family ? 6 : 10; // Families prefer shorter drives
+    
+    const travelMonth = data.dates.startDate ? 
+      new Date(data.dates.startDate).toLocaleDateString('en-US', { month: 'long' }) : 'any';
+    
+    const themes = data.interests;
+    
+    const budget = data.profile === 'luxury' ? 'high' : 
+                  data.profile === 'extreme' ? 'medium' : 'low';
+    
+    const preferredRegion = data.interests.includes('gorillas') ? 'דרום-מערב' :
+                          data.interests.includes('safari') ? 'מערב' :
+                          data.interests.includes('mountains') ? 'מערב' : 'any';
+    
+    const specialNeeds = data.profile === 'traditional' ? ['מסורתי'] : [];
+
+    return {
+      youngestAge,
+      fitness,
+      family,
+      totalDays,
+      maxDrive,
+      travelMonth,
+      themes,
+      budget,
+      preferredRegion,
+      specialNeeds
     };
+  };
 
-    // Score each park by relevance
-    const scored = allParks.map((park) => {
-      let score = 0;
-
-      // Profile-based signals
-      if (data.profile === 'family') score += park.family ? 3 : -2;
-      if (data.profile === 'extreme') {
-        if (park.tags?.some(t => ['אקסטרים'].includes(t))) score += 3;
-        if (park.category === 'mountains') score += 2;
-      }
-      if (data.profile === 'luxury') {
-        if (park.tags?.some(t => ['יוקרה'].includes(t))) score += 2;
+  // Intelligent recommendation system with hard filters and soft scoring
+  const recommend = (profile: UserProfile, attractions: Park[]): Park[] => {
+    // Hard Filters (exclusion)
+    const filteredAttractions = attractions.filter(attraction => {
+      // Exclude if youngest age is below minimum
+      if (attraction.min_age && profile.youngestAge < attraction.min_age) {
+        return false;
       }
 
-      // Activity level
-      if (data.activityLevel === 'challenging') {
-        if (park.category === 'mountains' || park.tags?.some(t => ['טרק'].includes(t))) score += 2;
+      // Exclude if fitness level is too low for required fitness
+      if (attraction.difficulty === 'high' && profile.fitness === 'low') {
+        return false;
       }
 
-      // Interests signals
-      for (const i of data.interests) {
-        const mapping = interestToCategoryOrTags[i];
-        if (!mapping) continue;
-        if (mapping.categories?.includes(park.category)) score += 3;
-        if (mapping.tags && park.tags?.some(t => mapping.tags!.includes(t))) score += 2;
+      // Exclude if family but not family friendly
+      if (profile.family && !attraction.family) {
+        return false;
       }
 
-      // Simple tie-breakers
-      if (park.rating_avg && park.rating_avg > 0) score += 0.1;
+      // Exclude if duration exceeds total days
+      const attractionDays = attraction.logistics?.duration_hours ? 
+        Math.ceil(attraction.logistics.duration_hours / 24) : 1;
+      if (attractionDays > profile.totalDays) {
+        return false;
+      }
 
-      return { park, score };
+      // Exclude if drive time exceeds max drive
+      const driveHours = attraction.logistics?.drive_from_kla ? 
+        parseInt(attraction.logistics.drive_from_kla.split('–')[0]) : 0;
+      if (driveHours > profile.maxDrive) {
+        return false;
+      }
+
+      // Exclude if not available in travel month
+      if (profile.travelMonth !== 'any' && attraction.season) {
+        const season = attraction.season.toLowerCase();
+        const month = profile.travelMonth.toLowerCase();
+        if (!season.includes('כל השנה') && 
+            !season.includes(month) && 
+            !season.includes('יוני') && !season.includes('יולי') && !season.includes('אוגוסט')) {
+          return false;
+        }
+      }
+
+      return true;
     });
 
-    const top = scored
-      .filter(s => s.score > 0)
+    // Soft Scoring (ranking)
+    const scoredAttractions = filteredAttractions.map(attraction => {
+      let score = 0;
+
+      // +40 points if attraction theme matches profile themes
+      const themeMatch = attraction.tags?.some(tag => 
+        profile.themes.some(theme => 
+          tag.toLowerCase().includes(theme.toLowerCase()) ||
+          attraction.category === theme
+        )
+      );
+      if (themeMatch) score += 40;
+
+      // +20 points if attraction cost level matches profile budget
+      const costLevel = attraction.tags?.some(tag => 
+        ['יוקרה', 'פרימיום'].includes(tag)
+      ) ? 'high' : 
+      attraction.tags?.some(tag => 
+        ['אקסטרים', 'טרק'].includes(tag)
+      ) ? 'medium' : 'low';
+      
+      if (costLevel === profile.budget) score += 20;
+
+      // +15 points if family friendly and profile is family
+      if (attraction.family && profile.family) score += 15;
+
+      // +10 points if region matches preferred region
+      if (profile.preferredRegion !== 'any' && 
+          attraction.area === profile.preferredRegion) score += 10;
+
+      // +10 points if tags include any special needs
+      if (profile.specialNeeds.length > 0 && 
+          attraction.tags?.some(tag => 
+            profile.specialNeeds.some(need => 
+              tag.toLowerCase().includes(need.toLowerCase())
+            )
+          )) score += 10;
+
+      // Bonus points for high ratings
+      if (attraction.rating_avg && attraction.rating_avg > 4) score += 5;
+
+      return { attraction, score };
+    });
+
+    // Return top 3 attractions by score (descending order)
+    return scoredAttractions
       .sort((a, b) => b.score - a.score)
       .slice(0, 3)
-      .map(s => s.park);
+      .map(item => item.attraction);
+  };
 
-    return top;
+  // Compute up to 3 recommended attractions/parks based on user selections
+  const computeRecommendations = (data: TripData): Park[] => {
+    const userProfile = convertToUserProfile(data);
+    return recommend(userProfile, allParks);
   };
 
   const goBack = () => {
@@ -588,22 +697,33 @@ const PlanYourTrip: React.FC = () => {
               <div className="bg-gray-50 rounded-lg p-4 mb-6">
               </div>
 
-              {/* Recommendations */}
+              {/* Intelligent Recommendations */}
               {recommendedParks.length > 0 && (
                 <div className="mb-8">
-                  <h3 className="text-xl font-semibold mb-4 font-sans">המלצות בשבילכם</h3>
+                  <h3 className="text-xl font-semibold mb-4 font-sans">המלצות חכמות בשבילכם</h3>
+                  <p className="text-gray-600 mb-6 font-sans text-sm">
+                    על בסיס התשובות שלכם, אלו האטרקציות המתאימות ביותר למסלול שלכם:
+                  </p>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    {recommendedParks.map((p) => {
-                      const categorySlug = p.category === 'wildlife' ? 'gorillas-chimps' : p.category;
-                      const href = `/category/${categorySlug}/${p.slug}`;
+                    {recommendedParks.map((attraction) => {
+                      const categorySlug = attraction.category === 'wildlife' ? 'gorillas-chimps' : attraction.category;
+                      const href = `/category/${categorySlug}/${attraction.slug}`;
                       return (
-                        <div key={p.slug} className="bg-white border rounded-lg shadow-sm p-4 flex flex-col">
-                          <img src={p.image} alt={p.name} className="w-full h-32 object-cover rounded mb-3" loading="lazy" />
-                          <div className="font-semibold mb-1 font-sans">{p.name}</div>
-                          <div className="text-sm text-gray-600 mb-2 font-sans">אזור: {p.area}</div>
-                          <p className="text-sm text-gray-700 flex-1 font-sans">{p.summary}</p>
-                          <Link to={href} className="mt-3 inline-block text-orange-600 hover:text-orange-700 font-medium">
-                            לפרטים נוספים
+                        <div key={attraction.slug} className="bg-white border rounded-lg shadow-sm p-4 flex flex-col hover:shadow-md transition-shadow">
+                          <img 
+                            src={attraction.image} 
+                            alt={attraction.name} 
+                            className="w-full h-32 object-cover rounded mb-3" 
+                            loading="lazy" 
+                          />
+                          <div className="font-semibold mb-1 font-sans text-gray-900">{attraction.name}</div>
+                          <div className="text-sm text-gray-600 mb-2 font-sans">אזור: {attraction.area}</div>
+                          <p className="text-sm text-gray-700 flex-1 font-sans mb-3">{attraction.summary}</p>
+                          <Link 
+                            to={href} 
+                            className="mt-auto inline-block bg-orange-500 text-white px-4 py-2 rounded-lg hover:bg-orange-600 transition-colors text-center font-medium"
+                          >
+                            Explore
                           </Link>
                         </div>
                       );
