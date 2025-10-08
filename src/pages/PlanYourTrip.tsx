@@ -671,7 +671,7 @@ const PlanYourTrip: React.FC = () => {
 
         {/* Step 7: Final Summary */}
         {currentStep === 7 && generatedTrip && (
-          <div className="bg-white rounded-xl shadow-lg overflow-hidden max-w-3xl mx-auto">
+          <div className="bg-white rounded-xl shadow-lg overflow-hidden max-w-3xl mx-auto animate-fade-in">
             <img
               src={generatedTrip.image}
               alt={generatedTrip.name}
@@ -732,40 +732,49 @@ const PlanYourTrip: React.FC = () => {
                 </div>
               )}
 
+              {/* Divider */}
+              <div className="border-t border-gray-200 my-8"></div>
+
+              {/* Success Header */}
+              <div className="text-center mb-8">
+                <h2 className="text-3xl font-bold text-gray-900 mb-3 font-sans">
+                  המסלול שלכם מוכן!
+                </h2>
+                <p className="text-lg text-gray-600 font-sans">
+                  התאמנו לכם מסלול מושלם – תוכלו לבחור להתאים אותו אישית או להתחיל תכנון חדש.
+                </p>
+              </div>
+
+              {/* Call-to-Action Buttons */}
               <div className="space-y-4">
+                {/* Primary Action */}
                 <a
                   href={`https://wa.me/972546152683?text=${encodeURIComponent(`שלום, אני מעוניין במסלול: ${generatedTrip.name}. פרטים נוספים: ${generatedTrip.description}`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full bg-orange-500 text-white py-4 px-6 rounded-lg font-semibold hover:bg-orange-600 transition-colors text-lg text-center block"
+                  className="w-full bg-[#C79B3B] text-white py-4 px-6 rounded-lg font-semibold hover:bg-[#B88A2A] transition-colors text-lg text-center block shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
                 >
                   דברו איתי להתאמה אישית
                 </a>
                 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {/* Secondary Actions */}
+                <div className="flex flex-col md:flex-row gap-4">
                   <a
                     href={`https://wa.me/972546152683?text=${encodeURIComponent(`שלום, אני מעוניין במסלול: ${generatedTrip.name}`)}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-green-500 text-white py-3 px-6 rounded-lg font-semibold hover:bg-green-600 transition-colors text-center"
+                    className="flex-1 bg-white border-2 border-[#005F5B] text-[#005F5B] py-3 px-6 rounded-lg font-semibold hover:bg-[#005F5B] hover:text-white transition-colors text-center"
                   >
-                    שליחה בוואטסאפ
+                    שלחו לי בוואטסאפ
                   </a>
                   
-                  <Link
-                    to="/contact"
-                    className="bg-white border-2 border-orange-500 text-orange-500 py-3 px-6 rounded-lg font-semibold hover:bg-orange-50 transition-colors text-center"
+                  <button
+                    onClick={resetPlanner}
+                    className="flex-1 bg-gray-200 text-gray-700 py-3 px-6 rounded-lg font-semibold hover:bg-gray-300 transition-colors"
                   >
-                    טופס יצירת קשר
-                  </Link>
+                    תכננו מסלול חדש
+                  </button>
                 </div>
-
-                <button
-                  onClick={resetPlanner}
-                  className="w-full bg-gray-200 text-gray-700 py-3 px-6 rounded-lg font-semibold hover:bg-gray-300 transition-colors"
-                >
-                  תכנן מסלול חדש
-                </button>
               </div>
             </div>
           </div>
