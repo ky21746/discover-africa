@@ -28,6 +28,12 @@ export default {
           800: '#072A2A',
           900: '#041717',
         },
+        // צבעים מותאמים אישית לאתר
+        cream: '#fdf8f3',
+        gold: '#CAA131',
+        'gold-dark': '#C6A45C',
+        brown: '#4B361C',
+        'brown-dark': '#3A2B15',
       },
     },
   },

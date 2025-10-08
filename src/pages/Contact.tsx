@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { MapPin, Phone, Mail, Clock, MessageCircle } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 import { ContactForm } from '../types';
 import emailjs from '@emailjs/browser';
 import ReCAPTCHA from "react-google-recaptcha";
@@ -142,7 +143,16 @@ const Contact: React.FC = () => {
   }
 
   return (
-    <div className="py-12 fade-in">
+    <>
+      <Helmet>
+        <title>צור קשר - Discover Africa</title>
+        <meta name="description" content="צור קשר עם Discover Africa לתכנון טיול מותאם אישית באוגנדה. זמינים 24/7 לתמיכה וייעוץ מקצועי." />
+        <meta property="og:title" content="צור קשר - Discover Africa" />
+        <meta property="og:description" content="צור קשר עם Discover Africa לתכנון טיול מותאם אישית באוגנדה." />
+        <meta property="og:url" content="https://discoverafrica.co.il/contact" />
+        <meta property="og:type" content="website" />
+      </Helmet>
+      <div className="py-12 fade-in">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-8">
@@ -332,6 +342,7 @@ const Contact: React.FC = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

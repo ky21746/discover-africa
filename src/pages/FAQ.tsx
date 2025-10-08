@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 import { faqItems } from '../data/faq';
 
 const FAQ: React.FC = () => {
@@ -15,7 +16,16 @@ const FAQ: React.FC = () => {
 
 
   return (
-    <div className="py-12 fade-in">
+    <>
+      <Helmet>
+        <title>שאלות נפוצות - Discover Africa</title>
+        <meta name="description" content="שאלות נפוצות על טיולים באוגנדה - תהליך הזמנה, בטיחות, מדריכים, מחירים ועונות הטיול. תשובות מקצועיות לכל השאלות." />
+        <meta property="og:title" content="שאלות נפוצות - Discover Africa" />
+        <meta property="og:description" content="שאלות נפוצות על טיולים באוגנדה - תהליך הזמנה, בטיחות, מדריכים, מחירים ועונות הטיול." />
+        <meta property="og:url" content="https://discoverafrica.co.il/faq" />
+        <meta property="og:type" content="website" />
+      </Helmet>
+      <div className="py-12 fade-in">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-8">
@@ -98,6 +108,7 @@ const FAQ: React.FC = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

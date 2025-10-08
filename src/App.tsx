@@ -1,5 +1,6 @@
 import React, { Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HelmetProvider } from "react-helmet-async";
 import Layout from "./components/Layout/Layout";
 import Home from "./pages/Home";
 import Categories from "./pages/Categories";
@@ -72,10 +73,11 @@ const ScrollToTop: React.FC = () => {
 
 export default function App() {
   return (
-    <ToastProvider>
-      <WishlistProvider>
-        {/* שינוי יחיד: basename="/" במקום "/discover-africa" */}
-        <Router basename="/">
+    <HelmetProvider>
+      <ToastProvider>
+        <WishlistProvider>
+          {/* שינוי יחיד: basename="/" במקום "/discover-africa" */}
+          <Router basename="/">
         {/* קומפוננטה שמחזירה לראש הדף בכל מעבר עמוד */}
         <ScrollToTop />
         
@@ -142,7 +144,8 @@ export default function App() {
         <WishlistSidebar />
         <WhatsAppFloat />
         </Router>
-      </WishlistProvider>
-    </ToastProvider>
+        </WishlistProvider>
+      </ToastProvider>
+    </HelmetProvider>
   );
 }

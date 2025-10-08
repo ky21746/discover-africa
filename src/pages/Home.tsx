@@ -2,6 +2,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeft, Star, Users, Camera, Mountain, Waves, MapPin, Route, Shield, Globe, Heart, Cross, Map, User, Navigation, Phone } from "lucide-react";
+import { Helmet } from 'react-helmet-async';
 import Card from "../components/Common/Card";
 
 const Home: React.FC = () => {
@@ -42,6 +43,15 @@ const Home: React.FC = () => {
 
   return (
     <div className="fade-in" dir="rtl">
+      <Helmet>
+        <title>Discover Africa - טיולי הרפתקה מותאמים אישית באוגנדה</title>
+        <meta name="description" content="טיולי הרפתקה מותאמים אישית באוגנדה - ספארי, גורילות, מפלים והרים. חוויות אותנטיות עם מדריכים מקצועיים." />
+        <meta property="og:title" content="Discover Africa - טיולי הרפתקה מותאמים אישית" />
+        <meta property="og:description" content="טיולי הרפתקה מותאמים אישית באוגנדה - ספארי, גורילות, מפלים והרים." />
+        <meta property="og:image" content="https://discover-africa-ky.web.app/images/discover%20africa%20logo.webp" />
+        <meta property="og:url" content="https://discoverafrica.co.il/" />
+        <meta property="og:type" content="website" />
+      </Helmet>
       {/* Hero Section */}
       <section 
         className="hero-section relative bg-gradient-to-r from-gray-900 to-gray-800 text-white overflow-hidden"
@@ -389,12 +399,12 @@ const Home: React.FC = () => {
       </section>
       
       {/* Story Block */}
-      <section className="py-12 bg-[#fdf8f3]">
+      <section className="py-12 bg-cream">
         <div className="max-w-4xl mx-auto text-center px-6">
           <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 tracking-tight mb-6">
             כך בנינו תשתית מלאה בלב אפריקה
           </h2>
-          <div className="w-20 h-1 bg-[#C6A45C] mx-auto mb-6"></div>
+          <div className="w-20 h-1 bg-gold-dark mx-auto mb-6"></div>
           <p className="text-lg md:text-xl text-gray-700 leading-relaxed max-w-2xl mx-auto">
             אנחנו ישראלים שחיים באוגנדה מעל 30 שנה. התחלנו מתעופה פרטית – מטוסים ומסוקים שמאפשרים ספארי מהאוויר והגעה מהירה לכל יעד. עם השנים בנינו תשתית מלאה: צוות ישראלי מקומי, רשת קשרים אמינה ויכולת להגיע למקומות שאף סוכנות אחרת לא מגיעה.
           </p>
@@ -643,7 +653,7 @@ const Home: React.FC = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="pt-14 pb-8 bg-[#CAA131] text-black">
+      <section className="pt-14 pb-8 bg-gold text-black">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-xl md:text-3xl font-bold mb-3 font-sans">
             מוכנים להתחיל?
@@ -653,7 +663,7 @@ const Home: React.FC = () => {
           </p>
           <Link
             to="/contact"
-            className="bg-[#4B361C] text-white px-8 py-4 rounded-lg font-semibold hover:bg-[#3A2B15] transition-colors inline-flex items-center"
+            className="bg-brown text-white px-8 py-4 rounded-lg font-semibold hover:bg-brown-dark transition-colors inline-flex items-center"
           >
             צור קשר עכשיו
             <ArrowLeft className="mr-2 w-5 h-5" />

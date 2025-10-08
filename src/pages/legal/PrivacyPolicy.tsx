@@ -2,12 +2,22 @@
 
 import React from 'react';
 import { Shield, Mail, Phone, MapPin } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 
 const PrivacyPolicy: React.FC = () => {
   const currentDate = new Date().toLocaleDateString('he-IL');
   
   return (
-    <div className="min-h-screen bg-gray-50" dir="rtl">
+    <>
+      <Helmet>
+        <title>מדיניות פרטיות - Discover Africa</title>
+        <meta name="description" content="מדיניות פרטיות של Discover Africa - הגנה על מידע אישי, שימוש בנתונים ושקיפות מלאה." />
+        <meta property="og:title" content="מדיניות פרטיות - Discover Africa" />
+        <meta property="og:description" content="מדיניות פרטיות של Discover Africa - הגנה על מידע אישי ושקיפות מלאה." />
+        <meta property="og:url" content="https://discoverafrica.co.il/privacy" />
+        <meta property="og:type" content="website" />
+      </Helmet>
+      <div className="min-h-screen bg-gray-50" dir="rtl">
       <div className="container mx-auto px-4 py-12 max-w-4xl">
         {/* Header */}
         <div className="bg-white rounded-lg shadow-sm p-8 mb-8">
@@ -206,6 +216,7 @@ const PrivacyPolicy: React.FC = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

@@ -2,12 +2,22 @@
 
 import React from 'react';
 import { FileText, AlertTriangle, Info } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 
 const TermsOfService: React.FC = () => {
   const currentDate = new Date().toLocaleDateString('he-IL');
   
   return (
-    <div className="min-h-screen bg-gray-50" dir="rtl">
+    <>
+      <Helmet>
+        <title>תנאי שימוש - Discover Africa</title>
+        <meta name="description" content="תנאי שימוש של Discover Africa - כללי השירות, אחריות, ביטולים ותשלומים לטיולים באוגנדה." />
+        <meta property="og:title" content="תנאי שימוש - Discover Africa" />
+        <meta property="og:description" content="תנאי שימוש של Discover Africa - כללי השירות ואחריות לטיולים באוגנדה." />
+        <meta property="og:url" content="https://discoverafrica.co.il/terms" />
+        <meta property="og:type" content="website" />
+      </Helmet>
+      <div className="min-h-screen bg-gray-50" dir="rtl">
       <div className="container mx-auto px-4 py-12 max-w-4xl">
         {/* Header */}
         <div className="bg-white rounded-lg shadow-sm p-8 mb-8">
@@ -275,6 +285,7 @@ const TermsOfService: React.FC = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

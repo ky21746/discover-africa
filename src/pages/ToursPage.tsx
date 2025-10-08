@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from 'react-helmet-async';
 
 const ToursPage: React.FC = () => {
   const tours = [
@@ -22,7 +23,16 @@ const ToursPage: React.FC = () => {
   ];
 
   return (
-    <div className="py-12 fade-in" dir="rtl">
+    <>
+      <Helmet>
+        <title>מסלולי טיול - Discover Africa</title>
+        <meta name="description" content="מסלולי טיול מוכנים באוגנדה - 5, 10 ו-11 ימים. ספארי, גורילות, מפלים והרים. חוויות מותאמות אישית עם מדריכים מקצועיים." />
+        <meta property="og:title" content="מסלולי טיול - Discover Africa" />
+        <meta property="og:description" content="מסלולי טיול מוכנים באוגנדה - 5, 10 ו-11 ימים. ספארי, גורילות, מפלים והרים." />
+        <meta property="og:url" content="https://discoverafrica.co.il/tours" />
+        <meta property="og:type" content="website" />
+      </Helmet>
+      <div className="py-12 fade-in" dir="rtl">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-8">
@@ -88,6 +98,7 @@ const ToursPage: React.FC = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
