@@ -413,7 +413,7 @@ const MurchisonFallsBlogPost: React.FC = () => {
                   המפלים מחכים.
                 </p>
                 <a 
-                  href="https://wa.me/972501234567?text=שלום, אני מעוניין בתכנון מסלול לפארק מורצ'יסון פולס"
+                  href="https://wa.me/972546152683?text=שלום, אני מעוניין בתכנון מסלול לפארק מורצ'יסון פולס"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-block bg-white text-[#534B20] font-bold py-4 px-8 rounded-lg shadow-lg transition-all transform hover:scale-105 hover:shadow-xl"

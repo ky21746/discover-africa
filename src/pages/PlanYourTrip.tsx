@@ -614,7 +614,7 @@ const PlanYourTrip: React.FC = () => {
 
               <div className="space-y-4">
                 <a
-                  href={`https://wa.me/972501234567?text=${encodeURIComponent(`שלום, אני מעוניין במסלול: ${generatedTrip.name}. פרטים נוספים: ${generatedTrip.description}`)}`}
+                  href={`https://wa.me/972546152683?text=${encodeURIComponent(`שלום, אני מעוניין במסלול: ${generatedTrip.name}. פרטים נוספים: ${generatedTrip.description}`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full bg-orange-500 text-white py-4 px-6 rounded-lg font-semibold hover:bg-orange-600 transition-colors text-lg text-center block"
@@ -624,7 +624,7 @@ const PlanYourTrip: React.FC = () => {
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <a
-                    href={`https://wa.me/972501234567?text=${encodeURIComponent(`שלום, אני מעוניין במסלול: ${generatedTrip.name}`)}`}
+                    href={`https://wa.me/972546152683?text=${encodeURIComponent(`שלום, אני מעוניין במסלול: ${generatedTrip.name}`)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="bg-green-500 text-white py-3 px-6 rounded-lg font-semibold hover:bg-green-600 transition-colors text-center"

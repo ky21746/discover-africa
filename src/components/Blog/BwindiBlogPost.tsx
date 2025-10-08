@@ -661,7 +661,7 @@ const BwindiBlogPost: React.FC = () => {
                   הענקים העדינים מחכים.
                 </p>
                 <a 
-                  href="https://wa.me/972501234567?text=שלום, אני מעוניין בתכנון מסלול לגורילות בבווינדי"
+                  href="https://wa.me/972546152683?text=שלום, אני מעוניין בתכנון מסלול לגורילות בבווינדי"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-block bg-white text-[#534B20] font-bold py-4 px-8 rounded-lg shadow-lg transition-all transform hover:scale-105 hover:shadow-xl"

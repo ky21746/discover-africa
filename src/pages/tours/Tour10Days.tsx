@@ -507,7 +507,7 @@ const Tour10Days: React.FC = () => {
             בואו נתחיל לתכנן את המסע המושלם שלכם באוגנדה. אנחנו כאן לעזור לכם ליצור חוויות בלתי נשכחות.
           </p>
           <a
-            href="https://wa.me/972544123456?text=שלום! אני מעוניין במסלול 10 ימים הרפתקה מלאה באוגנדה. תוכלו להתקשר אליי?"
+            href="https://wa.me/972546152683?text=שלום! אני מעוניין במסלול 10 ימים הרפתקה מלאה באוגנדה. תוכלו להתקשר אליי?"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-3 bg-[#25D366] hover:bg-[#128C7E] text-white font-bold py-4 px-8 rounded-full text-lg transition-all duration-300 shadow-lg hover:shadow-xl"

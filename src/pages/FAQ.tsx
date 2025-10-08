@@ -82,10 +82,10 @@ const FAQ: React.FC = () => {
             <a href="/contact" className="btn-primary px-6 py-3">
               צור קשר
             </a>
-            <a href="https://wa.me/972501234567" target="_blank" rel="noopener noreferrer" className="btn-secondary px-6 py-3">
+            <a href="https://wa.me/972546152683" target="_blank" rel="noopener noreferrer" className="btn-secondary px-6 py-3">
               וואטסאפ
             </a>
-            <a href="tel:+972501234567" className="btn-secondary px-6 py-3">
+            <a href="tel:+972546152683" className="btn-secondary px-6 py-3">
               התקשר עכשיו
             </a>
           </div>
