@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { parks as allParks, type Park } from '../data/parks';
 import { Users, Baby, User, Menu, X, UserCheck, UsersIcon, Crown, Zap, Heart } from 'lucide-react';
 
 interface TravelerProfile {
@@ -49,6 +50,7 @@ const PlanYourTrip: React.FC = () => {
     activityLevel: ''
   });
   const [generatedTrip, setGeneratedTrip] = useState<GeneratedTrip | null>(null);
+  const [recommendedParks, setRecommendedParks] = useState<Park[]>([]);
 
   const travelerProfiles: TravelerProfile[] = [
     {
@@ -150,7 +152,9 @@ const PlanYourTrip: React.FC = () => {
 
     // Generate trip based on selections
     const trip = createTripFromData(finalTripData);
+    const recs = computeRecommendations(finalTripData);
     setGeneratedTrip(trip);
+    setRecommendedParks(recs);
     setIsLoading(false);
     setCurrentStep(7);
   };
@@ -177,6 +181,60 @@ const PlanYourTrip: React.FC = () => {
   image: 'https://images.pexels.com/photos/631317/pexels-photo-631317.jpeg',
   description: `מסלול מותאם אישית ל-${data.travelers.adults + data.travelers.children + data.travelers.infants} מטיילים עם ${activities.length} חוויות מרכזיות באוגנדה`
 };
+  };
+
+  // Compute up to 3 recommended attractions/parks based on user selections
+  const computeRecommendations = (data: TripData): Park[] => {
+    const interestToCategoryOrTags: Record<string, { categories?: string[]; tags?: string[] }> = {
+      'gorillas': { categories: ['wildlife'], tags: ['גורילות'] },
+      'safari': { categories: ['safari'] },
+      'nile': { categories: ['water'], tags: ['שייט', 'רפטינג'] },
+      'vehicles': { tags: ['אקסטרים'] },
+      'mountains': { categories: ['mountains'], tags: ['טרק', 'הרים'] },
+      'culture': { tags: ['תרבות'] },
+      'luxury-experiences': { tags: ['יוקרה'] }
+    };
+
+    // Score each park by relevance
+    const scored = allParks.map((park) => {
+      let score = 0;
+
+      // Profile-based signals
+      if (data.profile === 'family') score += park.family ? 3 : -2;
+      if (data.profile === 'extreme') {
+        if (park.tags?.some(t => ['אקסטרים'].includes(t))) score += 3;
+        if (park.category === 'mountains') score += 2;
+      }
+      if (data.profile === 'luxury') {
+        if (park.tags?.some(t => ['יוקרה'].includes(t))) score += 2;
+      }
+
+      // Activity level
+      if (data.activityLevel === 'challenging') {
+        if (park.category === 'mountains' || park.tags?.some(t => ['טרק'].includes(t))) score += 2;
+      }
+
+      // Interests signals
+      for (const i of data.interests) {
+        const mapping = interestToCategoryOrTags[i];
+        if (!mapping) continue;
+        if (mapping.categories?.includes(park.category)) score += 3;
+        if (mapping.tags && park.tags?.some(t => mapping.tags!.includes(t))) score += 2;
+      }
+
+      // Simple tie-breakers
+      if (park.rating_avg && park.rating_avg > 0) score += 0.1;
+
+      return { park, score };
+    });
+
+    const top = scored
+      .filter(s => s.score > 0)
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 3)
+      .map(s => s.park);
+
+    return top;
   };
 
   const goBack = () => {
@@ -529,6 +587,30 @@ const PlanYourTrip: React.FC = () => {
 
               <div className="bg-gray-50 rounded-lg p-4 mb-6">
               </div>
+
+              {/* Recommendations */}
+              {recommendedParks.length > 0 && (
+                <div className="mb-8">
+                  <h3 className="text-xl font-semibold mb-4 font-sans">המלצות בשבילכם</h3>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    {recommendedParks.map((p) => {
+                      const categorySlug = p.category === 'wildlife' ? 'gorillas-chimps' : p.category;
+                      const href = `/category/${categorySlug}/${p.slug}`;
+                      return (
+                        <div key={p.slug} className="bg-white border rounded-lg shadow-sm p-4 flex flex-col">
+                          <img src={p.image} alt={p.name} className="w-full h-32 object-cover rounded mb-3" loading="lazy" />
+                          <div className="font-semibold mb-1 font-sans">{p.name}</div>
+                          <div className="text-sm text-gray-600 mb-2 font-sans">אזור: {p.area}</div>
+                          <p className="text-sm text-gray-700 flex-1 font-sans">{p.summary}</p>
+                          <Link to={href} className="mt-3 inline-block text-orange-600 hover:text-orange-700 font-medium">
+                            לפרטים נוספים
+                          </Link>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
 
               <div className="space-y-4">
                 <a
