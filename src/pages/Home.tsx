@@ -45,9 +45,9 @@ const Home: React.FC = () => {
     <div className="fade-in" dir="rtl">
       <Helmet>
         <title>Discover Africa - טיולי הרפתקה מותאמים אישית באוגנדה</title>
-        <meta name="description" content="טיולי הרפתקה מותאמים אישית באוגנדה - ספארי, גורילות, מפלים והרים. חוויות אותנטיות עם מדריכים מקצועיים." />
+        <meta name="description" content="טיולים מותאמים אישית באוגנדה" />
         <meta property="og:title" content="Discover Africa - טיולי הרפתקה מותאמים אישית" />
-        <meta property="og:description" content="טיולי הרפתקה מותאמים אישית באוגנדה - ספארי, גורילות, מפלים והרים." />
+        <meta property="og:description" content="טיולים מותאמים אישית באוגנדה" />
         <meta property="og:image" content="https://discover-africa-ky.web.app/images/discover%20africa%20logo.webp" />
         <meta property="og:url" content="https://discoverafrica.co.il/" />
         <meta property="og:type" content="website" />
