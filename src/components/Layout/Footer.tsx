@@ -116,7 +116,7 @@ const Footer: React.FC = () => {
           </div>
         </div>
         
-        {/* Legal Links Section - NEW! */}
+        {/* Legal Links Section */}
         <div className="border-t border-[#CAA131] mt-8 pt-6">
           <div className="flex flex-wrap justify-center gap-4 text-sm mb-4">
             <Link to="/privacy" className="text-gray-400 hover:text-primary transition-colors">
@@ -135,10 +135,31 @@ const Footer: React.FC = () => {
               צור קשר
             </Link>
           </div>
-          
-          <p className="text-gray-400 text-center">
-            © {currentYear} דיסקבר אפריקה. כל הזכויות שמורות.
-          </p>
+        </div>
+
+        {/* Comprehensive Legal Footer */}
+        <div className="border-t border-gray-700 mt-6 pt-6">
+          <div className="text-sm text-gray-500 text-center rtl space-y-1 max-w-4xl mx-auto">
+            <p>© כל הזכויות שמורות ל-Discover Africa 2025</p>
+            <p>האתר פועל בהתאם לחוק הגנת הפרטיות, תקנות הנגישות ותקני האינטרנט הבינלאומיים.</p>
+            <p>
+              למידע נוסף: 
+              <Link to="/terms" className="hover:text-gray-700 transition-colors"> תנאי שימוש</Link> | 
+              <Link to="/privacy" className="hover:text-gray-700 transition-colors"> מדיניות פרטיות</Link> | 
+              <Link to="/accessibility" className="hover:text-gray-700 transition-colors"> הצהרת נגישות</Link>
+            </p>
+            <p>האתר מאובטח בפרוטוקול SSL. שימוש באתר מהווה הסכמה לתנאים ולמדיניות שלנו.</p>
+            
+            {/* English Version */}
+            <div className="mt-4 pt-4 border-t border-gray-600">
+              <p className="text-xs text-gray-600">
+                © Discover Africa 2025 – All rights reserved.
+              </p>
+              <p className="text-xs text-gray-600">
+                By using this site, you agree to our Terms of Use and Privacy Policy.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </footer>

@@ -191,7 +191,10 @@ const BarAviation: React.FC = () => {
             <p className="text-lg mb-6 opacity-90">
               טוסו בבטחה ובמהירות אל לב הספארי האוגנדי עם BAR Aviation
             </p>
-            <button className="bg-white text-[#4B361C] px-8 py-3 rounded-xl font-bold text-lg hover:bg-gray-100 transition-colors duration-300">
+            <button 
+              onClick={() => window.location.href = '/contact'}
+              className="bg-white text-[#4B361C] px-8 py-3 rounded-xl font-bold text-lg hover:bg-gray-100 transition-colors duration-300"
+            >
               צור קשר עכשיו
             </button>
           </div>
