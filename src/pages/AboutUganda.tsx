@@ -16,7 +16,7 @@ const AboutUganda: React.FC = () => {
         <meta itemprop="keywords" content="אוכל אוגנדי, מטוקֶה, רולקס, קפה, אוכל רחוב באוגנדה" />
       </Helmet>
 
-      <main className="min-h-screen bg-white font-sans" style={{fontSize: '18px'}} dir="rtl">
+      <main className="min-h-screen bg-white font-sans" dir="rtl">
         {/* Hero Section */}
         <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0">
@@ -56,7 +56,7 @@ const AboutUganda: React.FC = () => {
                 <h2 className="text-3xl font-semibold text-[#C2A24B] tracking-wide mb-8">
                   סקירה כללית על אוגנדה
                 </h2>
-                <div className="space-y-6 text-xl leading-relaxed text-gray-700">
+                <div className="space-y-6 leading-relaxed text-gray-700" style={{fontSize: '20px !important'}}>
                   <p>
                     אוגנדה שוכנת בלב מזרח אפריקה, בדיוק על קו המשווה, ומוקפת במדינות מהיפות ביבשת – קניה במזרח, טנזניה ורואנדה בדרום, קונגו במערב ודרום סודן בצפון.
                   </p>
@@ -84,7 +84,7 @@ const AboutUganda: React.FC = () => {
         </section>
 
         {/* Climate Section */}
-        <section className="py-20 px-8 lg:px-24 bg-[#1A3D2A] text-white">
+        <section className="py-20 px-8 lg:px-24 bg-[#0e2a1d] text-white">
           <div className="max-w-7xl mx-auto">
             <div className="flex flex-col lg:flex-row items-center gap-16">
               <div className="flex-1 order-2 lg:order-1">
@@ -174,13 +174,13 @@ const AboutUganda: React.FC = () => {
         </section>
 
         {/* Wildlife Section */}
-        <section className="py-12 px-8 lg:px-24 bg-[#1A3D2A] text-white">
+        <section className="py-12 px-8 lg:px-24 bg-[#2D5A3D] text-white">
           <div className="max-w-7xl mx-auto">
                 <h2 className="text-4xl font-semibold text-[#C2A24B] mb-6 text-center tracking-wide">
                   חיות בר וחוויות באוגנדה
                 </h2>
-            <div className="flex justify-center gap-8 bg-[#102c1d] py-12 px-10">
-              <div className="relative group w-full max-w-[380px] bg-[#0e2a1d] rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-[#C2A24B]/30 transition-all duration-700 border border-[#C2A24B]/40">
+            <div className="flex flex-col md:flex-row justify-center items-center gap-8 py-12 px-4">
+              <div className="relative group w-full max-w-[520px] bg-[#0e2a1d] rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-[#C2A24B]/30 transition-all duration-700 border border-[#C2A24B]/40">
                 <div className="overflow-hidden h-64 relative">
                   <img 
                     src="https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/General%20Information%20Uganda%2FGorilla%20silverback%20in%20Bwindi%20Uganda%2C%20Africa.webp?alt=media&token=577cc50c-61a2-443a-b7eb-4a69eb617de5" 
@@ -198,7 +198,7 @@ const AboutUganda: React.FC = () => {
                 </p>
               </div>
               
-              <div className="relative group w-full max-w-[380px] bg-[#0e2a1d] rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-[#C2A24B]/30 transition-all duration-700 border border-[#C2A24B]/40">
+              <div className="relative group w-full max-w-[520px] bg-[#0e2a1d] rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-[#C2A24B]/30 transition-all duration-700 border border-[#C2A24B]/40">
                 <div className="overflow-hidden h-64 relative">
                   <img 
                     src="https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/General%20Information%20Uganda%2Ftree-climbing-lion-queen-elizabeth-uganda.webp?alt=media&token=4a9f535a-42d0-4f4e-89a1-684b8b9c9d3f" 
@@ -216,7 +216,7 @@ const AboutUganda: React.FC = () => {
                 </p>
               </div>
               
-              <div className="relative group w-full max-w-[380px] bg-[#0e2a1d] rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-[#C2A24B]/30 transition-all duration-700 border border-[#C2A24B]/40">
+              <div className="relative group w-full max-w-[520px] bg-[#0e2a1d] rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-[#C2A24B]/30 transition-all duration-700 border border-[#C2A24B]/40">
                 <div className="overflow-hidden h-64 relative">
                   <img 
                     src="https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/General%20Information%20Uganda%2Fchimpanzee-mother-baby-kibale-uganda.webp?alt=media&token=e636b4a2-8149-47cc-b861-1cb2c9d4b800" 
@@ -234,9 +234,9 @@ const AboutUganda: React.FC = () => {
                 </p>
               </div>
             </div>
-            <div className="text-center bg-[#102c1d] pb-8">
+            <div className="text-center pb-8">
               <div className="bg-[#0e2a1d] rounded-2xl p-6 mx-8 border border-[#C2A24B]/30">
-                <p className="text-xl text-white/90 leading-relaxed">
+                <p className="text-xl text-white/90 leading-relaxed bg-[#0e2a1d] rounded-lg p-4">
                   באוגנדה עשרה פארקים לאומיים – החל ממרצ'יסון פולס בצפון ועד בווינדי בדרום־מערב. אף מדינה אחרת לא מציעה מפגש עם גורילות, שימפנזים, ואריות באותו טיול אחד.
                 </p>
               </div>
@@ -245,14 +245,14 @@ const AboutUganda: React.FC = () => {
         </section>
 
         {/* Birds Section */}
-        <section className="py-12 px-8 lg:px-24 bg-[#1A3D2A] text-white">
+        <section className="py-12 px-8 lg:px-24 bg-[#0e2a1d] text-white">
           <div className="max-w-7xl mx-auto">
                 <h2 className="text-4xl font-semibold text-[#C2A24B] mb-6 text-center tracking-wide">
                   ממלכת הציפורים של אפריקה
                 </h2>
             
-            <div className="flex justify-center gap-8 bg-[#102c1d] py-12 px-10">
-              <div className="relative group w-full max-w-[380px] bg-[#0e2a1d] rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-[#C2A24B]/30 transition-all duration-700 border border-[#C2A24B]/40">
+            <div className="flex flex-col md:flex-row justify-center items-center gap-8 py-12 px-4">
+              <div className="relative group w-full max-w-[520px] bg-[#0e2a1d] rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-[#C2A24B]/30 transition-all duration-700 border border-[#C2A24B]/40">
                 <div className="overflow-hidden h-64 relative">
                   <img 
                     src="https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/General%20Information%20Uganda%2FGrey%20Crowned%20Crane%20Uganda.webp?alt=media&token=4edb4f71-5678-4e29-a372-2d516757374a" 
@@ -270,7 +270,7 @@ const AboutUganda: React.FC = () => {
                 </p>
               </div>
               
-              <div className="relative group w-full max-w-[380px] bg-[#0e2a1d] rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-[#C2A24B]/30 transition-all duration-700 border border-[#C2A24B]/40">
+              <div className="relative group w-full max-w-[520px] bg-[#0e2a1d] rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-[#C2A24B]/30 transition-all duration-700 border border-[#C2A24B]/40">
                 <div className="overflow-hidden h-64 relative">
                   <img 
                     src="https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/General%20Information%20Uganda%2Fshoebill-stork-uganda-mabamba.webp?alt=media&token=1304cbfa-750f-477a-ae88-2427ab2b169c" 
@@ -288,7 +288,7 @@ const AboutUganda: React.FC = () => {
                 </p>
               </div>
               
-              <div className="relative group w-full max-w-[380px] bg-[#0e2a1d] rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-[#C2A24B]/30 transition-all duration-700 border border-[#C2A24B]/40">
+              <div className="relative group w-full max-w-[520px] bg-[#0e2a1d] rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-[#C2A24B]/30 transition-all duration-700 border border-[#C2A24B]/40">
                 <div className="overflow-hidden h-64 relative">
                   <img 
                     src="https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/General%20Information%20Uganda%2Fblue-starling-uganda-savannah-bird.webp?alt=media&token=38736ad2-4bd9-4a6c-ba28-fe3310368282" 
@@ -339,8 +339,8 @@ const AboutUganda: React.FC = () => {
               <div className="w-24 h-1 bg-white mx-auto rounded-full"></div>
             </div>
             
-            <div className="flex justify-center gap-8">
-              <div className="relative group w-full max-w-[380px] bg-[#0e2a1d] rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-[#C2A24B]/30 transition-all duration-700 border border-[#C2A24B]/40">
+            <div className="flex flex-col md:flex-row justify-center items-center gap-8">
+              <div className="relative group w-full max-w-[520px] bg-[#0e2a1d] rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-[#C2A24B]/30 transition-all duration-700 border border-[#C2A24B]/40">
                 <div className="overflow-hidden h-64 relative">
                   <img 
                     src="https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/General%20Information%20Uganda%2Fuganda-equator-monument-kayabwe.webp?alt=media&token=b5109053-08db-4fe8-a29b-5b0eef417e5c" 
@@ -358,7 +358,7 @@ const AboutUganda: React.FC = () => {
                 </p>
               </div>
               
-              <div className="relative group w-full max-w-[380px] bg-[#0e2a1d] rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-[#C2A24B]/30 transition-all duration-700 border border-[#C2A24B]/40">
+              <div className="relative group w-full max-w-[520px] bg-[#0e2a1d] rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-[#C2A24B]/30 transition-all duration-700 border border-[#C2A24B]/40">
                 <div className="overflow-hidden h-64 relative">
                   <img 
                     src="https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/General%20Information%20Uganda%2Fmurchison-falls-uganda-nile.webp?alt=media&token=c7855b98-d388-4876-875d-f0b97c37842c" 
@@ -376,7 +376,7 @@ const AboutUganda: React.FC = () => {
                 </p>
               </div>
               
-              <div className="relative group w-full max-w-[380px] bg-[#0e2a1d] rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-[#C2A24B]/30 transition-all duration-700 border border-[#C2A24B]/40">
+              <div className="relative group w-full max-w-[520px] bg-[#0e2a1d] rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-[#C2A24B]/30 transition-all duration-700 border border-[#C2A24B]/40">
                 <div className="overflow-hidden h-64 relative">
                   <img 
                     src="https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/General%20Information%20Uganda%2Fgreen-bananas-matoke-uganda.webp?alt=media&token=11edbeab-13b9-4af5-b21a-e3272f364ec0" 
