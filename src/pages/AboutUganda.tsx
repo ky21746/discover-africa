@@ -56,7 +56,7 @@ const AboutUganda: React.FC = () => {
                 <h2 className="text-3xl font-semibold text-[#C2A24B] tracking-wide mb-8">
                   סקירה כללית על אוגנדה
                 </h2>
-                <div className="space-y-6 text-lg leading-relaxed text-gray-700">
+                <div className="space-y-6 text-xl leading-relaxed text-gray-700">
                   <p>
                     אוגנדה שוכנת בלב מזרח אפריקה, בדיוק על קו המשווה, ומוקפת במדינות מהיפות ביבשת – קניה במזרח, טנזניה ורואנדה בדרום, קונגו במערב ודרום סודן בצפון.
                   </p>
@@ -73,8 +73,8 @@ const AboutUganda: React.FC = () => {
               </div>
               <div className="flex-1 flex justify-center">
                 <img 
-                  src="/images/about-uganda/uganda-map.webp" 
-                  alt="מפת אוגנדה - Discover Africa"
+                  src="https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/General%20Information%20Uganda%2Fuganda-and-neighboring-countries-map.jpg?alt=media&token=0ff84a91-c47c-4892-8512-9886ce8cc648" 
+                  alt="מפת אוגנדה והמדינות השכנות - Discover Africa"
                   className="w-full max-w-lg h-auto rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500"
                   loading="lazy"
                 />
@@ -89,14 +89,14 @@ const AboutUganda: React.FC = () => {
             <div className="flex flex-col lg:flex-row items-center gap-16">
               <div className="flex-1 order-2 lg:order-1">
                 <img 
-                  src="/images/about-uganda/rwenzori-mountains.webp" 
-                  alt="נוף הרי רוונזורי באוגנדה"
+                  src="https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/General%20Information%20Uganda%2Frwenzori-mountains-uganda-hikers.webp?alt=media&token=9bb739a4-4c22-4498-82ca-6df5e047cc45" 
+                  alt="מטיילים בהרי רוונזורי באוגנדה"
                   className="w-full h-96 object-cover rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500"
                   loading="lazy"
                 />
               </div>
               <div className="flex-1 order-1 lg:order-2 space-y-8">
-                <h2 className="text-3xl font-semibold text-[#C2A24B] tracking-wide mb-8">
+                <h2 className="text-4xl font-semibold text-[#C2A24B] tracking-wide mb-8">
                   אקלים ונוף באוגנדה
                 </h2>
                 <div className="space-y-6 text-lg leading-relaxed text-white/90">
@@ -120,7 +120,7 @@ const AboutUganda: React.FC = () => {
           <div className="max-w-7xl mx-auto">
             <div className="flex flex-col lg:flex-row items-center gap-16">
               <div className="flex-1 space-y-8">
-                <h2 className="text-3xl font-semibold text-[#C2A24B] tracking-wide mb-8">
+                <h2 className="text-4xl font-semibold text-[#C2A24B] tracking-wide mb-8">
                   אנשים ותרבות באוגנדה
                 </h2>
                 <div className="space-y-6 text-lg leading-relaxed text-gray-700">
@@ -134,8 +134,8 @@ const AboutUganda: React.FC = () => {
               </div>
               <div className="flex-1 flex justify-center">
                 <img 
-                  src="/images/about-uganda/uganda-culture.webp" 
-                  alt="תרבות מקומית באוגנדה – Discover Africa"
+                  src="https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/General%20Information%20Uganda%2Fbatwa-people-uganda-forest-community.webp?alt=media&token=d2fe6091-bbb4-4e0f-8247-fdaccb63f2bf" 
+                  alt="אנשי באטווה - קהילת היער המסורתית באוגנדה"
                   className="w-full max-w-lg h-96 object-cover rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500"
                   loading="lazy"
                 />
@@ -150,14 +150,14 @@ const AboutUganda: React.FC = () => {
             <div className="flex flex-col lg:flex-row items-center gap-16">
               <div className="flex-1 order-2 lg:order-1">
                 <img 
-                  src="/images/about-uganda/matoke-food.webp" 
-                  alt="מאכל מטוקֶה – הבננות של אוגנדה"
+                  src="https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/General%20Information%20Uganda%2Fuganda-traditional-cooking-matoke.webp?alt=media&token=7985733e-bc3a-446d-9283-beef4959bb89" 
+                  alt="בישול מסורתי של מטוקֶה באוגנדה"
                   className="w-full h-96 object-cover rounded-2xl shadow-xl hover:scale-105 transition-transform duration-500"
                   loading="lazy"
                 />
               </div>
               <div className="flex-1 order-1 lg:order-2 space-y-8">
-                <h2 className="text-3xl font-semibold text-[#C2A24B] tracking-wide mb-8">
+                <h2 className="text-4xl font-semibold text-[#C2A24B] tracking-wide mb-8">
                   מטבח מקומי באוגנדה
                 </h2>
                 <div className="space-y-6 text-lg leading-relaxed text-gray-700">
@@ -176,9 +176,9 @@ const AboutUganda: React.FC = () => {
         {/* Wildlife Section */}
         <section className="py-12 px-8 lg:px-24 bg-[#1A3D2A] text-white">
           <div className="max-w-7xl mx-auto">
-            <h2 className="text-3xl font-semibold text-[#C2A24B] mb-6 text-center tracking-wide">
-              חיות בר וחוויות באוגנדה
-            </h2>
+                <h2 className="text-4xl font-semibold text-[#C2A24B] mb-6 text-center tracking-wide">
+                  חיות בר וחוויות באוגנדה
+                </h2>
             <div className="flex justify-center gap-8 bg-[#102c1d] py-12 px-10">
               <div className="relative group w-full max-w-[380px] bg-[#0e2a1d] rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-[#C2A24B]/30 transition-all duration-700 border border-[#C2A24B]/40">
                 <div className="overflow-hidden h-64 relative">
@@ -188,7 +188,7 @@ const AboutUganda: React.FC = () => {
                     className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0e2a1d]/90 via-[#0e2a1d]/30 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0e2a1d]/60 via-[#0e2a1d]/20 to-transparent"></div>
                 </div>
                 <h3 className="text-2xl font-bold text-[#C2A24B] tracking-wide mt-4 px-5 drop-shadow-sm group-hover:text-[#e0bf65] transition-colors duration-300">
                   גורילות הרים
@@ -206,7 +206,7 @@ const AboutUganda: React.FC = () => {
                     className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0e2a1d]/90 via-[#0e2a1d]/30 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0e2a1d]/60 via-[#0e2a1d]/20 to-transparent"></div>
                 </div>
                 <h3 className="text-2xl font-bold text-[#C2A24B] tracking-wide mt-4 px-5 drop-shadow-sm group-hover:text-[#e0bf65] transition-colors duration-300">
                   אריות מטפסי עצים
@@ -224,7 +224,7 @@ const AboutUganda: React.FC = () => {
                     className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0e2a1d]/90 via-[#0e2a1d]/30 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0e2a1d]/60 via-[#0e2a1d]/20 to-transparent"></div>
                 </div>
                 <h3 className="text-2xl font-bold text-[#C2A24B] tracking-wide mt-4 px-5 drop-shadow-sm group-hover:text-[#e0bf65] transition-colors duration-300">
                   שימפנזים
@@ -247,9 +247,9 @@ const AboutUganda: React.FC = () => {
         {/* Birds Section */}
         <section className="py-12 px-8 lg:px-24 bg-[#1A3D2A] text-white">
           <div className="max-w-7xl mx-auto">
-            <h2 className="text-3xl font-semibold text-[#C2A24B] mb-6 text-center tracking-wide">
-              ממלכת הציפורים של אפריקה
-            </h2>
+                <h2 className="text-4xl font-semibold text-[#C2A24B] mb-6 text-center tracking-wide">
+                  ממלכת הציפורים של אפריקה
+                </h2>
             
             <div className="flex justify-center gap-8 bg-[#102c1d] py-12 px-10">
               <div className="relative group w-full max-w-[380px] bg-[#0e2a1d] rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-[#C2A24B]/30 transition-all duration-700 border border-[#C2A24B]/40">
@@ -260,7 +260,7 @@ const AboutUganda: React.FC = () => {
                     className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0e2a1d]/90 via-[#0e2a1d]/30 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0e2a1d]/60 via-[#0e2a1d]/20 to-transparent"></div>
                 </div>
                 <h3 className="text-2xl font-bold text-[#C2A24B] tracking-wide mt-4 px-5 drop-shadow-sm group-hover:text-[#e0bf65] transition-colors duration-300">
                   עגור כתר אפור
@@ -278,7 +278,7 @@ const AboutUganda: React.FC = () => {
                     className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0e2a1d]/90 via-[#0e2a1d]/30 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0e2a1d]/60 via-[#0e2a1d]/20 to-transparent"></div>
                 </div>
                 <h3 className="text-2xl font-bold text-[#C2A24B] tracking-wide mt-4 px-5 drop-shadow-sm group-hover:text-[#e0bf65] transition-colors duration-300">
                   שוביל
@@ -296,7 +296,7 @@ const AboutUganda: React.FC = () => {
                     className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0e2a1d]/90 via-[#0e2a1d]/30 to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0e2a1d]/60 via-[#0e2a1d]/20 to-transparent"></div>
                 </div>
                 <h3 className="text-2xl font-bold text-[#C2A24B] tracking-wide mt-4 px-5 drop-shadow-sm group-hover:text-[#e0bf65] transition-colors duration-300">
                   ציפורים טרופיות
@@ -330,50 +330,68 @@ const AboutUganda: React.FC = () => {
           
           <div className="max-w-7xl mx-auto relative z-10">
             <div className="text-center mb-20">
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-wide">
-                עובדות קצרות ומפתיעות
-              </h2>
+                <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 tracking-wide">
+                  עובדות קצרות ומפתיעות
+                </h2>
               <h3 className="text-2xl md:text-3xl font-light text-white/90 mb-4">
                 על אוגנדה
               </h3>
               <div className="w-24 h-1 bg-white mx-auto rounded-full"></div>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 shadow-2xl hover:shadow-3xl hover:scale-105 transition-all duration-500 text-center border border-white/20">
-                <div className="text-6xl mb-6">🌍</div>
-                <h3 className="text-2xl font-bold text-white mb-4">קו המשווה</h3>
-                <p className="text-white/90 leading-relaxed text-lg">קו המשווה חוצה את המדינה, אבל אין בה מדבר.</p>
+            <div className="flex justify-center gap-8">
+              <div className="relative group w-full max-w-[380px] bg-[#0e2a1d] rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-[#C2A24B]/30 transition-all duration-700 border border-[#C2A24B]/40">
+                <div className="overflow-hidden h-64 relative">
+                  <img 
+                    src="https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/General%20Information%20Uganda%2Fuganda-equator-monument-kayabwe.webp?alt=media&token=b5109053-08db-4fe8-a29b-5b0eef417e5c" 
+                    alt="אנדרטת קו המשווה בקאיבווה, אוגנדה"
+                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0e2a1d]/60 via-[#0e2a1d]/20 to-transparent"></div>
+                </div>
+                <h3 className="text-2xl font-bold text-[#C2A24B] tracking-wide mt-4 px-5 drop-shadow-sm group-hover:text-[#e0bf65] transition-colors duration-300">
+                  קו המשווה
+                </h3>
+                <p className="text-gray-200 text-sm leading-relaxed px-5 pb-6 pt-2">
+                  קו המשווה חוצה את המדינה, אבל אין בה מדבר. אוגנדה היא אחת המדינות היחידות בעולם שחוצה את קו המשווה.
+                </p>
               </div>
               
-              <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 shadow-2xl hover:shadow-3xl hover:scale-105 transition-all duration-500 text-center border border-white/20">
-                <div className="text-6xl mb-6">🦍</div>
-                <h3 className="text-2xl font-bold text-white mb-4">גורילות הרים</h3>
-                <p className="text-white/90 leading-relaxed text-lg">ביתן של גורילות ההרים האחרונות בעולם.</p>
+              <div className="relative group w-full max-w-[380px] bg-[#0e2a1d] rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-[#C2A24B]/30 transition-all duration-700 border border-[#C2A24B]/40">
+                <div className="overflow-hidden h-64 relative">
+                  <img 
+                    src="https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/General%20Information%20Uganda%2Fmurchison-falls-uganda-nile.webp?alt=media&token=c7855b98-d388-4876-875d-f0b97c37842c" 
+                    alt="מפלי מרצ'יסון על הנילוס באוגנדה"
+                    className="w-full h-full object-cover object-top transform group-hover:scale-110 transition-transform duration-700"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0e2a1d]/60 via-[#0e2a1d]/20 to-transparent"></div>
+                </div>
+                <h3 className="text-2xl font-bold text-[#C2A24B] tracking-wide mt-4 px-5 drop-shadow-sm group-hover:text-[#e0bf65] transition-colors duration-300">
+                  מים
+                </h3>
+                <p className="text-gray-200 text-sm leading-relaxed px-5 pb-6 pt-2">
+                  רבע מהמדינה מכוסה מים – אחד הנתחים הגבוהים בעולם. כאן נולד נהר הנילוס, הגדול באפריקה.
+                </p>
               </div>
               
-              <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 shadow-2xl hover:shadow-3xl hover:scale-105 transition-all duration-500 text-center border border-white/20">
-                <div className="text-6xl mb-6">💧</div>
-                <h3 className="text-2xl font-bold text-white mb-4">מים</h3>
-                <p className="text-white/90 leading-relaxed text-lg">רבע מהמדינה מכוסה מים – אחד הנתחים הגבוהים בעולם.</p>
-              </div>
-              
-              <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 shadow-2xl hover:shadow-3xl hover:scale-105 transition-all duration-500 text-center border border-white/20">
-                <div className="text-6xl mb-6">🍌</div>
-                <h3 className="text-2xl font-bold text-white mb-4">בננות</h3>
-                <p className="text-white/90 leading-relaxed text-lg">באוגנדה גדלים יותר מ־50 זני בננות שונים.</p>
-              </div>
-              
-              <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 shadow-2xl hover:shadow-3xl hover:scale-105 transition-all duration-500 text-center border border-white/20">
-                <div className="text-6xl mb-6">🕊️</div>
-                <h3 className="text-2xl font-bold text-white mb-4">בטיחות</h3>
-                <p className="text-white/90 leading-relaxed text-lg">המדינה הבטוחה ביותר למטיילים במזרח אפריקה.</p>
-              </div>
-              
-              <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 shadow-2xl hover:shadow-3xl hover:scale-105 transition-all duration-500 text-center border border-white/20">
-                <div className="text-6xl mb-6">📈</div>
-                <h3 className="text-2xl font-bold text-white mb-4">תוחלת חיים</h3>
-                <p className="text-white/90 leading-relaxed text-lg">תוחלת החיים עלתה ל־65 שנים – הגבוהה באזור.</p>
+              <div className="relative group w-full max-w-[380px] bg-[#0e2a1d] rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-[#C2A24B]/30 transition-all duration-700 border border-[#C2A24B]/40">
+                <div className="overflow-hidden h-64 relative">
+                  <img 
+                    src="https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/General%20Information%20Uganda%2Fgreen-bananas-matoke-uganda.webp?alt=media&token=11edbeab-13b9-4af5-b21a-e3272f364ec0" 
+                    alt="בננות ירוקות מטוקֶה - המאכל הלאומי של אוגנדה"
+                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0e2a1d]/60 via-[#0e2a1d]/20 to-transparent"></div>
+                </div>
+                <h3 className="text-2xl font-bold text-[#C2A24B] tracking-wide mt-4 px-5 drop-shadow-sm group-hover:text-[#e0bf65] transition-colors duration-300">
+                  בננות
+                </h3>
+                <p className="text-gray-200 text-sm leading-relaxed px-5 pb-6 pt-2">
+                  באוגנדה גדלים יותר מ־50 זני בננות שונים. המאכל הלאומי הוא מטוקֶה – בננות ירוקות מבושלות.
+                </p>
               </div>
             </div>
           </div>
