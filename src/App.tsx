@@ -14,6 +14,7 @@ import WhoWeAre from "./pages/WhoWeAre";
 import PlanYourTrip from "./pages/PlanYourTrip";
 import FAQ from "./pages/FAQ";
 import Contact from "./pages/Contact";
+import AboutUganda from "./pages/AboutUganda";
 import AttractionPage from "./pages/AttractionPage";
 import ToursPage from "./pages/ToursPage";
 import Tour1Day from "./pages/tours/Tour1Day";
@@ -121,6 +122,7 @@ export default function App() {
             {/* עמודים נוספים */}
             <Route path="/testimonials" element={<Testimonials />} />
             <Route path="/who-we-are" element={<WhoWeAre />} />
+            <Route path="/about-uganda" element={<AboutUganda />} />
             <Route path="/plan-your-trip" element={<PlanYourTrip />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="/contact" element={<Contact />} />
