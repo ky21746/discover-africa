@@ -56,7 +56,8 @@ const Home: React.FC = () => {
       <section 
         className="hero-section relative bg-gradient-to-r from-gray-900 to-gray-800 text-white overflow-hidden"
         style={{
-          height: '80vh', /* מתאים לדסקטופ */
+          height: '80vh',
+          minHeight: '-webkit-fill-available',
         }}
       >
         {/* Mobile Hero - Full Screen */}
@@ -64,7 +65,7 @@ const Home: React.FC = () => {
           className="md:hidden flex flex-col justify-start items-center px-5 relative bg-cover bg-center bg-no-repeat"
           style={{
             height: '100vh',
-            minHeight: '100vh',
+            minHeight: '-webkit-fill-available',
             maxHeight: '100vh',
             backgroundImage: "url(https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/hero-gorilla.webp?alt=media&token=c67bec83-4363-4104-a102-757f69b351a4)"
           }}

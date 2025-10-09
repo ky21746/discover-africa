@@ -14,6 +14,9 @@ export default {
         'body': '16px',
         'small': '14px',
       },
+      height: {
+        'screen-dynamic': '100dvh',
+      },
       colors: {
         primary: {
           DEFAULT: '#116466',
