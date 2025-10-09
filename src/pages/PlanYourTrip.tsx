@@ -191,7 +191,7 @@ const PlanYourTrip: React.FC = () => {
   name: `מסלול ${profileNames[data.profile as keyof typeof profileNames]} ${data.duration} באוגנדה`,
   activities,
   icon: <Users className="w-6 h-6" />,
-  image: 'https://images.pexels.com/photos/631317/pexels-photo-631317.jpeg',
+  image: 'https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/attractions%2Fqueen-elizabeth%2FElephant%20in%20Queen%20Elizabeth%20Park%2C%20Uganda%2C%20watched%20by%20a%20tourist%20boat%20on%20a%20safari%20cruise.webp?alt=media&token=6b7061b6-b02e-4410-8393-e072ae208a64',
   description: `מסלול מותאם אישית ל-${data.travelers.adults + data.travelers.children + data.travelers.infants} מטיילים עם ${activities.length} חוויות מרכזיות באוגנדה`
 };
   };
