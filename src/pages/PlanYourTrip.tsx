@@ -348,7 +348,12 @@ const PlanYourTrip: React.FC = () => {
 
   const goBack = () => {
     if (currentStep > 0) {
-      setCurrentStep(currentStep - 1);
+      // אם אנחנו בשלב התוצאות (7), חזור לשלב 5 (רמת פעילות)
+      if (currentStep === 7) {
+        setCurrentStep(5);
+      } else {
+        setCurrentStep(currentStep - 1);
+      }
     }
   };
 
@@ -540,14 +545,14 @@ const PlanYourTrip: React.FC = () => {
               <span className="text-sm text-gray-600">שלב {currentStep} מתוך 6</span>
               <button
                 onClick={goBack}
-                className="bg-orange-100 text-orange-700 px-4 py-2 rounded-lg font-semibold hover:bg-orange-200 transition-colors flex items-center gap-2"
+                className="bg-[#CAA131]/20 text-[#4B361C] px-4 py-2 rounded-lg font-semibold hover:bg-[#CAA131]/30 transition-colors flex items-center gap-2"
               >
                 ← חזור לשאלה הקודמת
               </button>
             </div>
             <div className="w-full bg-gray-200 rounded-full h-2">
               <div
-                className="bg-orange-500 h-2 rounded-full transition-all duration-300"
+                className="bg-[#CAA131] h-2 rounded-full transition-all duration-300"
                 style={{ width: `${(currentStep / 6) * 100}%` }}
               ></div>
             </div>
@@ -561,7 +566,7 @@ const PlanYourTrip: React.FC = () => {
               <span className="text-sm text-gray-600">תוצאות הטיול שלכם</span>
               <button
                 onClick={goBack}
-                className="bg-orange-500 text-white px-6 py-3 rounded-lg font-bold hover:bg-orange-600 transition-colors flex items-center gap-2 shadow-lg hover:shadow-xl"
+                className="bg-[#CAA131] text-[#4B361C] px-6 py-3 rounded-lg font-bold hover:bg-[#B8942A] transition-colors flex items-center gap-2 shadow-lg hover:shadow-xl"
               >
                 ← חזור לעריכה
               </button>
@@ -578,14 +583,14 @@ const PlanYourTrip: React.FC = () => {
                 <button
                   key={profile.id}
                   onClick={() => handleProfileSelect(profile.id)}
-                  className="w-full bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 text-right hover:border-orange-500 border-2 border-transparent"
+                  className="w-full bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 text-right hover:border-[#CAA131] border-2 border-transparent"
                 >
                   <div className="flex items-center gap-4">
                     <div className="flex-1">
                       <h3 className="text-lg font-semibold mb-2 font-sans">{profile.name}</h3>
                       <p className="text-gray-600 text-sm font-sans">{profile.description}</p>
                     </div>
-                    <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center">
+                    <div className="w-12 h-12 bg-[#CAA131]/20 rounded-full flex items-center justify-center">
                       {profile.icon}
                     </div>
                   </div>
@@ -765,7 +770,7 @@ const PlanYourTrip: React.FC = () => {
                 {/* Primary Action */}
                 <Link
                   to="/contact"
-                  className="w-full bg-[#C79B3B] text-white py-4 px-6 rounded-lg font-semibold hover:bg-[#B88A2A] transition-colors text-lg text-center block shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+                  className="w-full bg-[#CAA131] text-[#4B361C] py-4 px-6 rounded-lg font-semibold hover:bg-[#B8942A] transition-colors text-lg text-center block shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
                 >
                   צרו קשר להתאמה אישית
                 </Link>
@@ -776,7 +781,7 @@ const PlanYourTrip: React.FC = () => {
                     href={`https://wa.me/972546152683?text=${encodeURIComponent(`שלום, אני מעוניין במסלול: ${generatedTrip.name}`)}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 bg-white border-2 border-[#005F5B] text-[#005F5B] py-3 px-6 rounded-lg font-semibold hover:bg-[#005F5B] hover:text-white transition-colors text-center"
+                    className="flex-1 bg-white border-2 border-[#CAA131] text-[#4B361C] py-3 px-6 rounded-lg font-semibold hover:bg-[#CAA131] hover:text-[#4B361C] transition-colors text-center"
                   >
                     שלחו לי בוואטסאפ
                   </a>
@@ -793,7 +798,7 @@ const PlanYourTrip: React.FC = () => {
                 <div className="pt-4 border-t border-gray-200">
                   <button
                     onClick={goBack}
-                    className="w-full bg-orange-500 text-white py-4 px-6 rounded-lg font-bold hover:bg-orange-600 transition-colors flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transform hover:scale-105"
+                    className="w-full bg-[#CAA131] text-[#4B361C] py-4 px-6 rounded-lg font-bold hover:bg-[#B8942A] transition-colors flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transform hover:scale-105"
                   >
                     ✏️ עריכת פרטים
                   </button>
