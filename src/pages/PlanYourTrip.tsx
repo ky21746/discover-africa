@@ -354,6 +354,8 @@ const PlanYourTrip: React.FC = () => {
       } else {
         setCurrentStep(currentStep - 1);
       }
+      // גלול למעלה כשחוזרים
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
 
@@ -373,6 +375,8 @@ const PlanYourTrip: React.FC = () => {
       activityLevel: ''
     });
     setGeneratedTrip(null);
+    // גלול למעלה כשמתחילים טיול חדש
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const getSummaryText = () => {
