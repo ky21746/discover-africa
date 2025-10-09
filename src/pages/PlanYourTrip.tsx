@@ -540,9 +540,9 @@ const PlanYourTrip: React.FC = () => {
               <span className="text-sm text-gray-600">שלב {currentStep} מתוך 6</span>
               <button
                 onClick={goBack}
-                className="text-orange-600 hover:text-orange-700 font-medium"
+                className="bg-orange-100 text-orange-700 px-4 py-2 rounded-lg font-semibold hover:bg-orange-200 transition-colors flex items-center gap-2"
               >
-                חזור לשאלה הקודמת
+                ← חזור לשאלה הקודמת
               </button>
             </div>
             <div className="w-full bg-gray-200 rounded-full h-2">
@@ -561,7 +561,7 @@ const PlanYourTrip: React.FC = () => {
               <span className="text-sm text-gray-600">תוצאות הטיול שלכם</span>
               <button
                 onClick={goBack}
-                className="text-orange-600 hover:text-orange-700 font-medium flex items-center gap-2"
+                className="bg-orange-500 text-white px-6 py-3 rounded-lg font-bold hover:bg-orange-600 transition-colors flex items-center gap-2 shadow-lg hover:shadow-xl"
               >
                 ← חזור לעריכה
               </button>
@@ -795,7 +795,7 @@ const PlanYourTrip: React.FC = () => {
                 <div className="pt-4 border-t border-gray-200">
                   <button
                     onClick={goBack}
-                    className="w-full bg-orange-100 text-orange-700 py-3 px-6 rounded-lg font-semibold hover:bg-orange-200 transition-colors flex items-center justify-center gap-2"
+                    className="w-full bg-orange-500 text-white py-4 px-6 rounded-lg font-bold hover:bg-orange-600 transition-colors flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transform hover:scale-105"
                   >
                     ✏️ עריכת פרטים
                   </button>
