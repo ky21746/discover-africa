@@ -715,42 +715,23 @@ const PlanYourTrip: React.FC = () => {
               </div>
 
               <div className="bg-gray-50 rounded-lg p-4 mb-6">
-              </div>
-
-              {/* Intelligent Recommendations */}
-              {recommendedParks.length > 0 && (
-                <div className="mb-8">
-                  <h3 className="text-xl font-semibold mb-4 font-sans">המלצות חכמות בשבילכם</h3>
-                  <p className="text-gray-600 mb-6 font-sans text-sm">
-                    על בסיס התשובות שלכם, אלו האטרקציות המתאימות ביותר למסלול שלכם:
-                  </p>
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    {recommendedParks.map((attraction) => {
-                      const categorySlug = attraction.category === 'wildlife' ? 'gorillas-chimps' : attraction.category;
-                      const href = `/category/${categorySlug}/${attraction.slug}`;
-                      return (
-                        <div key={attraction.slug} className="bg-white border rounded-lg shadow-sm p-4 flex flex-col hover:shadow-md transition-shadow">
-                          <img 
-                            src={attraction.image} 
-                            alt={attraction.name} 
-                            className="w-full h-32 object-cover rounded mb-3" 
-                            loading="lazy" 
-                          />
-                          <div className="font-semibold mb-1 font-sans text-gray-900">{attraction.name}</div>
-                          <div className="text-sm text-gray-600 mb-2 font-sans">אזור: {attraction.area}</div>
-                          <p className="text-sm text-gray-700 flex-1 font-sans mb-3">{attraction.summary}</p>
-                          <Link 
-                            to={href} 
-                            className="mt-auto inline-block bg-[#CAA131] text-[#4B361C] px-4 py-2 rounded-lg hover:bg-[#B8942A] transition-colors text-center font-medium"
-                          >
-                            גלה עוד
-                          </Link>
-                        </div>
-                      );
-                    })}
-                  </div>
+                {/* Edit and Reset buttons in card */}
+                <div className="flex flex-col md:flex-row gap-4 mb-4">
+                  <button
+                    onClick={goBack}
+                    className="flex-1 bg-transparent border-2 border-[#CAA131] text-[#4B361C] py-2 px-4 rounded-lg font-bold hover:bg-[#CAA131] hover:text-[#4B361C] transition-colors text-sm"
+                  >
+                    עריכת פרטים
+                  </button>
+                  
+                  <button
+                    onClick={resetPlanner}
+                    className="flex-1 bg-transparent border-2 border-[#CAA131] text-[#4B361C] py-2 px-4 rounded-lg font-semibold hover:bg-[#CAA131] hover:text-[#4B361C] transition-colors text-sm"
+                  >
+                    תכננו מסלול חדש
+                  </button>
                 </div>
-              )}
+              </div>
 
               {/* Divider */}
               <div className="border-t border-gray-200 my-8"></div>
@@ -758,43 +739,54 @@ const PlanYourTrip: React.FC = () => {
               {/* Success Header */}
               <div className="text-center mb-8">
                 <h2 className="text-3xl font-bold text-gray-900 mb-3 font-sans">
-                  המסלול שלכם מוכן!
+                  שלחו לנו את הפרטים שלכם!
                 </h2>
                 <p className="text-lg text-gray-600 font-sans">
-                  התאמנו לכם מסלול מושלם – תוכלו לבחור להתאים אותו אישית או להתחיל תכנון חדש.
+                  השתמשו בכפתורים למטה כדי לשלוח לנו את כל הפרטים שמילאתם ונחזור אליכם תוך 24 שעות עם מסלול מותאם אישית והצעה מפורטת.
                 </p>
               </div>
 
               {/* Call-to-Action Buttons */}
               <div className="space-y-4">
-                {/* First Row: Edit and Reset */}
+                {/* Contact and WhatsApp */}
                 <div className="flex flex-col md:flex-row gap-4">
-                  <button
-                    onClick={goBack}
-                    className="flex-1 bg-transparent border-2 border-[#CAA131] text-[#4B361C] py-3 px-6 rounded-lg font-bold hover:bg-[#CAA131] hover:text-[#4B361C] transition-colors"
-                  >
-                    עריכת פרטים
-                  </button>
-                  
-                  <button
-                    onClick={resetPlanner}
-                    className="flex-1 bg-transparent border-2 border-[#CAA131] text-[#4B361C] py-3 px-6 rounded-lg font-semibold hover:bg-[#CAA131] hover:text-[#4B361C] transition-colors"
-                  >
-                    תכננו מסלול חדש
-                  </button>
-                </div>
+                  <a
+                    href={`mailto:info@discoverafrica.co.il?subject=בקשה לתכנון טיול&body=${encodeURIComponent(`
+פרטי הטיול:
+פרופיל: ${tripData.profile}
+מספר מטיילים: ${tripData.travelers.adults} מבוגרים, ${tripData.travelers.children} ילדים, ${tripData.travelers.infants} תינוקות
+גיל הצעיר: ${tripData.ageRange}
+משך הטיול: ${tripData.duration}
+תאריכים: ${tripData.dates.startDate} - ${tripData.dates.endDate}
+תחומי עניין: ${tripData.interests.join(', ')}
+רמת פעילות: ${tripData.activityLevel}
 
-                {/* Second Row: Contact and WhatsApp */}
-                <div className="flex flex-col md:flex-row gap-4">
-                  <Link
-                    to="/contact"
-                    className="flex-1 bg-[#CAA131] text-[#4B361C] py-3 px-6 rounded-lg font-semibold hover:bg-[#B8942A] transition-colors text-center block shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+מסלול מוצע: ${generatedTrip?.name}
+תיאור: ${generatedTrip?.description}
+פעילויות: ${generatedTrip?.activities.join(', ')}
+`)}`}
+                    className="flex-1 bg-transparent border-2 border-[#CAA131] text-[#4B361C] py-3 px-6 rounded-lg font-semibold hover:bg-[#CAA131] hover:text-[#4B361C] transition-colors text-center block"
                   >
-                    צרו קשר להתאמה אישית
-                  </Link>
+                    שלחו לי את הפרטים במייל
+                  </a>
                   
                   <a
-                    href={`https://wa.me/972546152683?text=${encodeURIComponent(`שלום, אני מעוניין במסלול: ${generatedTrip.name}`)}`}
+                    href={`https://wa.me/972546152683?text=${encodeURIComponent(`שלום! אני מעוניין בתכנון טיול לאוגנדה.
+
+פרטי הטיול:
+פרופיל: ${tripData.profile}
+מספר מטיילים: ${tripData.travelers.adults} מבוגרים, ${tripData.travelers.children} ילדים, ${tripData.travelers.infants} תינוקות
+גיל הצעיר: ${tripData.ageRange}
+משך הטיול: ${tripData.duration}
+תאריכים: ${tripData.dates.startDate} - ${tripData.dates.endDate}
+תחומי עניין: ${tripData.interests.join(', ')}
+רמת פעילות: ${tripData.activityLevel}
+
+מסלול מוצע: ${generatedTrip?.name}
+תיאור: ${generatedTrip?.description}
+פעילויות: ${generatedTrip?.activities.join(', ')}
+
+אשמח לקבל הצעה מפורטת!`)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex-1 bg-white border-2 border-green-500 text-green-600 py-3 px-6 rounded-lg font-semibold hover:bg-green-500 hover:text-white transition-colors text-center flex items-center justify-center gap-2"
