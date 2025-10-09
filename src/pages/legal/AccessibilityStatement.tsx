@@ -230,7 +230,7 @@ const AccessibilityStatement: React.FC = () => {
             <div className="bg-blue-50 p-6 rounded-lg mb-4">
               <h3 className="font-semibold text-gray-900 mb-3">רכז נגישות:</h3>
               <div className="space-y-2 text-gray-700">
-                <p><strong>דוא"ל:</strong> info@discoverafrica.co.il</p>
+                <p><strong>דוא"ל:</strong> <a href="mailto:info@discoverafrica.co.il" className="text-[#CAA131] hover:underline">info@discoverafrica.co.il</a></p>
                 <p><strong>טלפון:</strong> <a href="tel:+972546152683" className="text-[#CAA131] hover:underline">+972-54-615-2683</a></p>
                 <p><strong>זמני מענה:</strong> ימים א'-ה', 9:00-17:00</p>
               </div>

@@ -205,7 +205,7 @@ const PrivacyPolicy: React.FC = () => {
             <div className="space-y-3">
               <div className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-primary" />
-                <span>info@discoverafrica.co.il</span>
+                <a href="mailto:info@discoverafrica.co.il" className="text-[#CAA131] hover:underline">info@discoverafrica.co.il</a>
               </div>
               <div className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-primary" />

@@ -277,7 +277,7 @@ const TermsOfService: React.FC = () => {
             <h2 className="text-2xl font-bold text-gray-900 mb-4">12. יצירת קשר</h2>
             <p className="text-gray-700 mb-4">לשאלות ובירורים בנושא תנאי השימוש:</p>
             <div className="space-y-3">
-              <p>📧 דוא"ל: info@discoverafrica.co.il</p>
+              <p>📧 דוא"ל: <a href="mailto:info@discoverafrica.co.il" className="text-[#CAA131] hover:underline">info@discoverafrica.co.il</a></p>
               <p>📱 טלפון: <a href="tel:+972546152683" className="text-[#CAA131] hover:underline">+972-54-615-2683</a></p>
               <p>⏰ שעות פעילות: ראשון-חמישי 9:00-18:00</p>
             </div>
