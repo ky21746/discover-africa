@@ -771,7 +771,7 @@ const PlanYourTrip: React.FC = () => {
                 <div className="flex flex-col md:flex-row gap-4">
                   <button
                     onClick={goBack}
-                    className="flex-1 bg-[#CAA131] text-[#4B361C] py-3 px-6 rounded-lg font-bold hover:bg-[#B8942A] transition-colors shadow-lg hover:shadow-xl"
+                    className="flex-1 bg-transparent border-2 border-[#CAA131] text-[#4B361C] py-3 px-6 rounded-lg font-bold hover:bg-[#CAA131] hover:text-[#4B361C] transition-colors"
                   >
                     עריכת פרטים
                   </button>
