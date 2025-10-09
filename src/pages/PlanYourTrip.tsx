@@ -767,26 +767,32 @@ const PlanYourTrip: React.FC = () => {
 
               {/* Call-to-Action Buttons */}
               <div className="space-y-4">
-                {/* Edit Details Button - Now First */}
-                <div className="pb-4 border-b border-gray-200">
+                {/* First Row: Edit and Reset */}
+                <div className="flex flex-col md:flex-row gap-4">
                   <button
                     onClick={goBack}
-                    className="w-full bg-[#CAA131] text-[#4B361C] py-4 px-6 rounded-lg font-bold hover:bg-[#B8942A] transition-colors flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transform hover:scale-105"
+                    className="flex-1 bg-[#CAA131] text-[#4B361C] py-3 px-6 rounded-lg font-bold hover:bg-[#B8942A] transition-colors shadow-lg hover:shadow-xl"
                   >
                     עריכת פרטים
                   </button>
+                  
+                  <button
+                    onClick={resetPlanner}
+                    className="flex-1 bg-transparent border-2 border-[#CAA131] text-[#4B361C] py-3 px-6 rounded-lg font-semibold hover:bg-[#CAA131] hover:text-[#4B361C] transition-colors"
+                  >
+                    תכננו מסלול חדש
+                  </button>
                 </div>
 
-                {/* Primary Action - Now Second */}
-                <Link
-                  to="/contact"
-                  className="w-full bg-[#CAA131] text-[#4B361C] py-4 px-6 rounded-lg font-semibold hover:bg-[#B8942A] transition-colors text-lg text-center block shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
-                >
-                  צרו קשר להתאמה אישית
-                </Link>
-                
-                {/* Secondary Actions */}
+                {/* Second Row: Contact and WhatsApp */}
                 <div className="flex flex-col md:flex-row gap-4">
+                  <Link
+                    to="/contact"
+                    className="flex-1 bg-[#CAA131] text-[#4B361C] py-3 px-6 rounded-lg font-semibold hover:bg-[#B8942A] transition-colors text-center block shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+                  >
+                    צרו קשר להתאמה אישית
+                  </Link>
+                  
                   <a
                     href={`https://wa.me/972546152683?text=${encodeURIComponent(`שלום, אני מעוניין במסלול: ${generatedTrip.name}`)}`}
                     target="_blank"
@@ -798,13 +804,6 @@ const PlanYourTrip: React.FC = () => {
                     </svg>
                     שלחו לי בוואטסאפ
                   </a>
-                  
-                  <button
-                    onClick={resetPlanner}
-                    className="flex-1 bg-transparent border-2 border-[#CAA131] text-[#4B361C] py-3 px-6 rounded-lg font-semibold hover:bg-[#CAA131] hover:text-[#4B361C] transition-colors"
-                  >
-                    תכננו מסלול חדש
-                  </button>
                 </div>
               </div>
             </div>
