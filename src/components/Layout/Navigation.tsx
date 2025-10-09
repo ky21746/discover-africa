@@ -14,6 +14,7 @@ const Navigation: React.FC<NavigationProps> = ({ mobile = false, onItemClick }) 
     { path: '/categories', label: 'קטגוריות' },
     { path: '/tours', label: 'מסלולים מוכנים' },
     { path: '/services', label: 'השירותים שלנו' },
+    { path: '/about-uganda', label: 'אודות אוגנדה' },
     { path: '/blog', label: 'בלוג' },
     { path: '/who-we-are', label: 'מי אנחנו' },
     { path: '/faq', label: 'שאלות נפוצות' },
