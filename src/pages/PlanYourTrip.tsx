@@ -763,14 +763,12 @@ const PlanYourTrip: React.FC = () => {
               {/* Call-to-Action Buttons */}
               <div className="space-y-4">
                 {/* Primary Action */}
-                <a
-                  href={`https://wa.me/972546152683?text=${encodeURIComponent(`שלום, אני מעוניין במסלול: ${generatedTrip.name}. פרטים נוספים: ${generatedTrip.description}`)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  to="/contact"
                   className="w-full bg-[#C79B3B] text-white py-4 px-6 rounded-lg font-semibold hover:bg-[#B88A2A] transition-colors text-lg text-center block shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
                 >
-                  דברו איתי להתאמה אישית
-                </a>
+                  צרו קשר להתאמה אישית
+                </Link>
                 
                 {/* Secondary Actions */}
                 <div className="flex flex-col md:flex-row gap-4">
