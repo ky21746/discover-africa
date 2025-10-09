@@ -554,6 +554,21 @@ const PlanYourTrip: React.FC = () => {
           </div>
         )}
 
+        {/* Back button for final step */}
+        {currentStep === 7 && (
+          <div className="mb-8">
+            <div className="flex justify-between items-center mb-4">
+              <span className="text-sm text-gray-600">תוצאות הטיול שלכם</span>
+              <button
+                onClick={goBack}
+                className="text-orange-600 hover:text-orange-700 font-medium flex items-center gap-2"
+              >
+                ← חזור לעריכה
+              </button>
+            </div>
+          </div>
+        )}
+
         {/* Step 0: Profile Selection */}
         {currentStep === 0 && (
           <div className="space-y-6">
@@ -773,6 +788,16 @@ const PlanYourTrip: React.FC = () => {
                     className="flex-1 bg-gray-200 text-gray-700 py-3 px-6 rounded-lg font-semibold hover:bg-gray-300 transition-colors"
                   >
                     תכננו מסלול חדש
+                  </button>
+                </div>
+
+                {/* Edit Details Button */}
+                <div className="pt-4 border-t border-gray-200">
+                  <button
+                    onClick={goBack}
+                    className="w-full bg-orange-100 text-orange-700 py-3 px-6 rounded-lg font-semibold hover:bg-orange-200 transition-colors flex items-center justify-center gap-2"
+                  >
+                    ✏️ עריכת פרטים
                   </button>
                 </div>
               </div>
