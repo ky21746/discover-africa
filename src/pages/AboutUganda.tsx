@@ -53,22 +53,22 @@ const AboutUganda: React.FC = () => {
           <div className="max-w-7xl mx-auto">
             <div className="flex flex-col lg:flex-row items-center gap-16">
               <div className="flex-1 space-y-8">
-                <h2 className="text-3xl font-semibold text-[#C2A24B] tracking-wide mb-8">
+                <h2 className="text-4xl font-semibold text-[#C2A24B] tracking-wide mb-8">
                   סקירה כללית על אוגנדה
                 </h2>
-                <div className="space-y-6 leading-relaxed text-gray-700" style={{fontSize: '20px !important'}}>
+                <div className="space-y-4 leading-relaxed text-gray-800 text-right" style={{fontSize: '32px !important', lineHeight: '1.6 !important', fontWeight: '500 !important'}}>
                   <p>
-                    אוגנדה שוכנת בלב מזרח אפריקה, בדיוק על קו המשווה, ומוקפת במדינות מהיפות ביבשת – קניה במזרח, טנזניה ורואנדה בדרום, קונגו במערב ודרום סודן בצפון.
+                    אוגנדה שוכנת בלב מזרח אפריקה, בדיוק על <span className="font-semibold text-[#C2A24B]">קו המשווה</span>, ומוקפת במדינות מהיפות ביבשת – קניה במזרח, טנזניה ורואנדה בדרום, קונגו במערב ודרום סודן בצפון.
                   </p>
-                  <p>
-                    שטחה 236 אלף קמ״ר – בערך כמו בריטניה – אך היא מגוונת פי כמה. בבירה קמפלה חיים כ־1.9 מיליון תושבים, והמדינה כולה מונה כמעט 46 מיליון איש.
-                  </p>
-                  <p>
-                    המטבע הוא שילינג אוגנדי (UGX), והשפה הרשמית היא אנגלית, לצד לוגנדה ועוד עשרות שפות מקומיות. הדתות העיקריות הן נצרות (85%) ואסלאם (12%), אך לכל קבוצה מסורת משלה וכולם חיים בשלווה יוצאת דופן בקנה מידה אפריקאי.
-                  </p>
-                  <p className="font-semibold text-gray-800 text-xl">
-                    אזור הזמן: GMT+3, זהה לישראל.
-                  </p>
+                  <ul className="list-disc list-inside space-y-2 leading-relaxed text-gray-800" style={{fontSize: '32px !important', lineHeight: '1.6 !important', fontWeight: '500 !important'}}>
+                    <li><span className="font-semibold text-[#C2A24B]">שטח:</span> 236 אלף קמ״ר – בערך כמו בריטניה</li>
+                    <li><span className="font-semibold text-[#C2A24B]">בירה:</span> קמפלה (1.9 מיליון תושבים)</li>
+                    <li><span className="font-semibold text-[#C2A24B]">אוכלוסייה:</span> כמעט 46 מיליון איש</li>
+                    <li><span className="font-semibold text-[#C2A24B]">מטבע:</span> שילינג אוגנדי (UGX)</li>
+                    <li><span className="font-semibold text-[#C2A24B]">שפה רשמית:</span> אנגלית, לצד לוגנדה ועוד עשרות שפות מקומיות</li>
+                    <li><span className="font-semibold text-[#C2A24B]">דתות:</span> נצרות (85%) ואסלאם (12%)</li>
+                    <li><span className="font-semibold text-[#C2A24B]=">אזור זמן:</span> GMT+3, זהה לישראל</li>
+                  </ul>
                 </div>
               </div>
               <div className="flex-1 flex justify-center">
@@ -99,16 +99,18 @@ const AboutUganda: React.FC = () => {
                 <h2 className="text-4xl font-semibold text-[#C2A24B] tracking-wide mb-8">
                   אקלים ונוף באוגנדה
                 </h2>
-                <div className="space-y-6 text-lg leading-relaxed text-white/90">
+                <div className="space-y-4 text-lg md:text-xl leading-relaxed text-gray-100 text-right">
                   <p>
-                    על אף קו המשווה, מזג האוויר באוגנדה מתון בזכות הגובה. רוב המדינה בין 900–1,500 מטר מעל פני הים, והטמפרטורה נעה סביב 25°C לאורך כל השנה.
+                    למרות מיקומה על <span className="font-semibold text-[#C2A24B]">קו המשווה</span>, אוגנדה נהנית ממזג אוויר נוח ויציב הודות לגובה הרב של רמותיה. מרבית המדינה נמצאת בין 900 ל־1,500 מטר מעל פני הים, והטמפרטורה הממוצעת עומדת על כ־<span className="font-semibold text-[#C2A24B]">25°C</span> לאורך כל השנה.
                   </p>
-                  <p>
-                    שתי עונות גשם קצרות מחלקות את השנה (מרץ–מאי, ספטמבר–נובמבר), אבל הנופים נשארים ירוקים תמיד. אין תקופה "אסורה" לטיול – כל עונה מציעה חוויה שונה.
-                  </p>
-                  <p>
-                    כ־25% משטחה של אוגנדה הוא מים. כאן נולד נהר הנילוס, כאן נמצא אגם ויקטוריה – הגדול באפריקה – ובמערב שוכנים אגמי אלברט, אדוארד וג'ורג'.
-                  </p>
+                  <ul className="list-disc list-inside space-y-2 text-lg md:text-xl leading-relaxed text-gray-100">
+                    <li><span className="font-semibold text-[#C2A24B]=">עונות גשם:</span> שתי עונות קצרות – מרץ–מאי וספטמבר–נובמבר</li>
+                    <li><span className="font-semibold text-[#C2A24B]=">נוף:</span> ירוק ושופע בכל עונה, כך שאין תקופה שאינה מתאימה לטיול</li>
+                    <li><span className="font-semibold text-[#C2A24B]=">מים:</span> כרבע משטחה של אוגנדה מכוסה במים</li>
+                    <li><span className="font-semibold text-[#C2A24B]=">נהר הנילוס:</span> מקורו באוגנדה – אחד האתרים הגאוגרפיים המשמעותיים באפריקה</li>
+                    <li><span className="font-semibold text-[#C2A24B]=">אגם ויקטוריה:</span> האגם הגדול ביותר ביבשת</li>
+                    <li><span className="font-semibold text-[#C2A24B]=">אגמים נוספים:</span> אלברט, אדוארד וג'ורג' – מוקדי טבע מרהיבים ומרכזי חיים לאלפי מינים</li>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -123,13 +125,16 @@ const AboutUganda: React.FC = () => {
                 <h2 className="text-4xl font-semibold text-[#C2A24B] tracking-wide mb-8">
                   אנשים ותרבות באוגנדה
                 </h2>
-                <div className="space-y-6 text-lg leading-relaxed text-gray-700">
+                <div className="space-y-4 text-lg md:text-xl leading-relaxed text-gray-800 text-right">
                   <p>
-                    אוגנדה מורכבת מכ־30 קבוצות אתניות שונות. הגדולה שבהן – באגנדה – יושבת סביב קמפלה, אך כמעט בכל אזור תפגוש תרבות אחרת: ריקודים שונים, מטבח אחר, מבטאים, מוסיקה וכלי נגינה ייחודיים.
+                    אוגנדה היא <span className="font-semibold text-[#C2A24B]">פסיפס אנושי עשיר</span> הכולל כ־<span className="font-semibold text-[#C2A24B]">30 קבוצות אתניות</span> שונות. הגדולה שבהן, <span className="font-semibold text-[#C2A24B]">הבאגנדה</span>, מתגוררת באזור קמפלה והמרכז, אך כמעט בכל מחוז תפגשו מסורות, שפות ומנהגים שונים. התרבות המקומית מאופיינת בקשרים קהילתיים חזקים, שמחת חיים והכנסת אורחים חמה.
                   </p>
-                  <p>
-                    הגישה המקומית היא פתוחה, רגועה, ומבוססת על קבלת אורחים כערך עליון. הכנסת האורחים, המוזיקה, הריקודים והשווקים הם חלק בלתי נפרד מהחיים המקומיים.
-                  </p>
+                  <ul className="list-disc list-inside space-y-2 text-lg md:text-xl leading-relaxed text-gray-800">
+                    <li><span className="font-semibold text-[#C2A24B]=">מוזיקה וריקוד:</span> חלק בלתי נפרד מהחיים החברתיים – לכל אזור סגנון וכלי נגינה מסורתיים משלו</li>
+                    <li><span className="font-semibold text-[#C2A24B]=">מטבח מקומי:</span> מגוון, מבוסס על תוצרת חקלאית טרייה ומאכלים אזוריים ייחודיים</li>
+                    <li><span className="font-semibold text-[#C2A24B]=">חיי קהילה ושווקים:</span> השוק הוא מרכז החיים, מקום מפגש יומיומי וסמל לאורח החיים הפשוט והמחובר לאדמה</li>
+                    <li><span className="font-semibold text-[#C2A24B]=">גישה לחיים:</span> שלווה, סבלנית ופתוחה – משקפת את רוחם של תושבי אוגנדה ואת האיזון שבין מסורת לקידמה</li>
+                  </ul>
                 </div>
               </div>
               <div className="flex-1 flex justify-center">
@@ -160,13 +165,17 @@ const AboutUganda: React.FC = () => {
                 <h2 className="text-4xl font-semibold text-[#C2A24B] tracking-wide mb-8">
                   מטבח מקומי באוגנדה
                 </h2>
-                <div className="space-y-6 text-lg leading-relaxed text-gray-700">
+                <div className="space-y-4 text-lg md:text-xl leading-relaxed text-gray-800 text-right">
                   <p>
-                    המאכל הלאומי הוא מטוקֶה – בננות ירוקות מאודות או מבושלות, שמוגשות כמעט עם כל ארוחה. לצדן תמצא קאסבה, אורז, שעועית, בשר בקר או עז, וגם שפע פירות טרופיים: אננס, מנגו, פפאיה.
+                    המטבח האוגנדי הוא <span className="font-semibold text-[#C2A24B]">שילוב מרתק</span> של מסורת כפרית, תוצרת טרייה ויצירתיות קולינרית. המאכל הלאומי הוא <span className="font-semibold text-[#C2A24B]">מטוקֶה</span> – בננות ירוקות מאודות או מבושלות, המוגשות כמעט בכל ארוחה ומהוות סמל למטבח המקומי.
                   </p>
-                  <p>
-                    בשווקים המקומיים תראה דוכנים של רולקס – חביתה מגולגלת בצ'פאטי – המאכל הרחוב הפופולרי במדינה. הקפה האוגנדי נחשב מהאיכותיים בעולם ומיוצא בעיקר לאירופה.
-                  </p>
+                  <ul className="list-disc list-inside space-y-2 text-lg md:text-xl leading-relaxed text-gray-800">
+                    <li><span className="font-semibold text-[#C2A24B]=">מאכלים בסיסיים:</span> קאסבה, אורז ושעועית – הבסיס לתזונה היומיומית</li>
+                    <li><span className="font-semibold text-[#C2A24B]=">בשרים:</span> בקר ועז, לרוב בתבשילים עשירים או על האש</li>
+                    <li><span className="font-semibold text-[#C2A24B]=">פירות טרופיים:</span> אננס, מנגו ופפאיה טריים שנקטפים באותה עונה</li>
+                    <li><span className="font-semibold text-[#C2A24B]=">רולקס:</span> חביתה מגולגלת בצ'פאטי – מאכל הרחוב האהוב והנפוץ ביותר באוגנדה</li>
+                    <li><span className="font-semibold text-[#C2A24B]=">קפה אוגנדי:</span> מהאיכותיים בעולם, נחשב לאחד מסודות הייצוא הגדולים של המדינה, בעיקר לשווקי אירופה</li>
+                  </ul>
                 </div>
               </div>
             </div>
