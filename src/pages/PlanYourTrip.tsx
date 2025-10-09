@@ -129,31 +129,37 @@ const PlanYourTrip: React.FC = () => {
   const handleProfileSelect = (profileId: string) => {
     setTripData({ ...tripData, profile: profileId });
     setCurrentStep(1);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleTravelersSubmit = (travelers: { adults: number; children: number; infants: number }, ageRange: string) => {
     setTripData({ ...tripData, travelers, ageRange });
     setCurrentStep(2);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleDurationSelect = (duration: string) => {
     setTripData({ ...tripData, duration });
     setCurrentStep(3);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleDatesSubmit = (dates: { startDate: string; endDate: string; flexible: boolean }) => {
     setTripData({ ...tripData, dates });
     setCurrentStep(4);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleInterestsSubmit = (selectedInterests: string[]) => {
     setTripData({ ...tripData, interests: selectedInterests });
     setCurrentStep(5);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleActivityLevelSelect = (level: string) => {
     setTripData({ ...tripData, activityLevel: level });
     generateTrip({ ...tripData, activityLevel: level });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const generateTrip = async (finalTripData: TripData) => {
