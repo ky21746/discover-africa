@@ -100,7 +100,7 @@ const Footer: React.FC = () => {
               <div className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-[#CAA131]" />
                 {/* שמים LTR כדי שה"+" יהיה בתחילת המספר */}
-                <span className="text-gray-300" dir="ltr">+972-54-615-2683</span>
+                <a href="tel:+972546152683" className="text-gray-300 hover:text-[#CAA131] transition-colors" dir="ltr">+972-54-615-2683</a>
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-[#CAA131]" />

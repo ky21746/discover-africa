@@ -209,7 +209,7 @@ const PrivacyPolicy: React.FC = () => {
               </div>
               <div className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-primary" />
-                <span>+972-54-615-2683</span>
+                <a href="tel:+972546152683" className="text-[#CAA131] hover:underline">+972-54-615-2683</a>
               </div>
             </div>
           </section>

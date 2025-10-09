@@ -1,11 +1,30 @@
 // src/pages/Home.tsx
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeft, Star, Users, Camera, Mountain, Waves, MapPin, Route, Shield, Globe, Heart, Cross, Map, User, Navigation, Phone } from "lucide-react";
 import { Helmet } from 'react-helmet-async';
 import Card from "../components/Common/Card";
 
 const Home: React.FC = () => {
+  useEffect(() => {
+    const hero = document.querySelector(".hero-section") as HTMLElement | null;
+    if (!hero) return;
+
+    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+
+    const setHeight = () => {
+      if (isSafari) {
+        hero.style.height = `${window.innerHeight}px`; // Safari: גובה אמיתי לפי המסך
+      } else {
+        hero.style.height = "100vh"; // כל היתר
+      }
+    };
+
+    setHeight();
+    window.addEventListener("resize", setHeight);
+    return () => window.removeEventListener("resize", setHeight);
+  }, []);
+
   const featuredCategories = [
     {
       id: "1",
@@ -57,7 +76,6 @@ const Home: React.FC = () => {
         className="hero-section relative bg-gradient-to-r from-gray-900 to-gray-800 text-white overflow-hidden"
         style={{
           height: '80vh',
-          minHeight: '-webkit-fill-available',
         }}
       >
         {/* Mobile Hero - Full Screen */}
@@ -65,8 +83,6 @@ const Home: React.FC = () => {
           className="md:hidden flex flex-col justify-start items-center px-5 relative bg-cover bg-center bg-no-repeat"
           style={{
             height: '100vh',
-            minHeight: '-webkit-fill-available',
-            maxHeight: '100vh',
             backgroundImage: "url(https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/hero-gorilla.webp?alt=media&token=c67bec83-4363-4104-a102-757f69b351a4)"
           }}
         >
@@ -492,20 +508,20 @@ const Home: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-8">
             <Link to="/services/bar-aviation" className="rounded-lg border border-[#c9a959] overflow-hidden shadow-md hover:shadow-xl transition bg-white h-full flex flex-col cursor-pointer">
               {/* תמונה */}
               <img 
                 src="https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/Services%2FBaraviationcard.webp?alt=media&token=760c531e-2cf9-4d40-ab23-bd816b77d9c5" 
                 alt="שירותי תעופה"
-                className="w-full h-56 object-cover"
+                className="w-full h-32 md:h-56 object-cover"
                 loading="lazy"
               />
 
               {/* טקסט על רקע לבן נקי */}
-              <div className="p-4 text-center flex-1">
-                <h3 className="text-xl font-bold text-gray-900">שירותי תעופה</h3>
-                <p className="text-sm text-gray-600 mt-2">
+              <div className="p-2 md:p-4 text-center flex-1">
+                <h3 className="text-sm md:text-xl font-bold text-gray-900">שירותי תעופה</h3>
+                <p className="text-xs md:text-sm text-gray-600 mt-1 md:mt-2">
                   טיסות ספארי, טיסות פרטיות וטיסות נוף מעל הנופים הקסומים
                 </p>
               </div>
@@ -523,14 +539,14 @@ const Home: React.FC = () => {
               <img 
                 src="https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/Services%2FBar%20SOS%2Fbarsos-medevac-img.jpg.webp?alt=media&token=168394a8-66ac-4311-a88d-d3420b4c0e9c" 
                 alt="איתור וחילוץ רפואי"
-                className="w-full h-56 object-cover"
+                className="w-full h-32 md:h-56 object-cover"
                 loading="lazy"
               />
 
               {/* טקסט על רקע לבן נקי */}
-              <div className="p-4 text-center flex-1">
-                <h3 className="text-xl font-bold text-gray-900">איתור וחילוץ רפואי</h3>
-                <p className="text-sm text-gray-600 mt-2">
+              <div className="p-2 md:p-4 text-center flex-1">
+                <h3 className="text-sm md:text-xl font-bold text-gray-900">איתור וחילוץ רפואי</h3>
+                <p className="text-xs md:text-sm text-gray-600 mt-1 md:mt-2">
                   שירותי חילוץ רפואי 24/7 - חילוץ אווירי וקרקעי בכל רחבי אוגנדה
                 </p>
               </div>
@@ -548,14 +564,14 @@ const Home: React.FC = () => {
               <img 
                 src="https://firebasestorage.googleapis.com/v0/b/discover-africa-ky.firebasestorage.app/o/Services%2FExtreme%20adventures%2Fextremeadventures-card.webp?alt=media&token=cc084dbb-9efc-4e72-8453-d96c51d4a5d0" 
                 alt="פארק אקסטרים"
-                className="w-full h-56 object-cover"
+                className="w-full h-32 md:h-56 object-cover"
                 loading="lazy"
               />
 
               {/* טקסט על רקע לבן נקי */}
-              <div className="p-4 text-center flex-1">
-                <h3 className="text-xl font-bold text-gray-900">פארק אקסטרים</h3>
-                <p className="text-sm text-gray-600 mt-2">
+              <div className="p-2 md:p-4 text-center flex-1">
+                <h3 className="text-sm md:text-xl font-bold text-gray-900">פארק אקסטרים</h3>
+                <p className="text-xs md:text-sm text-gray-600 mt-1 md:mt-2">
                   Go-Karting, Zipline, Paintball ועוד חוויות מלאות אדרנלין
                 </p>
               </div>

@@ -299,7 +299,7 @@ const Contact: React.FC = () => {
                   </div>
                   <div>
                     <div className="font-semibold font-sans">טלפון</div>
-                    <div className="text-muted font-sans">+972-54-615-2683</div>
+                    <a href="tel:+972546152683" className="text-muted font-sans hover:text-[#CAA131] transition-colors">+972-54-615-2683</a>
                   </div>
                 </div>
 
@@ -309,7 +309,7 @@ const Contact: React.FC = () => {
                   </div>
                   <div>
                     <div className="font-semibold font-sans">וואטסאפ</div>
-                    <div className="text-muted font-sans">+972-54-615-2683</div>
+                    <a href="https://wa.me/972546152683" className="text-muted font-sans hover:text-[#CAA131] transition-colors">+972-54-615-2683</a>
                   </div>
                 </div>
 
