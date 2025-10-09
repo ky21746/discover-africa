@@ -767,7 +767,17 @@ const PlanYourTrip: React.FC = () => {
 
               {/* Call-to-Action Buttons */}
               <div className="space-y-4">
-                {/* Primary Action */}
+                {/* Edit Details Button - Now First */}
+                <div className="pb-4 border-b border-gray-200">
+                  <button
+                    onClick={goBack}
+                    className="w-full bg-[#CAA131] text-[#4B361C] py-4 px-6 rounded-lg font-bold hover:bg-[#B8942A] transition-colors flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transform hover:scale-105"
+                  >
+                    עריכת פרטים
+                  </button>
+                </div>
+
+                {/* Primary Action - Now Second */}
                 <Link
                   to="/contact"
                   className="w-full bg-[#CAA131] text-[#4B361C] py-4 px-6 rounded-lg font-semibold hover:bg-[#B8942A] transition-colors text-lg text-center block shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
@@ -794,16 +804,6 @@ const PlanYourTrip: React.FC = () => {
                     className="flex-1 bg-transparent border-2 border-[#CAA131] text-[#4B361C] py-3 px-6 rounded-lg font-semibold hover:bg-[#CAA131] hover:text-[#4B361C] transition-colors"
                   >
                     תכננו מסלול חדש
-                  </button>
-                </div>
-
-                {/* Edit Details Button */}
-                <div className="pt-4 border-t border-gray-200">
-                  <button
-                    onClick={goBack}
-                    className="w-full bg-[#CAA131] text-[#4B361C] py-4 px-6 rounded-lg font-bold hover:bg-[#B8942A] transition-colors flex items-center justify-center gap-2 shadow-lg hover:shadow-xl transform hover:scale-105"
-                  >
-                    ✏️ עריכת פרטים
                   </button>
                 </div>
               </div>
