@@ -13,7 +13,7 @@ const AboutUganda: React.FC = () => {
         <meta property="og:title" content="אודות אוגנדה – Discover Africa" />
         <meta property="og:type" content="website" />
         <meta property="og:description" content="הכירו את אוגנדה – מדינת הפנינה של אפריקה. נופים ירוקים, עגור כתר אפור, שוביל נדיר, חיות בר, תרבות חמה וטבע שאין לו תחליף." />
-        <meta itemprop="keywords" content="אוכל אוגנדי, מטוקֶה, רולקס, קפה, אוכל רחוב באוגנדה" />
+        <meta itemProp="keywords" content="אוכל אוגנדי, מטוקֶה, רולקס, קפה, אוכל רחוב באוגנדה" />
       </Helmet>
 
       <main className="min-h-screen bg-white font-sans" dir="rtl">
@@ -245,7 +245,7 @@ const AboutUganda: React.FC = () => {
             </div>
             <div className="text-center pb-8">
               <div className="bg-[#0e2a1d] rounded-2xl p-6 mx-8 border border-[#C2A24B]/30">
-                <p className="text-xl text-white/90 leading-relaxed bg-[#0e2a1d] rounded-lg p-4">
+                <p className="text-sm md:text-base lg:text-lg text-white/90 leading-relaxed bg-[#0e2a1d] rounded-lg p-3 md:p-4">
                   באוגנדה עשרה פארקים לאומיים – החל ממרצ'יסון פולס בצפון ועד בווינדי בדרום־מערב. אף מדינה אחרת לא מציעה מפגש עם גורילות, שימפנזים, ואריות באותו טיול אחד.
                 </p>
               </div>
@@ -318,7 +318,7 @@ const AboutUganda: React.FC = () => {
             
             <div className="text-center bg-[#102c1d] pb-8">
               <div className="bg-[#0e2a1d] rounded-2xl p-6 mx-8 border border-[#C2A24B]/30">
-                <p className="text-xl text-white/90 leading-relaxed">
+                <p className="text-sm md:text-base lg:text-lg text-white/90 leading-relaxed">
                   אוגנדה היא גן עדן לצפרים, מהעשירים בעולם – יותר מ־1,080 מיני ציפורים, מספר עצום למדינה קטנה כל כך.
                   שילוב של יערות גשם, אגמים ונהרות יוצר מגוון שאין לו מתחרים ביבשת.
                 </p>
